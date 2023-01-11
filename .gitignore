@@ -1,0 +1,17 @@
+
+# Ignore everything
+/*
+
+# Unignore necessary files
+!.shogun.zip
+!package.json
+package-lock.json
+!.editorconfig
+!.env
+!.eslintignore
+!.eslintrc.js
+!.npmrc
+!.nvmrc
+!.prettierignore
+!.prettierrc.js
+!/src
