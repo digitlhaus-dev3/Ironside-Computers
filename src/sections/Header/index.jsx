@@ -57,8 +57,10 @@ import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 const Header = ({ logoImage, menu, sticky }) => {
   const router = useRouter()
   const { isLoggedIn } = useCustomerState()
+  // @ts-ignore
   const [{ items = [] }, { showCart }] = useCart()
 
+  // @ts-ignore
   const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
 
   const cartIconAriaLabel = !!itemsQuantity ? `Cart with ${itemsQuantity} items.` : 'Cart is empty.'
