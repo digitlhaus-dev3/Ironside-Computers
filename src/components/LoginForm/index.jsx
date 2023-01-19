@@ -91,78 +91,88 @@ const LoginForm = ({ redirectUrl }) => {
 
   return (
     <div className="loignClass">
-      <Container as="form" onSubmit={handleSubmit} w={{ base: 'full', md: 'md' }}>
-        <h1>SIGN IN</h1>
-        <Container display="block" mb={5} as={FormControl} id="login-email">
-          <Input
-            placeholder="Email"
-            type="email"
-            value={loginFields.email}
-            onChange={(/** @type { React.ChangeEvent<HTMLInputElement> } */ event) =>
-              setLoginFields(prevLoginFields => ({ ...prevLoginFields, email: event.target.value }))
-            }
-            isInvalid={Array.isArray(loginErrors) && loginErrors.length > 0}
-            isRequired
-          />
-        </Container>
-
-        <Container display="block" mb={5} as={FormControl} id="login-password">
-          <Input
-            placeholder="Password"
-            type="password"
-            value={loginFields.password}
-            onChange={(/** @type { React.ChangeEvent<HTMLInputElement> } */ event) =>
-              setLoginFields(prevLoginFields => ({
-                ...prevLoginFields,
-                password: event.target.value,
-              }))
-            }
-            isInvalid={Array.isArray(loginErrors) && loginErrors.length > 0}
-            isRequired
-          />
-        </Container>
-
-        <Flex
-          flexDirection={{ base: 'column', md: 'row' }}
-          alignItems={{ md: 'center' }}
-          justifyContent="space-between"
-          mb={5}
-        >
-          <Button
-            isLoading={loginInProgress}
-            loadingText="Submitting"
-            type="submit"
-            width={{ base: '100%', md: 48 }}
-            maxWidth="100%"
-            mb={{ base: 5, md: 0 }}
-            mr="5"
-            disabled={disableLoginButton}
-          >
-            Login
-          </Button>
-          <Link href={ACCOUNT_RECOVER_PASSWORD_URL}>Forgot password?</Link>
-        </Flex>
-
-        {loginErrors && (
-          <Container mb={5}>
-            {loginErrors.map(
-              (
-                /** @type { BigCommerceApiError | CustomerUserError } */ error,
-                /** @type {number} */ index,
-              ) => (
-                <Text as="strong" key={`error-message-${index}`} color="red.600">
-                  {error.message}
-                </Text>
-              ),
-            )}
+    <h1 className='account-heading'>Login</h1>
+      <div className='bg-box'>
+        <div className='bg-box-head'>
+          <div className='d-flex dots'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <Container as="form" onSubmit={handleSubmit} w={{ base: 'full', md: 'md' }}>
+          <Container display="block" mb={5} as={FormControl} id="login-email">
+            <Input
+              placeholder="Email"
+              type="email"
+              value={loginFields.email}
+              onChange={(/** @type { React.ChangeEvent<HTMLInputElement> } */ event) =>
+                setLoginFields(prevLoginFields => ({ ...prevLoginFields, email: event.target.value }))
+              }
+              isInvalid={Array.isArray(loginErrors) && loginErrors.length > 0}
+              isRequired
+            />
           </Container>
-        )}
 
-        <Text>
-          Don't have an account?&nbsp;
-          <Link href={ACCOUNT_REGISTER_URL}>Sign Up</Link>
-        </Text>
-      </Container>
+          <Container display="block" mb={5} as={FormControl} id="login-password">
+            <Input
+              placeholder="Password"
+              type="password"
+              value={loginFields.password}
+              onChange={(/** @type { React.ChangeEvent<HTMLInputElement> } */ event) =>
+                setLoginFields(prevLoginFields => ({
+                  ...prevLoginFields,
+                  password: event.target.value,
+                }))
+              }
+              isInvalid={Array.isArray(loginErrors) && loginErrors.length > 0}
+              isRequired
+            />
+          </Container>
+
+          <Flex
+            flexDirection={{ base: 'column', md: 'row' }}
+            alignItems={{ md: 'center' }}
+            justifyContent="space-between"
+            mb={5}
+          >
+            <Button
+              isLoading={loginInProgress}
+              loadingText="Submitting"
+              type="submit"
+              width={{ base: '100%', md: 48 }}
+              maxWidth="100%"
+              mb={{ base: 5, md: 0 }}
+              mr="5"
+              disabled={disableLoginButton}
+            >
+              Login
+            </Button>
+            <Link href={ACCOUNT_RECOVER_PASSWORD_URL}>Forgot password?</Link>
+          </Flex>
+
+          {loginErrors && (
+            <Container mb={5}>
+              {loginErrors.map(
+                (
+                  /** @type { BigCommerceApiError | CustomerUserError } */ error,
+                  /** @type {number} */ index,
+                ) => (
+                  <Text as="strong" key={`error-message-${index}`} color="red.600">
+                    {error.message}
+                  </Text>
+                ),
+              )}
+            </Container>
+          )}
+        </Container>
+        </div>
+        <Container display="block" mb={5} as={FormControl} id="login-password">
+          <Text>
+            Don't have an account?&nbsp;
+            <Link href={ACCOUNT_REGISTER_URL}>Sign Up</Link>
+          </Text>
+        </Container>
     </div>
   )
 }
