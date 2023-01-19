@@ -1,7 +1,116 @@
-.loignClass {
-  color: red;
+@import"https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Ramabhadra&display=swap";
+
+#frontend-root {
+  background-color: #101010;
+  justify-content: center;
+  position: relative;
 }
-.loignClass .signIn {
-  color: aqua;
-  size: 52px;
+
+.bg-box {
+  width: 1030px;
+  margin: auto;
+  border: 1px solid #363636;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+}
+.bg-box form {
+  padding: 90px;
+  margin: 0;
+  min-height: 664px;
+  min-width: 631px;
+}
+/* 
+.loignClass form {
+  width: 546px;
+  margin: auto
+} */
+
+/* .loignClass h1 {
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 400;
+  font-family: "Ramabhadra", sans-serif;
+  color: #ededed;
+  margin-bottom: 31px
+} */
+
+.loignClass .chakra-form-control {
+  margin-bottom: 11px
+}
+
+.loignClass .chakra-form-control+div {
+  align-items: flex-start
+}
+
+.loignClass .chakra-form-control+div button {
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  font-family: "Inconsolata";
+  margin-top: 13px;
+  border-radius: 88.0001px;
+  border: 1px solid #636363;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px)
+}
+
+.loignClass .chakra-form-control .chakra-link {
+  font-size: 15px;
+  line-height: 15px;
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  color: #aaa
+}
+
+.loignClass .chakra-text {
+  font-size: 15px;
+  line-height: 15px;
+  font-family: "Inconsolata";
+  color: #8e8e8e;
+  margin-top: 90px;
+  text-align: center
+}
+
+.loignClass .chakra-text .chakra-link {
+  color: #fff;
+  display: inline-flex;
+  align-items: center
+}
+
+.loignClass .chakra-text .chakra-link:after {
+  content: "";
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 15 11' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.421875 5.62891C0.421875 5.35276 0.645733 5.12891 0.921875 5.12891H14.0381C14.3143 5.12891 14.5381 5.35276 14.5381 5.62891C14.5381 5.90505 14.3143 6.12891 14.0381 6.12891H0.921875C0.645733 6.12891 0.421875 5.90505 0.421875 5.62891Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.43089 0.475016C8.61728 0.271267 8.93355 0.257193 9.13729 0.443582L14.4197 5.27587C14.5232 5.37059 14.5822 5.50446 14.5822 5.64479C14.5822 5.78513 14.5232 5.919 14.4197 6.01372L9.13729 10.846C8.93355 11.0324 8.61728 11.0183 8.43089 10.8146C8.2445 10.6108 8.25857 10.2946 8.46232 10.1082L13.3414 5.64479L8.46232 1.18142C8.25857 0.995035 8.2445 0.678765 8.43089 0.475016Z' fill='white'/%3E%3C/svg%3E");
+  background-size: 14px 11px;
+  width: 14px;
+  height: 11px;
+  margin-left: 10px
+}
+
+.loignClass input {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #fff;
+  border-radius: 0;
+  padding: 21px 35px 20px;
+  min-height: 57px;
+  border: 0;
+  border-bottom: 1px solid #484848;
+  padding: 0;
+}
+
+.loignClass input:placeholder {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #fff
+}
+
+input:-ms-input-placeholder {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #fff
 }
