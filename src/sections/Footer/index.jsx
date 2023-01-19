@@ -28,6 +28,14 @@ import Divider from 'Components/Divider'
 import Flex from 'Components/Flex'
 import Logo from 'Components/Logo'
 import Text from 'Components/Text'
+import Link from 'Components/Link'
+import Facebook from '../../assets/FooterIcon/Facebook.svg'
+import Instagram from '../../assets/FooterIcon/Instagram.svg'
+import TikTok from '../../assets/FooterIcon/TikTok.svg'
+import Twitch from '../../assets/FooterIcon/Twitch.svg'
+import Twitter from '../../assets/FooterIcon/Twitter.svg'
+import YouTube from '../../assets/FooterIcon/YouTube.svg'
+import IconButton from 'Components/IconButton'
 
 /**
  * @typedef { import("lib/types").Media } Media
@@ -62,7 +70,78 @@ const Footer = ({ logoImage }) => (
         color="gray.600"
         fontSize="sm"
       >
-        San Mateo, CA, US
+        <Link
+          href='https://www.facebook.com/IronsideComputers/'
+          title="Navigate to Facebook"
+          aria-label="Navigate to Facebook"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to Facebook"
+            size={8}
+            icon={<img src={Facebook} />}
+          />
+        </Link>
+        <Link
+          href='https://twitter.com/IronsidePC/'
+          title="Navigate to Twitter"
+          aria-label="Navigate to Twitter"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to Twitter"
+            size={8}
+            icon={<img src={Twitter} />}
+          />
+        </Link>
+        <Link
+          href='https://instagram.com/ironsidecomputers'
+          title="Navigate to Instagram"
+          aria-label="Navigate to Instagram"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to Instagram"
+            size={8}
+            icon={<img src={Instagram} />}
+          />
+        </Link>
+        <Link
+          href='https://www.youtube.com/ironsidecomputers'
+          title="Navigate to Youtube"
+          aria-label="Navigate to Youtube"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to Youtube"
+            size={8}
+            icon={<img src={YouTube} />}
+          />
+        </Link>
+        <Link
+          href='https://www.twitch.tv/ironsidepc'
+          title="Navigate to Twitch"
+          aria-label="Navigate to Twitch"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to Twitch"
+            size={8}
+            icon={<img src={Twitch} />}
+          />
+        </Link>
+        <Link
+          href='https://www.tiktok.com/@ironsidecomputers '
+          title="Navigate to TikTok"
+          aria-label="Navigate to TikTok"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to TikTok"
+            size={8}
+            icon={<img src={TikTok} />}
+          />
+        </Link>
       </Container>
     </Flex>
 
@@ -70,10 +149,10 @@ const Footer = ({ logoImage }) => (
 
     <Flex direction={{ base: 'column', md: 'row' }} align="center">
       <Text color="gray.600" fontSize="sm">
-        &copy; {new Date().getFullYear()} Shogun, Inc.&nbsp;
+        &copy; 2022 Ironside Computers&nbsp;-&nbsp;
       </Text>
       <Text color="gray.600" fontSize="sm">
-        All rights reserved.
+        Contact Us.
       </Text>
     </Flex>
   </Flex>

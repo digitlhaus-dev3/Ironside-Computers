@@ -25,22 +25,23 @@
 import * as React from 'react'
 import { useRouter } from 'frontend-router'
 import { useCart } from 'frontend-checkout'
-import { BiCart, BiUser } from 'react-icons/bi'
 import Link from 'Components/Link'
 import Badge from 'Components/Badge'
 import Container from 'Components/Container'
 import Grid from 'Components/Grid'
 import Logo from 'Components/Logo'
 import Menu from 'Components/Menu'
-import SearchPopover from 'Components/SearchPopover'
-import Icon from 'Components/Icon'
 import SearchQueryInput from 'Components/SearchQueryInput'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
+import Cart from '../../assets/HeaderIcon/Cart.svg'
+import User from '../../assets/HeaderIcon/Group.svg'
+import USD from '../../assets/HeaderIcon/USD.svg'
+import Volume from '../../assets/HeaderIcon/Volume.svg'
+import './styles.css'
 
-const CartIcon = () => <Icon display="block" as={BiCart} size="md" />
+import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 
 /**
  * @typedef { import("lib/types").Media } Media
@@ -104,23 +105,17 @@ const Header = ({ logoImage, menu, sticky }) => {
       ) : null}
 
       <HStack gridArea="cart" justifySelf="right" spacing="4">
-        <Container display={{ base: 'none', md: 'block' }}>
-          <SearchPopover onSearchSubmit={handleSearchSubmit} />
-        </Container>
-
-        <Link
-          href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-          title="Navigate to account"
-          aria-label="Navigate to my account"
-        >
+        {/* <Container display={{ base: 'none', md: 'block' }}>
+           <SearchPopover onSearchSubmit={handleSearchSubmit} />
+         </Container> */}
+        <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
           <IconButton
             variant="iconWrapper"
-            aria-label="Navigate to my account"
+            aria-label="Price"
             size={8}
-            icon={<Icon display="block" as={BiUser} size="md" />}
+            icon={<img src={USD} />}
           />
         </Link>
-
         <IconButton
           variant="iconWrapper"
           aria-live="assertive"
@@ -130,13 +125,37 @@ const Header = ({ logoImage, menu, sticky }) => {
           icon={
             itemsQuantity ? (
               <Badge badgeContent={itemsQuantity} variant="cart">
-                <CartIcon />
+                {<img src={Cart} />}
               </Badge>
             ) : (
-              <CartIcon />
+              <img src={Cart} />
             )
           }
         />
+        <Link
+          href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+          title="Navigate to account"
+          aria-label="Navigate to my account"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to my account"
+            size={8}
+            icon={<img src={User} />}
+          />
+        </Link>
+        <Link
+          href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+          title="Volume"
+          aria-label="controll volume"
+        >
+          <IconButton
+            variant="iconWrapper"
+            aria-label="Controll Volume"
+            size={8}
+            icon={<img src={Volume} />}
+          />
+        </Link>
       </HStack>
     </Grid>
   )
