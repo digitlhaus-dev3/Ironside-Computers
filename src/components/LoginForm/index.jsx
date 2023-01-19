@@ -91,10 +91,10 @@ const LoginForm = ({ redirectUrl }) => {
 
   return (
     <div className="loignClass">
-    <h1 className='account-heading'>Login</h1>
-      <div className='bg-box'>
-        <div className='bg-box-head'>
-          <div className='d-flex dots'>
+      <h1 className="account-heading">Login</h1>
+      <div className="bg-box">
+        <div className="bg-box-head">
+          <div className="d-flex dots">
             <span></span>
             <span></span>
             <span></span>
@@ -107,7 +107,10 @@ const LoginForm = ({ redirectUrl }) => {
               type="email"
               value={loginFields.email}
               onChange={(/** @type { React.ChangeEvent<HTMLInputElement> } */ event) =>
-                setLoginFields(prevLoginFields => ({ ...prevLoginFields, email: event.target.value }))
+                setLoginFields(prevLoginFields => ({
+                  ...prevLoginFields,
+                  email: event.target.value,
+                }))
               }
               isInvalid={Array.isArray(loginErrors) && loginErrors.length > 0}
               isRequired
@@ -166,13 +169,13 @@ const LoginForm = ({ redirectUrl }) => {
             </Container>
           )}
         </Container>
-        </div>
-        <Container display="block" mb={5} as={FormControl} id="login-password">
-          <Text>
-            Don't have an account?&nbsp;
-            <Link href={ACCOUNT_REGISTER_URL}>Sign Up</Link>
-          </Text>
-        </Container>
+      </div>
+      <Container display="block" mb={5} as={FormControl} id="login-password">
+        <Text>
+          Don't have an account?&nbsp;
+          <Link href={ACCOUNT_REGISTER_URL}>Sign Up</Link>
+        </Text>
+      </Container>
     </div>
   )
 }

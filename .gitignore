@@ -5,7 +5,6 @@
 # Unignore necessary files
 !.shogun.zip
 !package.json
-package-lock.json
 !.editorconfig
 !.env
 !.eslintignore
@@ -15,3 +14,4 @@ package-lock.json
 !.prettierignore
 !.prettierrc.js
 !/src
+!tsconfig.json

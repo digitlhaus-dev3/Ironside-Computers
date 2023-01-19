@@ -28,6 +28,7 @@ import LoginForm from 'Components/LoginForm'
 import Heading from 'Components/Heading'
 import AuthGuard from 'Components/AuthGuard'
 import { ACCOUNT_URL } from 'Components/Data'
+import './styles.css'
 
 /**
  * @typedef {{
@@ -42,7 +43,7 @@ const Login = ({ redirectTo }) => {
   return (
     <Container as="section" variant="section-wrapper-centered">
       <Heading as="h1" mb={6}>
-        Login
+        SIGN IN
       </Heading>
 
       <AuthGuard allowedAuthStatus="unauthenticated" redirectUrl={redirectUrl}>

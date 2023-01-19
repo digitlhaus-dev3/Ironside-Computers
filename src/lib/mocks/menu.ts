@@ -5,54 +5,44 @@ export const menu: Menu = {
     {
       subMenuLinks: [
         {
-          label: 'Bikes',
-          slug: '/collections/bikes',
+          label: 'IronSide Series',
+          slug: '/desktops/IronSideSeries',
         },
         {
-          label: 'Clothing',
-          slug: '/collections/clothing',
+          label: 'Forge A PC',
+          slug: '/desktops/ForgePc',
         },
         {
-          label: 'Tools',
-          slug: '/collections/tools',
+          label: 'Limited Edition',
+          slug: '/desktops/LimitedEdition',
         },
         {
-          label: 'Parts & Accessories',
-          slug: '/collections/parts-accessories',
+          label:  'Masterworks',
+          slug: '/desktops/Masterworks',
         },
+        {
+          label:  'Partner Collabs',
+          slug: '/desktops/PartnerCollabs',
+        }, 
       ],
-      label: 'Shop',
-      slug: 'shop',
+      label: 'Desktops',
+      slug: 'desktops',
     },
     {
-      subMenuLinks: [
-        {
-          label: 'Trek',
-          slug: '/brands/trek',
-        },
-        {
-          label: 'Norco',
-          slug: '/brands/norco',
-        },
-        {
-          label: 'Schwinn',
-          slug: '/brands/schwinn',
-        },
-        {
-          label: 'Cannondale',
-          slug: '/brands/cannondale',
-        },
-      ],
-      label: 'Brands',
-      slug: 'brands',
+      label: 'Laptops',
+      slug: 'laptops',
+    },
+    {
+      label: 'Cases',
+      slug: 'cases',
+    },
+    {
+      label: 'Stores',
+      slug: 'stores',
     },
     {
       label: 'About',
       slug: '/about',
-    },
-    {
-      label: 'Contact',
-      slug: '/contact',
     },
   ],
   name: 'Header',

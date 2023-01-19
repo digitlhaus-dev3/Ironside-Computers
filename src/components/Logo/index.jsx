@@ -22,51 +22,52 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-import * as React from 'react'
-import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
-import Image from 'Components/Image'
-import Link from 'Components/Link'
+ import * as React from 'react'
+ import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
+ import Image from 'Components/Image'
+ import Link from 'Components/Link'
+ import logo from '../../assets/Logo/Logo.svg'
 
-/**
- * @typedef { import("lib/types").Media } Media
- * @type { Media }
- */
-const defaultImage = {
-  name: 'Default Image',
-  src: 'https://f.shgcdn.com/4f1c2c48-c495-40f7-830b-ccaa81ddf204/',
-  alt: 'Shogun Logo',
-  height: 1440,
-  width: 2850,
-}
-
-/**
- * @typedef {{
- *  image?: Media
- * }} LogoProps
- *
- * @param {LogoProps} props
- */
-const Logo = ({ image }) => {
-  const imageDetails = image || defaultImage
-  const { src, alt = '', height = '', width = '' } = imageDetails
-
-  const { track } = useGoogleTagManagerActions()
-  const gtmEvent = {
-    event: 'click_logo',
-    message: 'Click on the logo image!',
-  }
-
-  return (
-    <Link href="/" onClick={() => track(gtmEvent)}>
-      <Image
-        src={src}
-        alt={alt}
-        htmlHeight={height.toString()}
-        htmlWidth={width.toString()}
-        sizes="150px"
-      />
-    </Link>
-  )
-}
-
-export default Logo
+ /**
+  * @typedef { import("lib/types").Media } Media
+  * @type { Media }
+  */
+ const defaultImage = {
+   name: 'Default Image',
+   src: logo,
+   alt: 'IronSide Logo',
+   height: 1440,
+   width: 2850,
+ }
+ 
+ /**
+  * @typedef {{
+  *  image?: Media
+  * }} LogoProps
+  *
+  * @param {LogoProps} props
+  */
+ const Logo = ({ image }) => {
+   const imageDetails = image || defaultImage
+   const { src, alt = '', height = '', width = '' } = imageDetails
+ 
+   const { track } = useGoogleTagManagerActions()
+   const gtmEvent = {
+     event: 'click_logo',
+     message: 'Click on the logo image!',
+   }
+   console.log(imageDetails)
+   return (
+     <Link href="/" onClick={() => track(gtmEvent)}>
+       <Image
+         src={src}
+         alt={alt}
+         htmlHeight={height.toString()}
+         htmlWidth={width.toString()}
+         sizes="150px"
+       />
+     </Link>
+   )
+ }
+ 
+ export default Logo

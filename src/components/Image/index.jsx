@@ -64,7 +64,7 @@ const ImageWrapper = ({ htmlWidth, htmlHeight, src, ...rest }) => (
  * @param { React.LegacyRef<HTMLImageElement> }  ref,
  */
 const Image = ({ loading, ...rest }, ref) => (
-  <Img ref={ref} as={ImageWrapper} loading={/** @type { any } */ (loading)} {...rest} />
+  <img ref={ref} as={ImageWrapper} loading={/** @type { any } */ (loading)} {...rest} />
 )
 
 export default forwardRef(Image)
