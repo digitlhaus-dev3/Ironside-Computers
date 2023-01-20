@@ -24,9 +24,9 @@
  */
  import * as React from 'react'
  import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
- import Image from 'Components/Image'
  import Link from 'Components/Link'
- import logo from '../../assets/Logo/Logo.svg'
+ import Logosvg from '../../assets/Logo/Logo.jsx'
+import IconButton from 'Components/IconButton/index.jsx'
 
  /**
   * @typedef { import("lib/types").Media } Media
@@ -34,7 +34,7 @@
   */
  const defaultImage = {
    name: 'Default Image',
-   src: logo,
+   src: <Logosvg />,
    alt: 'IronSide Logo',
    height: 1440,
    width: 2850,
@@ -59,13 +59,12 @@
    console.log(imageDetails)
    return (
      <Link href="/" onClick={() => track(gtmEvent)}>
-       <Image
-         src={src}
-         alt={alt}
-         htmlHeight={height.toString()}
-         htmlWidth={width.toString()}
-         sizes="150px"
-       />
+       <IconButton
+            variant="iconWrapper"
+            aria-label="Navigate to TikTok"
+            size='lg'
+            icon={src}
+          />
      </Link>
    )
  }

@@ -29,12 +29,12 @@ import Flex from 'Components/Flex'
 import Logo from 'Components/Logo'
 import Text from 'Components/Text'
 import Link from 'Components/Link'
-import Facebook from '../../assets/FooterIcon/Facebook.svg'
-import Instagram from '../../assets/FooterIcon/Instagram.svg'
-import TikTok from '../../assets/FooterIcon/TikTok.svg'
-import Twitch from '../../assets/FooterIcon/Twitch.svg'
-import Twitter from '../../assets/FooterIcon/Twitter.svg'
-import YouTube from '../../assets/FooterIcon/YouTube.svg'
+import Facebook from '../../assets/FooterIcon/Facebook.jsx'
+import Instagram from '../../assets/FooterIcon/Instagram.jsx'
+import TikTok from '../../assets/FooterIcon/TikTok.jsx'
+import Twitch from '../../assets/FooterIcon/Twitch.jsx'
+import Twitter from '../../assets/FooterIcon/Twitter.jsx'
+import YouTube from '../../assets/FooterIcon/YouTube.jsx'
 import IconButton from 'Components/IconButton'
 
 /**
@@ -79,7 +79,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to Facebook"
             size={8}
-            icon={<img src={Facebook} />}
+            icon={<Facebook />}
           />
         </Link>
         <Link
@@ -91,7 +91,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to Twitter"
             size={8}
-            icon={<img src={Twitter} />}
+            icon={<Twitter />}
           />
         </Link>
         <Link
@@ -103,7 +103,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to Instagram"
             size={8}
-            icon={<img src={Instagram} />}
+            icon={<Instagram />}
           />
         </Link>
         <Link
@@ -115,7 +115,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to Youtube"
             size={8}
-            icon={<img src={YouTube} />}
+            icon={<YouTube />}
           />
         </Link>
         <Link
@@ -127,7 +127,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to Twitch"
             size={8}
-            icon={<img src={Twitch} />}
+            icon={<Twitch />}
           />
         </Link>
         <Link
@@ -139,7 +139,7 @@ const Footer = ({ logoImage }) => (
             variant="iconWrapper"
             aria-label="Navigate to TikTok"
             size={8}
-            icon={<img src={TikTok} />}
+            icon={<TikTok />}
           />
         </Link>
       </Container>

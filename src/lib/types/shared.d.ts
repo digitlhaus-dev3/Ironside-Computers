@@ -5,7 +5,7 @@ export type PropsOf<C> = React.ComponentPropsWithRef<C>
 
 export interface Media {
   name: string
-  src: string
+  src: any
   alt?: string
   width: number
   height: number
