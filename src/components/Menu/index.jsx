@@ -260,7 +260,12 @@
            </MenuButton>
  
            {!firstRender.current && (
-             <MenuList className='hello'
+             <MenuList
+               display={{ base: 'none', md: 'block'}}
+               omMouseClick={openAndFocusFirstItem}
+               // onMouseLeave={onClose}
+               onKeyDownCapture={menuListKeyDownCaptureHandler}
+               onKeyDown={menuListKeyDownHandler}
                
              >
                <div style={{backgroundImage:`url(${backgroundImage})`}}>

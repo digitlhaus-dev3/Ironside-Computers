@@ -205,3 +205,21 @@ header {
         }
     }
 }
+
+.shg-sld-dots {
+    position: absolute;
+    bottom: 56px;
+    .shg-sld-dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 56px;
+        & .shg-sld-active {
+            width: 36px;
+            background-color: $color-white;
+        }
+    }
+    div + div {
+        margin-right: 5px;
+    }
+}

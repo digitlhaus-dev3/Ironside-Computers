@@ -1,8 +1,4 @@
 import { Menu } from '../types'
-import IronsideDekstopImage from '../../assets/Menu/IronsideDekstopImage.png'
-import mouse from '../../assets/Menu/mouse.jpg'
-import Case from '../../assets/Menu/Case.png'
-// import Case from '../../assets/Menu/case.jsx'
 
 export const menu: Menu = {
   menuLinks: [
@@ -36,7 +32,7 @@ export const menu: Menu = {
       ],
       label: 'Desktops',
       slug: 'desktops',
-      backgroundImage: IronsideDekstopImage,
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/desktop.jpg',
     },
     {
       label: 'Laptops',
@@ -68,7 +64,7 @@ export const menu: Menu = {
       ],
       label: 'Cases',
       slug: 'cases',
-      backgroundImage: Case
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/case.jpg'
     },
     {
       subMenuLinks: [
@@ -85,7 +81,7 @@ export const menu: Menu = {
       ],
       label: 'Stores',
       slug: 'stores',
-      backgroundImage: mouse
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/stores.jpg'
     },
     {
       label: 'About',
