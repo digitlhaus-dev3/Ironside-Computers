@@ -518,6 +518,24 @@ header .chakra-menu__menuitem .sub-menu-desc {
   display: block;
 }
 
+.shg-sld-dots {
+  position: absolute;
+  bottom: 56px;
+}
+.shg-sld-dots .shg-sld-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 56px;
+}
+.shg-sld-dots .shg-sld-dot .shg-sld-active {
+  width: 36px;
+  background-color: #ffffff;
+}
+.shg-sld-dots div + div {
+  margin-right: 5px;
+}
+
 #frontend-root {
   background-color: #000000;
 }
