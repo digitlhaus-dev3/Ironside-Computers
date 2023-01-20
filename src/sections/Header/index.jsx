@@ -35,10 +35,14 @@ import SearchQueryInput from 'Components/SearchQueryInput'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-import Cart from '../../assets/HeaderIcon/Cart.svg'
-import User from '../../assets/HeaderIcon/Group.svg'
-import USD from '../../assets/HeaderIcon/USD.svg'
-import Volume from '../../assets/HeaderIcon/Volume.svg'
+// import Cart from '../../assets/HeaderIcon/Cart.svg'
+// import User from '../../assets/HeaderIcon/Group.svg'
+// import USD from '../../assets/HeaderIcon/USD.svg'
+// import Volume from '../../assets/HeaderIcon/Volume.svg'
+import AccountIcons from '../../assets/HeaderIcon/accountIcons'
+import CartIcons from '../../assets/HeaderIcon/CartIcons.jsx'
+import Volume from '../../assets/HeaderIcon/Volume.jsx'
+import UsdIcons from '../../assets/HeaderIcon/UsdIcons.jsx'
 import './styles.css'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
@@ -77,88 +81,81 @@ const Header = ({ logoImage, menu, sticky }) => {
       as="header"
       position={sticky ? 'sticky' : 'initial'}
       top="0"
-      templateAreas={{ base: "'menu logo cart'", md: "'logo menu cart'" }}
-      templateColumns={{ base: '5rem 1fr 5rem', sm: '3rem 1fr 3rem', md: 'auto 1fr auto' }}
-      alignItems="center"
-      columnGap={{ base: 2, md: 10 }}
-      px={{ base: 4, md: 8 }}
-      py={4}
-      bg="brand.100"
-      w="100%"
+      // templateAreas={{ base: "'menu logo cart'", md: "'logo menu cart'" }}
+      // templateColumns={{ base: '5rem 1fr 5rem', sm: '3rem 1fr 3rem', md: 'auto 1fr auto' }}
+      // alignItems="center"
+      // columnGap={{ base: 2, md: 10 }}
+      // px={{ base: 4, md: 8 }}
+      // py={4}
+      // bg="brand.100"
+      // w="100%"
       zIndex="docked"
     >
-      <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
-        <Logo image={logoImage} />
-      </Container>
-
-      {menu ? (
-        <Container gridArea="menu">
-          <Menu
-            content={
-              <SearchQueryInput
-                onClick={event => event.stopPropagation()}
-                onKeyDown={event => event.stopPropagation()}
-                onSearchSubmit={handleSearchSubmit}
+      <div className='container'>
+        <div className='header-main'>
+          <div className='header-left'>
+            <Container className='header-icon' gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
+              <Logo image={logoImage} />
+            </Container>
+            {menu ? (
+              <Container gridArea="menu" className='nav-links'>
+                <Menu
+                  content={
+                    <SearchQueryInput
+                      onClick={event => event.stopPropagation()}
+                      onKeyDown={event => event.stopPropagation()}
+                      onSearchSubmit={handleSearchSubmit}
+                    />
+                  }
+                  links={menuLinks}
+                />
+              </Container>
+            ) : null}
+          </div>
+          <div className='header-right'>
+            <HStack gridArea="cart" justifySelf="right" spacing="4">
+              {/* <Container display={{ base: 'none', md: 'block' }}>
+                <SearchPopover onSearchSubmit={handleSearchSubmit} />
+              </Container> */}
+              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
+                <span>USD</span>
+                {/* <UsdIcons /> */}
+              </Link>
+              <IconButton
+                variant="iconWrapper"
+                aria-live="assertive"
+                aria-label={cartIconAriaLabel}
+                onClick={showCart}
+                size={8}
+                icon={
+                  itemsQuantity ? (
+                    <Badge badgeContent={itemsQuantity} variant="cart">
+                      {<CartIcons />}
+                    </Badge>
+                  ) : (
+                    <CartIcons />
+                  )
+                }
               />
-            }
-            links={menuLinks}
-          />
-        </Container>
-      ) : null}
-
-      <HStack gridArea="cart" justifySelf="right" spacing="4">
-        {/* <Container display={{ base: 'none', md: 'block' }}>
-           <SearchPopover onSearchSubmit={handleSearchSubmit} />
-         </Container> */}
-        <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Price"
-            size={8}
-            icon={<img src={USD} />}
-          />
-        </Link>
-        <IconButton
-          variant="iconWrapper"
-          aria-live="assertive"
-          aria-label={cartIconAriaLabel}
-          onClick={showCart}
-          size={8}
-          icon={
-            itemsQuantity ? (
-              <Badge badgeContent={itemsQuantity} variant="cart">
-                {<img src={Cart} />}
-              </Badge>
-            ) : (
-              <img src={Cart} />
-            )
-          }
-        />
-        <Link
-          href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-          title="Navigate to account"
-          aria-label="Navigate to my account"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to my account"
-            size={8}
-            icon={<img src={User} />}
-          />
-        </Link>
-        <Link
-          href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-          title="Volume"
-          aria-label="controll volume"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Controll Volume"
-            size={8}
-            icon={<img src={Volume} />}
-          />
-        </Link>
-      </HStack>
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Navigate to account"
+                aria-label="Navigate to my account"
+              >
+                <AccountIcons  aria-label="Navigate to my account"/>
+              </Link>
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Volume"
+                aria-label="controll volume"
+                className='volume'
+              >
+                <Volume />
+              </Link>
+            </HStack>
+          </div>
+        </div>
+      </div>
     </Grid>
   )
 }

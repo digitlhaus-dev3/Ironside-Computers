@@ -1,7 +1,4 @@
 import { Menu } from '../types'
-import IronsideDekstopImage from '../../assets/Menu/IronsideDekstopImage.png'
-import Store from '../../assets/Menu/Store.png'
-import Case from '../../assets/Menu/Case.png'
 
 export const menu: Menu = {
   menuLinks: [
@@ -28,14 +25,14 @@ export const menu: Menu = {
           description:'For your creative endeavors.'
         },
         {
-          label:  'Partner Collabs',
-          slug: '/desktops/PartnerCollabs',
+          label:  'Bento Box',
+          slug: '/desktops/BentoBox',
           description:'Themed, limited quantity builds.'
         }, 
       ],
       label: 'Desktops',
       slug: 'desktops',
-      backgroundImage: IronsideDekstopImage,
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/desktop.jpg',
     },
     {
       label: 'Laptops',
@@ -67,7 +64,7 @@ export const menu: Menu = {
       ],
       label: 'Cases',
       slug: 'cases',
-      backgroundImage: Case
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/case.jpg'
     },
     {
       subMenuLinks: [
@@ -84,7 +81,7 @@ export const menu: Menu = {
       ],
       label: 'Stores',
       slug: 'stores',
-      backgroundImage:Store
+      backgroundImage: 'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/stores.jpg'
     },
     {
       label: 'About',
