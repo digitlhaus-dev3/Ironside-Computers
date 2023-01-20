@@ -260,22 +260,19 @@
            </MenuButton>
  
            {!firstRender.current && (
-             <MenuList
-               display={{ base: 'none', md: 'block'}}
-               omMouseClick={openAndFocusFirstItem}
-               // onMouseLeave={onClose}
-               onKeyDownCapture={menuListKeyDownCaptureHandler}
-               onKeyDown={menuListKeyDownHandler}
+             <MenuList className='hello'
                
              >
                <div style={{backgroundImage:`url(${backgroundImage})`}}>
-               {subMenuLinks.map(({ slug, label ,description }) => (
-                 <MenuItem key={label} as={Link} href={slug}>
-                   {label}
-                   <br></br>
-                   {description}
-                 </MenuItem>
-               ))}
+                <div className='menu-description'>
+                  {subMenuLinks.map(({ slug, label ,description }) => (
+                    <MenuItem key={label} as={Link} href={slug}>
+                        <span className='sub-menu-heading' >{label}</span>
+                        <br></br>
+                        <span className='sub-menu-desc'>{description}</span>
+                    </MenuItem>
+                  ))}
+                </div>
                </div>
              </MenuList>
            )}

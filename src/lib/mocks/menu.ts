@@ -1,7 +1,8 @@
 import { Menu } from '../types'
 import IronsideDekstopImage from '../../assets/Menu/IronsideDekstopImage.png'
-import Store from '../../assets/Menu/Store.png'
+import mouse from '../../assets/Menu/mouse.jpg'
 import Case from '../../assets/Menu/Case.png'
+// import Case from '../../assets/Menu/case.jsx'
 
 export const menu: Menu = {
   menuLinks: [
@@ -28,8 +29,8 @@ export const menu: Menu = {
           description:'For your creative endeavors.'
         },
         {
-          label:  'Partner Collabs',
-          slug: '/desktops/PartnerCollabs',
+          label:  'Bento Box',
+          slug: '/desktops/BentoBox',
           description:'Themed, limited quantity builds.'
         }, 
       ],
@@ -84,7 +85,7 @@ export const menu: Menu = {
       ],
       label: 'Stores',
       slug: 'stores',
-      backgroundImage:Store
+      backgroundImage: mouse
     },
     {
       label: 'About',

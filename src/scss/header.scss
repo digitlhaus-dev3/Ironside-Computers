@@ -1,3 +1,207 @@
-body {
-    background-color: red !important;
+#frontend-root {
+    header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        + div {
+            padding-top: 87px;
+        }
+        .header-main {
+            padding: 40px 33px 0 43px;
+            width: 100%;
+            @include display-flex(flex);
+            @include justify-content(space-between);
+            @include align-item(center);
+        }
+        .css-168suyo {
+            width: auto;
+        }
+        img {
+            margin: 0;
+        }
+    }
+}
+.header-left {
+    @include display-flex(flex);
+    @include justify-content(space-between);
+    @include align-item(center);
+    a {
+        max-width: 81px;
+        max-height: 47px;
+    }
+    button {
+        background: transparent;
+    }
+}
+.header-icon {
+    margin-right: 60px;
+}
+header .nav-links {
+    div + div {
+        > button, > a {
+            all: unset;
+            font-size: 13px;
+            line-height: 13px;
+            color: $color-white;
+            opacity: 0.8;
+            font-family: $heading-fonts;
+            margin: 0 !important;
+            padding-right: 45px;
+            position: relative;
+            &:focus {
+                background: transparent;
+                box-shadow: none;
+                text-decoration: none;
+            }
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+                &::before {
+                    display: inline-block;
+                }
+            }
+            &[aria-expanded="true"] span {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 5px;
+                    width: 5px;
+                    background-color: $color-white;
+                    border-radius: 50%;
+                    left: -12px;
+                }
+            }
+            &::before {
+                content: "";
+                display: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 5px;
+                width: 5px;
+                background-color: $color-white;
+                border-radius: 50%;
+                left: -12px;
+            }
+            .chakra-text {
+                font-size: 13px;
+                line-height: 13px;
+            }
+            svg {
+                display: none;
+            }
+        }
+    }
+    .css-r6z5ec {
+        // top: 20px !important;
+        transform: none !important;
+        inset: 87px auto auto !important;
+    }
+}
+.header-right {
+    button, a {
+        background-color: transparent;
+        color: $color-white;
+        margin: 0 0 0 10px;
+        svg {
+            stroke: $color-white;
+        }
+        &.usdIcon {
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(center);
+            width: 43px;
+            height: 22px;
+            border: 1px solid $color-white;
+            border-radius: 32px;
+            span {
+                font-size: 12px;
+                line-height: 12px;
+                text-transform: capitalize;
+                font-family: $heading-fonts;
+                font-weight: 400;
+            }
+        }
+        &.volume {
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(center);
+            width: 33px;
+            height: 33px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            margin-left: 21px;
+        }
+    }
+}
+header {
+    [role="menu"] {
+        background: transparent;
+        width: 1110px;
+        background: #101010;
+        border: 1px solid #363636;
+        box-shadow: 8px 12px 0px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        padding: 0;
+        margin: auto;
+        > div {
+            background-size: 100% 100%;
+            border-radius: 4px;
+        }
+        .menu-description {
+            @include display-flex(flex);
+            @include flex-direction(column);
+            padding: 70px 56px 70px 70px;
+            width: 376px;
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+            min-height: 489px;
+            &:after {
+                content: "";
+                display: inline-block;
+                height: 404px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+                border-right: 1px solid #363636;
+            }
+        }
+    }
+    .chakra-menu__menuitem {
+        all: unset;
+        margin-bottom: 38px;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+            background-color: transparent;
+            .sub-menu-heading {
+                @include text-shadow(text-shadow);
+            }
+        }
+        &:focus {
+            background: transparent;
+            box-shadow: none;
+            text-decoration: none;
+        }
+        .sub-menu-heading {
+            font-size: 20px;
+            line-height: 20px;
+            color: $color-white;
+            font-family: $heading-fonts;
+            font-weight: 700;
+        }
+        .sub-menu-desc {
+            font-size: 14px;
+            line-height: 17px;
+            color: #969696;
+            font-family: $body-fonts;
+            font-weight: 500;
+            display: block;
+        }
+    }
 }
