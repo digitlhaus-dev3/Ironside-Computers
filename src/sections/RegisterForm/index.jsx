@@ -34,35 +34,21 @@ import Input from 'Components/Input'
 import Link from 'Components/Link'
 import Text from 'Components/Text'
 import AuthGuard from 'Components/AuthGuard'
-import { useIsMounted, usePlatform } from 'Components/Hooks'
+import { useIsMounted } from 'Components/Hooks'
 import {
   denormalizeRegisterData,
   normalizeRegisterResult,
   validateRegisterData,
 } from 'Components/Utils'
-import {
-  SHOPIFY_REGISTER_REQUIRED_FIELDS,
-  BIG_COMMERCE_REGISTER_REQUIRED_FIELDS,
-  ACCOUNT_URL,
-  ACCOUNT_LOGIN_URL,
-} from 'Components/Data'
-import AddressFields from 'Components/AddressFields'
+import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 import FormLabel from 'Components/FormLabel'
 import FormControl from 'Components/FormControl'
-
-const platformRequiredFields = {
-  shopify: SHOPIFY_REGISTER_REQUIRED_FIELDS,
-  big_commerce: BIG_COMMERCE_REGISTER_REQUIRED_FIELDS,
-}
 
 /**
  * @typedef { import('lib/types').RegisterDataKey }  RegisterDataKey
  */
 
 const RegisterForm = () => {
-  const [platform] = usePlatform()
-  const requiredFields = platformRequiredFields[platform]
-
   const { register } = useCustomerActions()
   const router = useRouter()
   const isMounted = useIsMounted()
@@ -75,24 +61,20 @@ const RegisterForm = () => {
 
   /** @type { import("lib/types").RegisterData }  */
   const initialRegisterData = {
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
-    countryCode: '',
-    province: '',
-    city: '',
-    zip: '',
-    address1: '',
-    address2: '',
+    // confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    company: '',
   }
   const [registerData, setRegisterData] = React.useState(initialRegisterData)
 
   const fieldsDisabled = isLoading
 
   const submitDisabled = React.useMemo(
-    () => fieldsDisabled || !validateRegisterData(platform, registerData),
-    [platform, registerData, fieldsDisabled],
+    () => fieldsDisabled || !validateRegisterData('big_commerce', registerData),
+    [registerData, fieldsDisabled],
   )
 
   const onFieldChange = React.useCallback(
@@ -116,7 +98,7 @@ const RegisterForm = () => {
     let newRegisterErrors
 
     try {
-      const platformRegisterData = denormalizeRegisterData(platform, registerData)
+      const platformRegisterData = denormalizeRegisterData('big_commerce', registerData)
       const result = await register(platformRegisterData)
       const { errors } = normalizeRegisterResult(result)
 
@@ -139,43 +121,11 @@ const RegisterForm = () => {
   return (
     <Container as="section" variant="section-wrapper-centered">
       <Heading as="h1" mb={6}>
-        Register
+        Sign Up
       </Heading>
 
       <AuthGuard allowedAuthStatus="unauthenticated" redirectUrl={ACCOUNT_URL}>
         <Grid as="form" w={{ base: 'full', md: 'md' }} onSubmit={handleSubmit} rowGap={5}>
-          <Container as={FormControl} id="register-first-name">
-            <FormLabel>
-              First name{' '}
-              {!requiredFields.includes('firstName') && (
-                <Text as="span" color="gray.400" fontSize="xs">
-                  (optional)
-                </Text>
-              )}
-            </FormLabel>
-            <Input
-              value={registerData.firstName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('firstName', e)}
-            />
-          </Container>
-
-          <Container as={FormControl} id="register-last-name">
-            <FormLabel>
-              Last name{' '}
-              {!requiredFields.includes('firstName') && (
-                <Text as="span" color="gray.400" fontSize="xs">
-                  (optional)
-                </Text>
-              )}
-            </FormLabel>
-            <Input
-              value={registerData.lastName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('lastName', e)}
-            />
-          </Container>
-
           <Container as={FormControl} id="register-email">
             <FormLabel>Email</FormLabel>
             <Input
@@ -188,7 +138,6 @@ const RegisterForm = () => {
               isRequired
             />
           </Container>
-
           <Container as={FormControl} id="register-password">
             <FormLabel>Password</FormLabel>
             <Input
@@ -201,17 +150,44 @@ const RegisterForm = () => {
               isRequired
             />
           </Container>
+          {/* <Container as={FormControl} id="register-confirmPassword">
+             <FormLabel>Confirm Password</FormLabel>
+             <Input
+               placeholder="Enter your password"
+               type="password"
+               disabled={fieldsDisabled}
+               value={registerData.confirmPassword}
+               onChange={e => onFieldChange('confirmPassword', e)}
+               isInvalid={registerErrors.length > 0}
+               isRequired
+             />
+           </Container> */}
+          <Container as={FormControl} id="register-first-name">
+            <FormLabel>First name </FormLabel>
+            <Input
+              value={registerData.firstName}
+              disabled={fieldsDisabled}
+              onChange={e => onFieldChange('firstName', e)}
+            />
+          </Container>
 
-          {platform === 'big_commerce' && (
-            <React.Fragment>
-              <Divider my="6" />
-              <AddressFields
-                addressData={registerData}
-                isDisabled={fieldsDisabled}
-                onFieldChange={onFieldChange}
-              />
-            </React.Fragment>
-          )}
+          <Container as={FormControl} id="register-last-name">
+            <FormLabel>Last name </FormLabel>
+            <Input
+              value={registerData.lastName}
+              disabled={fieldsDisabled}
+              onChange={e => onFieldChange('lastName', e)}
+            />
+          </Container>
+
+          <Container as={FormControl} id="register-company">
+            <FormLabel>Company</FormLabel>
+            <Input
+              value={registerData.company}
+              disabled={fieldsDisabled}
+              onChange={e => onFieldChange('company', e)}
+            />
+          </Container>
 
           <Container>
             <Button
@@ -221,7 +197,7 @@ const RegisterForm = () => {
               type="submit"
               width={{ base: '100%', md: 48 }}
             >
-              Register
+              Next
             </Button>
           </Container>
 
@@ -238,8 +214,8 @@ const RegisterForm = () => {
           <Divider />
 
           <Text>
-            Already have an account?{' '}
-            <Link href={ACCOUNT_LOGIN_URL} color="black" ml="2" textDecoration="underline">
+            Have an account?{' '}
+            <Link href={ACCOUNT_LOGIN_URL} color="white" ml="2" textDecoration="underline">
               Login
             </Link>
           </Text>
