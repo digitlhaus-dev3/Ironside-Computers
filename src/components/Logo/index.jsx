@@ -22,51 +22,46 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
- import * as React from 'react'
- import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
- import Link from 'Components/Link'
- import Logosvg from '../../assets/Logo/Logo.jsx'
-import IconButton from 'Components/IconButton/index.jsx'
+import * as React from 'react'
+import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
+import Link from 'Components/Link'
+import Logosvg from '../../assets/Logo/Logosvg.jsx'
+import IconButton from 'Components/IconButton'
 
- /**
-  * @typedef { import("lib/types").Media } Media
-  * @type { Media }
-  */
- const defaultImage = {
-   name: 'Default Image',
-   src: <Logosvg />,
-   alt: 'IronSide Logo',
-   height: 1440,
-   width: 2850,
- }
- 
- /**
-  * @typedef {{
-  *  image?: Media
-  * }} LogoProps
-  *
-  * @param {LogoProps} props
-  */
- const Logo = ({ image }) => {
-   const imageDetails = image || defaultImage
-   const { src, alt = '', height = '', width = '' } = imageDetails
- 
-   const { track } = useGoogleTagManagerActions()
-   const gtmEvent = {
-     event: 'click_logo',
-     message: 'Click on the logo image!',
-   }
-   console.log(imageDetails)
-   return (
-     <Link href="/" onClick={() => track(gtmEvent)}>
-       <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to TikTok"
-            size='lg'
-            icon={src}
-          />
-     </Link>
-   )
- }
- 
- export default Logo
+/**
+ * @typedef { import("lib/types").Media } Media
+ * @type { Media }
+ */
+const defaultImage = {
+  name: 'Default Image',
+  src: <Logosvg />,
+  alt: 'IronSide Logo',
+  height: 1440,
+  width: 2850,
+}
+
+/**
+ * @typedef {{
+ *  image?: Media
+ * }} LogoProps
+ *
+ * @param {LogoProps} props
+ */
+const Logo = ({ image }) => {
+  const imageDetails = image || defaultImage
+  const { src, alt = '', height = '', width = '' } = imageDetails
+
+  const { track } = useGoogleTagManagerActions()
+  const gtmEvent = {
+    event: 'click_logo',
+    message: 'Click on the logo image!',
+  }
+  console.log(imageDetails)
+  return (
+    <Link href="/" onClick={() => track(gtmEvent)}>
+      <IconButton variant="iconWrapper" aria-label="Navigate to TikTok" size="lg" icon={src} />
+    </Link>
+  )
+}
+
+export default Logo

@@ -35,11 +35,7 @@ import SearchQueryInput from 'Components/SearchQueryInput'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-// import Cart from '../../assets/HeaderIcon/Cart.svg'
-// import User from '../../assets/HeaderIcon/Group.svg'
-// import USD from '../../assets/HeaderIcon/USD.svg'
-// import Volume from '../../assets/HeaderIcon/Volume.svg'
-import AccountIcons from '../../assets/HeaderIcon/accountIcons'
+import AccountIcons from '../../assets/HeaderIcon/accountIcons.jsx'
 import CartIcons from '../../assets/HeaderIcon/CartIcons.jsx'
 import Volume from '../../assets/HeaderIcon/Volume.jsx'
 import UsdIcons from '../../assets/HeaderIcon/UsdIcons.jsx'
@@ -119,7 +115,7 @@ const Header = ({ logoImage, menu, sticky }) => {
               </Container> */}
               <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
                 <span>USD</span>
-                {/* <UsdIcons /> */}
+                <UsdIcons />
               </Link>
               <IconButton
                 variant="iconWrapper"
