@@ -29,12 +29,7 @@ import Flex from 'Components/Flex'
 import Logo from 'Components/Logo'
 import Text from 'Components/Text'
 import Link from 'Components/Link'
-import Facebook from '../../components/Assets/FooterIcon/Facebook.jsx'
-import Instagram from '../../components/Assets/FooterIcon/Instagram.jsx'
-import TikTok from '../../components/Assets/FooterIcon/TikTok.jsx'
-import Twitch from '../../components/Assets/FooterIcon/Twitch.jsx'
-import Twitter from '../../components/Assets/FooterIcon/Twitter.jsx'
-import YouTube from '../../components/Assets/FooterIcon/YouTube.jsx'
+import { Facebook, Instagram, TikTok, Twitch, Twitter, YouTube } from '../../components/Assets'
 import IconButton from 'Components/IconButton'
 
 /**

@@ -1,5 +1,5 @@
 import { Menu } from '../types'
-import Store from '../../components/Assets/HeaderImages/Store.png'
+import Store from '../../components/Assets/Store.png'
 
 export const menu: Menu = {
   menuLinks: [
