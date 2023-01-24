@@ -35,10 +35,10 @@ import SearchQueryInput from 'Components/SearchQueryInput'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-import AccountIcons from '../../assets/HeaderIcon/accountIcons.jsx'
-import CartIcons from '../../assets/HeaderIcon/CartIcons.jsx'
-import Volume from '../../assets/HeaderIcon/Volume.jsx'
-import UsdIcons from '../../assets/HeaderIcon/UsdIcons.jsx'
+import AccountIcons from '../../components/Assets/HeaderIcon/accountIcons.jsx'
+import CartIcons from '../../components/Assets/HeaderIcon/CartIcons.jsx'
+import Volume from '../../components/Assets/HeaderIcon/Volume.jsx'
+import UsdIcons from '../../components/Assets/HeaderIcon/UsdIcons.jsx'
 import './styles.css'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
@@ -87,14 +87,19 @@ const Header = ({ logoImage, menu, sticky }) => {
       // w="100%"
       zIndex="docked"
     >
-      <div className='container'>
-        <div className='header-main'>
-          <div className='header-left'>
-            <Container className='header-icon' gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
+      <div className="container">
+        <div className="header-main">
+          <div className="header-left">
+            <Container
+              className="header-icon"
+              gridArea="logo"
+              justifySelf={{ base: 'center', md: 'left' }}
+              w={['20', '32']}
+            >
               <Logo image={logoImage} />
             </Container>
             {menu ? (
-              <Container gridArea="menu" className='nav-links'>
+              <Container gridArea="menu" className="nav-links">
                 <Menu
                   content={
                     <SearchQueryInput
@@ -108,12 +113,17 @@ const Header = ({ logoImage, menu, sticky }) => {
               </Container>
             ) : null}
           </div>
-          <div className='header-right'>
+          <div className="header-right">
             <HStack gridArea="cart" justifySelf="right" spacing="4">
               {/* <Container display={{ base: 'none', md: 'block' }}>
                 <SearchPopover onSearchSubmit={handleSearchSubmit} />
               </Container> */}
-              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Price"
+                aria-label="Price"
+                className="usdIcon"
+              >
                 <span>USD</span>
               </Link>
               <IconButton
@@ -137,13 +147,13 @@ const Header = ({ logoImage, menu, sticky }) => {
                 title="Navigate to account"
                 aria-label="Navigate to my account"
               >
-                <AccountIcons  aria-label="Navigate to my account"/>
+                <AccountIcons aria-label="Navigate to my account" />
               </Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Volume"
                 aria-label="controll volume"
-                className='volume'
+                className="volume"
               >
                 <Volume />
               </Link>

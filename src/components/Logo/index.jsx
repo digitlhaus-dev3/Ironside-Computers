@@ -25,7 +25,7 @@
 import * as React from 'react'
 import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
 import Link from 'Components/Link'
-import Logosvg from '../../assets/Logo/Logosvg.jsx'
+import Logosvg from '../Assets/Logo/Logosvg.jsx'
 import IconButton from 'Components/IconButton'
 
 /**
@@ -56,7 +56,7 @@ const Logo = ({ image }) => {
     event: 'click_logo',
     message: 'Click on the logo image!',
   }
-  console.log(imageDetails)
+
   return (
     <Link href="/" onClick={() => track(gtmEvent)}>
       <IconButton variant="iconWrapper" aria-label="Navigate to TikTok" size="lg" icon={src} />

@@ -29,12 +29,12 @@ import Flex from 'Components/Flex'
 import Logo from 'Components/Logo'
 import Text from 'Components/Text'
 import Link from 'Components/Link'
-import Facebook from '../../assets/FooterIcon/Facebook.jsx'
-import Instagram from '../../assets/FooterIcon/Instagram.jsx'
-import TikTok from '../../assets/FooterIcon/TikTok.jsx'
-import Twitch from '../../assets/FooterIcon/Twitch.jsx'
-import Twitter from '../../assets/FooterIcon/Twitter.jsx'
-import YouTube from '../../assets/FooterIcon/YouTube.jsx'
+import Facebook from '../../components/Assets/FooterIcon/Facebook.jsx'
+import Instagram from '../../components/Assets/FooterIcon/Instagram.jsx'
+import TikTok from '../../components/Assets/FooterIcon/TikTok.jsx'
+import Twitch from '../../components/Assets/FooterIcon/Twitch.jsx'
+import Twitter from '../../components/Assets/FooterIcon/Twitter.jsx'
+import YouTube from '../../components/Assets/FooterIcon/YouTube.jsx'
 import IconButton from 'Components/IconButton'
 
 /**
@@ -71,7 +71,7 @@ const Footer = ({ logoImage }) => (
         fontSize="sm"
       >
         <Link
-          href='https://www.facebook.com/IronsideComputers/'
+          href="https://www.facebook.com/IronsideComputers/"
           title="Navigate to Facebook"
           aria-label="Navigate to Facebook"
         >
@@ -83,7 +83,7 @@ const Footer = ({ logoImage }) => (
           />
         </Link>
         <Link
-          href='https://twitter.com/IronsidePC/'
+          href="https://twitter.com/IronsidePC/"
           title="Navigate to Twitter"
           aria-label="Navigate to Twitter"
         >
@@ -95,7 +95,7 @@ const Footer = ({ logoImage }) => (
           />
         </Link>
         <Link
-          href='https://instagram.com/ironsidecomputers'
+          href="https://instagram.com/ironsidecomputers"
           title="Navigate to Instagram"
           aria-label="Navigate to Instagram"
         >
@@ -107,7 +107,7 @@ const Footer = ({ logoImage }) => (
           />
         </Link>
         <Link
-          href='https://www.youtube.com/ironsidecomputers'
+          href="https://www.youtube.com/ironsidecomputers"
           title="Navigate to Youtube"
           aria-label="Navigate to Youtube"
         >
@@ -119,7 +119,7 @@ const Footer = ({ logoImage }) => (
           />
         </Link>
         <Link
-          href='https://www.twitch.tv/ironsidepc'
+          href="https://www.twitch.tv/ironsidepc"
           title="Navigate to Twitch"
           aria-label="Navigate to Twitch"
         >
@@ -131,7 +131,7 @@ const Footer = ({ logoImage }) => (
           />
         </Link>
         <Link
-          href='https://www.tiktok.com/@ironsidecomputers '
+          href="https://www.tiktok.com/@ironsidecomputers "
           title="Navigate to TikTok"
           aria-label="Navigate to TikTok"
         >
