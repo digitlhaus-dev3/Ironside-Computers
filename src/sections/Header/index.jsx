@@ -115,7 +115,6 @@ const Header = ({ logoImage, menu, sticky }) => {
               </Container> */}
               <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
                 <span>USD</span>
-                <UsdIcons />
               </Link>
               <IconButton
                 variant="iconWrapper"

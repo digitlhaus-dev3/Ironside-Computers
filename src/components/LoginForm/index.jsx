@@ -90,7 +90,7 @@ const LoginForm = ({ redirectUrl }) => {
     loginFields.email === '' || loginFields.password === '' || loginInProgress
 
   return (
-    <div className="loignClass">
+    <div className="box-form absolute-heading">
       <h1 className="account-heading">Login</h1>
       <div className="bg-box">
         <div className="bg-box-head">
@@ -140,6 +140,7 @@ const LoginForm = ({ redirectUrl }) => {
             mb={5}
           >
             <Button
+              className='btn'
               isLoading={loginInProgress}
               loadingText="Submitting"
               type="submit"
@@ -151,7 +152,7 @@ const LoginForm = ({ redirectUrl }) => {
             >
               Login
             </Button>
-            <Link href={ACCOUNT_RECOVER_PASSWORD_URL}>Forgot password?</Link>
+            {/* <Link href={ACCOUNT_RECOVER_PASSWORD_URL}>Forgot password?</Link> */}
           </Flex>
 
           {loginErrors && (
@@ -170,8 +171,8 @@ const LoginForm = ({ redirectUrl }) => {
           )}
         </Container>
       </div>
-      <Container display="block" mb={5} as={FormControl} id="login-password">
-        <Text>
+      <Container display="block" id="login-password"> 
+        <Text className='acc-or-signup'>
           Don't have an account?&nbsp;
           <Link href={ACCOUNT_REGISTER_URL}>Sign Up</Link>
         </Text>
