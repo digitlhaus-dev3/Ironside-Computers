@@ -4,27 +4,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
-html { -webkit-font-smoothing:antialiased; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { 
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    font-family: $body-fonts;
+}
 
 body {
     -webkit-font-smoothing: subpixel-antialiased; 
-    -moz-osx-font-smoothing: auto; padding: 0;
-    font-weight: 400;  
+    -moz-osx-font-smoothing: auto;
+    padding: 0;
+    font-weight: 400;
     font-size: 14px;
-
+    font-family: $body-fonts;
     @include vw{
         font-size: get-vw(28px);
     }
-
-    &.hasAdminBar {
-        & > * {
-            margin-top: 0 !important;
-        }
-    }
-
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
@@ -32,7 +32,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
     text-decoration: none;
     text-transform: uppercase;
     font-family: $heading-fonts;
-    @include vw{
+    @include vw {
         margin: 0 0 get-vw(60px) 0;
     }
 }
@@ -162,8 +162,72 @@ address{
 .margin-none{
     margin: 0 !important;
 }
+button.btn {
+    &[type="submit"] {
+        all: unset;
+        font-size: 16px;
+        line-height: 16px;
+        font-family: $body-fonts;
+        font-weight: 400;
+        color: $color-white;
+        text-align: center;
+        border: 1px solid #363636;
+        border-radius: 79px;
+        width: 178px;
+        padding: 21px 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-white;
+            color: $color-black;
+        }
+    }
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: transparent;
+        color: $color-white;
+        opacity: 0.8;
+    }
+}
 
+input.chakra-input {
+    all: unset;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Inconsolata', monospace;
+    color: #FFFFFF;
+    border-bottom: 1px solid #484848;
+    border-radius: 0;
+    padding: 0 35px 0 8px;
+    width: 100%;
+    min-height: 57px;
+    background-color: transparent;
+    &:placeholder {
+        font-size: 16px;
+        line-height: 16px;
+        font-family: 'Inconsolata', monospace;
+        color: #FFFFFF;
+    }
+    &:focus {
+        border: 0 0 1px 0;
+        box-shadow: none;
+    }
+}
+input:-internal-autofill-selected {
+    background-color: red !important;
+    background: 0 !important;
+    appearance: none;
+}
+input:-ms-input-placeholder.chakra-input {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Inconsolata', monospace;
+    color: #FFFFFF;
+}
 /* Common box with bg for account pages. */
+.absolute-heading {
+    position: relative;
+    width: 1030px;
+}
 .account-heading {
     font-size: 128px;
     line-height: 128px;
@@ -177,7 +241,7 @@ address{
     position: absolute;
     top: 60%;
     transform: translateY(-60%);
-    right: 125px;
+    right: -200px;
     /* bottom: 0; */
 }
 .bg-box {
@@ -203,4 +267,33 @@ address{
     width: 17px;
     height: 17px;
     margin-right: 7px;
+}
+
+.bg-box > div + * {
+    min-height: 664px;
+    margin: auto;
+    max-width: none;
+}
+.acc-or-signup {
+    font-size: 15px;
+    line-height: 15px;
+    font-family: 'Inconsolata';
+    color: #8E8E8E;
+    margin-top: 55px;
+    text-align: center;
+    .chakra-link {
+      color: #FFFFFf;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      &:after {
+        content: "";
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 15 11' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.421875 5.62891C0.421875 5.35276 0.645733 5.12891 0.921875 5.12891H14.0381C14.3143 5.12891 14.5381 5.35276 14.5381 5.62891C14.5381 5.90505 14.3143 6.12891 14.0381 6.12891H0.921875C0.645733 6.12891 0.421875 5.90505 0.421875 5.62891Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.43089 0.475016C8.61728 0.271267 8.93355 0.257193 9.13729 0.443582L14.4197 5.27587C14.5232 5.37059 14.5822 5.50446 14.5822 5.64479C14.5822 5.78513 14.5232 5.919 14.4197 6.01372L9.13729 10.846C8.93355 11.0324 8.61728 11.0183 8.43089 10.8146C8.2445 10.6108 8.25857 10.2946 8.46232 10.1082L13.3414 5.64479L8.46232 1.18142C8.25857 0.995035 8.2445 0.678765 8.43089 0.475016Z' fill='white'/%3E%3C/svg%3E");
+        background-size: 14px 11px;
+        width: 14px;
+        height: 11px;
+        margin-left: 10px;
+      }
+    }
 }

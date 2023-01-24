@@ -27,6 +27,7 @@ import Container from 'Components/Container'
 import Heading from 'Components/Heading'
 import { ACCOUNT_CHANGE_PASSWORD_URL, ACCOUNT_RESET_PASSWORD_URL } from 'Components/Data'
 import Redirect from 'Components/Redirect'
+import Button from 'Components/Button'
 
 const Fallback = () => {
   if (typeof window === 'undefined') return null
@@ -40,9 +41,28 @@ const Fallback = () => {
   }
 
   return (
-    <Container as="section" variant="section-wrapper-centered" display="flex" alignItems="center">
-      <Heading as="h1">Page not found</Heading>
-    </Container>
+    <div className="loignClass absolute-heading">
+      <h1 className="account-heading">404</h1>
+      <div className="bg-box">
+        <div className="bg-box-head">
+          <div className="d-flex dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <Container as="section" variant="section-wrapper-centered" alignItems="center">
+          {/* <Heading as="h1">Page not found</Heading> */}
+          <p>Seems the page you’re looking for isn’t here.</p>
+          <Button
+            className='btn'
+            type="submit"
+          >
+            Reboot
+          </Button>
+        </Container>
+      </div>
+    </div>
   )
 }
 
