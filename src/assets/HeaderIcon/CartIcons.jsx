@@ -1,33 +1,14 @@
 import React from 'react'
+import { Icon } from '@chakra-ui/react'
 
 const CartIcons = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-      <path
-        d="M8.3252 15.975L6.6377 7.875H20.8127C21.6002 7.875 22.0502 8.55 21.9377 9.225L20.3627 16.0875C20.1377 16.9875 19.3502 17.6625 18.4502 17.775H10.8002C9.5627 17.8875 8.5502 17.1 8.3252 15.975Z"
-        stroke="white"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M6.6375 7.875L5.85 4.5H3.9375"
-        stroke="white"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M19.2371 20.5875C19.0121 20.5875 18.7871 20.8125 18.7871 21.0375C18.7871 21.2625 19.0121 21.4875 19.2371 21.4875C19.4621 21.4875 19.6871 21.2625 19.6871 21.0375C19.6871 20.7 19.4621 20.5875 19.2371 20.5875Z"
-        stroke="white"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M9.78789 20.5875C9.56289 20.5875 9.33789 20.8125 9.33789 21.0375C9.33789 21.2625 9.56289 21.4875 9.78789 21.4875C10.0129 21.4875 10.2379 21.2625 10.2379 21.0375C10.2379 20.7 10.0129 20.5875 9.78789 20.5875Z"
-        stroke="white"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
+    <Icon xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+      <path d="M5.3252 11.975L3.6377 3.875H17.8127C18.6002 3.875 19.0502 4.55 18.9377 5.225L17.3627 12.0875C17.1377 12.9875 16.3502 13.6625 15.4502 13.775H7.8002C6.5627 13.8875 5.5502 13.1 5.3252 11.975Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3.6375 3.875L2.85 0.5H0.9375" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.2371 16.5875C16.0121 16.5875 15.7871 16.8125 15.7871 17.0375C15.7871 17.2625 16.0121 17.4875 16.2371 17.4875C16.4621 17.4875 16.6871 17.2625 16.6871 17.0375C16.6871 16.7 16.4621 16.5875 16.2371 16.5875Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.78789 16.5875C6.56289 16.5875 6.33789 16.8125 6.33789 17.0375C6.33789 17.2625 6.56289 17.4875 6.78789 17.4875C7.01289 17.4875 7.23789 17.2625 7.23789 17.0375C7.23789 16.7 7.01289 16.5875 6.78789 16.5875Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+    </Icon>
   )
 }
 export default CartIcons

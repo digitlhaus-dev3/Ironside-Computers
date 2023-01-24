@@ -1,8 +1,9 @@
 import React from 'react'
+import { Icon } from '@chakra-ui/react'
 
 const AccountIcons = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
+    <Icon xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
       <path
         d="M0.912109 16.75C0.912109 14.294 2.97169 12.303 5.51229 12.303H10.7942C13.3348 12.303 15.3943 14.294 15.3943 16.75"
         stroke="white"
@@ -15,7 +16,7 @@ const AccountIcons = () => {
         stroke-linecap="round"
         stroke-linejoin="round"
       />
-    </svg>
+    </Icon>
   )
 }
 

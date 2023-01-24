@@ -107,6 +107,7 @@ header .nav-links {
         color: $color-white;
         margin: 0 0 0 10px;
         svg {
+            width: auto;
             stroke: $color-white;
         }
         &.usdIcon {

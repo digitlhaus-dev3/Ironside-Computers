@@ -43,6 +43,7 @@ import {
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 import FormLabel from 'Components/FormLabel'
 import FormControl from 'Components/FormControl'
+import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
 
 /**
  * @typedef { import('lib/types').RegisterDataKey }  RegisterDataKey
@@ -119,109 +120,122 @@ const RegisterForm = () => {
   }
 
   return (
-    <Container as="section" variant="section-wrapper-centered">
-      <Heading as="h1" mb={6}>
-        Sign Up
-      </Heading>
+    <div className="box-form absolute-heading">
+      <h1 className="account-heading">Sign Up</h1>
+      <div className="bg-box">
+        <div className="bg-box-head">
+          <div className="d-flex dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      <Container as="section">
 
-      <AuthGuard allowedAuthStatus="unauthenticated" redirectUrl={ACCOUNT_URL}>
-        <Grid as="form" w={{ base: 'full', md: 'md' }} onSubmit={handleSubmit} rowGap={5}>
-          <Container as={FormControl} id="register-email">
-            <FormLabel>Email</FormLabel>
-            <Input
-              placeholder="email@example.com"
-              type="email"
-              disabled={fieldsDisabled}
-              value={registerData.email}
-              onChange={e => onFieldChange('email', e)}
-              isInvalid={registerErrors.length > 0}
-              isRequired
-            />
-          </Container>
-          <Container as={FormControl} id="register-password">
-            <FormLabel>Password</FormLabel>
-            <Input
-              placeholder="Enter your password"
-              type="password"
-              disabled={fieldsDisabled}
-              value={registerData.password}
-              onChange={e => onFieldChange('password', e)}
-              isInvalid={registerErrors.length > 0}
-              isRequired
-            />
-          </Container>
-          {/* <Container as={FormControl} id="register-confirmPassword">
-             <FormLabel>Confirm Password</FormLabel>
-             <Input
-               placeholder="Enter your password"
-               type="password"
-               disabled={fieldsDisabled}
-               value={registerData.confirmPassword}
-               onChange={e => onFieldChange('confirmPassword', e)}
-               isInvalid={registerErrors.length > 0}
-               isRequired
-             />
-           </Container> */}
-          <Container as={FormControl} id="register-first-name">
-            <FormLabel>First name </FormLabel>
-            <Input
-              value={registerData.firstName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('firstName', e)}
-            />
-          </Container>
-
-          <Container as={FormControl} id="register-last-name">
-            <FormLabel>Last name </FormLabel>
-            <Input
-              value={registerData.lastName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('lastName', e)}
-            />
-          </Container>
-
-          <Container as={FormControl} id="register-company">
-            <FormLabel>Company</FormLabel>
-            <Input
-              value={registerData.company}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('company', e)}
-            />
-          </Container>
-
-          <Container>
-            <Button
-              disabled={submitDisabled}
-              isLoading={isLoading}
-              loadingText="Submitting"
-              type="submit"
-              width={{ base: '100%', md: 48 }}
-            >
-              Next
-            </Button>
-          </Container>
-
-          {registerErrors.length > 0 && (
-            <Container>
-              {registerErrors.map(({ message }, index) => (
-                <Text key={`error-message-${index}`} color="red.600">
-                  {message}
-                </Text>
-              ))}
+        <AuthGuard allowedAuthStatus="unauthenticated" redirectUrl={ACCOUNT_URL}>
+          <Grid as="form" w={{ base: 'full', md: 'md' }} onSubmit={handleSubmit} rowGap={5}>
+            <Container as={FormControl} id="register-email">
+              {/* <FormLabel>Email</FormLabel> */}
+              <Input
+                placeholder="Email"
+                type="email"
+                disabled={fieldsDisabled}
+                value={registerData.email}
+                onChange={e => onFieldChange('email', e)}
+                isInvalid={registerErrors.length > 0}
+                isRequired
+              />
             </Container>
-          )}
+            <Container as={FormControl} id="register-password">
+              {/* <FormLabel>Password</FormLabel> */}
+              <Input
+                placeholder="Password"
+                type="password"
+                disabled={fieldsDisabled}
+                value={registerData.password}
+                onChange={e => onFieldChange('password', e)}
+                isInvalid={registerErrors.length > 0}
+                isRequired
+              />
+            </Container>
+            {/* <Container as={FormControl} id="register-confirmPassword">
+              <FormLabel>Confirm Password</FormLabel>
+              <Input
+                placeholder="Enter your password"
+                type="password"
+                disabled={fieldsDisabled}
+                value={registerData.confirmPassword}
+                onChange={e => onFieldChange('confirmPassword', e)}
+                isInvalid={registerErrors.length > 0}
+                isRequired
+              />
+            </Container> */}
+            <Container as={FormControl} id="register-first-name">
+              {/* <FormLabel>First name </FormLabel> */}
+              <Input
+                placeholder='First name'
+                value={registerData.firstName}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('firstName', e)}
+              />
+            </Container>
 
-          <Divider />
+            <Container as={FormControl} id="register-last-name">
+              {/* <FormLabel>Last name </FormLabel> */}
+              <Input
+                placeholder='Last name'
+                value={registerData.lastName}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('lastName', e)}
+              />
+            </Container>
 
-          <Text>
-            Have an account?{' '}
-            <Link href={ACCOUNT_LOGIN_URL} color="white" ml="2" textDecoration="underline">
-              Login
-            </Link>
-          </Text>
-        </Grid>
-      </AuthGuard>
-    </Container>
+            <Container as={FormControl} id="register-company">
+              {/* <FormLabel>Company</FormLabel> */}
+              <Input
+                placeholder='Company'
+                value={registerData.company}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('company', e)}
+              />
+            </Container>
+
+            <Container>
+              <Button 
+                className='btn'
+                disabled={submitDisabled}
+                isLoading={isLoading}
+                loadingText="Submitting"
+                type="submit"
+                width={{ base: '100%', md: 48 }}
+              >
+                Next
+              </Button>
+            </Container>
+
+            {registerErrors.length > 0 && (
+              <Container>
+                {registerErrors.map(({ message }, index) => (
+                  <Text key={`error-message-${index}`} color="red.600">
+                    {message}
+                  </Text>
+                ))}
+              </Container>
+            )}
+            {/* <Divider /> */}
+          </Grid>
+        </AuthGuard>
+      </Container>
+      </div>
+      <Container display="block" id="register-password"> 
+        <Text className='acc-or-signup'>
+          Have an account?{' '}
+          <Link href={ACCOUNT_LOGIN_URL} color="white" ml="2" textDecoration="underline">
+            Login
+          </Link>
+        </Text>
+      </Container>
+    </div>
   )
 }
 
