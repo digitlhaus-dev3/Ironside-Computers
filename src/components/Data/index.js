@@ -51,11 +51,16 @@ export const SHOPIFY_REGISTER_REQUIRED_FIELDS = ['email', 'password']
 
 /** @type { Array<keyof RegisterData> } */
 export const BIG_COMMERCE_REGISTER_REQUIRED_FIELDS = [
-  'firstName',
-  'lastName',
   'email',
   'password',
-  'company',
+  'firstName',
+  'lastName',
+  'countryCode',
+  'province',
+  'city',
+  'zip',
+  'address1',
+  'address2',
 ]
 
 /** @type { Record<string, string> } */
