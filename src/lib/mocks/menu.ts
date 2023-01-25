@@ -1,5 +1,4 @@
 import { Menu } from '../types'
-import Store from '../../components/Assets/Store.png'
 
 export const menu: Menu = {
   menuLinks: [
@@ -83,7 +82,8 @@ export const menu: Menu = {
       ],
       label: 'Stores',
       slug: 'stores',
-      backgroundImage: Store,
+      backgroundImage:
+        'https://cdn11.bigcommerce.com/s-gbo8rdqwz4/images/stencil/original/image-manager/stores.jpg',
     },
     {
       label: 'About',
