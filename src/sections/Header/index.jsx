@@ -35,7 +35,7 @@ import SearchQueryInput from 'Components/SearchQueryInput'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-import { AccountIcons, CartIcons, Volume, UsdIcons } from '../../components/Assets/index'
+// import { AccountIcons, CartIcons, Volume, UsdIcons } from '../../components/Assets/index'
 import './styles.css'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
@@ -123,7 +123,7 @@ const Header = ({ logoImage, menu, sticky }) => {
               >
                 <span>USD</span>
               </Link>
-              <IconButton
+              {/* <IconButton
                 variant="iconWrapper"
                 aria-live="assertive"
                 aria-label={cartIconAriaLabel}
@@ -138,8 +138,8 @@ const Header = ({ logoImage, menu, sticky }) => {
                     <CartIcons />
                   )
                 }
-              />
-              <Link
+              /> */}
+              {/* <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Navigate to account"
                 aria-label="Navigate to my account"
@@ -153,7 +153,7 @@ const Header = ({ logoImage, menu, sticky }) => {
                 className="volume"
               >
                 <Volume />
-              </Link>
+              </Link> */}
             </HStack>
           </div>
         </div>

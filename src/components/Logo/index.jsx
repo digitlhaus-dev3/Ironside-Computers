@@ -34,7 +34,7 @@ import IconButton from 'Components/IconButton'
  */
 const defaultImage = {
   name: 'Default Image',
-  src: <Logosvg />,
+  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCFCGZ1QZyNcTNfz7a4OoVfgCj9ngavPoP4Q&usqp=CAU',
   alt: 'IronSide Logo',
   height: 1440,
   width: 2850,
@@ -59,7 +59,21 @@ const Logo = ({ image }) => {
 
   return (
     <Link href="/" onClick={() => track(gtmEvent)}>
-      <IconButton variant="iconWrapper" aria-label="Navigate to TikTok" size="lg" icon={src} />
+      <IconButton
+        variant="iconWrapper"
+        aria-label="Navigate to TikTok"
+        size="xs"
+        icon={
+          <img
+            src={
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCFCGZ1QZyNcTNfz7a4OoVfgCj9ngavPoP4Q&usqp=CAU'
+            }
+            height="80"
+            width="80"
+            alt="logo"
+          />
+        }
+      />
     </Link>
   )
 }
