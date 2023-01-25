@@ -55,7 +55,7 @@ export const BIG_COMMERCE_REGISTER_REQUIRED_FIELDS = [
   'lastName',
   'email',
   'password',
-  'company',
+  // 'company',
 ]
 
 /** @type { Record<string, string> } */

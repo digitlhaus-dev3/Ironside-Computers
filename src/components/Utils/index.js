@@ -96,12 +96,6 @@ export function denormalizeRegisterData(platform, registerData) {
       lastName: registerData.lastName,
       email: registerData.email,
       password: registerData.password,
-      countryCode: registerData.countryCode,
-      state: registerData.province,
-      city: registerData.city,
-      postalCode: registerData.zip,
-      address1: registerData.address1,
-      address2: registerData.address2,
     }
   }
 
