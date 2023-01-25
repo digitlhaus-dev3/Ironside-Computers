@@ -67,6 +67,12 @@ const RegisterForm = () => {
     // confirmPassword: '',
     firstName: '',
     lastName: '',
+    countryCode: '',
+    province: '',
+    city: '',
+    zip: '',
+    address1: '',
+    address2: '',
     // company: '',
   }
   const [registerData, setRegisterData] = React.useState(initialRegisterData)
@@ -189,15 +195,54 @@ const RegisterForm = () => {
                 />
               </Container>
 
-              {/* <Container as={FormControl} id="register-company"> */}
-              {/* <FormLabel>Company</FormLabel> */}
-              {/* <Input
-                  placeholder="Company"
-                  value={registerData.company}
+              <Container as={FormControl} id="register-address1">
+                <Input
+                  placeholder="Address 1"
+                  value={registerData.address1}
                   disabled={fieldsDisabled}
-                  onChange={e => onFieldChange('company', e)}
+                  onChange={e => onFieldChange('address1', e)}
                 />
-              </Container> */}
+              </Container>
+              <Container as={FormControl} id="register-address2">
+                <Input
+                  placeholder="Address 2"
+                  value={registerData.address2}
+                  disabled={fieldsDisabled}
+                  onChange={e => onFieldChange('address2', e)}
+                />
+              </Container>
+              <Container as={FormControl} id="register-city">
+                <Input
+                  placeholder="City"
+                  value={registerData.city}
+                  disabled={fieldsDisabled}
+                  onChange={e => onFieldChange('city', e)}
+                />
+              </Container>
+              <Container as={FormControl} id="register-countryCode">
+                <Input
+                  placeholder="Country Code"
+                  value={registerData.countryCode}
+                  disabled={fieldsDisabled}
+                  onChange={e => onFieldChange('countryCode', e)}
+                />
+              </Container>
+              <Container as={FormControl} id="register-state">
+                <Input
+                  placeholder="State"
+                  value={registerData.province}
+                  disabled={fieldsDisabled}
+                  onChange={e => onFieldChange('province', e)}
+                />
+              </Container>
+              <Container as={FormControl} id="register-postalCode">
+                <Input
+                  placeholder="Postal Code"
+                  value={registerData.zip}
+                  disabled={fieldsDisabled}
+                  onChange={e => onFieldChange('zip', e)}
+                />
+              </Container>
 
               <Container>
                 <Button

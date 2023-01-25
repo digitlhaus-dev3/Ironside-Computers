@@ -81,17 +81,17 @@ export interface Customer {
 /** Shogun address (normalized data) */
 export type Address = {
   id: string
-  address1?: string
+  address1: string
   address2?: string
-  city?: string
+  city: string
   company?: string
   country?: string
-  countryCode?: string
+  countryCode: string
   firstName?: string
   lastName?: string
   phone?: string
-  province?: string
-  zip?: string
+  province: string
+  zip: string
 }
 
 export type AddressData = Omit<Address, 'id'>
