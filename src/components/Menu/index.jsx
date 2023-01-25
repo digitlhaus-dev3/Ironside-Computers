@@ -251,7 +251,12 @@ const SubMenu = forwardRef(
     return (
       <MenuProvider key={label} value={context}>
         <StylesProvider value={styles}>
-          <MenuButton ref={ref} tabIndex={tabIndex}>
+          <MenuButton
+            ref={ref}
+            tabIndex={tabIndex}
+            omMouseClick={openAndFocusFirstItem}
+            // onMouseLeave={onClose}
+          >
             <Text as="span">{label}</Text>
             <Icon icon="ChevronDownIcon" boxSize="6" />
           </MenuButton>
@@ -295,7 +300,6 @@ const Desktop = props => {
     [links],
   )
 
-  const backgroundImage = links.map(link => link.backgroundImage)
   const firstRender = useIsFirstRender()
 
   const styles = useMultiStyleConfig('Menu', chakraMenuProps)
