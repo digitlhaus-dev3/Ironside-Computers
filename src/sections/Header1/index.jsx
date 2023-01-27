@@ -32,15 +32,13 @@
  import Grid from 'Components/Grid'
  import Logo from 'Components/Logo'
  import Menu from 'Components/Menu'
- import SearchPopover from 'Components/SearchPopover'
  import Icon from 'Components/Icon'
  import SearchQueryInput from 'Components/SearchQueryInput'
  import { useCustomerState } from 'frontend-customer'
  import IconButton from 'Components/IconButton'
  import HStack from 'Components/HStack'
- import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  
- const CartIcon = () => <Icon display="block" as={BiCart} size="md" />
+ import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  
  /**
   * @typedef { import("lib/types").Media } Media
@@ -68,6 +66,7 @@
    )
  
    const menuLinks = menu && menu.menuLinks
+   console.log(menu,menuLinks);
  
    return (
      <Grid
@@ -104,23 +103,17 @@
        ) : null}
  
        <HStack gridArea="cart" justifySelf="right" spacing="4">
-         <Container display={{ base: 'none', md: 'block' }}>
+         {/* <Container display={{ base: 'none', md: 'block' }}>
            <SearchPopover onSearchSubmit={handleSearchSubmit} />
-         </Container>
- 
-         <Link
-           href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-           title="Navigate to account"
-           aria-label="Navigate to my account"
-         >
+         </Container> */}
+         <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
            <IconButton
              variant="iconWrapper"
-             aria-label="Navigate to my account"
+             aria-label="Price"
              size={8}
-             icon={<Icon display="block" as={BiUser} size="md" />}
+             icon={<img src={'https://i.ibb.co/XxBbLKY/usd.png'} />}
            />
          </Link>
- 
          <IconButton
            variant="iconWrapper"
            aria-live="assertive"
@@ -130,17 +123,40 @@
            icon={
              itemsQuantity ? (
                <Badge badgeContent={itemsQuantity} variant="cart">
-                 <CartIcon />
+                 {<img src={'https://i.ibb.co/M22xzmy/cart.png'} />}
                </Badge>
              ) : (
-               <CartIcon />
+               <img src={'https://i.ibb.co/M22xzmy/cart.png'} />
              )
            }
          />
+         <Link
+           href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+           title="Navigate to account"
+           aria-label="Navigate to my account"
+         >
+           <IconButton
+             variant="iconWrapper"
+             aria-label="Navigate to my account"
+             size={8}
+             icon={<img src={'https://i.ibb.co/Js4k8hR/user.png'} />}
+           />
+         </Link>
+         <Link
+           href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+           title="Volume"
+           aria-label="controll volume"
+         >
+           <IconButton
+             variant="iconWrapper"
+             aria-label="Controll Volume"
+             size={8}
+             icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
+           />
+         </Link>
        </HStack>
      </Grid>
    )
  }
  
  export default Header
- 

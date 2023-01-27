@@ -172,10 +172,11 @@
        shouldOpen,
        onSubmenuOpen,
        onSubmenuClose,
+       backgroundImage,
        ...chakraMenuProps
      } = props
      const maxIndex = subMenuLinks.length - 1
- 
+     console.log('backgroundImage',backgroundImage);
      const firstRender = useIsFirstRender()
  
      const styles = useMultiStyleConfig('Menu', chakraMenuProps)
@@ -253,8 +254,8 @@
            <MenuButton
              ref={ref}
              tabIndex={tabIndex}
-             onMouseEnter={openAndFocusFirstItem}
-             onMouseLeave={onClose}
+             omMouseClick={openAndFocusFirstItem}
+             // onMouseLeave={onClose}
            >
              <Text as="span">{label}</Text>
              <Icon icon="ChevronDownIcon" boxSize="6" />
@@ -263,16 +264,22 @@
            {!firstRender.current && (
              <MenuList
                display={{ base: 'none', md: 'block' }}
-               onMouseEnter={openAndFocusFirstItem}
-               onMouseLeave={onClose}
+               omMouseClick={openAndFocusFirstItem}
+               // onMouseLeave={onClose}
                onKeyDownCapture={menuListKeyDownCaptureHandler}
                onKeyDown={menuListKeyDownHandler}
              >
-               {subMenuLinks.map(({ slug, label }) => (
-                 <MenuItem key={label} as={Link} href={slug}>
-                   {label}
-                 </MenuItem>
-               ))}
+               <div style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+                 <div className="menu-description">
+                   {subMenuLinks.map(({ slug, label, description }) => (
+                     <MenuItem key={label} as={Link} href={slug}>
+                       <span className="sub-menu-heading">{label}</span>
+                       <br></br>
+                       <span className="sub-menu-desc">{description}</span>
+                     </MenuItem>
+                   ))}
+                 </div>
+               </div>
              </MenuList>
            )}
          </StylesProvider>
@@ -392,10 +399,12 @@
  
    return (
      <HStack display={{ base: 'none', md: 'block' }} onKeyDown={menuKeyDownHandler}>
-       {links.map(({ label, slug, subMenuLinks }, index) => {
+       {links.map(({ label, slug, subMenuLinks, description, backgroundImage }, index) => {
          if (subMenuLinks) {
            return (
              <SubMenu
+               description={description}
+               backgroundImage={backgroundImage}
                key={label}
                ref={refs.current[index]}
                label={label}
@@ -441,3 +450,4 @@
  }
  
  export default Menu
+ 
