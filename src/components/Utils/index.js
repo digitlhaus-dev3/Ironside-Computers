@@ -26,6 +26,7 @@
 import {
   BIG_COMMERCE_REGISTER_REQUIRED_FIELDS,
   SHOPIFY_REGISTER_REQUIRED_FIELDS,
+  BIG_COMMERCE_CONTACT_REQUIRED_FIELDS,
 } from 'Components/Data'
 
 /**
@@ -63,6 +64,21 @@ export function validateRegisterData(platform, registerData) {
       if (value === undefined || value.length === 0) {
         return false
       }
+    }
+  }
+
+  return true
+}
+
+/**
+ * @param {{ [x: string]: any; }} contactData
+ */
+ export function validateContactData(contactData) {
+  for (const key of BIG_COMMERCE_CONTACT_REQUIRED_FIELDS) {
+    const value = contactData[key]
+
+    if (value === undefined || value.length === 0) {
+      return false
     }
   }
 
