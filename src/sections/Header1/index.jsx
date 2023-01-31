@@ -88,7 +88,7 @@
       <div className='container'>
         <div className='header-main'>
           <div className='header-left'>
-            <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
+            <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']} className="logo-icon">
               <Logo image={logoImage} />
             </Container>
  
@@ -113,13 +113,8 @@
               {/* <Container display={{ base: 'none', md: 'block' }}>
                 <SearchPopover onSearchSubmit={handleSearchSubmit} />
               </Container> */}
-              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label="Price"
-                  size={8}
-                  icon={<img src={'https://i.ibb.co/XxBbLKY/usd.png'} />}
-                />
+              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
+                <span>USD</span>
               </Link>
               <IconButton
                 variant="iconWrapper"
@@ -127,6 +122,7 @@
                 aria-label={cartIconAriaLabel}
                 onClick={showCart}
                 size={8}
+                className="cart"
                 icon={
                   itemsQuantity ? (
                     <Badge badgeContent={itemsQuantity} variant="cart">
@@ -141,6 +137,7 @@
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Navigate to account"
                 aria-label="Navigate to my account"
+                className="account"
               >
                 <IconButton
                   variant="iconWrapper"
@@ -158,6 +155,7 @@
                   variant="iconWrapper"
                   aria-label="Controll Volume"
                   size={8}
+                  className="volume"
                   icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
                 />
               </Link>
