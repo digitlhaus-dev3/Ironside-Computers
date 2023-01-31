@@ -132,3 +132,12 @@
 //   $vw-context: (2880*.01) * 1px;
 //   @return ($target/$vw-context) * 1vw;
 // }
+
+@function get-vw-value($target) {
+  $vw-context: (1920*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+
+@function get-rem($px,$vw) {
+  @return Max(($px/10px) * 1rem,#{get-vw-value($vw)});
+}

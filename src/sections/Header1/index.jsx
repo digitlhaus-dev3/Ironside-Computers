@@ -37,6 +37,7 @@
  import { useCustomerState } from 'frontend-customer'
  import IconButton from 'Components/IconButton'
  import HStack from 'Components/HStack'
+ import CartIcons from '../../components/Assets/CartIcons'
  
  import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  
