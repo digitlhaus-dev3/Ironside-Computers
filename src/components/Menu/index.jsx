@@ -97,6 +97,7 @@
            </MenuButton>
  
            <Portal>
+            <div className='mobile-menu'>
              <MenuList
                display={{ md: 'none' }}
                onKeyDownCapture={menuListKeyDownCaptureHandler}
@@ -107,7 +108,8 @@
                {links.map(({ label, slug, subMenuLinks }, index) => {
                  if (!subMenuLinks) {
                    return (
-                     <MenuItem key={label} as={Link} href={slug}>
+                     <MenuItem key={label} as={Link} href={slug}
+                      className="nav-links-btn">
                        {label}
                      </MenuItem>
                    )
@@ -123,6 +125,7 @@
                          event.stopPropagation()
                          setExpandedIndex(prev => (prev === index ? undefined : index))
                        }}
+                       className="nav-links-btn"
                      >
                        <Text>{label}</Text>
                        <Icon
@@ -141,6 +144,7 @@
                  )
                })}
              </MenuList>
+             </div>
            </Portal>
          </StylesProvider>
        </MenuProvider>
@@ -256,6 +260,7 @@
              tabIndex={tabIndex}
              omMouseClick={openAndFocusFirstItem}
              // onMouseLeave={onClose}
+             className="nav-links-btn"
            >
              <Text as="span">{label}</Text>
              <Icon icon="ChevronDownIcon" boxSize="6" />
@@ -426,6 +431,7 @@
              sx={styles.item}
              href={slug}
              tabIndex={index === focusedIndex ? 0 : -1}
+             className="nav-links-btn"
            >
              {label}
            </Link>
@@ -443,7 +449,7 @@
  
    return (
      <React.Fragment>
-       <Mobile links={links} content={content} {...chakraMenuProps} />
+       <Mobile links={links} {...chakraMenuProps} />
        <Desktop links={links} {...chakraMenuProps} />
      </React.Fragment>
    )
