@@ -74,88 +74,97 @@
        as="header"
        position={sticky ? 'sticky' : 'initial'}
        top="0"
-       templateAreas={{ base: "'menu logo cart'", md: "'logo menu cart'" }}
-       templateColumns={{ base: '5rem 1fr 5rem', sm: '3rem 1fr 3rem', md: 'auto 1fr auto' }}
-       alignItems="center"
-       columnGap={{ base: 2, md: 10 }}
-       px={{ base: 4, md: 8 }}
-       py={4}
-       bg="brand.100"
-       w="100%"
-       zIndex="docked"
+      //  templateAreas={{ base: "'menu logo cart'", md: "'logo menu cart'" }}
+      //  templateColumns={{ base: '5rem 1fr 5rem', sm: '3rem 1fr 3rem', md: 'auto 1fr auto' }}
+      //  alignItems="center"
+      //  columnGap={{ base: 2, md: 10 }}
+      //  px={{ base: 4, md: 8 }}
+      //  py={4}
+      //  bg="brand.100"
+      //  w="100%"
+        zIndex="docked"
      >
-       <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
-         <Logo image={logoImage} />
-       </Container>
+      
+      <div className='container'>
+        <div className='header-main'>
+          <div className='header-left'>
+            <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']}>
+              <Logo image={logoImage} />
+            </Container>
  
-       {menu ? (
-         <Container gridArea="menu">
-           <Menu
-             content={
-               <SearchQueryInput
-                 onClick={event => event.stopPropagation()}
-                 onKeyDown={event => event.stopPropagation()}
-                 onSearchSubmit={handleSearchSubmit}
-               />
-             }
-             links={menuLinks}
-           />
-         </Container>
-       ) : null}
- 
-       <HStack gridArea="cart" justifySelf="right" spacing="4">
-         {/* <Container display={{ base: 'none', md: 'block' }}>
-           <SearchPopover onSearchSubmit={handleSearchSubmit} />
-         </Container> */}
-         <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
-           <IconButton
-             variant="iconWrapper"
-             aria-label="Price"
-             size={8}
-             icon={<img src={'https://i.ibb.co/XxBbLKY/usd.png'} />}
-           />
-         </Link>
-         <IconButton
-           variant="iconWrapper"
-           aria-live="assertive"
-           aria-label={cartIconAriaLabel}
-           onClick={showCart}
-           size={8}
-           icon={
-             itemsQuantity ? (
-               <Badge badgeContent={itemsQuantity} variant="cart">
-                 {<img src={'https://i.ibb.co/M22xzmy/cart.png'} />}
-               </Badge>
-             ) : (
-               <img src={'https://i.ibb.co/M22xzmy/cart.png'} />
-             )
-           }
-         />
-         <Link
-           href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-           title="Navigate to account"
-           aria-label="Navigate to my account"
-         >
-           <IconButton
-             variant="iconWrapper"
-             aria-label="Navigate to my account"
-             size={8}
-             icon={<img src={'https://i.ibb.co/Js4k8hR/user.png'} />}
-           />
-         </Link>
-         <Link
-           href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
-           title="Volume"
-           aria-label="controll volume"
-         >
-           <IconButton
-             variant="iconWrapper"
-             aria-label="Controll Volume"
-             size={8}
-             icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
-           />
-         </Link>
-       </HStack>
+            {menu ? (
+              <Container gridArea="menu" className="nav-links">
+                <Menu
+                  content={
+                    <SearchQueryInput
+                      onClick={event => event.stopPropagation()}
+                      onKeyDown={event => event.stopPropagation()}
+                      onSearchSubmit={handleSearchSubmit}
+                    />
+                  }
+                  links={menuLinks}
+                />
+              </Container>
+            ) : null}
+          
+          </div>
+          <div className='header-right'>
+            <HStack gridArea="cart" justifySelf="right" spacing="4">
+              {/* <Container display={{ base: 'none', md: 'block' }}>
+                <SearchPopover onSearchSubmit={handleSearchSubmit} />
+              </Container> */}
+              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price">
+                <IconButton
+                  variant="iconWrapper"
+                  aria-label="Price"
+                  size={8}
+                  icon={<img src={'https://i.ibb.co/XxBbLKY/usd.png'} />}
+                />
+              </Link>
+              <IconButton
+                variant="iconWrapper"
+                aria-live="assertive"
+                aria-label={cartIconAriaLabel}
+                onClick={showCart}
+                size={8}
+                icon={
+                  itemsQuantity ? (
+                    <Badge badgeContent={itemsQuantity} variant="cart">
+                      {<img src={'https://i.ibb.co/M22xzmy/cart.png'} />}
+                    </Badge>
+                  ) : (
+                    <img src={'https://i.ibb.co/M22xzmy/cart.png'} />
+                  )
+                }
+              />
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Navigate to account"
+                aria-label="Navigate to my account"
+              >
+                <IconButton
+                  variant="iconWrapper"
+                  aria-label="Navigate to my account"
+                  size={8}
+                  icon={<img src={'https://i.ibb.co/Js4k8hR/user.png'} />}
+                />
+              </Link>
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Volume"
+                aria-label="controll volume"
+              >
+                <IconButton
+                  variant="iconWrapper"
+                  aria-label="Controll Volume"
+                  size={8}
+                  icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
+                />
+              </Link>
+            </HStack>
+          </div>
+        </div>
+      </div>
      </Grid>
    )
  }

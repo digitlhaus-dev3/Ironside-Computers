@@ -1,3 +1,4 @@
+// sass-lint:disable border-zero, quotes
 /* ========== media mixin ========== */
 
 @mixin vw {
@@ -133,11 +134,25 @@
 //   @return ($target/$vw-context) * 1vw;
 // }
 
-@function get-vw-value($target) {
-  $vw-context: (1920*.01) * 1px;
-  @return ($target/$vw-context) * 1vw;
-}
+// @function get-vw($target) {
+//   $vw-context: (1920*.01) * 1px;
+//   @return ($target/$vw-context) * 1vw;
+// }
 
-@function get-rem($px,$vw) {
-  @return Max(($px/10px) * 1rem,#{get-vw-value($vw)});
-}
+// @function get-rem($px,$vw) {
+//   @return Max(($px/10px) * 1rem,#{get-vw($vw)});
+// }
+
+// @function get-vw($target) {
+//   $vw-context: (1920*.01) * 1px;
+//   @return ($target/$vw-context) * 1vw;
+// }
+// @function get-rem($value) {
+//   @return ($value / 10) + rem;
+// }
+// @function get-min($min,$max) {
+//   @return Min(#{get-rem($min)}, #{get-vw($max)});
+// }
+// @function get-rem($px,$vw) {
+//   @return Max(($px/10px) * 1rem,#{get-vw($vw)});
+// }
