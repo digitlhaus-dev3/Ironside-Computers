@@ -1,62 +1,37 @@
-/**
- *
- * MIT License
- *
- * Copyright 2021 Shogun, Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom
- * the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included
- * in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
- * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
- * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-import * as React from 'react'
-import { useMultiStyleConfig } from '@chakra-ui/react'
-import BackgroundImage from 'Components/BackgroundImage'
-import Heading from 'Components/Heading'
-import VisuallyHidden from 'Components/VisuallyHidden'
+import React from 'react'
+import styles from './styles.module.css'
+import Video from 'frontend-ui/Video'
+import { Img } from '@chakra-ui/react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-/**
- * @typedef { import('lib/types').PropsOf<BackgroundImage> } BackgroundImageProps
- * @typedef { import("lib/types").Media } Media
- * @typedef {{
- *  image : Media
- *  title: string
- *  showTitle: boolean
- * }} HeadingProps
- *
- * @param { BackgroundImageProps & HeadingProps } props
- */
-const Banner = ({ image, title, showTitle, ...rest }) => {
-  const { src } = image || {}
-
-  const style = useMultiStyleConfig('Banner', {
-    titleHorizontalAlignment: 'left',
-    titleVerticalAlignment: 'center',
-  })
-
+const Banner = () => {
+  var settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:5000
+  }
   return (
-    <BackgroundImage src={src} {...rest} __css={style.BackgroundImage}>
-      {showTitle ? (
-        <Heading as="h1" sx={style.Heading}>
-          {title}
-        </Heading>
-      ) : (
-        <VisuallyHidden as="h1">{title}</VisuallyHidden>
-      )}
-    </BackgroundImage>
+    <>
+      <div className="bannerCarousel">
+        <div className="list-none">
+          <Slider {...settings}>
+              <Img src="https://previews.123rf.com/images/birillo81/birillo811410/birillo81141000048/32895163-turin-torino-panoramic-composition-7000px-x-3000px-.jpg" />
+            
+              <Video poster="https://f.shgcdn.com/7e53bfca-8e38-4e56-8650-e1d7001544b8/" autoPlay>
+                <source src="https://f.shgcdn.com/147c79f5-1b1a-4428-8b0e-7079cde26003/" />
+              </Video>
+            
+          </Slider>
+        </div>
+      </div>
+    </>
   )
 }
 

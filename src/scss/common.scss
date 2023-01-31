@@ -20,23 +20,20 @@ body {
     -moz-osx-font-smoothing: auto;
     padding: 0;
     font-weight: 400;
-    font-size: 14px;
+    // font-size: get-vw-value(13px) get-vw-value(28px);
     font-family: $body-fonts;
-    @include vw{
-        font-size: get-vw(28px);
-    }
+    color: $color-white;
 }
-
+body {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
-    margin: 0 0 30px 0; padding: 0; font-weight: 600; 
+    margin: 0 0 31px 0;
+    padding: 0;
+    font-weight: 600; 
     text-decoration: none;
     text-transform: uppercase;
     font-family: $heading-fonts;
-    @include vw {
-        margin: 0 0 get-vw(60px) 0;
-    }
 }
-
+}
 h1, .h1{
     font-size: 40px;
 
@@ -46,10 +43,7 @@ h1, .h1{
 }
 h2, .h2{
     font-size: 40px;
-
-    @include vw{
-        font-size: get-vw(80px);
-    }
+    margin-bottom: 31px;
 }
 h3, .h3{
     font-size: 32px;
@@ -88,8 +82,12 @@ a{
     // }
 }
 
-p{
-    margin-bottom: 20px; line-height: 21px;
+p {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 16px;
+    color: $color-white;
+    font-family: $body-fonts;
 
     @include vw{
         line-height: get-vw(42px); margin-bottom: get-vw(40px);
@@ -162,6 +160,19 @@ address{
 .margin-none{
     margin: 0 !important;
 }
+
+.list-none {
+    list-style-type: none;
+    margin: 0;
+}
+
+.text-shadow {
+    color: $color-white;
+    @include text-shadow(text-shadow);
+    font-family: $heading-fonts;
+    text-transform: capitalize;
+}
+
 button.btn, .btn{
     &[type="submit"] {
         all: unset;

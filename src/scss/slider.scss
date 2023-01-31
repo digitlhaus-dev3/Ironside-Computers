@@ -1,0 +1,54 @@
+.slick-track {
+    @include display-flex(flex);
+    div {
+        height: 990px;
+        img {
+            height: 990px;
+            object-fit: cover;
+            object-position: center;
+        }
+        video {
+            height: 990px;
+        }
+    }
+}
+.bannerCarousel {
+    .slick-dots{
+        bottom: 16px;
+        left: 44px;
+        right: auto;
+        width: auto;
+        li {
+            width: 8px;
+            height: 8px;
+            margin-left: 0;
+            margin-right: 5px;
+            button {
+                width: 8px;
+                height: 8px;
+                padding: 0;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 56px;
+                &:before {
+                    content: "";
+                    opacity: 1;
+                    width: 8px;
+                    height: 8px;
+                    line-height: 8px; 
+                }
+            }
+            &.slick-active {
+                width: 36px;
+                button {
+                    width: 36px;
+                    background-color: $color-white;
+                    &::before {
+                        width: 36px;
+                        background-color: $color-white;
+                        border-radius: 56px;
+                    }
+                }
+            }
+        }
+    }
+}
