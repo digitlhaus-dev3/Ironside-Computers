@@ -127,6 +127,11 @@
 }
 
 
+@mixin box-design($box) {
+  width: 345px;
+  height: 1519px;
+}
+
 /* ========== VW Functions ========== */
 
 // @function get-vw($target) {

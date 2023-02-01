@@ -8,6 +8,7 @@
     }
     video {
         width: 100%;
+        object-fit: cover;
     }
 }
 .section2 {
@@ -19,4 +20,17 @@
 }
 .block-quote {
     max-width: 644px;
+    width: 100%;
+    padding: 173px 0 0 0;
+    position: relative;
+    &:after {
+        content: "";
+        @include box-design(box);
+        position: absolute;
+        top: 0;
+        right: 0;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border: 1px solid $color-white;
+        opacity: 0.5;
+    }
 }
