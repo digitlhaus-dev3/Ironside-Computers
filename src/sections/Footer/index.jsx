@@ -28,9 +28,6 @@ import Divider from 'Components/Divider'
 import Flex from 'Components/Flex'
 import Logo from 'Components/Logo'
 import Text from 'Components/Text'
-import Link from 'Components/Link'
-import { Facebook, Instagram, TikTok, Twitch, Twitter, YouTube } from '../../components/Assets'
-import IconButton from 'Components/IconButton'
 
 /**
  * @typedef { import("lib/types").Media } Media
@@ -59,7 +56,7 @@ const Footer = ({ logoImage }) => (
       <Container w={{ base: '24', md: '32' }}>
         <Logo image={logoImage} />
       </Container>
-      <Container
+      {/* <Container
         px={{ base: '0', md: '14' }}
         py={{ base: '4', md: '0' }}
         color="gray.600"
@@ -137,7 +134,7 @@ const Footer = ({ logoImage }) => (
             icon={<TikTok />}
           />
         </Link>
-      </Container>
+      </Container> */}
     </Flex>
 
     <Divider my="8" />
