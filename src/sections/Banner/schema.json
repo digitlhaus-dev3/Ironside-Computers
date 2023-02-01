@@ -1,1 +1,19 @@
-{ "props": [] }
+{
+    "props": [
+      {
+        "name": "imageSrc",
+        "displayName": "imageSrc",
+        "type": "media",
+        "isMultiple": false,
+        "selection": null
+      },
+      {
+        "name": "videoSrc",
+        "displayName": "videoSrc",
+        "type": "media",
+        "isMultiple": false,
+        "selection": null
+      }
+    ]
+  }
+  

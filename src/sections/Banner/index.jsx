@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const Banner = () => {
+const Banner = ({imageSrc, videoSrc}) => {
   var settings = {
     dots: true,
     arrows: false,
@@ -22,10 +22,10 @@ const Banner = () => {
       <div className="bannerCarousel">
         <div className="list-none">
           <Slider {...settings}>
-              <Img src="https://previews.123rf.com/images/birillo81/birillo811410/birillo81141000048/32895163-turin-torino-panoramic-composition-7000px-x-3000px-.jpg" />
+              <Img src={imageSrc?.src} />
             
-              <Video poster="https://f.shgcdn.com/7e53bfca-8e38-4e56-8650-e1d7001544b8/" autoPlay>
-                <source src="https://f.shgcdn.com/147c79f5-1b1a-4428-8b0e-7079cde26003/" />
+              <Video autoPlay>
+                <source src={videoSrc?.src}/>
               </Video>
             
           </Slider>
