@@ -384,6 +384,14 @@ button:focus, .btn:focus, a:focus {
   background: transparent !important;
 }
 
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
 .slick-track {
   display: -webkit-box;
   display: -moz-box;
@@ -831,7 +839,11 @@ header .chakra-menu__menuitem .sub-menu-desc {
 .mobile-menu > div {
   width: 100%;
   transform: 0 !important;
-  padding: 45px;
+  padding: 0;
+  height: 100vw;
+}
+.mobile-menu > div > div {
+  padding: 40px;
 }
 .mobile-menu > div .chakra-menu__menuitem {
   color: #ffffff;

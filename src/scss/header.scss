@@ -317,7 +317,11 @@ header {
 .mobile-menu > div{
     width: 100%;
     transform: 0 !important;
-    padding: 45px;
+    padding: 0;
+    height: 100vw;
+    > div {
+        padding: 40px;
+    }
     .chakra-menu__menuitem {
         color: $color-white;
         padding: 5px 10px;

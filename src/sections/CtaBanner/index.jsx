@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-const CtaBanner = () => {
+const CtaBanner = ({bannerImage}) => {
   return (
     <>
       <div className='cta-banner'>
         <div className='cta-image'>
-          <img src='https://f.shgcdn.com/8f384e15-cfda-4490-8108-1d5032ca9572/' />
+          <img src={bannerImage?.src} />
         </div>
         <div className='cta-content'>
           <h2 className='cta-heading'>
