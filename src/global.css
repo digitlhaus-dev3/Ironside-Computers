@@ -458,9 +458,6 @@ button, .btn, a {
   right: 0;
   left: 0;
 }
-#frontend-root header + div {
-  padding-top: 87px;
-}
 #frontend-root header .header-main {
   padding: 40px 33px 0 43px;
   width: 100%;
@@ -852,6 +849,10 @@ header .chakra-menu__menuitem .sub-menu-desc {
   margin-right: 0;
   text-align: right;
   margin-right: 400px;
+}
+
+.block-quote {
+  max-width: 644px;
 }
 
 /*# sourceMappingURL=global.css.map */
