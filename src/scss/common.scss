@@ -316,4 +316,7 @@ input:-ms-input-placeholder.chakra-input {
 }
 button, .btn, a {
     box-shadow: none !important;
+    &:focus {
+        background: transparent !important;
+    }
 }
