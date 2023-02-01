@@ -25,19 +25,15 @@
  import * as React from 'react'
  import { useRouter } from 'frontend-router'
  import { useCart } from 'frontend-checkout'
- import { BiCart, BiUser } from 'react-icons/bi'
  import Link from 'Components/Link'
  import Badge from 'Components/Badge'
  import Container from 'Components/Container'
  import Grid from 'Components/Grid'
  import Logo from 'Components/Logo'
  import Menu from 'Components/Menu'
- import Icon from 'Components/Icon'
- import SearchQueryInput from 'Components/SearchQueryInput'
  import { useCustomerState } from 'frontend-customer'
  import IconButton from 'Components/IconButton'
  import HStack from 'Components/HStack'
- import CartIcons from '../../components/Assets/CartIcons'
  
  import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  
@@ -95,13 +91,6 @@
             {menu ? (
               <Container gridArea="menu" className="nav-links">
                 <Menu
-                  content={
-                    <SearchQueryInput
-                      onClick={event => event.stopPropagation()}
-                      onKeyDown={event => event.stopPropagation()}
-                      onSearchSubmit={handleSearchSubmit}
-                    />
-                  }
                   links={menuLinks}
                 />
               </Container>

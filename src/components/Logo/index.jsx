@@ -25,7 +25,6 @@
 import * as React from 'react'
 import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
 import Link from 'Components/Link'
-import { Logosvg } from '../Assets/index'
 import IconButton from 'Components/IconButton'
 
 /**
