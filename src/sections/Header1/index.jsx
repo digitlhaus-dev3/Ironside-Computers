@@ -22,87 +22,70 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
- import * as React from 'react'
- import { useRouter } from 'frontend-router'
- import { useCart } from 'frontend-checkout'
- import Link from 'Components/Link'
- import Badge from 'Components/Badge'
- import Container from 'Components/Container'
- import Grid from 'Components/Grid'
- import Logo from 'Components/Logo'
- import Menu from 'Components/Menu'
- import { useCustomerState } from 'frontend-customer'
- import IconButton from 'Components/IconButton'
- import HStack from 'Components/HStack'
- 
- import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
- 
- /**
-  * @typedef { import("lib/types").Media } Media
-  * @typedef { import("lib/types").Menu } MenuType
-  * @typedef {{
-  *  logoImage?: Media
-  *  menu?: MenuType
-  *  sticky?: boolean
-  * }} HeaderProps
-  *
-  * @param { HeaderProps } props
-  */
- const Header = ({ logoImage, menu, sticky }) => {
-   const router = useRouter()
-   const { isLoggedIn } = useCustomerState()
-   const [{ items = [] }, { showCart }] = useCart()
- 
-   const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
- 
-   const cartIconAriaLabel = !!itemsQuantity ? `Cart with ${itemsQuantity} items.` : 'Cart is empty.'
- 
-   const handleSearchSubmit = React.useCallback(
-     (/** @type { string } */ query) => router.push(`/search?q=${query}`),
-     [router],
-   )
- 
-   const menuLinks = menu && menu.menuLinks
-   console.log(menu,menuLinks);
- 
-   return (
-     <Grid
-       as="header"
-       position={sticky ? 'sticky' : 'initial'}
-       top="0"
-      //  templateAreas={{ base: "'menu logo cart'", md: "'logo menu cart'" }}
-      //  templateColumns={{ base: '5rem 1fr 5rem', sm: '3rem 1fr 3rem', md: 'auto 1fr auto' }}
-      //  alignItems="center"
-      //  columnGap={{ base: 2, md: 10 }}
-      //  px={{ base: 4, md: 8 }}
-      //  py={4}
-      //  bg="brand.100"
-      //  w="100%"
-        zIndex="docked"
-     >
-      
-      <div className='container'>
-        <div className='header-main'>
-          <div className='header-left'>
-            <Container gridArea="logo" justifySelf={{ base: 'center', md: 'left' }} w={['20', '32']} className="logo-icon">
+import * as React from 'react'
+import { useRouter } from 'frontend-router'
+import { useCart } from 'frontend-checkout'
+import Link from 'Components/Link'
+import Badge from 'Components/Badge'
+import Container from 'Components/Container'
+import Grid from 'Components/Grid'
+import Logo from 'Components/Logo'
+import Menu from 'Components/Menu'
+import { useCustomerState } from 'frontend-customer'
+import IconButton from 'Components/IconButton'
+import HStack from 'Components/HStack'
+
+import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
+
+/**
+ * @typedef { import("lib/types").Media } Media
+ * @typedef { import("lib/types").Menu } MenuType
+ * @typedef {{
+ *  logoImage?: Media
+ *  menu?: MenuType
+ *  sticky?: boolean
+ * }} HeaderProps
+ *
+ * @param { HeaderProps } props
+ */
+const Header = ({ logoImage, menu, sticky }) => {
+  const { isLoggedIn } = useCustomerState()
+  const [{ items = [] }, { showCart }] = useCart()
+
+  const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
+
+  const cartIconAriaLabel = !!itemsQuantity ? `Cart with ${itemsQuantity} items.` : 'Cart is empty.'
+
+  const menuLinks = menu && menu.menuLinks
+
+  return (
+    <Grid as="header" position={sticky ? 'sticky' : 'initial'} top="0" zIndex="docked">
+      <div className="container">
+        <div className="header-main">
+          <div className="header-left">
+            <Container
+              gridArea="logo"
+              justifySelf={{ base: 'center', md: 'left' }}
+              w={['20', '32']}
+              className="logo-icon"
+            >
               <Logo image={logoImage} />
             </Container>
- 
+
             {menu ? (
               <Container gridArea="menu" className="nav-links">
-                <Menu
-                  links={menuLinks}
-                />
+                <Menu links={menuLinks} />
               </Container>
             ) : null}
-          
           </div>
-          <div className='header-right'>
+          <div className="header-right">
             <HStack gridArea="cart" justifySelf="right" spacing="4">
-              {/* <Container display={{ base: 'none', md: 'block' }}>
-                <SearchPopover onSearchSubmit={handleSearchSubmit} />
-              </Container> */}
-              <Link href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL} title="Price" aria-label="Price" className='usdIcon'>
+              <Link
+                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                title="Price"
+                aria-label="Price"
+                className="usdIcon"
+              >
                 <span>USD</span>
               </Link>
               <IconButton
@@ -152,8 +135,8 @@
           </div>
         </div>
       </div>
-     </Grid>
-   )
- }
- 
- export default Header
+    </Grid>
+  )
+}
+
+export default Header
