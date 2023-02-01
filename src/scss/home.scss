@@ -32,5 +32,33 @@
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         border: 1px solid $color-white;
         opacity: 0.5;
+        @include tablet {
+            right: 11px;
+        }
+    }
+}
+
+.cta-banner {
+    @include display-flex(flex);
+    @include align-item(center);
+    @include flex-wrap(wrap);
+    @include tablet {
+        padding: 24px;
+    }
+    img {
+        max-width: 1026px;
+        @include tablet {
+            width: 100%;
+        }
+    }
+    .cta-content {
+        margin-left: -68px;
+        padding-left: 41px;
+        max-width: 452px;
+        @include tablet {
+            width: 100%;
+            margin: -10px auto 0;
+            padding-left: 22px;
+        }
     }
 }

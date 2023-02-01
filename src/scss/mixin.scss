@@ -130,6 +130,10 @@
 @mixin box-design($box) {
   width: 345px;
   height: 1519px;
+  @include tablet {
+    width: 160px;
+    height: 609px;
+  }
 }
 
 /* ========== VW Functions ========== */
