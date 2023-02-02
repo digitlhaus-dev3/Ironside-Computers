@@ -160,10 +160,18 @@ address{
     @include flex-direction(column);
 }
 
-.text-left{ text-align: left; }
-.text-center{ text-align: center; }
-.text-right{ text-align: right; }
-  
+.align-left{ text-align: left; }
+.align-center{ text-align: center; }
+.align-right{ text-align: right; }
+.img-large {
+    max-width: 1025px;
+}
+.img-mid {
+    max-width: 709px;
+}
+.img-small {
+    max-width: 546px;
+}
 .padding-none{
     padding: 0 !important;
 }
@@ -319,10 +327,4 @@ button, .btn, a {
     &:focus {
         background: transparent !important;
     }
-}
-.align-left {
-    text-align: left;
-}
-.align-right {
-    text-align: right;
 }
