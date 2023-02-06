@@ -24,7 +24,7 @@ const Banner = ({imageSrc, videoSrc}) => {
           <Slider {...settings}>
               <Img src={imageSrc?.src} />
             
-              <Video autoPlay>
+              <Video autoPlay loop>
                 <source src={videoSrc?.src}/>
               </Video>
             
