@@ -11,142 +11,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
-* {
-  box-sizing: border-box !important;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  scroll-behavior: smooth;
-  font-family: "Inconsolata", monospace;
-}
-
-body {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
-  padding: 0;
-  font-weight: 400;
-  font-family: "Inconsolata", monospace;
-  color: #ffffff;
-}
-
-body h1, body .h1, body h2, body .h2, body h3, body .h3, body h4, body .h4, body h5, body .h5, body h6, body .h6 {
-  margin: 0 0 31px 0;
-  padding: 0;
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Arimo", sans-serif;
-  color: #ffffff;
-}
-body h1, body .h1 {
-  font-size: 40px;
-}
-@media screen and (min-width: 1280px) {
-  body h1, body .h1 {
-    font-size: get-vw(80px);
-  }
-}
-body h2, body .h2 {
-  font-size: 26px;
-  line-height: 26px;
-  margin-bottom: 15px;
-}
-@media screen and (max-width: 1279px) {
-  body h2, body .h2 {
-    font-size: 20px;
-    line-height: 20px;
-    margin-bottom: 11px;
-  }
-}
-body h3, body .h3 {
-  font-size: 32px;
-}
-@media screen and (min-width: 1280px) {
-  body h3, body .h3 {
-    font-size: get-vw(64px);
-  }
-}
-body h4, body .h4 {
-  font-size: 28px;
-}
-@media screen and (min-width: 1280px) {
-  body h4, body .h4 {
-    font-size: get-vw(56px);
-  }
-}
-body h5, body .h5 {
-  font-size: 18px;
-}
-@media screen and (min-width: 1280px) {
-  body h5, body .h5 {
-    font-size: get-vw(36px);
-  }
-}
-body h6, body .h6 {
-  font-size: 16px;
-}
-@media screen and (min-width: 1280px) {
-  body h6, body .h6 {
-    font-size: get-vw(32px);
-  }
-}
-body a {
-  outline: none;
-  text-decoration: none;
-}
-body p {
-  font-size: 16px;
-  line-height: 16px;
-  margin-bottom: 24px;
-  color: #ffffff;
-  font-family: "Inconsolata", monospace;
-}
-@media screen and (min-width: 1280px) {
-  body p {
-    line-height: get-vw(42px);
-    margin-bottom: get-vw(40px);
-  }
-}
-@media screen and (max-width: 1279px) {
-  body p {
-    font-size: 13px;
-    margin-bottom: 13px;
-  }
-}
-body p:focus-visible {
-  outline: none !important;
-}
-
-ul, ol {
-  margin-left: 30px;
-  margin-bottom: 30px;
-}
-@media screen and (min-width: 1280px) {
-  ul, ol {
-    margin-left: get-vw(60px);
-    margin-bottom: get-vw(60px);
-  }
-}
-
-img {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-address {
-  font-style: normal;
-  margin-bottom: 20px;
-}
-@media screen and (min-width: 1280px) {
-  address {
-    margin-bottom: get-vw(40px);
-  }
-}
-
-/* ========== COMMON CLASS ========== */
 .d-flex {
   display: -webkit-box;
   display: -moz-box;
@@ -253,6 +117,112 @@ address {
   text-transform: capitalize;
 }
 
+* {
+  box-sizing: border-box !important;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  font-family: "Inconsolata", monospace;
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  padding: 0;
+  font-weight: 400;
+  font-family: "Inconsolata", monospace;
+  color: #ffffff;
+}
+
+body h1, body .h1, body h2, body .h2, body h3, body .h3, body h4, body .h4, body h5, body .h5, body h6, body .h6 {
+  margin: 0 0 31px 0;
+  padding: 0;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Arimo", sans-serif;
+  color: #ffffff;
+}
+body h1, body .h1 {
+  font-size: 40px;
+  font-size: max(8rem,4.1666666667vw);
+}
+body h2, body .h2 {
+  font-size: 26px;
+  line-height: 26px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 1279px) {
+  body h2, body .h2 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 11px;
+  }
+}
+body h3, body .h3 {
+  font-size: max(6.4rem,3.3333333333vw);
+}
+body h4, body .h4 {
+  font-size: max(5.6rem,2.9166666667vw);
+}
+body h5, body .h5 {
+  font-size: max(3.6rem,1.875vw);
+}
+body h6, body .h6 {
+  font-size: max(3.2rem,1.6666666667vw);
+}
+body a {
+  outline: none;
+  text-decoration: none;
+}
+body p {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 24px;
+  color: #ffffff;
+  font-family: "Inconsolata", monospace;
+  line-height: max(4.2rem,2.1875vw);
+  margin-bottom: max(4rem,2.0833333333vw);
+}
+@media screen and (max-width: 1279px) {
+  body p {
+    font-size: 13px;
+    margin-bottom: 13px;
+  }
+}
+body p:focus-visible {
+  outline: none !important;
+}
+
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 30px;
+  margin-left: max(6rem,3.125vw);
+  margin-bottom: max(6rem,3.125vw);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: max(4rem,2.0833333333vw);
+}
+
+button, .btn, a {
+  box-shadow: none !important;
+}
+button:focus, .btn:focus, a:focus {
+  background: transparent !important;
+}
+
 button.btn[type=submit], .btn[type=submit] {
   all: unset;
   font-size: 16px;
@@ -315,7 +285,7 @@ input:-ms-input-placeholder.chakra-input {
   color: #FFFFFF;
 }
 
-/* Common box with bg for account pages. */
+/* Common Structure box with bg for account pages Scss Starts. */
 .absolute-heading {
   position: relative;
   width: 1030px;
@@ -365,6 +335,7 @@ input:-ms-input-placeholder.chakra-input {
   margin-right: 7px;
 }
 
+/* Common Structure box with bg for account pages Scss End. */
 .acc-or-signup {
   font-size: 15px;
   line-height: 15px;
@@ -387,13 +358,6 @@ input:-ms-input-placeholder.chakra-input {
   width: 14px;
   height: 11px;
   margin-left: 10px;
-}
-
-button, .btn, a {
-  box-shadow: none !important;
-}
-button:focus, .btn:focus, a:focus {
-  background: transparent !important;
 }
 
 .slick-track {
@@ -560,7 +524,7 @@ header .nav-links .css-r6z5ec {
 header .nav-links-btn,
 .mobile-menu .nav-links-btn {
   all: unset;
-  font-size: 13px;
+  font-size: max(1.4rem,1.3541666667vw);
   line-height: 13px;
   color: #ffffff;
   opacity: 0.8;
@@ -873,6 +837,13 @@ header .chakra-menu__menuitem .sub-menu-desc {
 
 #frontend-root {
   background-color: #000000;
+}
+
+.bg-box form {
+  padding: 90px;
+  margin: 0;
+  min-height: 664px;
+  min-width: 631px;
 }
 
 .bannerCarousel {

@@ -1,7 +1,10 @@
 // sass-lint:disable border-zero, quotes
 /* ========== media mixin ========== */
+// @use 'sass:math';
 
-@mixin vw {
+@use "sass:math";
+
+@mixin rem {
     @media screen and (min-width:1280px) {
         @content;
     }
@@ -156,12 +159,27 @@
 //   $vw-context: (1920*.01) * 1px;
 //   @return ($target/$vw-context) * 1vw;
 // }
-// @function get-rem($value) {
-//   @return ($value / 10) + rem;
+// @function get-remm($value) {
+//   @return ($value / 10px) * 1rem;
 // }
-// @function get-min($min,$max) {
-//   @return Min(#{get-rem($min)}, #{get-vw($max)});
+// // @function get-min($min,$max) {
+// //   @return Min(#{get-rem($min)}, #{get-vw($max)});
+// // }
+// @function pxToRem($pxValue) {
+//   @return math.div($pxValue, 10px) * 1rem;
 // }
+
 // @function get-rem($px,$vw) {
-//   @return Max(($px/10px) * 1rem,#{get-vw($vw)});
+//   @return Max(#{get-vw($px)} ,#{get-remm($vw)});
 // }
+
+@function get-vw-value($target) {
+  $vw-context: (1920*.01) * 1px;
+  @return math.div($target, $vw-context) * 1vw;
+}
+@function gett($pxx) {
+  @return calc($pxx/10px) * 1rem;
+}
+@function get-rem($px,$vw) {
+  @return Max(#{gett($px)},#{get-vw-value($vw)});
+}
