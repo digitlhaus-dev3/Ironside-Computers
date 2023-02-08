@@ -302,6 +302,7 @@ export function useNormalizedProduct(product) {
       const normalizedProduct = {
         id: bigCommerceProduct?.id,
         name: bigCommerceProduct?.name,
+        all_products: bigCommerceProduct?.all_products,
         slug: bigCommerceProduct?.url,
         description: bigCommerceProduct?.description,
         price: bigCommerceProduct?.price,

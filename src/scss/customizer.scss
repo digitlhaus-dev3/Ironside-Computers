@@ -1,0 +1,20 @@
+.customizer {
+  width: 100%;
+  .product-image {
+    width: 685px;
+    margin: 0;
+    padding-left: 156px;
+  }
+  .product-desc {
+    width: calc(100% - 685px);
+    margin: 0;
+    padding-right: 156px;
+    .product-description {
+      width: calc(100% - 128px);
+      padding: 0 15px;
+    }
+    .scrollable-desc {
+      width: 128px;
+    }
+  }
+}
