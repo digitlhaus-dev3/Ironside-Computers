@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import LinkTo from '@storybook/addon-links/react'
+
+import { shopifyCollection, bigCommerceCategory } from '../../lib/mocks/cmsCollections'
+import CustomizerProductGrid from '.'
+
+<Meta
+  title="Sections/CustomizerProductGrid"
+  component={CustomizerProductGrid}
+  argTypes={{
+    showTitle: {
+      control: 'boolean',
+    },
+  }}
+/>
+
+# ProductGrid
+
+The `CustomizerProductGrid` component displays a collection of products.
+
+## Usage
+
+`CustomizerProductGrid` accepts a collection. See a collection example on the <LinkTo kind="docs-models--page#collection-of-products">**Models page**</LinkTo>.
+
+## Props
+
+<ArgsTable of={CustomizerProductGrid} />
+
+## Examples
+
+### Default
+
+<Canvas>
+  <Story name="Default" args={{ showTitle: true }}>
+    {(args, context) => (
+      <CustomizerProductGrid
+        collection={
+          context.globals.platform.includes('shopify') ? shopifyCollection : bigCommerceCategory
+        }
+        productsPerPage={5}
+        {...args}
+      />
+    )}
+  </Story>
+</Canvas>
