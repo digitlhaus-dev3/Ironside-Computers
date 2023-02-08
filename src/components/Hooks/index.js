@@ -272,8 +272,8 @@ export function useNormalizedProduct(product) {
       // @ts-ignore
       const bigCommerceProduct = product
 
-      const variantOptions = bigCommerceProduct.options
-        ? bigCommerceProduct.options.map(option => ({
+      const variantOptions = bigCommerceProduct?.options
+        ? bigCommerceProduct?.options?.map(option => ({
             ...option,
             required: true,
           }))
@@ -281,16 +281,16 @@ export function useNormalizedProduct(product) {
 
       const modifierOptions = bigCommerceProduct.modifiers || []
 
-      const bigCommerceOptions = [...variantOptions, ...modifierOptions].map(
+      const bigCommerceOptions = [...variantOptions, ...modifierOptions]?.map(
         ({ optionValues, required = false, id, displayName }) => {
-          const defaultOption = optionValues.find(option => option.isDefault === true)
+          const defaultOption = optionValues?.find(option => option.isDefault === true)
 
           return {
             id: String(id),
             displayName,
             required,
             defaultValue: defaultOption && String(defaultOption.id),
-            optionValues: optionValues.map(({ label = '', id }) => ({
+            optionValues: optionValues?.map(({ label = '', id }) => ({
               text: label,
               value: String(id),
             })),
@@ -300,36 +300,36 @@ export function useNormalizedProduct(product) {
 
       /** @type { Product } */
       const normalizedProduct = {
-        id: bigCommerceProduct.id,
-        name: bigCommerceProduct.name,
-        slug: bigCommerceProduct.url,
-        description: bigCommerceProduct.description,
-        price: bigCommerceProduct.price,
-        media: bigCommerceProduct.images.map(({ _id, media }) => ({
+        id: bigCommerceProduct?.id,
+        name: bigCommerceProduct?.name,
+        slug: bigCommerceProduct?.url,
+        description: bigCommerceProduct?.description,
+        price: bigCommerceProduct?.price,
+        media: bigCommerceProduct?.images?.map(({ _id, media }) => ({
           id: _id,
           ...media,
         })),
-        variants: bigCommerceProduct.variants.map(({ id, price, sku, optionValues }) => ({
+        variants: bigCommerceProduct?.variants?.map(({ id, price, sku, optionValues }) => ({
           storefrontId: id,
           name: sku,
           price,
           sku,
           optionValues:
             optionValues &&
-            optionValues.map(({ id, label, optionId }) => ({
+            optionValues?.map(({ id, label, optionId }) => ({
               text: label,
               value: String(id),
               optionId: String(optionId),
             })),
         })),
         options: bigCommerceOptions,
-        inventoryTracking: bigCommerceProduct.inventoryTracking,
-        metaTitle: bigCommerceProduct.page_title,
-        metaDescription: bigCommerceProduct.meta_description,
-        searchResult: bigCommerceProduct._highlightResult
+        inventoryTracking: bigCommerceProduct?.inventoryTracking,
+        metaTitle: bigCommerceProduct?.page_title,
+        metaDescription: bigCommerceProduct?.meta_description,
+        searchResult: bigCommerceProduct?._highlightResult
           ? {
-              name: bigCommerceProduct._highlightResult.name,
-              description: bigCommerceProduct._highlightResult.description,
+              name: bigCommerceProduct?._highlightResult.name,
+              description: bigCommerceProduct?._highlightResult.description,
             }
           : undefined,
         _originalPlatform: 'big_commerce',
@@ -387,11 +387,11 @@ export function useNormalizedCollection(cmsCollection) {
 
     return {
       ...normalizedCollection,
-      name: bigCommerceCollection.name,
-      slug: `/${bigCommerceCollection.url}/`,
-      description: bigCommerceCollection.description,
-      image: bigCommerceCollection.image,
-      products: bigCommerceCollection.products,
+      name: bigCommerceCollection?.name,
+      slug: `/${bigCommerceCollection?.url}/`,
+      description: bigCommerceCollection?.description,
+      image: bigCommerceCollection?.image,
+      products: bigCommerceCollection?.products,
     }
   }
 
@@ -465,15 +465,15 @@ export function useNormalizedCheckoutProduct(checkoutProduct) {
 
     return {
       ...initialParams,
-      id: bigCommerceCheckoutProduct.id,
-      lineItemId: bigCommerceCheckoutProduct.lineItemId,
-      title: bigCommerceCheckoutProduct.name,
-      subtitle: bigCommerceCheckoutProduct.brand,
-      price: bigCommerceCheckoutProduct.listPrice,
-      quantity: bigCommerceCheckoutProduct.quantity,
-      variantId: bigCommerceCheckoutProduct.variantId,
-      imageUrl: bigCommerceCheckoutProduct.imageUrl,
-      modifiers: bigCommerceCheckoutProduct.optionSelections,
+      id: bigCommerceCheckoutProduct?.id,
+      lineItemId: bigCommerceCheckoutProduct?.lineItemId,
+      title: bigCommerceCheckoutProduct?.name,
+      subtitle: bigCommerceCheckoutProduct?.brand,
+      price: bigCommerceCheckoutProduct?.listPrice,
+      quantity: bigCommerceCheckoutProduct?.quantity,
+      variantId: bigCommerceCheckoutProduct?.variantId,
+      imageUrl: bigCommerceCheckoutProduct?.imageUrl,
+      modifiers: bigCommerceCheckoutProduct?.optionSelections,
     }
   }
 

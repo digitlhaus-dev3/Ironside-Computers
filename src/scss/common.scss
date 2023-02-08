@@ -13,6 +13,7 @@ html {
     -ms-text-size-adjust: 100%;
     scroll-behavior: smooth;
     font-family: $body-fonts;
+    font-size: 62.5%;
 }
 
 body {
@@ -25,154 +26,104 @@ body {
     color: $color-white;
 }
 body {
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
-    margin: 0 0 31px 0;
-    padding: 0;
-    font-weight: 600; 
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: $heading-fonts;
-}
-}
-h1, .h1{
-    font-size: 40px;
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+        margin: 0 0 31px 0;
+        padding: 0;
+        font-weight: 600; 
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: $heading-fonts;
+        color: $color-white;
+    }
+    h1, .h1{
+        font-size: 40px;
 
-    @include vw{
-        font-size: get-vw(80px);
+            font-size: get-rem(80px, 80px);
+    }
+    h2, .h2{
+        font-size: 26px;
+        line-height: 26px;
+        margin-bottom: 15px;
+        @include tablet {
+            font-size: 20px;
+            line-height: 20px;
+            margin-bottom: 11px;
+        }
+    }
+    h3, .h3 {
+        // font-size: 32px;
+        font-size: get-rem(64px, 64px);
+    }
+    h4, .h4 {
+        // font-size: 28px;
+        font-size: get-rem(56px, 56px);
+    }
+    h5, .h5 {
+        // font-size: 18px;
+        font-size: get-rem(36px, 36px);
+    }
+    h6, .h6 {
+        // font-size: 16px;
+        font-size: get-rem(32px, 32px);
+    }
+    
+    a {
+        outline: none;
+        text-decoration: none;
+        // color: $theme-link;
+        // &:hover, &:focus{
+        //     color: $theme-link-hover;
+        // }
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 24px;
+        color: $color-white;
+        font-family: $body-fonts;
+
+            line-height: get-rem(42px, 42px); margin-bottom: get-rem(40px, 40px);
+        // }
+        @include tablet {
+            font-size: 13px;
+            margin-bottom: 13px;
+        }
+
+        &:focus-visible{
+            outline: none !important;
+        }
     }
 }
-h2, .h2{
-    font-size: 40px;
-    margin-bottom: 31px;
-}
-h3, .h3{
-    font-size: 32px;
 
-    @include vw{
-        font-size: get-vw(64px);
-    }
-}
-h4, .h4{
-    font-size: 28px;
-
-    @include vw{
-        font-size: get-vw(56px);
-    }
-}
-h5, .h5{
-    font-size: 18px;
-
-    @include vw{
-        font-size: get-vw(36px);
-    }
-}
-h6, .h6{
-    font-size: 16px;
-
-    @include vw{
-        font-size: get-vw(32px);
-    }
-}
-  
-a{
-    outline: none; text-decoration: none;
-    // color: $theme-link;
-    // &:hover, &:focus{
-    //     color: $theme-link-hover;
+ul, ol {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    // @include vw {
+        margin-left: get-rem(60px, 60px);
+        margin-bottom: get-rem(60px, 60px);
     // }
 }
 
-p {
-    font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 16px;
-    color: $color-white;
-    font-family: $body-fonts;
-
-    @include vw{
-        line-height: get-vw(42px); margin-bottom: get-vw(40px);
-    }
-
-    &:focus-visible{
-        outline: none !important;
-    }
+img {
+    max-width: 100%;
+    vertical-align: middle;
 }
 
-ul, ol{ 
-    margin-left: 30px; margin-bottom: 30px; 
+address {
+    font-style: normal;
+    // margin-bottom: 20px;
+    margin-bottom: get-rem(40px, 40px);
+}
 
-    @include vw{
-        margin-left: get-vw(60px); margin-bottom: get-vw(60px);
+button, .btn, a {
+    box-shadow: none !important;
+    &:focus {
+        background: transparent !important;
     }
 }
 
-img{ max-width: 100%; vertical-align: middle; }
-
-address{
-    font-style: normal; margin-bottom: 20px;
-
-    @include vw{
-        margin-bottom: get-vw(40px);
-    }
-}
-
-/* ========== COMMON CLASS ========== */
-
-.d-flex{
-    @include display-flex(flex);
-}
-.align-v-center{
-    @include align-item(center);
-}
-.align-start{
-    @include align-item(flex-start);
-}
-.align-end{
-    @include align-item(flex-end);
-}
-.align-self-start{
-    @include align-self(flex-start);
-}
-.justify-center{
-    @include justify-content(center);
-}
-.justify-right{
-    @include justify-content(flex-end);
-}
-.justify-space{
-    @include justify-content(space-between);
-}
-.flex-wrap{
-    @include flex-wrap(wrap);
-}
-.flex-direction{
-    @include flex-direction(column);
-}
-
-.text-left{ text-align: left; }
-.text-center{ text-align: center; }
-.text-right{ text-align: right; }
-  
-.padding-none{
-    padding: 0 !important;
-}
-
-.margin-none{
-    margin: 0 !important;
-}
-
-.list-none {
-    list-style-type: none;
-    margin: 0;
-}
-
-.text-shadow {
-    color: $color-white;
-    @include text-shadow(text-shadow);
-    font-family: $heading-fonts;
-    text-transform: capitalize;
-}
-
+// Button Style
 button.btn, .btn{
     &[type="submit"] {
         all: unset;
@@ -200,6 +151,7 @@ button.btn, .btn{
     }
 }
 
+// Input Style
 input.chakra-input {
     all: unset;
     font-size: 16px;
@@ -234,7 +186,8 @@ input:-ms-input-placeholder.chakra-input {
     font-family: 'Inconsolata', monospace;
     color: #FFFFFF;
 }
-/* Common box with bg for account pages. */
+
+/* Common Structure box with bg for account pages Scss Starts. */
 .absolute-heading {
     position: relative;
     width: 1030px;
@@ -279,6 +232,7 @@ input:-ms-input-placeholder.chakra-input {
     height: 17px;
     margin-right: 7px;
 }
+/* Common Structure box with bg for account pages Scss End. */
 
 .acc-or-signup {
     font-size: 15px;
@@ -302,7 +256,4 @@ input:-ms-input-placeholder.chakra-input {
         margin-left: 10px;
       }
     }
-}
-button, .btn, a {
-    box-shadow: none !important;
 }
