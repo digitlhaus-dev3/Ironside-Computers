@@ -47,7 +47,6 @@ import {
   formatMoney,
   uniqueId,
 } from 'Components/Utils'
-import { shopifyCollection } from '../../lib/mocks/cmsCollections'
 
 /**
  * @typedef { import("lib/types").ProductMediaItem } ProductMediaItem
@@ -145,9 +144,6 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct }) => {
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <CustomizerProductGrid collection={shopifyCollection} productsPerPage={5} />
-          </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>

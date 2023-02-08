@@ -34,6 +34,7 @@ import Menu from 'Components/Menu'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
+import { Image } from '@chakra-ui/react'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 
@@ -88,7 +89,7 @@ const Header = ({ logoImage, menu, sticky }) => {
               >
                 <span>USD</span>
               </Link>
-              <IconButton
+              <Link
                 variant="iconWrapper"
                 aria-live="assertive"
                 aria-label={cartIconAriaLabel}
@@ -111,25 +112,17 @@ const Header = ({ logoImage, menu, sticky }) => {
                 aria-label="Navigate to my account"
                 className="account"
               >
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label="Navigate to my account"
-                  size={8}
-                  icon={<img src={'https://i.ibb.co/Js4k8hR/user.png'} />}
-                />
+                <Image src='https://i.ibb.co/Js4k8hR/user.png' />
               </Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Volume"
                 aria-label="controll volume"
+                className="volume"
               >
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label="Controll Volume"
-                  size={8}
-                  className="volume"
-                  icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
-                />
+                <Image
+                  src='https://i.ibb.co/9G7smt6/volume.png' />
+                
               </Link>
             </HStack>
           </div>

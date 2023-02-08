@@ -10,11 +10,11 @@ const BlockQuote = ({quoteBody,quoteHeading,alignQuote}) => {
   
    return (
     <>
-    <div className={alignQuote}>
       <div className='block-quote'>
-        <h2 className='text-shadow'>{quoteHeading}</h2>
-        <p>{quoteBody}</p>
-      </div>
+        <div className={alignQuote}>
+          <h2 className='text-shadow'>{quoteHeading}</h2>
+          <p>{quoteBody}</p>
+        </div>
       </div>
     </>
   )

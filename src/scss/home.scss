@@ -3,12 +3,16 @@
 
 .bannerCarousel {
     width: 100%;
+    position: relative;
     img {
         width: 100%;
     }
     video {
         width: 100%;
         object-fit: cover;
+    }
+    &.box-shadow:after {
+        margin-top: -176px;
     }
 }
 .section2 {
@@ -21,28 +25,23 @@
 .block-quote {
     max-width: 644px;
     width: 100%;
-    padding: 173px 0 0 0;
+    // padding: 173px 0 0 0;
     position: relative;
+    margin-top: 290px;
+    margin-left: auto;
+    margin-right: 443px;
+    margin-bottom: 233px;
     @include tablet {
         padding: 173px 30px 0;
     }
-    &:after {
-        content: "";
-        @include box-design(box);
-        position: absolute;
-        top: 0;
-        right: -416px;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        border: 1px solid $color-white;
-        opacity: 0.2;
-        @include tablet {
-            right: 11px;
-        }
+    p {
+        margin: 0;
     }
 }
 
 .cta-banner {
     z-index: 1;
+    margin-bottom: 121px;
     @include tablet {
         padding: 24px;
     }
@@ -60,12 +59,38 @@
             padding-left: 22px;
         }
     }
+    &.content-left {
+        @include justify-content(flex-start);
+    }
+    &.content-right {
+        @include justify-content(flex-end);
+    }
+    .content-top {
+        margin-top: 61px;
+        margin-bottom: auto;
+    }
+    .content-bottom {
+        margin-bottom: 61px;
+        margin-top: auto;
+    }
+    .large-img {
+        max-width: 1020px;
+        width: 100%;
+    }
+    .mid-img {
+        max-width: 543px;
+        width: 100%;
+    }
+    .small-img {
+        max-width: 705px;
+        width: 100%;
+    }
 }
 .cta-content {
     padding-left: 41px;
     max-width: 452px;
-    margin-bottom: 61px;
-    margin-top: auto;
+    // margin-bottom: 61px;
+    // margin-top: auto;
     z-index: 1;
     @include tablet {
         width: 100%;

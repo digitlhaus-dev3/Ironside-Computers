@@ -19,14 +19,14 @@ const Banner = ({imageSrc, videoSrc}) => {
   }
   return (
     <>
-      <div className="bannerCarousel">
+      <div className="bannerCarousel box-shadow">
         <div className="list-none">
           <Slider {...settings}>
               <Img src={imageSrc?.src} />
             
-              <Video autoPlay loop>
+              {/* <Video autoPlay loop>
                 <source src={videoSrc?.src}/>
-              </Video>
+              </Video> */}
             
           </Slider>
         </div>

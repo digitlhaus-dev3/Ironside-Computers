@@ -8,7 +8,7 @@ const CtaBanner = ({bannerImage, bannerHeading, bannerBody}) => {
         <div className='cta-image'>
           <img className='img-large' src={bannerImage?.src} />
         </div>
-        <div className='cta-content'>
+        <div className='cta-content content-top'>
           <h2 className='cta-heading'>
             {bannerHeading}
           </h2>

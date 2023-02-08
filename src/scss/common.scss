@@ -21,7 +21,6 @@ body {
     -moz-osx-font-smoothing: auto;
     padding: 0;
     font-weight: 400;
-    // font-size: get-vw-value(13px) get-vw-value(28px);
     font-family: $body-fonts;
     color: $color-white;
 }
@@ -37,8 +36,6 @@ body {
     }
     h1, .h1{
         font-size: 40px;
-
-            font-size: get-rem(80px, 80px);
     }
     h2, .h2{
         font-size: 26px;
@@ -51,20 +48,16 @@ body {
         }
     }
     h3, .h3 {
-        // font-size: 32px;
-        font-size: get-rem(64px, 64px);
+        font-size: 32px;
     }
     h4, .h4 {
-        // font-size: 28px;
-        font-size: get-rem(56px, 56px);
+        font-size: 28px;
     }
     h5, .h5 {
-        // font-size: 18px;
-        font-size: get-rem(36px, 36px);
+        font-size: 18px;
     }
     h6, .h6 {
-        // font-size: 16px;
-        font-size: get-rem(32px, 32px);
+        font-size: 16px;
     }
     
     a {
@@ -83,8 +76,6 @@ body {
         color: $color-white;
         font-family: $body-fonts;
 
-            line-height: get-rem(42px, 42px); margin-bottom: get-rem(40px, 40px);
-        // }
         @include tablet {
             font-size: 13px;
             margin-bottom: 13px;
@@ -95,14 +86,18 @@ body {
         }
     }
 }
+.body {
+    width: 100%;
+}
+body .container {
+    max-width: 1920px;
+    margin: auto;
+    width: 100%;
+}
 
 ul, ol {
     margin-left: 30px;
     margin-bottom: 30px;
-    // @include vw {
-        margin-left: get-rem(60px, 60px);
-        margin-bottom: get-rem(60px, 60px);
-    // }
 }
 
 img {
@@ -112,8 +107,7 @@ img {
 
 address {
     font-style: normal;
-    // margin-bottom: 20px;
-    margin-bottom: get-rem(40px, 40px);
+    margin-bottom: 20px;
 }
 
 button, .btn, a {
@@ -255,5 +249,29 @@ input:-ms-input-placeholder.chakra-input {
         height: 11px;
         margin-left: 10px;
       }
+    }
+}
+
+.box-shadow {
+    &:after {
+        content: "";
+        // @include box-design(box);
+        position: absolute;
+        top: 100%;
+        right: 71px;
+        // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        // border: 1px solid $color-white;
+        opacity: 0.2;
+        border-width: 1px;
+        border-style: solid;
+        border-image: 
+        linear-gradient(to bottom,white 41%,rgba(0, 0, 0, 0)) 1;
+        width: 345px;
+        height: 1519px;
+        z-index: 1;
+        @include tablet {
+            width: 160px;
+            height: 609px;
+        }
     }
 }
