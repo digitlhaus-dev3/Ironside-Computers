@@ -26,8 +26,9 @@ import * as React from 'react'
 import Container from 'Components/Container'
 import Divider from 'Components/Divider'
 import Flex from 'Components/Flex'
-import Logo from 'Components/Logo'
 import Text from 'Components/Text'
+import Link from 'Components/Link'
+import IconButton from 'Components/IconButton'
 
 /**
  * @typedef { import("lib/types").Media } Media
@@ -37,117 +38,56 @@ import Text from 'Components/Text'
  *
  * @param { FooterProps } props
  */
-const Footer = ({ logoImage }) => (
-  <Flex
-    as="footer"
-    role="contentinfo"
-    align="center"
-    flexDir="column"
-    w="100%"
-    mt={8}
-    p={8}
-    bg="brand.100"
-  >
+const Footer = ({ footer }) => {
+  console.log(footer)
+  return (
     <Flex
-      alignSelf="flex-start"
-      direction={{ base: 'column', md: 'row' }}
-      align={{ base: 'flex-start', md: 'center' }}
+      as="footer"
+      role="contentinfo"
+      align="center"
+      flexDir="column"
+      w="100%"
+      mt={8}
+      p={8}
+      bg="#000000"
     >
-      <Container w={{ base: '24', md: '32' }}>
-        <Logo image={logoImage} />
-      </Container>
-      {/* <Container
-        px={{ base: '0', md: '14' }}
-        py={{ base: '4', md: '0' }}
-        color="gray.600"
-        fontSize="sm"
+      <Flex
+        alignSelf="flex-start"
+        direction={{ base: 'column', md: 'row' }}
+        align={{ base: 'flex-end', md: 'center' }}
       >
-        <Link
-          href="https://www.facebook.com/IronsideComputers/"
-          title="Navigate to Facebook"
-          aria-label="Navigate to Facebook"
+        <Container
+          px={{ base: '0', md: '14' }}
+          py={{ base: '4', md: '0' }}
+          color="gray.600"
+          fontSize="sm"
         >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to Facebook"
-            size={8}
-            icon={<Facebook />}
-          />
-        </Link>
-        <Link
-          href="https://twitter.com/IronsidePC/"
-          title="Navigate to Twitter"
-          aria-label="Navigate to Twitter"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to Twitter"
-            size={8}
-            icon={<Twitter />}
-          />
-        </Link>
-        <Link
-          href="https://instagram.com/ironsidecomputers"
-          title="Navigate to Instagram"
-          aria-label="Navigate to Instagram"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to Instagram"
-            size={8}
-            icon={<Instagram />}
-          />
-        </Link>
-        <Link
-          href="https://www.youtube.com/ironsidecomputers"
-          title="Navigate to Youtube"
-          aria-label="Navigate to Youtube"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to Youtube"
-            size={8}
-            icon={<YouTube />}
-          />
-        </Link>
-        <Link
-          href="https://www.twitch.tv/ironsidepc"
-          title="Navigate to Twitch"
-          aria-label="Navigate to Twitch"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to Twitch"
-            size={8}
-            icon={<Twitch />}
-          />
-        </Link>
-        <Link
-          href="https://www.tiktok.com/@ironsidecomputers "
-          title="Navigate to TikTok"
-          aria-label="Navigate to TikTok"
-        >
-          <IconButton
-            variant="iconWrapper"
-            aria-label="Navigate to TikTok"
-            size={8}
-            icon={<TikTok />}
-          />
-        </Link>
-      </Container> */}
+          {footer?.footer?.map(item => {
+            return (
+              <Link href={item?.footerLink} title={item?.name} aria-label={item?.name}>
+                <IconButton
+                  variant="iconWrapper"
+                  aria-label={item?.name}
+                  size={8}
+                  icon={<img src={item?.footerImage?.src} />}
+                />
+              </Link>
+            )
+          })}
+        </Container>
+      </Flex>
+
+      <Divider my="8" />
+
+      <Flex direction={{ base: 'column', md: 'row' }} align="center">
+        <Text color="gray.600" fontSize="sm">
+          &copy; 2022 Ironside Computers&nbsp;-&nbsp;
+        </Text>
+        <Text color="gray.600" fontSize="sm">
+          Contact Us.
+        </Text>
+      </Flex>
     </Flex>
-
-    <Divider my="8" />
-
-    <Flex direction={{ base: 'column', md: 'row' }} align="center">
-      <Text color="gray.600" fontSize="sm">
-        &copy; 2022 Ironside Computers&nbsp;-&nbsp;
-      </Text>
-      <Text color="gray.600" fontSize="sm">
-        Contact Us.
-      </Text>
-    </Flex>
-  </Flex>
-)
-
+  )
+}
 export default Footer
