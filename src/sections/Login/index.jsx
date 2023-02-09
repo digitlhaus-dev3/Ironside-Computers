@@ -28,7 +28,6 @@ import LoginForm from 'Components/LoginForm'
 import Heading from 'Components/Heading'
 import AuthGuard from 'Components/AuthGuard'
 import { ACCOUNT_URL } from 'Components/Data'
-import './styles.css'
 
 /**
  * @typedef {{
