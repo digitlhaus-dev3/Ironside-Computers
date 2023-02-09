@@ -56,7 +56,7 @@ const Header = ({ logoImage, menu, sticky }) => {
   const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
 
   const cartIconAriaLabel = !!itemsQuantity ? `Cart with ${itemsQuantity} items.` : 'Cart is empty.'
- 
+
   const menuLinks = menu && menu.menuLinks
 
   return (
@@ -89,28 +89,19 @@ const Header = ({ logoImage, menu, sticky }) => {
               >
                 <span>USD</span>
               </Link>
-              <Link
-                onClick={showCart}
-                aria-label={cartIconAriaLabel}
-                className="cart">
-                <Image src={'https://i.ibb.co/M22xzmy/cart.png'} />
-              </Link>
+              <Link onClick={showCart} aria-label={cartIconAriaLabel} className="cart"></Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Navigate to account"
                 aria-label="Navigate to my account"
                 className="account"
-              >
-                <Image src='https://i.ibb.co/Js4k8hR/user.png' 
-                  aria-label="Navigate to my account"/>
-              </Link>
+              ></Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Volume"
                 aria-label="controll volume"
-              >
-                <Image className="volume" src='https://i.ibb.co/9G7smt6/volume.png' />
-              </Link>
+                className="volume"
+              ></Link>
             </HStack>
           </div>
         </div>

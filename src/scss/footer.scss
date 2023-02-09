@@ -1,5 +1,30 @@
 .footer {
-    div {
-        justify-content: center;
-    }
+  margin-bottom: 32px;
+  div {
+    justify-content: center;
+  }
+}
+.footerIcons {
+  @include display-flex(flex);
+  @include justify-content(center);
+  @include align-item(center);
+  [aria-label='Twitter'] {
+    width: 29px;
+    height: 29px;
+  }
+  a {
+    margin: 0 12px;
+  }
+}
+.footerText {
+  @include display-flex(flex);
+  @include justify-content(center);
+  @include align-item(center);
+  margin-top: 20px;
+  p {
+    font-size: 12px;
+    line-height: 12px;
+    color: #737373;
+    margin: 0;
+  }
 }

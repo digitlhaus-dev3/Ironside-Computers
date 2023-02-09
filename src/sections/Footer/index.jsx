@@ -23,12 +23,8 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import * as React from 'react'
-import Container from 'Components/Container'
-import Divider from 'Components/Divider'
 import Flex from 'Components/Flex'
-import Text from 'Components/Text'
 import Link from 'Components/Link'
-import IconButton from 'Components/IconButton'
 import Image from 'Components/Image'
 
 /**
@@ -40,39 +36,25 @@ import Image from 'Components/Image'
  * @param { FooterProps } props
  */
 const Footer = ({ footer }) => {
-  console.log(footer)
   return (
-    <Flex
-      as="footer"
-      role="contentinfo"
-      w="100%"
-      className="footer"
-    >
-      <div className='container'>
-        <Flex
-          alignSelf="center"
-          direction={{ base: 'column', md: 'row' }}
-          align={{ base: 'center', md: 'center' }}
-        >
+    <Flex as="footer" role="contentinfo" w="100%" className="footer">
+      <div className="container">
+        <div className="footerIcons">
           {footer?.footer?.map(item => {
             return (
               <Link href={item?.footerLink} title={item?.name} aria-label={item?.name}>
-                <Image src={item?.footerImage?.src} alt={item?.name}/>
+                <Image src={item?.footerImage?.src} alt={item?.name} />
               </Link>
             )
           })}
-        </Flex>
+        </div>
 
-        <Divider my="8" />
-
-        <Flex direction={{ base: 'column', md: 'row' }} align="center">
-          <Text color="gray.600" fontSize="sm">
-            &copy; 2022 Ironside Computers&nbsp;-&nbsp;
-          </Text>
-          <Text color="gray.600" fontSize="sm">
-            Contact Us.
-          </Text>
-        </Flex>
+        <div className="footerText">
+          <p>&copy; 2022 Ironside Computers&nbsp;-&nbsp;</p>
+          <p>
+            <a href="#">Contact Us.</a>
+          </p>
+        </div>
       </div>
     </Flex>
   )

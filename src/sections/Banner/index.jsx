@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const Banner = ({imageSrc, videoSrc}) => {
+const Banner = ({ imageSrc, videoSrc }) => {
   var settings = {
     dots: true,
     arrows: false,
@@ -14,20 +14,19 @@ const Banner = ({imageSrc, videoSrc}) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay:true,
-    autoplaySpeed:5000
+    autoplay: true,
+    autoplaySpeed: 5000,
   }
   return (
     <>
       <div className="bannerCarousel box-shadow">
         <div className="list-none">
           <Slider {...settings}>
-              <Img src={imageSrc?.src} />
-            
-              {/* <Video autoPlay loop>
-                <source src={videoSrc?.src}/>
-              </Video> */}
-            
+            <Img src={imageSrc?.src} />
+
+            <Video autoPlay loop>
+              <source src={videoSrc?.src} />
+            </Video>
           </Slider>
         </div>
       </div>

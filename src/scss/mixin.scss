@@ -130,11 +130,27 @@
 }
 
 
-@mixin box-design($box) {
-  width: 345px;
-  height: 1519px;
-  @include tablet {
-    width: 160px;
-    height: 609px;
+@mixin box-shadow($box-shadow) {
+  &:after {
+    content: "";
+    // @include box-design(box);
+    position: absolute;
+    top: 100%;
+    right: 71px;
+    // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    // border: 1px solid $color-white;
+    opacity: 0.2;
+    border-width: 1px;
+    border-style: solid;
+    border-image:
+      linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
+    width: 345px;
+    height: 1519px;
+    z-index: 1;
+
+    @include tablet {
+      width: 160px;
+      height: 609px;
+    }
   }
 }
