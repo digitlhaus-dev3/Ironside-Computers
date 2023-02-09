@@ -34,6 +34,7 @@ import Menu from 'Components/Menu'
 import { useCustomerState } from 'frontend-customer'
 import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
+import Image from 'Components/Image'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 
@@ -88,48 +89,27 @@ const Header = ({ logoImage, menu, sticky }) => {
               >
                 <span>USD</span>
               </Link>
-              <IconButton
-                variant="iconWrapper"
-                aria-live="assertive"
-                aria-label={cartIconAriaLabel}
+              <Link
                 onClick={showCart}
-                size={8}
-                className="cart"
-                icon={
-                  itemsQuantity ? (
-                    <Badge badgeContent={itemsQuantity} variant="cart">
-                      {<img src={'https://i.ibb.co/M22xzmy/cart.png'} />}
-                    </Badge>
-                  ) : (
-                    <img src={'https://i.ibb.co/M22xzmy/cart.png'} />
-                  )
-                }
-              />
+                aria-label={cartIconAriaLabel}
+                className="cart">
+                <Image src={'https://i.ibb.co/M22xzmy/cart.png'} />
+              </Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Navigate to account"
                 aria-label="Navigate to my account"
                 className="account"
               >
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label="Navigate to my account"
-                  size={8}
-                  icon={<img src={'https://i.ibb.co/Js4k8hR/user.png'} />}
-                />
+                <Image src='https://i.ibb.co/Js4k8hR/user.png' 
+                  aria-label="Navigate to my account"/>
               </Link>
               <Link
                 href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Volume"
                 aria-label="controll volume"
               >
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label="Controll Volume"
-                  size={8}
-                  className="volume"
-                  icon={<img src={'https://i.ibb.co/9G7smt6/volume.png'} />}
-                />
+                <Image className="volume" src='https://i.ibb.co/9G7smt6/volume.png' />
               </Link>
             </HStack>
           </div>

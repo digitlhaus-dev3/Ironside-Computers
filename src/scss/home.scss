@@ -42,6 +42,7 @@
 .cta-banner {
     z-index: 1;
     margin-bottom: 121px;
+    width: 100%;
     @include tablet {
         padding: 24px;
     }
@@ -49,6 +50,9 @@
         @include tablet {
             width: 100%;
         }
+    }
+    > div {
+        @include display-flex(flex);
     }
     .cta-content {
         margin-left: -68px;
@@ -59,11 +63,20 @@
             padding-left: 22px;
         }
     }
-    &.content-left {
+    .content-left {
         @include justify-content(flex-start);
+        .cta-content {
+            text-align: left;
+        }
     }
-    &.content-right {
+    .content-right {
         @include justify-content(flex-end);
+        .cta-image {
+            order: 1;
+        }
+        .cta-content {
+            text-align: right;
+        }
     }
     .content-top {
         margin-top: 61px;
@@ -84,6 +97,97 @@
     .small-img {
         max-width: 705px;
         width: 100%;
+    }
+    &.layout-1 {
+        justify-content: flex-start;
+        .large-img {
+            max-width: 1020px;
+            width: 100%;
+        }
+        .content-bottom {
+            margin-bottom: 61px;
+            margin-top: auto;
+        }
+        .content-left {
+            @include justify-content(flex-start);
+            .cta-content {
+                text-align: left;
+            }
+        }
+    }
+    &.layout-2 {
+        justify-content: flex-start;
+        .small-img {
+            max-width: 705px;
+            width: 100%;
+        }
+        .content-top {
+            margin-top: 61px;
+            margin-bottom: auto;
+        }
+        .content-left {
+            @include justify-content(flex-start);
+            .cta-content {
+                text-align: left;
+            }
+        }
+    }
+    &.layout-3 {
+        justify-content: flex-end;
+        .mid-img {
+            max-width: 543px;
+            width: 100%;
+        }
+        .content-bottom {
+            margin-bottom: 61px;
+            margin-top: auto;
+        }
+        .content-right {
+            @include justify-content(flex-end);
+            .cta-image {
+                order: 1;
+            }
+            .cta-content {
+                text-align: right;
+            }
+        }
+    }
+    &.layout-4 {
+        justify-content: flex-end;
+        .small-img {
+            max-width: 705px;
+            width: 100%;
+        }
+        .content-top {
+            margin-top: 61px;
+            margin-bottom: auto;
+        }
+        .content-right {
+            @include justify-content(flex-end);
+            .cta-image {
+                order: 1;
+            }
+            .cta-content {
+                text-align: right;
+            }
+        }
+    }
+    &.layout-5 {
+        justify-content: flex-start;
+        .small-img {
+            max-width: 705px;
+            width: 100%;
+        }
+        .content-bottom {
+            margin-bottom: 61px;
+            margin-top: auto;
+        }
+        .content-left {
+            @include justify-content(flex-start);
+            .cta-content {
+                text-align: left;
+            }
+        }
     }
 }
 .cta-content {

@@ -29,6 +29,7 @@ import Flex from 'Components/Flex'
 import Text from 'Components/Text'
 import Link from 'Components/Link'
 import IconButton from 'Components/IconButton'
+import Image from 'Components/Image'
 
 /**
  * @typedef { import("lib/types").Media } Media
@@ -44,49 +45,35 @@ const Footer = ({ footer }) => {
     <Flex
       as="footer"
       role="contentinfo"
-      align="center"
-      flexDir="column"
       w="100%"
-      mt={8}
-      p={8}
-      bg="#000000"
+      className="footer"
     >
-      <Flex
-        alignSelf="flex-start"
-        direction={{ base: 'column', md: 'row' }}
-        align={{ base: 'flex-end', md: 'center' }}
-      >
-        <Container
-          px={{ base: '0', md: '14' }}
-          py={{ base: '4', md: '0' }}
-          color="gray.600"
-          fontSize="sm"
+      <div className='container'>
+        <Flex
+          alignSelf="center"
+          direction={{ base: 'column', md: 'row' }}
+          align={{ base: 'center', md: 'center' }}
         >
           {footer?.footer?.map(item => {
             return (
               <Link href={item?.footerLink} title={item?.name} aria-label={item?.name}>
-                <IconButton
-                  variant="iconWrapper"
-                  aria-label={item?.name}
-                  size={8}
-                  icon={<img src={item?.footerImage?.src} />}
-                />
+                <Image src={item?.footerImage?.src} alt={item?.name}/>
               </Link>
             )
           })}
-        </Container>
-      </Flex>
+        </Flex>
 
-      <Divider my="8" />
+        <Divider my="8" />
 
-      <Flex direction={{ base: 'column', md: 'row' }} align="center">
-        <Text color="gray.600" fontSize="sm">
-          &copy; 2022 Ironside Computers&nbsp;-&nbsp;
-        </Text>
-        <Text color="gray.600" fontSize="sm">
-          Contact Us.
-        </Text>
-      </Flex>
+        <Flex direction={{ base: 'column', md: 'row' }} align="center">
+          <Text color="gray.600" fontSize="sm">
+            &copy; 2022 Ironside Computers&nbsp;-&nbsp;
+          </Text>
+          <Text color="gray.600" fontSize="sm">
+            Contact Us.
+          </Text>
+        </Flex>
+      </div>
     </Flex>
   )
 }
