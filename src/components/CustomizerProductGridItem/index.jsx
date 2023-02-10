@@ -113,7 +113,6 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct }) => {
   }, [name, highlightName])
   const { isOpen, onOpen, onClose } = useDisclosure()
   const onSelection = e => {
-    console.log('IMAGE ==> ', displayName)
     onOpen()
   }
 

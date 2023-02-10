@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 function ProductSlider({ sliderData }) {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const settings = {
     dots: true,
     infinite: true,
@@ -13,7 +12,6 @@ function ProductSlider({ sliderData }) {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    afterChange: current => setCurrentSlide(current),
     responsive: [
       {
         breakpoint: 1024,
@@ -44,11 +42,11 @@ function ProductSlider({ sliderData }) {
 
   return (
     <div>
-      <h2>Current Slide: {currentSlide}</h2>
       <Slider {...settings}>
-        {sliderData?.productSlider?.map(item => {
+        {sliderData?.productSlider?.map((item) => {
           return (
             <SliderCard
+              key={item._id}
               backgroundImage={item.backgroundImage.src}
               title={item.title}
               description={item.description[0].text}

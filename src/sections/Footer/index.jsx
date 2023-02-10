@@ -40,9 +40,9 @@ const Footer = ({ footer }) => {
     <Flex as="footer" role="contentinfo" w="100%" className="footer">
       <div className="container">
         <div className="footerIcons">
-          {footer?.footer?.map(item => {
+          {footer?.footer?.map((item,index) => {
             return (
-              <Link href={item?.footerLink} title={item?.name} aria-label={item?.name}>
+              <Link key={index} href={item?.footerLink} title={item?.name} aria-label={item?.name}>
                 <Image src={item?.footerImage?.src} alt={item?.name} />
               </Link>
             )

@@ -77,6 +77,10 @@ const ProductGrid = ({ collection, productsPerPage, showTitle }) => {
   const handlePageChange = (/** @type {number} */ page) => {
     push({ pathname, query: { page: page.toString() } }, undefined, { shallow: true })
   }
+  if (products[0]?.customFields?.length)
+    products.sort((a, b) => {
+      return a?.customFields[0]?.value - b?.customFields[0]?.value
+    })
 
   return (
     <Container mx="auto" as="section" variant="section-wrapper" mt={8}>

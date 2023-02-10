@@ -180,7 +180,6 @@
        ...chakraMenuProps
      } = props
      const maxIndex = subMenuLinks.length - 1
-     console.log('backgroundImage',backgroundImage);
      const firstRender = useIsFirstRender()
  
      const styles = useMultiStyleConfig('Menu', chakraMenuProps)
