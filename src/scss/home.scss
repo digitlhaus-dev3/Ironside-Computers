@@ -270,7 +270,7 @@ body .container + .container.boxes .boxess {
 }
 .productSlider {
   width: 100%;
-  margin-left: auto;
+  margin-left: 91px;
   margin-right: 262px;
   max-width: 1244px;
   padding-top: 89px;
@@ -367,4 +367,14 @@ body .container + .container.boxes .boxess {
       display: inline-flex;
     }
   }
+}
+
+.limitedEdition {
+  .cta-content {
+
+  }
+}
+.sliderSection {
+  @include display-flex(flex);
+  
 }

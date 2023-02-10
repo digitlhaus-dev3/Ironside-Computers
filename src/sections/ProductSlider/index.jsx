@@ -4,7 +4,8 @@ import SliderCard from 'Components/SliderCard'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-function ProductSlider({ sliderData }) {
+function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -43,24 +44,34 @@ function ProductSlider({ sliderData }) {
   }
 
   return (
-    <div className="productSlider">
-      <Slider {...settings}>
-        {sliderData?.productSlider?.map(item => {
-          return (
-            <SliderCard
-              key={item._id}
-              backgroundImage={item.backgroundImage.src}
-              title={item.title}
-              description={item.description}
-              price={item.price}
-              link={item.link}
-              imgSrc={item.imgSrc?.src}
-              altText={item.altText}
-              tittleColor={item.tittleColor}
-            />
-          )
-        })}
-      </Slider>
+    <div className='sliderSection'>
+      <div className="limitedEdition">
+        <div className="cta-content">
+          <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
+          <p>
+            <a href={bannerLink ? '#' : bannerLink}>'Learn More'</a>
+          </p>
+        </div>
+      </div>
+      <div className="productSlider">
+        <Slider {...settings}>
+          {sliderData?.productSlider?.map(item => {
+            return (
+              <SliderCard
+                key={item._id}
+                backgroundImage={item.backgroundImage.src}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                link={item.link}
+                imgSrc={item.imgSrc?.src}
+                altText={item.altText}
+                tittleColor={item.tittleColor}
+              />
+            )
+          })}
+        </Slider>
+      </div>
     </div>
   )
 }
