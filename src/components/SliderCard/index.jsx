@@ -10,12 +10,12 @@ const SliderCard = ({
   link,
   imgSrc,
   altText,
-  tittleColor,
+  titleColor,
 }) => {
   return (
     <div style={{ backgroundImage: `url(${backgroundImage})` }} className="product-card">
       <div className="product-content">
-        <h3 style={{ color: tittleColor }}>{title}</h3>
+        <h3 style={{ color: titleColor }}>{title}</h3>
         <p>{description}</p>
         <div className="productCardImage">
           <p>starts at ${price}</p>
