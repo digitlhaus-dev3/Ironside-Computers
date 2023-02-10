@@ -2,7 +2,7 @@ import React from 'react'
 import Container from 'Components/Container'
 import Heading from 'Components/Heading'
 
-const SliderCard = (backgroundImage, title, description, price, link, imgSrc, altText) => {
+const SliderCard = ({backgroundImage, title, description, price, link, imgSrc, altText}) => {
   return (
     <div style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Container>
@@ -13,7 +13,7 @@ const SliderCard = (backgroundImage, title, description, price, link, imgSrc, al
           <p>{description}</p>
           <p>starts at ${price}</p>
           <a href={link ? link : '#'}>Learn More-{'>'}</a>
-          <img src={imgSrc.src} alt={altText} />
+          <img src={imgSrc} alt={altText} />
         </div>
       </Container>
     </div>

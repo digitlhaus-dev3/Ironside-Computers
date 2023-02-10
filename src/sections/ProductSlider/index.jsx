@@ -4,7 +4,7 @@ import SliderCard from 'Components/SliderCard'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-function ProductSlider(sliderData) {
+function ProductSlider({ sliderData }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const settings = {
     dots: true,
@@ -46,15 +46,15 @@ function ProductSlider(sliderData) {
     <div>
       <h2>Current Slide: {currentSlide}</h2>
       <Slider {...settings}>
-        {sliderData.map(item => {
+        {sliderData?.productSlider?.map(item => {
           return (
             <SliderCard
-              backgroundImage={item.backgroundImage}
+              backgroundImage={item.backgroundImage.src}
               title={item.title}
-              description={item.description}
+              description={item.description[0].text}
               price={item.price}
               link={item.link}
-              imgSrc={item.src}
+              imgSrc={item.imgSrc?.src}
               altText={item.altText}
             />
           )
