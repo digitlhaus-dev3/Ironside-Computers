@@ -9,9 +9,11 @@ function ProductSlider({ sliderData }) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 4,
     initialSlide: 0,
+    autoplay: true,
+    autoplayspeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -41,19 +43,20 @@ function ProductSlider({ sliderData }) {
   }
 
   return (
-    <div>
+    <div className="productSlider">
       <Slider {...settings}>
-        {sliderData?.productSlider?.map((item) => {
+        {sliderData?.productSlider?.map(item => {
           return (
             <SliderCard
               key={item._id}
               backgroundImage={item.backgroundImage.src}
               title={item.title}
-              description={item.description[0].text}
+              description={item.description}
               price={item.price}
               link={item.link}
               imgSrc={item.imgSrc?.src}
               altText={item.altText}
+              tittleColor={item.tittleColor}
             />
           )
         })}
