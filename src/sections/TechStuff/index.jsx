@@ -2,7 +2,7 @@ import React from 'react'
 
 const TechStuff = (backgroundImage) => {
   return (
-    <div style={{backgroundImage:`url(${backgroundImage.src})`}}>
+    <div style={{backgroundImage:`url(${backgroundImage?.backgroundImage?.src})`}}>
       <h2>Tech Stuff</h2>
       <div>
         <h3>Ports</h3>

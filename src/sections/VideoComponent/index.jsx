@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
 
 const VideoComponent = ({ videoUrl }) => {
-  console.log({videoUrl})
   const [playing, setPlaying] = useState(false)
   const play = () => setPlaying(true)
   const pause = () => setPlaying(false)

@@ -14,12 +14,21 @@ const PhotoGallery = ({ image }) => {
     autoplayspeed: 2000,
     slidesToScroll: 2,
   }
+  console.log(image?.productImages)
   return (
     <div className="photoGallery">
       <div className="container">
         <Slider {...settings}>
-          {image?.productImages.map((event) => {
-            return <div className='galleryImage'><Image src={event?.productImage?.src} altext={event?.productImage?.alt}></Image></div>
+          {image?.productImages.map(event => {
+            return (
+              <div className="galleryImage">
+                <Image
+                  key={event.id}
+                  src={event?.productImage?.src}
+                  altext={event?.productImage?.alt}
+                ></Image>
+              </div>
+            )
           })}
         </Slider>
       </div>
