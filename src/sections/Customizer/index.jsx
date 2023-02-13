@@ -6,10 +6,10 @@ import HStack from 'Components/HStack'
 import IconButton from 'Components/IconButton'
 import Icon from 'Components/Icon'
 import Button from 'Components/Button'
-import CustomizerProductGrid from '../CustomizerProductGrid/index'
-import { shopifyCollection, bigCommerceCategory } from '../../lib/mocks/cmsCollections'
+import CustomizerProductGrid from 'Components/CustomizerProductGrid/index'
 import './styles.module.css'
-const Customizer = () => {
+
+const Customizer = ({aesthetics,components}) => {
   const MoonIcon = <Icon icon="MoonIcon" />
   const SunIcon = <Icon icon="SunIcon" />
   const DragHandleIcon = <Icon icon="DragHandleIcon" />
@@ -68,7 +68,7 @@ const Customizer = () => {
                           variant="icon"
                           icon={HamburgerIcon}
                         />
-                        <CustomizerProductGrid collection={shopifyCollection} />
+                        <CustomizerProductGrid collection={aesthetics} />
                       </Heading>
                     </HStack>
                     <Container></Container>
@@ -78,21 +78,21 @@ const Customizer = () => {
                       Components
                     </Heading>
 
-                    <CustomizerProductGrid collection={shopifyCollection} />
+                    <CustomizerProductGrid collection={components} />
                   </li>
                   <li>
                     <Heading as="h6" size="sm">
                       Services
                     </Heading>
 
-                    <CustomizerProductGrid collection={shopifyCollection} />
+                    <CustomizerProductGrid collection={components} />
                   </li>
                   <li>
                     <Heading as="h6" size="sm">
                       Peripherals
                     </Heading>
 
-                    <CustomizerProductGrid collection={shopifyCollection} />
+                    <CustomizerProductGrid collection={components} />
                   </li>
                 </ul>
               </Container>
