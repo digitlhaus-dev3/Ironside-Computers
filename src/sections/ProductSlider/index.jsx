@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Image from 'Components/Image'
 import Slider from 'react-slick'
-import SliderCard from 'Components/SliderCard'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
-function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
+const PhotoGallery = ({ image }) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -13,6 +11,12 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
     initialSlide: 0,
     autoplay: true,
     autoplayspeed: 2000,
+    slidesToShow: 6,
+    rows: 2,
+    autoplay: true,
+    infinite: true,
+    autoplayspeed: 2000,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1024,
@@ -40,38 +44,15 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
       },
     ],
   }
-
   return (
-    <div className="sliderSection">
-      <div className="limitedEdition">
-        <div className="cta-content">
-          <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
-          <p>
-            <a href={bannerLink ? '#' : bannerLink}>Learn More</a>
-          </p>
-        </div>
-      </div>
-      <div className="productSlider">
-        <Slider {...settings}>
-          {sliderData?.productSlider?.map(item => {
-            return (
-              <SliderCard
-                key={item._id}
-                backgroundImage={item.backgroundImage.src}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-                link={item.link}
-                imgSrc={item.imgSrc?.src}
-                altText={item.altText}
-                titleColor={item.titleColor}
-              />
-            )
-          })}
-        </Slider>
-      </div>
+    <div>
+      <Slider {...settings}>
+        {image?.productImages.map(event => {
+          return <Image src={event?.productImage?.src} altext={event?.productImage?.alt}></Image>
+        })}
+      </Slider>
     </div>
   )
 }
 
-export default ProductSlider
+export default PhotoGallery
