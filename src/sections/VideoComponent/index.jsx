@@ -1,31 +1,31 @@
 import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
-import IconButton from 'Components/IconButton'
 
-const VideoComponent = () => {
+const VideoComponent = ({ videoUrl }) => {
   const [playing, setPlaying] = useState(true)
-
+  const play = () => setPlaying(true);
+  const pause = () => setPlaying(false);
   return (
     <div className="player-wrapper">
       <ReactPlayer
-        url="https://vimeo.com/243556536"
+        url={videoUrl?.src}
         className="react-player"
         playing={playing}
-        onPlay={playing}
-        onPause={playing}
+        onPlay={play}
+        onPause={pause}
       />
       {playing ? (
         <a
+          className="pause-bg flex"
           aria-label="Go to the previous image"
-          className="play-bg flex"
-          onClick={() => setPlaying(false)}
+          onClick={play}
         />
       ) : (
         <a
-          className="pause-bg flex"
           aria-label="Go to the previous image"
-          onClick={() => setPlaying(true)}
-          />
+          className="play-bg flex"
+          onClick={pause}
+        />
       )}
     </div>
   )

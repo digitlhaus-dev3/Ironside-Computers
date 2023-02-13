@@ -1,9 +1,8 @@
 import React from 'react'
-import styles from './styles.module.css'
 
-const TechStuff = () => {
+const TechStuff = (backgroundImage) => {
   return (
-    <div>
+    <div style={{backgroundImage:`url(${backgroundImage.src})`}}>
       <h2>Tech Stuff</h2>
       <div>
         <h3>Ports</h3>
