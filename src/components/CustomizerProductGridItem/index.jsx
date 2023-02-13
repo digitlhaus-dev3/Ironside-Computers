@@ -32,7 +32,6 @@
    ModalFooter,
    ModalBody,
    ModalCloseButton,
-   useDisclosure,
    Button,
  } from '@chakra-ui/react'
  
@@ -72,7 +71,7 @@
   */
  const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productList }) => {
    const product = useNormalizedProduct(cmsProduct)
- 
+   const [isModalOpen, setIsModalOpen] = React.useState(false)
    if (!product) throw new Error(`Expected product but got ${product}`)
  
    const {
@@ -110,18 +109,24 @@
  
      return displayName
    }, [name, highlightName])
-   const { isOpen, onOpen, onClose } = useDisclosure()
-   const onSelection = e => {
-     onOpen()
+ 
+   const onModalClose =()=>{
+     setIsModalOpen(false)
    }
-   if (productList?.products[0]?.customFields?.length)
-     productList?.products.sort((a, b) => {
-       return a?.customFields[0]?.value - b?.customFields[0]?.value
-   })
+ 
+   const onSelection = () => {
+     setIsModalOpen(true);
+   }
+   const onSelectProduct = (data) =>{
+    const idx = productList?.products.findIndex((product)=>product.id === data.id);
+    const temp = productList?.products[idx];
+    productList.products[idx] = productList?.products[0];
+    productList.products[0] = temp;
+   } 
    const data = {
-   imageUrl:'',
-   name: productList.name,
-   products: productList.products,
+     imageUrl: '',
+     name: productList.name,
+     products: productList.products,
    }
  
    return (
@@ -146,17 +151,17 @@
          )}
        </a>
  
-       <Modal isOpen={isOpen} onClose={onClose}>
+       <Modal isOpen={isModalOpen} onClose={onModalClose}>
          <ModalOverlay />
          <ModalContent>
            <ModalHeader>{data.name}</ModalHeader>
            <ModalCloseButton />
            <ModalBody>
-           <ProductGrid collection={data} productsPerPage={5} />
+             <ProductGrid collection={data} onModalClose={onModalClose} onSelectProduct={onSelectProduct} productsPerPage={5} />
            </ModalBody>
  
            <ModalFooter>
-             <Button colorScheme="blue" mr={3} onClick={onClose}>
+             <Button colorScheme="blue" mr={3} onClick={onModalClose}>
                Close
              </Button>
              <Button variant="ghost">Secondary Action</Button>
