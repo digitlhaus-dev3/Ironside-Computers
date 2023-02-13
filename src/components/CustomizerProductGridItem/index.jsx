@@ -117,10 +117,12 @@
    const onSelection = () => {
      setIsModalOpen(true);
    }
-   if (productList?.products[0]?.customFields?.length)
-     productList?.products.sort((a, b) => {
-       return a?.customFields[0]?.value - b?.customFields[0]?.value
-     })
+   const onSelectProduct = (data) =>{
+    const idx = productList?.products.findIndex((product)=>product.id === data.id);
+    const temp = productList?.products[idx];
+    productList.products[idx] = productList?.products[0];
+    productList.products[0] = temp;
+   } 
    const data = {
      imageUrl: '',
      name: productList.name,
@@ -155,7 +157,7 @@
            <ModalHeader>{data.name}</ModalHeader>
            <ModalCloseButton />
            <ModalBody>
-             <ProductGrid collection={data} onModalClose={onModalClose} productsPerPage={5} />
+             <ProductGrid collection={data} onModalClose={onModalClose} onSelectProduct={onSelectProduct} productsPerPage={5} />
            </ModalBody>
  
            <ModalFooter>

@@ -20,7 +20,7 @@ import VisuallyHidden from 'Components/VisuallyHidden'
  *
  * @param { ProductGridProps } props
  */
-const ProductGrid = ({ collection, productsPerPage, onModalClose, showTitle }) => {
+const ProductGrid = ({ collection, productsPerPage, onModalClose, onSelectProduct, showTitle }) => {
   const router = useRouter()
   const {
     push,
@@ -81,6 +81,7 @@ const ProductGrid = ({ collection, productsPerPage, onModalClose, showTitle }) =
             key={index}
             product={product}
             onModalClose={onModalClose}
+            onSelectProduct={onSelectProduct}
             imageLoading={index < 4 ? 'eager' : 'lazy'}
           />
         ))}
