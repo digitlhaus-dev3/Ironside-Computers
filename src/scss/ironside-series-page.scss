@@ -1,0 +1,104 @@
+.heroBanner {
+  .heroBannerContent {
+    // padding-top: 223px;
+    padding: 223px 253px 173px;
+  }
+  .bannerImage {
+    width: 700px;
+    img {
+      height: 700px;
+      object-fit: cover;
+    }
+  }
+  .bannerContent {
+    width: calc(100% - 700px);
+    padding-left: 154px;
+  }
+}
+.BannerWithDescription {
+  .desc {
+    padding: 560px 0;
+    max-width: 534px;
+    text-align: center;
+    .signature {
+      max-width: 293px;
+    }
+  }
+}
+.player-wrapper {
+  position: relative;
+}
+.pause-bg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  width: 173px;
+  height: 173px;
+  transform: translate(-50%, -50%);
+  // background-color: $color-white;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(7px);
+  border-radius: 50%;
+  cursor: pointer;
+  &:after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='84' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M96 64l320 192-320 192z'/%3E%3C/svg%3E");    
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    // transform: rotate(90deg);
+    // border-left: 40px solid transparent;
+    // border-right: 40px solid transparent;
+    // border-bottom: 68px solid $color-white;
+    width: 84px;
+    height: 63px;
+    display: block;
+  }
+}
+.play-bg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  width: 173px;
+  height: 173px;
+  transform: translate(-50%, -50%);
+  // background-color: $color-white;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(7px);
+  border-radius: 50%;
+  cursor: pointer;
+  &:after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='86' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M64 64h160v384h-160zM288 64h160v384h-160z'/%3E%3C/svg%3E");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    // transform: rotate(90deg);
+    // border-left: 40px solid transparent;
+    // border-right: 40px solid transparent;
+    // border-bottom: 68px solid $color-white;
+    width: 84px;
+    height: 63px;
+    display: block;
+  }
+}
+.photoGallery {
+  padding: 83px 90px;
+  .slick-slide > div {
+    margin: 6px 9px;
+    // max-height: 278px;
+  }.galleryImage {
+    margin: 6px 0;
+    max-height: 278px;}
+  .galleryImage img {
+    // max-width: 278px;
+    width: 100%;
+    // max-height: 278px;
+  }
+}

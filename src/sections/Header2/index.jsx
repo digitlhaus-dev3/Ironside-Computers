@@ -44,7 +44,7 @@ const Header2 = ({ logoImage, sticky }) => {
   return (
     <Grid as="header" position={sticky ? 'sticky' : 'initial'} top="0" zIndex="docked">
       <div className="container">
-        <div className="header-main">
+        <div className="header-main header-2">
           <div className="header-left">
             <Container
               gridArea="logo"
@@ -54,7 +54,8 @@ const Header2 = ({ logoImage, sticky }) => {
             >
               <Logo image={logoImage} />
             </Container>
-
+          </div>
+          <div className='header-center'>
             <h1> ironside series </h1>
           </div>
           <div className="header-right">
@@ -62,7 +63,7 @@ const Header2 = ({ logoImage, sticky }) => {
               <a href="#">Overview</a>
               <a href="#">Gallery</a>
               <a href="#">Tech Specs</a>
-              <a href="#">Buy Now</a>
+              <a href="#" className='buy-now-btn'>Buy Now</a>
             </HStack>
           </div>
         </div>

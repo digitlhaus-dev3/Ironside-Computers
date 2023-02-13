@@ -154,7 +154,7 @@ header .nav-links-btn,
   a {
     background-color: transparent;
     color: $color-white;
-    margin: 0 0 0 16px !important;
+    margin: 0 0 0 16px;
     svg {
       width: auto;
       stroke: $color-white;
@@ -351,5 +351,52 @@ header {
     background-size: 100%;
     width: 13px;
     height: 10px;
+  }
+}
+
+
+
+
+
+// Header Two
+#frontend-root header .header-main.header-2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 23px;
+  > div {
+    width: 33.33%;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+  .header-center {
+    @include display-flex(flex);
+    @include justify-content(center);
+  }
+  .header-right {
+    @include display-flex(flex);
+    @include justify-content(flex-end);
+    a {
+      // font-size: 14px;
+      // line-height: 14px;
+      letter-spacing: -0.02em;
+      padding: 10px 13px;
+      margin: 0;
+      border-radius: 90px;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+    .buy-now-btn {
+      padding: 9px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 49px;
+      margin-left: 2px;
+      &:hover {
+        background-color: transparent;
+        border-color: $color-white;
+      }
+    }
   }
 }

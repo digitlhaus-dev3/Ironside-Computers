@@ -60,3 +60,20 @@
     font-family: $heading-fonts;
     text-transform: capitalize;
 }
+
+.bg-img {
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.flex {
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(center);
+}
+.flex-col {
+    @include display-flex(flex);
+    @include flex-direction(column);
+    @include align-item(center);
+    @include justify-content(center);
+}

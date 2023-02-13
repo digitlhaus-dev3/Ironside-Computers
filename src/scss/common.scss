@@ -72,6 +72,7 @@ body {
     p {
         font-size: 16px;
         line-height: 16px;
+        font-weight: 400;
         margin-bottom: 24px;
         color: $color-white;
         font-family: $body-fonts;
@@ -84,6 +85,13 @@ body {
         &:focus-visible{
             outline: none !important;
         }
+    }
+    a {
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 400;
+        color: $color-white;
+        font-family: $body-fonts;
     }
 }
 .body {
@@ -258,7 +266,7 @@ input:-ms-input-placeholder.chakra-input {
         // @include box-design(box);
         position: absolute;
         top: 100%;
-        right: 71px;
+        // right: 71px;
         // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         // border: 1px solid $color-white;
         opacity: 0.2;
@@ -266,8 +274,11 @@ input:-ms-input-placeholder.chakra-input {
         border-style: solid;
         border-image: 
         linear-gradient(to bottom,white 41%,rgba(0, 0, 0, 0)) 1;
-        width: 345px;
-        height: 1519px;
+        // width: 345px;
+        // height: 1519px;
+        width: 17.969vw;
+        height: 79.115vw;
+        right: 3.698vw;
         z-index: 1;
         @include tablet {
             width: 160px;

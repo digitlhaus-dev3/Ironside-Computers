@@ -1,20 +1,19 @@
 import React from 'react'
 import Image from 'Components/Image'
 
-const BannerWithDescription = ({ backgroundImage, header, description, image }) => {
+const BannerWithDescription = ({backgroundImage, header, description, image}) => {
   return (
-    <div>
+    <div className='BannerWithDescription'>
       <div
+        className='container bg-img'
         style={{
           backgroundImage: `url(${backgroundImage?.src})`,
         }}
       >
-        <div>
+        <div className='desc flex-col'>
           <h3>{header}</h3>
           <p>{description}</p>
-        </div>
-        <div>
-          <Image src={image?.src} altext={image?.alt} />
+          <Image className="signature" src={image?.src} altext={image?.alt} />
         </div>
       </div>
     </div>

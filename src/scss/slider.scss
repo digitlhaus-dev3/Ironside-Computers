@@ -1,7 +1,7 @@
-.slick-track {
+.bannerCarousel .slick-track {
   @include display-flex(flex);
   div {
-    // height: 990px;
+    height: 990px;
     @include mobile {
       height: 701px;
     }

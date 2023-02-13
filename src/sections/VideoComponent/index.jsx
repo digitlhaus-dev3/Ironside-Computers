@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
 import IconButton from 'Components/IconButton'
-import PauseIcon from 'Components/PauseIcon'
-import PlayIcon from 'Components/PlayIcon'
 
 const VideoComponent = () => {
   const [playing, setPlaying] = useState(true)
@@ -17,19 +15,17 @@ const VideoComponent = () => {
         onPause={playing}
       />
       {playing ? (
-        <IconButton
+        <a
           aria-label="Go to the previous image"
-          variant="icon"
-          icon={<PauseIcon />}
+          className="play-bg flex"
           onClick={() => setPlaying(false)}
         />
       ) : (
-        <IconButton
+        <a
+          className="pause-bg flex"
           aria-label="Go to the previous image"
-          variant="icon"
-          icon={<PlayIcon />}
           onClick={() => setPlaying(true)}
-        />
+          />
       )}
     </div>
   )

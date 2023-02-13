@@ -3,18 +3,23 @@ import Image from 'Components/Image'
 
 const HeroBanner = ({backgroundImage, image, header, description}) => {
   return (
-    <div>
+    <div className='heroBanner'>
       <div
+      className='container bg-img'
         style={{
           backgroundImage: `url(${backgroundImage?.src})`,
         }}
       >
-        <div>
-          <Image src={image?.src} altext={image?.alt} />
-        </div>
-        <div>
-          <h2>{header}</h2>
-          <p>{description}</p>
+        <div className='heroBannerContent flex'>
+          <div
+            className='bannerImage'>
+            <Image src={image?.src} altext={image?.alt} />
+          </div>
+          <div
+            className='bannerContent'>
+            <h2>{header}</h2>
+            <p>{description}</p>
+          </div>
         </div>
       </div>
     </div>
