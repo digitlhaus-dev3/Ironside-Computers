@@ -4,6 +4,7 @@ import Image from 'Components/Image'
 
 const PhotoGallery = ({ image }) => {
   const settings = {
+    arrow: false,
     speed: 500,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -13,10 +14,10 @@ const PhotoGallery = ({ image }) => {
     infinite: true,
     autoplayspeed: 2000,
     slidesToScroll: 2,
+    arrow: false,
   }
-  console.log(image?.productImages)
   return (
-    <div className="photoGallery">
+    <div className="photoGallery" id='gallery'>
       <div className="container">
         <Slider {...settings}>
           {image?.productImages.map(event => {

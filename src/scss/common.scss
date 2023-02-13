@@ -48,7 +48,9 @@ body {
         }
     }
     h3, .h3 {
-        font-size: 32px;
+        font-size: 24px;
+        line-height: 24px;
+        margin-bottom: 17px;
     }
     h4, .h4 {
         font-size: 28px;
@@ -85,6 +87,11 @@ body {
         &:focus-visible{
             outline: none !important;
         }
+    }
+    ul li {
+        font-size: 15px;
+        line-height: 15px;
+        color: $color-white;
     }
     a {
         font-size: 14px;

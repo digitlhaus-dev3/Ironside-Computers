@@ -61,8 +61,8 @@ const Header2 = ({ logoImage, sticky }) => {
           <div className="header-right">
             <HStack gridArea="cart" justifySelf="right" spacing="4">
               <a href="#">Overview</a>
-              <a href="#">Gallery</a>
-              <a href="#">Tech Specs</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#techstuff">Tech Specs</a>
               <a href="#" className='buy-now-btn'>Buy Now</a>
             </HStack>
           </div>
