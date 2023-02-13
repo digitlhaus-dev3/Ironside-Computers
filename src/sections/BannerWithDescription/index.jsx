@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './styles.module.css'
+import Image from 'Components/Image'
 
-const BannerWithDescription = () => {
+const BannerWithDescription = ({ backgroundImage, header, description, image }) => {
   return (
     <div>
       <div
