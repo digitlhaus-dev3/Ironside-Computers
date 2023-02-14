@@ -2,53 +2,53 @@
 /* ========== media mixin ========== */
 // @use 'sass:math';
 
-@use "sass:math";
+@use 'sass:math';
 
 @mixin rem {
-    @media screen and (min-width:1280px) {
-        @content;
-    }
-}
-
-@mixin desktop-small{
-  @media screen and (max-width:1439px) {
-      @content;
+  @media screen and (min-width: 1280px) {
+    @content;
   }
 }
 
-@mixin tablet{
-    @media screen and (max-width:1279px) {
-        @content;
-    }
+@mixin desktop-small {
+  @media screen and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 1279px) {
+    @content;
+  }
 }
 
 @mixin tablet-small {
-    @media screen and (max-width:1023px) {
-        @content;
-    }
+  @media screen and (max-width: 1023px) {
+    @content;
+  }
 }
 
 @mixin mobile {
-    @media screen and (max-width:767px) {
-        @content;
-    }
+  @media screen and (max-width: 767px) {
+    @content;
+  }
 }
 
 @mixin mobile-small {
-    @media screen and (max-width:666px) {
-        @content;
-    }
+  @media screen and (max-width: 666px) {
+    @content;
+  }
 }
 
 /* ========== common mixin ========== */
 
-@mixin col{
-    padding-left: 15px;
-    padding-right: 15px;
+@mixin col {
+  padding-left: 15px;
+  padding-right: 15px;
 }
-@mixin row{
-    margin-left: -15px;
-    margin-right: -15px;
+@mixin row {
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 @mixin border-radius($radius) {
@@ -70,26 +70,26 @@
 }
 
 @mixin transform($transforms) {
-	-webkit-transform: $transforms;
-	-moz-transform: $transforms;
-	-ms-transform: $transforms;
-	transform: $transforms;
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
 }
 
-@mixin rotate ($deg) {
-	@include transform(rotate(#{$deg}deg));
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
 }
 
-@mixin translate ($x, $y) {
-	@include transform(translate($x, $y));
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
 }
 
-@mixin flex-basis($flex-basis){
-  -webkit-flex-basis:($flex-basis);
-  flex-basis:($flex-basis);
+@mixin flex-basis($flex-basis) {
+  -webkit-flex-basis: ($flex-basis);
+  flex-basis: ($flex-basis);
 }
 
-@mixin display-flex($flex){
+@mixin display-flex($flex) {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -97,7 +97,7 @@
   display: $flex;
 }
 
-@mixin align-item($align-item){
+@mixin align-item($align-item) {
   -webkit-box-align: $align-item;
   -moz-box-align: $align-item;
   -ms-flex-align: $align-item;
@@ -105,34 +105,34 @@
   align-items: $align-item;
 }
 
-@mixin align-self($align-self){
+@mixin align-self($align-self) {
   -webkit-align-self: $align-self;
   align-self: $align-self;
 }
 
-@mixin justify-content($justify-content){
+@mixin justify-content($justify-content) {
   -webkit-justify-content: $justify-content;
   justify-content: $justify-content;
 }
 
-@mixin flex-wrap($flex-wrap){
+@mixin flex-wrap($flex-wrap) {
   flex-wrap: $flex-wrap;
   -webkit-flex-wrap: $flex-wrap;
 }
 
-@mixin flex-direction($flex-direction){
+@mixin flex-direction($flex-direction) {
   flex-direction: $flex-direction;
   -webkit-flex-direction: $flex-direction;
 }
 
 @mixin text-shadow($text-shadow) {
-  text-shadow: 0px 0px 123.655px #FFFFFF, 0px 0px 70.6601px #FFFFFF, 0px 0px 41.2184px #FFFFFF, 0px 0px 20.6092px #FFFFFF, 0px 0px 5.88834px #FFFFFF, 0px 0px 2.94417px #FFFFFF;
+  text-shadow: 0px 0px 123.655px #ffffff, 0px 0px 70.6601px #ffffff, 0px 0px 41.2184px #ffffff,
+    0px 0px 20.6092px #ffffff, 0px 0px 5.88834px #ffffff, 0px 0px 2.94417px #ffffff;
 }
-
 
 @mixin box-shadow($box-shadow) {
   &:after {
-    content: "";
+    content: '';
     // @include box-design(box);
     position: absolute;
     top: 100%;
@@ -142,8 +142,7 @@
     opacity: 0.2;
     border-width: 1px;
     border-style: solid;
-    border-image:
-      linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
+    border-image: linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
     width: 345px;
     height: 1519px;
     z-index: 1;
@@ -153,4 +152,15 @@
       height: 609px;
     }
   }
+}
+@mixin flex($flex) {
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(center);
+}
+@mixin flex-col($flex-col) {
+  @include display-flex(flex);
+  @include flex-direction(column);
+  @include align-item(center);
+  @include justify-content(center);
 }

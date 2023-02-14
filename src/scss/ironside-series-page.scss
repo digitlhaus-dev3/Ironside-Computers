@@ -1,7 +1,7 @@
 .heroBanner {
   .heroBannerContent {
     // padding-top: 223px;
-    padding: 223px 253px 173px;
+    padding: 214px 253px 173px;
   }
   .bannerImage {
     width: 700px;
@@ -16,10 +16,12 @@
   }
 }
 .BannerWithDescription {
+  width: 100%;
   .desc {
     padding: 560px 0;
     max-width: 534px;
     text-align: center;
+    margin: auto;
     .signature {
       max-width: 293px;
     }
@@ -27,6 +29,8 @@
 }
 .player-wrapper {
   position: relative;
+  width: 100%;
+  margin-bottom: 84px;
 }
 .pause-bg {
   position: absolute;
@@ -44,8 +48,8 @@
   border-radius: 50%;
   cursor: pointer;
   &:after {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='84' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M96 64l320 192-320 192z'/%3E%3C/svg%3E");    
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='84' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M96 64l320 192-320 192z'/%3E%3C/svg%3E");
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 5px;
@@ -74,7 +78,7 @@
   border-radius: 50%;
   cursor: pointer;
   &:after {
-    content: "";
+    content: '';
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='86' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M64 64h160v384h-160zM288 64h160v384h-160z'/%3E%3C/svg%3E");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -89,16 +93,136 @@
   }
 }
 .photoGallery {
-  padding: 83px 90px;
+  padding: 83px 0;
+  margin: 0 90px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 115px;
   .slick-slide > div {
     margin: 6px 9px;
     // max-height: 278px;
-  }.galleryImage {
+  }
+  .galleryImage {
     margin: 6px 0;
-    max-height: 278px;}
+    // max-height: 278px;
+  }
   .galleryImage img {
     // max-width: 278px;
     width: 100%;
-    // max-height: 278px;
+    max-height: 278px;
+  }
+  .slick-arrow {
+    display: none !important;
+  }
+}
+.techStuff {
+  // margin-left: 373px;
+  margin-left: 19.427vw;
+  // padding-right: 378px;
+  padding-right: 19.688vw;
+  // margin-bottom: 168px;
+  margin-bottom: 8.750vw;
+  h2 {
+    padding-top: 73px;
+    margin-bottom: 35px;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 18px; 
+    margin-bottom: 38px;
+  }
+  .techDesc {
+    padding: 0 0 111px;
+    @include flex(flex);
+    height: 100%;
+    align-items: stretch;
+    > div {
+      // width: 276px;
+      width: 14.375vw;
+      // margin: auto;
+      .box-bg {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #363636;
+        padding: 28px 20px 28px 28px;
+        margin-right: 19px;
+        height: 100%;
+      }
+    }
+    .description {
+      width: calc(100% - 14.375vw);
+      margin-right: 0;
+    }
+  }
+}
+.layout1 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 86px;
+  img {
+    max-height: 972px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .layoutDesc {
+    position: absolute;
+    top: 40%;
+    // left: 247px;
+    left: 12.865vw;
+    // max-width: 402px;
+    max-width: 20.938vw;
+  }
+}
+.layout2 {
+  width: 100%;
+  margin-bottom: 86px;
+  .container {
+    @include flex(flex);
+    width: 100%;
+  }
+  .layoutDesc {
+    padding-left: 165px;
+    // max-width: 649px;
+    max-width: 33.802vw;
+    margin-right: auto;
+  }
+  img {
+    max-width: 972px;
+  }
+}
+
+.layout3 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 86px;
+  img {
+    max-height: 972px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .layoutDesc {
+    position: absolute;
+    top: 40%;
+    // left: 247px;
+    right: 12.865vw;
+    // max-width: 402px;
+    max-width: 20.938vw;
+  }
+}
+.layout4 {
+  width: 100%;
+  margin-bottom: 86px;
+  .container {
+    @include flex(flex);
+    width: 100%;
+  }
+  .layoutDesc {
+    padding-left: 165px;
+    // max-width: 649px;
+    max-width: 33.802vw;
+    margin-right: auto;
+    order: 0;
+  }
+  img {
+    max-width: 972px;
+    order: 1;
   }
 }
