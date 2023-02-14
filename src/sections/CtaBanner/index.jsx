@@ -14,15 +14,7 @@ const CtaBanner = ({
   const [imageSize, setImageSize] = useState('large-img')
   const [textPosition, setTextPosition] = useState('content-bottom')
   const [imageAlign, setImageAlign] = useState('content-left')
-  const bgImgStyle = {
-    '::before': {
-      content: '',
-      display: 'inline-block',
-      width: '400px',
-      height: '560px',
-      backgroundImage: `url(${backgroundImage?.src})`,
-    },
-  }
+ 
   useEffect(() => {
     if (layout?.toLowerCase() === 'layout 1') {
       setImageSize('large-img')
@@ -69,7 +61,7 @@ const CtaBanner = ({
                 <div className="cta-content">
                   <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
                   <p>
-                    <a href={bannerLink ? '#' : bannerLink}>
+                    <a href={bannerLink}>
                       {bannerLinkText ? 'Learn More' : bannerLinkText}
                     </a>
                   </p>
