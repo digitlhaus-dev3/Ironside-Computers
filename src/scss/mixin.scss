@@ -11,7 +11,7 @@
 }
 
 @mixin desktop-small {
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
     @content;
   }
 }
@@ -143,8 +143,10 @@
     border-width: 1px;
     border-style: solid;
     border-image: linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
-    width: 345px;
-    height: 1519px;
+    // width: 345px;
+    // height: 1519px;
+    width: 17.969vw;
+    height: 79.115vw;
     z-index: 1;
 
     @include tablet {
@@ -163,4 +165,8 @@
   @include flex-direction(column);
   @include align-item(center);
   @include justify-content(center);
+}
+
+@mixin m-0($m-o) {
+  margin: 0;
 }

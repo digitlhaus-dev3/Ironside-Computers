@@ -5,7 +5,7 @@ const HeroBanner = ({backgroundImage, image, header, description}) => {
   return (
     <div className='heroBanner'>
       <div
-      className='container bg-img'
+      className='bg-img'
         style={{
           backgroundImage: `url(${backgroundImage?.src})`,
         }}

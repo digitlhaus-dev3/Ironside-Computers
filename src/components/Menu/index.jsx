@@ -89,17 +89,16 @@
    }, [setFocusedIndex, expandedIndex])
  
    return (
-     <Flex display={{ md: 'none' }} align="center">
+     <Flex align="center">
        <MenuProvider value={context}>
          <StylesProvider value={styles}>
-           <MenuButton verticalAlign="middle" aria-label={isOpen ? 'Close menu' : 'Open menu'}>
+           <MenuButton className='mobile-menu-btn' verticalAlign="middle" aria-label={isOpen ? 'Close menu' : 'Open menu'}>
              <Icon icon="HamburgerIcon" boxSize="6" />
            </MenuButton>
  
            <Portal>
             <div className='mobile-menu'>
              <MenuList
-               display={{ md: 'none' }}
                onKeyDownCapture={menuListKeyDownCaptureHandler}
                zIndex="dropdown"
              >

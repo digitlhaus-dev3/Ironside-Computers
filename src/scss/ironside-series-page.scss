@@ -1,29 +1,38 @@
 .heroBanner {
   .heroBannerContent {
     // padding-top: 223px;
-    padding: 214px 253px 173px;
+    // padding: 206px 253px 173px;
+    padding: 10.729vw 13.177vw 9.010vw;
   }
   .bannerImage {
-    width: 700px;
+    // width: 700px;
+    width: 36.458vw;
     img {
-      height: 700px;
+      // height: 700px;
+      height: 36.458vw;
       object-fit: cover;
     }
   }
   .bannerContent {
-    width: calc(100% - 700px);
+    // width: calc(100% - 700px);
+    width: calc(100% - 36.458vw);
     padding-left: 154px;
   }
 }
 .BannerWithDescription {
   width: 100%;
+  // margin-top: -64px;
+  margin-top: -3.333vw;
   .desc {
-    padding: 560px 0;
-    max-width: 534px;
+    // padding: 560px 0;
+    padding: 29.167vw 0;
+    // max-width: 534px;
+    max-width: 27.813vw;
     text-align: center;
     margin: auto;
     .signature {
-      max-width: 293px;
+      // max-width: 293px;
+      max-width: 15.260vw;
     }
   }
 }
@@ -31,7 +40,14 @@
   position: relative;
   width: 100%;
   margin-bottom: 84px;
+  min-height: 972px !important;
+  video {
+    height: 972px !important;
+    width: 100%;
+  }
 }
+.react-player {
+  min-height: 972px;}
 .pause-bg {
   position: absolute;
   top: 50%;

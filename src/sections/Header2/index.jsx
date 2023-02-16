@@ -43,7 +43,7 @@ import HStack from 'Components/HStack'
 const Header2 = ({ logoImage, sticky }) => {
   return (
     <Grid as="header" position={sticky ? 'sticky' : 'initial'} top="0" zIndex="docked">
-      <div className="container">
+      <div className="">
         <div className="header-main header-2">
           <div className="header-left">
             <Container

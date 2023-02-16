@@ -4,17 +4,13 @@ import Image from 'Components/Image'
 
 const PhotoGallery = ({ image }) => {
   const settings = {
-    arrow: false,
-    speed: 500,
-    slidesToScroll: 1,
-    initialSlide: 0,
+    arrow: true,
     slidesToShow: 6,
+    slidesToScroll: 2,
     rows: 2,
     autoplay: true,
-    infinite: true,
     autoplayspeed: 2000,
-    slidesToScroll: 2,
-    arrow: false,
+    infinite: true,
   }
   return (
     <div className="photoGallery" id='gallery'>

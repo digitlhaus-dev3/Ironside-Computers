@@ -75,7 +75,9 @@ const Header = ({ logoImage, menu, sticky }) => {
 
             {menu ? (
               <Container gridArea="menu" className="nav-links">
-                <Menu links={menuLinks} />
+                <div className="navigation-links">
+                  <Menu links={menuLinks} />
+                </div>
               </Container>
             ) : null}
           </div>
