@@ -44,6 +44,7 @@ import Text from 'Components/Text'
 import HStack from 'Components/HStack'
 import { useIsFirstRender } from 'Components/Hooks'
 import AboutSubMenu from 'Components/AboutSubMenu'
+import Image from 'Components/Image'
 
 /**
  * @typedef { import("@chakra-ui/react").MenuProps } ChakraMenuProps
@@ -276,8 +277,9 @@ const SubMenu = forwardRef(
               <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
                 <div className="menu-description">
                   {backgroundImage?.src ? (
-                    subMenuLinks.map(({ slug, label, description }) => (
+                    subMenuLinks.map(({ slug, label, description, image }) => (
                       <MenuItem key={label} as={Link} href={slug}>
+                        <Image src={image.src} alt={image.altText} />
                         <span className="sub-menu-heading">{label}</span>
                         <br></br>
                         <span className="sub-menu-desc">{description}</span>
