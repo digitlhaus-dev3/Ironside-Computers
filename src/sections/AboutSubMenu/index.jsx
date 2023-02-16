@@ -2,7 +2,8 @@ import React from 'react'
 import Image from 'Components/Image'
 import { HStack } from '@chakra-ui/react'
 
-const AboutSubMenu = () => {
+const AboutSubMenu = ({ aboutImage }) => {
+  console.log(aboutImage)
   const company = [
     {
       name: 'Support',
@@ -69,7 +70,7 @@ const AboutSubMenu = () => {
       </HStack>
       <div>
         <HStack>
-          <Image src={'https://i.ibb.co/JmNjdjF/Headphones-Customer-support-1.png'} alt="" />
+          <spam></spam>
           <p>
             1 (512) 696–1455
             <br />
