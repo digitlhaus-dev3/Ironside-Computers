@@ -43,6 +43,7 @@
  import Text from 'Components/Text'
  import HStack from 'Components/HStack'
  import { useIsFirstRender } from 'Components/Hooks'
+import AboutSubMenu from '../../sections/AboutSubMenu'
  
  /**
   * @typedef { import("@chakra-ui/react").MenuProps } ChakraMenuProps
@@ -282,6 +283,7 @@
                        <span className="sub-menu-desc">{description}</span>
                      </MenuItem>
                    ))}
+                   <AboutSubMenu/>
                  </div>
                </div>
              </MenuList>
