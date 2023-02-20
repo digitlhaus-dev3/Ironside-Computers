@@ -72,6 +72,7 @@ const defaultMediaItem = {
  */
 const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productList }) => {
   const [store, setStore] = useStore()
+  const [build, setBuild] = React.useState([])
   const product = useNormalizedProduct(cmsProduct)
   const [updateImage, setUpdateImage] = React.useState([])
   const [updateDisplayName, setUpdateDisplayName] = React.useState('')
@@ -122,8 +123,9 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productL
   }
   const onSelectProduct = data => {
     if (productList?.name === 'Case') {
-      setStore({ caseImage: data })
+      setStore({ caseImage: data?.media[0]?.src })
     }
+    setStore({ productData: data, category: productList?.name })
     const idx = productList?.products.findIndex(product => product.id === data.id)
     const temp = productList?.products[idx]
     productList.products[idx] = productList?.products[0]

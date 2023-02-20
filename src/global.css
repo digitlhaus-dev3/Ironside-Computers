@@ -1900,3 +1900,6 @@ body .container + .container.boxes .boxess .block-quote {
 }
 
 /*# sourceMappingURL=global.css.map */
+.chakra-modal__content {
+  min-width: 1000px;
+}

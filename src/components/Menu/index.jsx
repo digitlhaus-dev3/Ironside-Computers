@@ -272,7 +272,7 @@
                onKeyDownCapture={menuListKeyDownCaptureHandler}
                onKeyDown={menuListKeyDownHandler}
              >
-               <div style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+               <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
                  <div className="menu-description">
                    {subMenuLinks.map(({ slug, label, description }) => (
                      <MenuItem key={label} as={Link} href={slug}>
