@@ -252,6 +252,18 @@ button.btn[disabled], .btn[disabled] {
   opacity: 0.8;
 }
 
+label.chakra-label,
+.chakra-form__label {
+  all: unset;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  padding: 0 35px 0 8px;
+  display: block;
+}
+
 input.chakra-input {
   all: unset;
   font-size: 16px;
@@ -260,9 +272,9 @@ input.chakra-input {
   color: #FFFFFF;
   border-bottom: 1px solid #484848;
   border-radius: 0;
-  padding: 0 35px 0 8px;
+  padding: 0 35px 11px 8px;
   width: 100%;
-  min-height: 57px;
+  min-height: 32px;
   background-color: transparent;
 }
 input.chakra-input:placeholder {
@@ -270,6 +282,7 @@ input.chakra-input:placeholder {
   line-height: 16px;
   font-family: "Inconsolata", monospace;
   color: #FFFFFF;
+  opacity: 1;
 }
 input.chakra-input:focus {
   border: 0 0 1px 0;
@@ -287,6 +300,30 @@ input:-ms-input-placeholder.chakra-input {
   line-height: 16px;
   font-family: "Inconsolata", monospace;
   color: #FFFFFF;
+}
+
+.chakra-textarea {
+  all: unset;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+  border: 1px solid #323232;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  min-height: 118px;
+  background-color: transparent;
+}
+.chakra-textarea:placeholder {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+}
+.chakra-textarea:focus {
+  border: 0 0 1px 0;
+  box-shadow: none;
 }
 
 /* Common Structure box with bg for account pages Scss Starts. */
@@ -876,6 +913,14 @@ header .chakra-menu__menuitem .sub-menu-desc {
   margin: 0;
   min-height: 664px;
   min-width: 631px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  grid-row-gap: 0;
 }
 
 .bannerCarousel {
@@ -1450,6 +1495,10 @@ body .container + .container.boxes .boxess .block-quote {
   line-height: 12px;
   color: #737373;
   margin: 0;
+}
+
+.account-page form > div {
+  margin-bottom: 33px;
 }
 
 /*# sourceMappingURL=global.css.map */

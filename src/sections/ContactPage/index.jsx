@@ -47,7 +47,9 @@ const ContactPage = () => {
 
   return (
     <Flex>
-      <h1>CONTACT</h1>
+      <div className="absolute-heading">
+        <h1 className="account-heading">CONTACT</h1>
+      </div>
       <div>
         <div>
           <h3>CUSTOMER SERVICE</h3>
@@ -81,69 +83,74 @@ const ContactPage = () => {
           </p>
         </div>
       </div>
-      <div>
-        <Grid as="form" w={{ base: 'full', md: 'md' }} onSubmit={handleSubmit} rowGap={5}>
-          <div as={FormControl} id="contact-first-name">
-            <FormLabel>First Name</FormLabel>
-            <Input
-              value={contactData.firstName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('firstName', e)}
-            />
+      <div className="box-form absolute-heading account-page">
+        <div className="bg-box">
+          <div className="bg-box-head">
+            <div className="d-flex dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-          <div as={FormControl} id="contact-last-name">
-            <FormLabel>Last Name</FormLabel>
-            <Input
-              value={contactData.lastName}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('lastName', e)}
-            />
-          </div>
-          <div as={FormControl} id="contact-email">
-            <FormLabel>Email Address</FormLabel>
-            <Input
-              value={contactData.email}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('email', e)}
-            />
-          </div>
-          <div as={FormControl} id="contact-phnNumber">
-            <FormLabel>Phone Number</FormLabel>
-            <Input
-              value={contactData.phnNumber}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('phnNumber', e)}
-            />
-          </div>
-          <div as={FormControl} id="contact-first-orderNumber">
-            <FormLabel>Order Number</FormLabel>
-            <Input
-              value={contactData.orderNumber}
-              disabled={fieldsDisabled}
-              onChange={e => onFieldChange('orderNumber', e)}
-            />
-          </div>
-          <div as={FormControl} id="contact-first-orderNumber">
-            <FormLabel>How can we help you?</FormLabel>
-            <Textarea
-              value={value}
-              onChange={handleInputChange}
-              size="sm"
-              resize={'none'}
-            />
-          </div>
-          <div>
-            <Button
-              disabled={submitDisabled}
-              isLoading={isLoading}
-              loadingp="Submitting"
-              type="submit"
-              width={{ base: '100%', md: 48 }}
-            >
-              Apply
-            </Button>
-          </div>
-        </Grid>
+          <Grid as="form" w={{ base: 'full', md: 'md' }} onSubmit={handleSubmit} rowGap={5}>
+            <div as={FormControl} id="contact-first-name">
+              <Input
+                placeholder="First Name"
+                value={contactData.firstName}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('firstName', e)}
+              />
+            </div>
+            <div as={FormControl} id="contact-last-name">
+              <Input
+                placeholder="Last Name"
+                value={contactData.lastName}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('lastName', e)}
+              />
+            </div>
+            <div as={FormControl} id="contact-email">
+              <Input
+                placeholder="Email Address"
+                value={contactData.email}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('email', e)}
+              />
+            </div>
+            <div as={FormControl} id="contact-phnNumber">
+              <Input
+                placeholder="Phone Number"
+                value={contactData.phnNumber}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('phnNumber', e)}
+              />
+            </div>
+            <div as={FormControl} id="contact-first-orderNumber">
+              <Input
+                placeholder="Order Number"
+                value={contactData.orderNumber}
+                disabled={fieldsDisabled}
+                onChange={e => onFieldChange('orderNumber', e)}
+              />
+            </div>
+            <div as={FormControl} id="contact-first-orderNumber">
+              <FormLabel>How can we help you?</FormLabel>
+              <Textarea value={value} onChange={handleInputChange} size="sm" resize={'none'} />
+            </div>
+            <div>
+              <Button
+                className="btn"
+                disabled={submitDisabled}
+                isLoading={isLoading}
+                loadingp="Submitting"
+                type="submit"
+                width={{ base: '100%', md: 48 }}
+              >
+                Apply
+              </Button>
+            </div>
+          </Grid>
+        </div>
       </div>
     </Flex>
   )
