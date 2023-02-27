@@ -10,7 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
-.d-flex {
+.flex {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1499,6 +1499,13 @@ body .container + .container.boxes .boxess .block-quote {
 
 .account-page form > div {
   margin-bottom: 33px;
+}
+
+.contact-us {
+  max-width: 1228px;
+}
+.contact-us .box-form {
+  max-width: 664px;
 }
 
 /*# sourceMappingURL=global.css.map */

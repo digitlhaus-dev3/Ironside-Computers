@@ -54,7 +54,7 @@ const CtaBanner = ({
   return (
     <>
       <div className="container">
-        <div className="cta-banner d-flex align-v-center flex-wrap">
+        <div className="cta-banner flex align-v-center flex-wrap">
           <div
             className={layoutClass}
             style={{

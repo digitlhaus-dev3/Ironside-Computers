@@ -46,7 +46,7 @@ const ContactPage = () => {
   )
 
   return (
-    <Flex>
+    <div className='contact-us flex absolute-heading'>
       <div className="absolute-heading">
         <h1 className="account-heading">CONTACT</h1>
       </div>
@@ -86,7 +86,7 @@ const ContactPage = () => {
       <div className="box-form absolute-heading account-page">
         <div className="bg-box">
           <div className="bg-box-head">
-            <div className="d-flex dots">
+            <div className="flex dots">
               <span></span>
               <span></span>
               <span></span>
@@ -152,7 +152,7 @@ const ContactPage = () => {
           </Grid>
         </div>
       </div>
-    </Flex>
+    </div>
   )
 }
 

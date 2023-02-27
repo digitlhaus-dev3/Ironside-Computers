@@ -130,7 +130,7 @@ const RegisterForm = () => {
       <h1 className="account-heading">Sign Up</h1>
       <div className="bg-box">
         <div className="bg-box-head">
-          <div className="d-flex dots">
+          <div className="flex dots">
             <span></span>
             <span></span>
             <span></span>
