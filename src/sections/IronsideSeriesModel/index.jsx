@@ -10,10 +10,11 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
   const labelName = ironsideSeries?.products?.map(event => {
     return {
       label: event?.name?.split('|'),
-      description: event?.description?.split(','),
+      cutomFields: event?.customFields,
       price: event?.price,
     }
   })
+  console.log('labelName', labelName)
   return (
     <div className="ironSideSeriesModal">
       <div className="container">
@@ -21,7 +22,9 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
         <div className="modalContent">
           <h2>{ironsideSeries?.name}</h2>
           <p>{decription}</p>
-          <button className='btn-2' onClick={learnMore}>Learn more</button>
+          <button className="btn-2" onClick={learnMore}>
+            Learn more
+          </button>
           <div className="d-flex align-v-center">
             <Image className="product-img" src={`${image?.src}`} sizes="100px" />
             {labelName?.map(event => {
@@ -29,7 +32,7 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
                 <React.Fragment key={event.id}>
                   <IronsideSeriesProductModel
                     label={event.label}
-                    description={event.description}
+                    cutomFields={event.cutomFields}
                     price={event.price}
                   />
                 </React.Fragment>
