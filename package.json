@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/components/App.js",
   "scripts": {
-    "shogun:create-component": "shogun create-component",
+    "shogun:create-component": "shogun create-component QuantitySelector",
     "shogun:create-section": "shogun create-section",
     "shogun:pull": "shogun pull",
     "shogun:dev": "shogun dev",
