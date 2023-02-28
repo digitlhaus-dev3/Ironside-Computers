@@ -15,10 +15,10 @@ const IronsideSeriesProductModel = ({ label, price, cutomFields }) => {
       </ul>
       <p className="shipping-day mb-0">
         {cutomFields?.map(event => {
-          if (event.name === 'Ships') return <li>{event.value}</li>
+          if (event.name === 'Ships') return event.value
         })}
       </p>
-      <p className="price mb-0">{price && price}</p>
+      <p className="price mb-0">${price && price}</p>
       <button className="btn-2" onClick={addToCart}>
         Add to cart
       </button>
