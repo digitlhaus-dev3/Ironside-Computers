@@ -1,10 +1,7 @@
 import React from 'react'
+import AddToCartButton from 'Components/AddToCartButton'
 
-const IronsideSeriesProductModel = ({ label, price, cutomFields }) => {
-  const addToCart = () => {
-    // eslint-disable-next-line no-console
-    console.log('Product added to cart')
-  }
+const IronsideSeriesProductModel = ({ product, id, label, price, cutomFields }) => {
   return (
     <div className="levels">
       <h3>{label && label[1]}</h3>
@@ -19,9 +16,19 @@ const IronsideSeriesProductModel = ({ label, price, cutomFields }) => {
         })}
       </p>
       <p className="price mb-0">${price && price}</p>
-      <button className="btn-2" onClick={addToCart}>
-        Add to cart
-      </button>
+      <AddToCartButton
+        className="btn-2"
+        product={id}
+        options={product?.modifiers.map(event => {
+          return {
+            id: event.id,
+            optionId: event?.optionValues?.find(value => value?.isDefault)?.id,
+          }
+        })}
+        quantity={1}
+        availability={true}
+        isLoading={false}
+      />
     </div>
   )
 }

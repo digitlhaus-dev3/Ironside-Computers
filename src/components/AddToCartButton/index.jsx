@@ -83,19 +83,24 @@ const AddToCartButton = (props, ref) => {
 
   const disabled = availability === false
 
-  const itemId = denormalizeCartActionsId({ product, productVariant, platform })
+  // const itemId = denormalizeCartActionsId({ product, productVariant, platform })
+  const itemId = product
 
   const clickHandler = () => {
     if (!itemId) {
       throw new Error('The itemId variable is required but was not specified.')
     }
 
-    const optionSelections = denormalizeOptions(product, options)
-
+    // const optionSelections = denormalizeOptions(product, options)
     addItems({
       id: itemId,
       quantity,
-      optionSelections,
+      optionSelections:options.filter((values)=>values.optionId).map((value)=>{
+        return {
+          optionId:value.id,
+          optionValue:value.optionId
+        }
+      }),
     })
     trackAddToCartEvent([product])
     showCart()
