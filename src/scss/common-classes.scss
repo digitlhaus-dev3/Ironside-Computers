@@ -13,13 +13,13 @@
 .align-self-start{
     @include align-self(flex-start);
 }
-.justify-center{
+.justify-center {
     @include justify-content(center);
 }
-.justify-right{
+.justify-space-end {
     @include justify-content(flex-end);
 }
-.justify-space{
+.justify-space-between {
     @include justify-content(space-between);
 }
 .flex-wrap{
@@ -41,12 +41,18 @@
 .img-small {
     max-width: 546px;
 }
-.padding-none{
-    padding: 0 !important;
+.p-0 {
+    padding: 0;
 }
 
-.margin-none{
-    margin: 0 !important;
+.m-0 {
+    margin: 0;
+}
+.mt-0 {
+    margin-top: 0;
+}
+.mb-0 {
+    margin-bottom: 0;
 }
 
 .list-none {

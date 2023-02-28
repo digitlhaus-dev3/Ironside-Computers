@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'Components/Image'
 import IronsideSeriesProductModel from 'Components/IronsideSeriesProductModel'
 
-const IronsideSeriesModel = ({ ironsideSeries,decription,backgroundImage,image }) => {
+const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, image }) => {
   const learnMore = () => {
     // eslint-disable-next-line no-console
     console.log('learm more activated')
@@ -15,22 +15,29 @@ const IronsideSeriesModel = ({ ironsideSeries,decription,backgroundImage,image }
     }
   })
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
-      <h2>{ironsideSeries?.name}</h2>
-      <p>{decription}</p>
-      <button onClick={learnMore}>Learn more</button>
-      <Image src={`${image?.src}`} sizes="100px" />
-      {labelName?.map(event => {
-        return (
-          <React.Fragment key={event.id}>
-            <IronsideSeriesProductModel
-              label={event.label}
-              description={event.description}
-              price={event.price}
-            />
-          </React.Fragment>
-        )
-      })}
+    <div className="ironSideSeriesModal">
+      <div className="container">
+        <div className="bg-img" style={{ backgroundImage: `url(${backgroundImage?.src})` }}></div>
+        <div className="modalContent">
+          <h2>{ironsideSeries?.name}</h2>
+          <p>{decription}</p>
+          <button className='btn-2' onClick={learnMore}>Learn more</button>
+          <div className="d-flex align-v-center">
+            <Image className="product-img" src={`${image?.src}`} sizes="100px" />
+            {labelName?.map(event => {
+              return (
+                <React.Fragment key={event.id}>
+                  <IronsideSeriesProductModel
+                    label={event.label}
+                    description={event.description}
+                    price={event.price}
+                  />
+                </React.Fragment>
+              )
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
