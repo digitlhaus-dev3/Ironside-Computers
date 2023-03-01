@@ -5,13 +5,11 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
-  
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     autoplayspeed: 2000,
@@ -44,12 +42,12 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
   }
 
   return (
-    <div className='sliderSection'>
+    <div className="sliderSection">
       <div className="limitedEdition">
         <div className="cta-content">
           <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
           <p>
-            <a href={bannerLink ? '#' : bannerLink}>'Learn More'</a>
+            <a href={bannerLink ? '#' : bannerLink}>Learn More</a>
           </p>
         </div>
       </div>
@@ -66,7 +64,7 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
                 link={item.link}
                 imgSrc={item.imgSrc?.src}
                 altText={item.altText}
-                tittleColor={item.tittleColor}
+                titleColor={item.titleColor}
               />
             )
           })}
