@@ -47,11 +47,11 @@ const CartItems = ({ inDrawer }) => {
   const { checkoutUrl, items, inventory, subtotalPrice } = useCartState()
   const total = useNormalizedCartPrice(subtotalPrice)
   const loading = inventory.status === 'loading'
-
   const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
 
   return (
-    <Container w="95%" minW="2xs" maxW="5xl" mx="auto">
+    <div>
+    <Container w="95%" minW="2xs" maxW="5xl" mx="auto" >
       {loading ? (
         <Flex justifyContent="center" p="20">
           <Spinner />
@@ -64,13 +64,12 @@ const CartItems = ({ inDrawer }) => {
 
           {items.length ? (
             <React.Fragment>
-              {items.map((product, index) => (
+              {items.filter((value)=> !value.parentId).map((product, index) => (
                 <Container key={index}>
                   <CartItem inDrawer={inDrawer} product={product} />
                   <Divider my="4" borderBottomWidth="1px" />
                 </Container>
               ))}
-
               <Container maxW={{ base: 'full', lg: 'md' }} m="0 auto" mr={{ lg: '0' }}>
                 <Flex justifyContent="space-between" my="4">
                   <Text fontWeight="semibold">Subtotal:</Text>
@@ -103,6 +102,7 @@ const CartItems = ({ inDrawer }) => {
         </React.Fragment>
       )}
     </Container>
+    </div>
   )
 }
 

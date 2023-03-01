@@ -102,8 +102,9 @@ const AddToCartButton = (props, ref) => {
         }
       }),
     })
-    trackAddToCartEvent([product])
-    showCart()
+    // trackAddToCartEvent([product])
+    alert('The product is added to cart')
+    // showCart()
   }
 
   return (

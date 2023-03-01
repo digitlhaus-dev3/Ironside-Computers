@@ -62,6 +62,7 @@ const CartItem = ({ product: checkoutProduct, inDrawer }) => {
   if (!product) throw new Error(`Expected product but got ${product}.`)
 
   const { title, subtitle, price, quantity, imageUrl, slug, id: productId, variantId } = product
+
   const productUrl = slug ? `/products/${slug}` : '#'
 
   const { trackRemoveFromCartEvent } = useGoogleTagManagerActions()
@@ -162,70 +163,85 @@ const CartItem = ({ product: checkoutProduct, inDrawer }) => {
   const styles = useMultiStyleConfig('CartItem', { inDrawer, soldOut })
 
   return (
-    <Grid
-      sx={styles.grid}
-      templateAreas={{
-        base: "'thumbnail name remove-button' 'thumbnail price price'",
-        md: inDrawer ? undefined : "'thumbnail name price remove-button'",
-      }}
-      templateColumns={{
-        base: '5rem 1fr 2rem',
-        md: '7.5rem 6fr 3fr 1fr',
-      }}
-    >
-      <GridItem gridArea="thumbnail">
-        <Link href={productUrl}>
-          <Image src={imageUrl} alt="" htmlWidth="180" htmlHeight="120" />
-        </Link>
-      </GridItem>
+    <div style={{color:'white'}}>
+      <Grid
+        sx={styles.grid}
+        templateAreas={{
+          base: "'thumbnail name remove-button' 'thumbnail price price'",
+          md: inDrawer ? undefined : "'thumbnail name price remove-button'",
+        }}
+        templateColumns={{
+          base: '5rem 1fr 2rem',
+          md: '7.5rem 6fr 3fr 1fr',
+        }}
+      >
+        <GridItem gridArea="thumbnail">
+          <Link href={productUrl}>
+            <Image src={imageUrl} alt="" htmlWidth="180" htmlHeight="120" />
+          </Link>
+        </GridItem>
 
-      <GridItem gridArea="name">
-        <Link href={productUrl}>
-          <Heading as="h3" size="sm" sx={styles.heading}>
-            {title}
-          </Heading>
-          {subtitle && <Text sx={styles.textSubtitle}>{subtitle}</Text>}
-        </Link>
-        {soldOut && <Text sx={styles.textSoldOut}>Sold Out</Text>}
-      </GridItem>
+        <GridItem gridArea="name">
+          <Link href={productUrl}>
+            <Heading as="h3" size="sm" sx={styles.heading}>
+              {title}
+            </Heading>
+            {subtitle && <Text sx={styles.textSubtitle}>{subtitle}</Text>}
+          </Link>
+          {soldOut && <Text sx={styles.textSoldOut}>Sold Out</Text>}
+        </GridItem>
+        <GridItem gridArea="price" sx={styles.gridItem}>
+          <Flex sx={styles.flex}>
+            <Text sx={styles.textPrice}>{formatMoney({ money: price })}</Text>
+            <NumberInput
+              value={quantityState.quantity}
+              isDisabled={!!soldOut}
+              max={quantityState.max}
+              min={quantityState.min}
+              onChange={onChangeItemQuantity}
+              containerProps={{
+                maxW: 80,
+                minW: 28,
+                mb: 2,
+                ml: 10,
+              }}
+              inputProps={{
+                'aria-label': 'Product quantity',
+                size: 'xs',
+              }}
+              buttonProps={{
+                size: 'xs',
+                height: 'full',
+              }}
+            />
+            <Text sx={styles.textTotalPrice}>
+              {formatMoney({ money: Number(price) * quantity })}
+            </Text>
+          </Flex>
+        </GridItem>
 
-      <GridItem gridArea="price" sx={styles.gridItem}>
-        <Flex sx={styles.flex}>
-          <Text sx={styles.textPrice}>{formatMoney({ money: price })}</Text>
-          <NumberInput
-            value={quantityState.quantity}
-            isDisabled={!!soldOut}
-            max={quantityState.max}
-            min={quantityState.min}
-            onChange={onChangeItemQuantity}
-            containerProps={{
-              maxW: 80,
-              minW: 28,
-              mb: 2,
-              ml: 10,
-            }}
-            inputProps={{
-              'aria-label': 'Product quantity',
-              size: 'xs',
-            }}
-            buttonProps={{
-              size: 'xs',
-              height: 'full',
-            }}
+        <GridItem gridArea="remove-button" sx={styles.gridItemLast}>
+          <IconButton
+            icon={<Icon icon="CloseIcon" />}
+            aria-label={`Remove ${title} from cart`}
+            sx={styles.iconButton}
+            onClick={onClickRemoveItem}
           />
-          <Text sx={styles.textTotalPrice}>{formatMoney({ money: Number(price) * quantity })}</Text>
-        </Flex>
-      </GridItem>
-
-      <GridItem gridArea="remove-button" sx={styles.gridItemLast}>
-        <IconButton
-          icon={<Icon icon="CloseIcon" />}
-          aria-label={`Remove ${title} from cart`}
-          sx={styles.iconButton}
-          onClick={onClickRemoveItem}
-        />
-      </GridItem>
-    </Grid>
+        </GridItem>
+      </Grid>
+      <div>
+        <h2>Details</h2>
+      </div>
+      <div>
+          {product?.modifiers?.map((value)=>{
+            return(
+              <ul>
+                <li>{value.name.split('|')}  ---- {value.value}</li>
+              </ul>
+            )
+          })}
+        </div>
+    </div>
   )
 }
 
