@@ -14,7 +14,7 @@ const CtaBanner = ({
   const [imageSize, setImageSize] = useState('large-img')
   const [textPosition, setTextPosition] = useState('content-bottom')
   const [imageAlign, setImageAlign] = useState('content-left')
- 
+
   useEffect(() => {
     if (layout?.toLowerCase() === 'layout 1') {
       setImageSize('large-img')
@@ -34,13 +34,18 @@ const CtaBanner = ({
     } else if (layout?.toLowerCase() === 'layout 4') {
       setImageSize('small-img')
       setTextPosition('content-top')
-      setImageAlign('content-right')
+      setImageAlign('content-left')
       setlayoutClass('layout-4')
     } else if (layout?.toLowerCase() === 'layout 5') {
       setImageSize('small-img')
-      setTextPosition('content-bottom')
-      setImageAlign('content-left')
+      setTextPosition('content-top')
+      setImageAlign('content-right')
       setlayoutClass('layout-5')
+    } else if (layout?.toLowerCase() === 'layout 6') {
+      setImageSize('small-img')
+      setTextPosition('content-bottom')
+      setImageAlign('content-right')
+      setlayoutClass('layout-6')
     } else setlayoutClass('layout-1')
   }, [layoutClass])
   return (
@@ -49,21 +54,23 @@ const CtaBanner = ({
         <div className="cta-banner d-flex align-v-center flex-wrap">
           <div
             className={layoutClass}
-            style={{
-              backgroundImage: `url(${backgroundImage?.src})`,
-            }}
           >
             <div className={imageAlign}>
               <div className="cta-image">
                 <img className={imageSize} src={bannerImage?.src} />
+                <div
+                  id="background-image"
+                  className='bg-img'
+                  style={{
+                    backgroundImage: `url(${bannerImage?.src})`,
+                  }}
+                />
               </div>
               <div className={textPosition}>
                 <div className="cta-content">
                   <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
                   <p>
-                    <a href={bannerLink}>
-                      {bannerLinkText ? 'Learn More' : bannerLinkText}
-                    </a>
+                    <a href={bannerLink}>{bannerLinkText ? 'Learn More' : bannerLinkText}</a>
                   </p>
                 </div>
               </div>
