@@ -7,18 +7,17 @@ const SliderProductCard = ({
   price,
   link,
   imgSrc,
-  altText,
   titleColor,
 }) => {
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage})` }} className="product-card">
+    <div style={{ backgroundImage: `url(${backgroundImage?.src})` }} className="product-card">
       <div className="product-content">
-        <h3 style={{ color: titleColor }}>{title}</h3>
-        <p>{description}</p>
+        <h3 style={{ color: titleColor }}>{title && title}</h3>
+        <p>{description && description}</p>
         <div className="productCardImage">
-          <p>starts at ${price}</p>
+          <p>starts at ${price && price}</p>
           <a href={link ? link : '#'}>Learn More</a>
-          <img src={imgSrc} alt={altText} />
+          <img src={imgSrc && imgSrc.src} alt={imgSrc?.altText} />
         </div>
       </div>
     </div>
