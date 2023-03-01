@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SliderCard = ({
+const SliderProductCard = ({
   backgroundImage,
   title,
   description,
@@ -25,4 +25,4 @@ const SliderCard = ({
   )
 }
 
-export default SliderCard
+export default SliderProductCard
