@@ -1,23 +1,27 @@
 import React from 'react'
+import SliderCard from 'Components/SliderCard'
 
-const SliderProductCard = ({
-  backgroundImage,
-  title,
-  description,
-  price,
-  link,
-  imgSrc,
-  titleColor,
-}) => {
+const SliderProductCard = ({ sliderData, enableWhiteTheme }) => {
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage?.src})` }} className="product-card">
-      <div className="product-content">
-        <h3 style={{ color: titleColor }}>{title && title}</h3>
-        <p>{description && description}</p>
-        <div className="productCardImage">
-          <p>starts at ${price && price}</p>
-          <a href={link ? link : '#'}>Learn More</a>
-          <img src={imgSrc && imgSrc.src} alt={imgSrc?.altText} />
+    <div className={enableWhiteTheme && 'whiteTheme'}>
+      <div className="product-card">
+        <div className="product-content">
+          {sliderData?.sliderData?.map(item => {
+            return (
+              <SliderCard
+                key={item._id}
+                backgroundImage={item.backgroundImage.src}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                link={item.link}
+                imgSrc={item.imgSrc?.src}
+                altText={item.altText}
+                titleColor={item.titleColor}
+                newProduct={item.newProduct}
+              />
+            )
+          })}
         </div>
       </div>
     </div>
