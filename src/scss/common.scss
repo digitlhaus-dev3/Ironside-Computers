@@ -132,16 +132,36 @@ body {
 .body {
   width: 100%;
 }
-body .container {
-  max-width: 1920px;
-  margin: auto;
-  width: 100%;
-  @media screen and (min-width: 1921px) {
-    max-width: 87.273vw;
-  }
-  @include tablet {
-    max-width: none;
-  }
+body {
+    .container {
+        max-width: 1920px;
+        margin: auto;
+        width: 100%;
+        @media screen and (min-width: 1921px) {
+            max-width: 87.273vw;
+        }
+        @include desktop-small {
+            max-width: 1440px;
+        }
+        @include tablet {
+            max-width: none;
+        }
+    }
+    .container-2 {
+        max-width: 1920px;
+        padding: 0 90px;
+        margin: auto;
+        width: 100%;
+        @media screen and (min-width: 1921px) {
+            max-width: 87.273vw;
+        }
+        @include desktop-small {
+            padding: 0 45px;
+        }
+        @include tablet {
+            max-width: none;
+        }
+    }
 }
 
 ul,

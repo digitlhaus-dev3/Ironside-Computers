@@ -17,7 +17,7 @@ const ProductDescription = ({ layout, description, header, image }) => {
 
   return (
     <div className={layoutClass}>
-      <div className="container">
+      <div className="container-2">
         <Image src={image?.src} altext={image?.alt} />
         <div className="layoutDesc">
           <h3>{header}</h3>

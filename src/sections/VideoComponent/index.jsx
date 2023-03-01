@@ -7,15 +7,15 @@ const VideoComponent = ({ videoUrl }) => {
   const pause = () => setPlaying(false)
   return (
     <div className="player-wrapper">
-      <div className="container">
+      <div className="container-2">
         <ReactPlayer
           url={videoUrl?.src}
           className="react-player"
           playing={playing}
           onPlay={play}
           onPause={pause}
-          width="100%"
-          height="100%"
+          width="1742px"
+          height="972px"
           config={{ file: { attributes: { poster: videoUrl?.posterUrl } } }}
         />
         {playing ? (

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'Components/Image'
 import IronsideSeriesProductModel from 'Components/IronsideSeriesProductModel'
+import Slider from 'react-slick'
 
 const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, image }) => {
   const learnMore = () => {
@@ -16,6 +17,37 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
       price: event?.price,
     }
   })
+  const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplayspeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
   return (
     <div className="ironSideSeriesModal">
       <div className="container">
@@ -26,9 +58,11 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
           <button className="btn-2" onClick={learnMore}>
             Learn more
           </button>
-          <div className="d-flex align-v-center">
+          <div className="model d-flex align-v-center">
             <Image className="product-img" src={`${image?.src}`} sizes="100px" />
-            {labelName?.map(event => {
+            <div className="level-block align-v-center justify-center d-flex flex-wrap">
+              <Slider {...settings}>
+              {labelName?.map(event => {
               return (
                 <React.Fragment key={event.id}>
                   <IronsideSeriesProductModel
@@ -41,6 +75,8 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
                 </React.Fragment>
               )
             })}
+              </Slider>
+            </div>
           </div>
         </div>
       </div>

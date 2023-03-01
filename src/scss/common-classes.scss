@@ -22,7 +22,7 @@
 .justify-space-between {
     @include justify-content(space-between);
 }
-.flex-wrap{
+.flex-wrap {
     @include flex-wrap(wrap);
 }
 .flex-direction{
@@ -68,7 +68,7 @@
 }
 
 .bg-img {
-    background-size: 100%;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
