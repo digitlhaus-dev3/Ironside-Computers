@@ -125,7 +125,7 @@
 }
 
 .bg-img {
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -305,8 +305,34 @@ body .container {
     max-width: 87.273vw;
   }
 }
+@media screen and (max-width: 1440px) {
+  body .container {
+    max-width: 1440px;
+  }
+}
 @media screen and (max-width: 1279px) {
   body .container {
+    max-width: none;
+  }
+}
+body .container-2 {
+  max-width: 1920px;
+  padding: 0 90px;
+  margin: auto;
+  width: 100%;
+}
+@media screen and (min-width: 1921px) {
+  body .container-2 {
+    max-width: 87.273vw;
+  }
+}
+@media screen and (max-width: 1440px) {
+  body .container-2 {
+    padding: 0 45px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  body .container-2 {
     max-width: none;
   }
 }
@@ -615,16 +641,16 @@ input:-ms-input-placeholder.chakra-input {
   border-radius: 56px;
 }
 
-#frontend-root {
-  overflow: hidden;
+body #frontend-root {
+  display: block;
 }
-#frontend-root header {
+body #frontend-root header {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
 }
-#frontend-root header .header-main {
+body #frontend-root header .header-main {
   padding: 40px 33px 0 43px;
   width: 100%;
   display: -webkit-box;
@@ -640,10 +666,10 @@ input:-ms-input-placeholder.chakra-input {
   -webkit-align-items: center;
   align-items: center;
 }
-#frontend-root header .css-168suyo {
+body #frontend-root header .css-168suyo {
   width: auto;
 }
-#frontend-root header img {
+body #frontend-root header img {
   margin: 0;
 }
 
@@ -1114,8 +1140,19 @@ body .chakra-menu__menu-list p {
   margin: 0;
 }
 
+.header-2-sticky {
+  position: -webkit-sticky;
+  top: 0;
+  background-color: #000000;
+  z-index: 99;
+}
+.header-2-sticky .header-2 {
+  position: absolute;
+  backdrop-filter: blur(20px);
+}
+
 .footer {
-  margin-bottom: 32px;
+  padding-bottom: 32px;
 }
 .footer div {
   justify-content: center;
@@ -1736,15 +1773,15 @@ body .container + .container.boxes .boxess .block-quote {
   position: relative;
   width: 100%;
   margin-bottom: 84px;
-  min-height: 972px !important;
+  min-width: 50.625vw !important;
 }
 .player-wrapper video {
-  height: 972px !important;
+  height: 50.625vw !important;
   width: 100%;
 }
 
 .react-player {
-  min-height: 972px;
+  min-height: 50.625vw;
 }
 
 .pause-bg {
@@ -1790,6 +1827,7 @@ body .container + .container.boxes .boxess .block-quote {
 }
 .play-bg:after {
   content: "";
+  display: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='86' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M64 64h160v384h-160zM288 64h160v384h-160z'/%3E%3C/svg%3E");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -1800,8 +1838,8 @@ body .container + .container.boxes .boxess .block-quote {
 }
 
 .photoGallery {
-  padding: 83px 0;
-  margin: 0 90px;
+  padding: 4.323vw 0;
+  margin: 0 4.688vw;
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 115px;
 }
@@ -1871,7 +1909,7 @@ body .container + .container.boxes .boxess .block-quote {
   margin-bottom: 86px;
 }
 .layout1 img {
-  max-height: 972px;
+  max-height: 50.625vw;
   width: 100%;
   object-fit: cover;
 }
@@ -1886,7 +1924,7 @@ body .container + .container.boxes .boxess .block-quote {
   width: 100%;
   margin-bottom: 86px;
 }
-.layout2 .container {
+.layout2 .container-2 {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1902,12 +1940,12 @@ body .container + .container.boxes .boxess .block-quote {
   width: 100%;
 }
 .layout2 .layoutDesc {
-  padding-left: 165px;
+  padding-left: 8.594vw;
   max-width: 33.802vw;
   margin-right: auto;
 }
 .layout2 img {
-  max-width: 972px;
+  max-width: 50.625vw;
 }
 
 .layout3 {
@@ -1916,7 +1954,7 @@ body .container + .container.boxes .boxess .block-quote {
   margin-bottom: 86px;
 }
 .layout3 img {
-  max-height: 972px;
+  max-height: 50.625vw;
   width: 100%;
   object-fit: cover;
 }
@@ -1931,7 +1969,7 @@ body .container + .container.boxes .boxess .block-quote {
   width: 100%;
   margin-bottom: 86px;
 }
-.layout4 .container {
+.layout4 .container-2 {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1947,22 +1985,24 @@ body .container + .container.boxes .boxess .block-quote {
   width: 100%;
 }
 .layout4 .layoutDesc {
-  padding-left: 165px;
+  padding-left: 8.594vw;
   max-width: 33.802vw;
   margin-right: auto;
   order: 0;
 }
 .layout4 img {
-  max-width: 972px;
+  max-width: 50.625vw;
   order: 1;
 }
 
 .ironSideSeriesModal {
   width: 100%;
+  margin-bottom: 12.708vw;
 }
 .ironSideSeriesModal .container {
   position: relative;
-  margin-left: 10.833vw;
+  padding-left: 10.833vw;
+  padding-right: 6.771vw;
 }
 .ironSideSeriesModal .modalContent {
   position: relative;
@@ -1973,7 +2013,7 @@ body .container + .container.boxes .boxess .block-quote {
   background-size: 60vw 23.125vw;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10.833vw;
   width: 60vw;
   height: 23.125vw;
   display: block;
@@ -1982,15 +2022,19 @@ body .container + .container.boxes .boxess .block-quote {
 .ironSideSeriesModal .product-img {
   max-width: 23.802vw;
   margin-left: 2.76vw;
-  margin-right: 6.146vw;
+}
+.ironSideSeriesModal .model {
+  margin-top: -2.708vw;
+}
+.ironSideSeriesModal .levels-content {
+  padding: 0 8px;
+  min-width: 33.33%;
 }
 .ironSideSeriesModal .levels {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid #363636;
   backdrop-filter: blur(20px);
-  margin: 0 8px;
   padding: 29px 24px 18px;
-  min-width: 14.323vw;
 }
 .ironSideSeriesModal .levels h4 {
   margin-bottom: 34px;
@@ -2005,6 +2049,15 @@ body .container + .container.boxes .boxess .block-quote {
 }
 .ironSideSeriesModal .price {
   margin-top: 20px;
+}
+.ironSideSeriesModal .level-block {
+  width: calc(100% - 23.802vw);
+}
+.ironSideSeriesModal .level-block .slick-slider {
+  width: 100%;
+}
+.ironSideSeriesModal .level-block .slick-slider .slick-list {
+  width: 100%;
 }
 
 .customizer {

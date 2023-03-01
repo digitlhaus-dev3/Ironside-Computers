@@ -1,5 +1,6 @@
-#frontend-root {
-  overflow: hidden;
+body #frontend-root {
+  display: block;
+  // overflow: hidden;
   header {
     position: absolute;
     top: 0;
@@ -429,5 +430,16 @@ body {
     p {
       @include m-0(m-0);
     }
+  }
+}
+
+.header-2-sticky {
+  position: -webkit-sticky;
+  top: 0;
+  background-color: $color-black;
+  z-index: 99;
+  .header-2 {
+    position: absolute;
+    backdrop-filter: blur(20px);
   }
 }

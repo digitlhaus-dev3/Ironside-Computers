@@ -42,32 +42,36 @@ import HStack from 'Components/HStack'
  */
 const Header2 = ({ logoImage, sticky }) => {
   return (
-    <Grid as="header" top="0" zIndex="docked">
-      <div className="" style={{ position: sticky ? 'sticky' : 'initial' }}>
-        <div className="header-main header-2">
-          <div className="header-left">
-            <Container
-              gridArea="logo"
-              justifySelf={{ base: 'center', md: 'left' }}
-              w={['20', '32']}
-              className="logo-icon"
-            >
-              <Logo image={logoImage} />
-            </Container>
-          </div>
-          <div className="header-center">
-            <h1> ironside series </h1>
-          </div>
-          <div className="header-right">
-            <HStack gridArea="cart" justifySelf="right" spacing="4">
-              <a href="#">Overview</a>
-              <a href="#gallery">Gallery</a>
-              <a href="#techstuff">Tech Specs</a>
-              <a href="#" className="buy-now-btn">
-                Buy Now
-              </a>
-            </HStack>
-          </div>
+    <Grid
+      as="header"
+      top="0"
+      zIndex="docked"
+      style={{ position: sticky ? 'sticky' : 'initial' }}
+      className="header-2-sticky"
+    >
+      <div className="header-main header-2">
+        <div className="header-left">
+          <Container
+            gridArea="logo"
+            justifySelf={{ base: 'center', md: 'left' }}
+            w={['20', '32']}
+            className="logo-icon"
+          >
+            <Logo image={logoImage} />
+          </Container>
+        </div>
+        <div className="header-center">
+          <h1> ironside series </h1>
+        </div>
+        <div className="header-right">
+          <HStack gridArea="cart" justifySelf="right" spacing="4">
+            <a href="#">Overview</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#techstuff">Tech Specs</a>
+            <a href="#" className="buy-now-btn">
+              Buy Now
+            </a>
+          </HStack>
         </div>
       </div>
     </Grid>

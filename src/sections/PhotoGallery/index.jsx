@@ -13,21 +13,23 @@ const PhotoGallery = ({ image }) => {
     infinite: true,
   }
   return (
-    <div className="photoGallery" id='gallery'>
-      <div className="container">
-        <Slider {...settings}>
-          {image?.productImages.map(event => {
-            return (
-              <div className="galleryImage">
-                <Image
-                  key={event.id}
-                  src={event?.productImage?.src}
-                  altext={event?.productImage?.alt}
-                ></Image>
-              </div>
-            )
-          })}
-        </Slider>
+    <div className="container">
+      <div className="photoGallery" id="gallery">
+        <div className="container-2">
+          <Slider {...settings}>
+            {image?.productImages.map(event => {
+              return (
+                <div className="galleryImage">
+                  <Image
+                    key={event.id}
+                    src={event?.productImage?.src}
+                    altext={event?.productImage?.alt}
+                  ></Image>
+                </div>
+              )
+            })}
+          </Slider>
+        </div>
       </div>
     </div>
   )
