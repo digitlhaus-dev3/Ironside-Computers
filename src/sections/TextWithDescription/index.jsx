@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextWithDescription = (title,description) => {
+const TextWithDescription = ({ title, description }) => {
   return (
     <div>
       <h2>{title}</h2>
