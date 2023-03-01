@@ -333,3 +333,27 @@
     }
   }
 }
+// .slick-slider {
+//   width: 100%;
+// }
+// .slick-list { max-width: 90vw; padding: 20px !important; }
+@media (prefers-color-scheme: dark) {
+  header .nav-links-btn, .mobile-menu .nav-links-btn {
+    color: $color-black;
+  }
+}
+@media (prefers-color-scheme: light) {
+  header .nav-links-btn, .mobile-menu .nav-links-btn {
+    color: red;
+  }
+}
+:root[color-mode="dark"] {
+  header .nav-links-btn, .mobile-menu .nav-links-btn {
+    color: blue;
+  }
+}
+:root[color-mode="light"] {
+  header .nav-links-btn, .mobile-menu .nav-links-btn {
+    color: pink;
+  }
+}

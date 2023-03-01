@@ -15,7 +15,9 @@ html {
   font-family: $body-fonts;
   font-size: 62.5%;
 }
-
+#__next {
+    overflow: hidden;
+}
 body {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
@@ -219,7 +221,7 @@ button.btn,
     opacity: 0.8;
   }
 }
-.btn-2 {
+body .btn-2 {
   all: unset;
   font-size: 16px;
   line-height: 16px;
@@ -388,4 +390,17 @@ input:-ms-input-placeholder.chakra-input {
       height: 609px;
     }
   }
+}
+body .add-to-cart {
+    width: auto;
+    background: transparent;
+    &:hover {
+        background: transparent;
+        color: $color-white;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .bannerContent h2 {
+        background-color: red;
+    }
 }

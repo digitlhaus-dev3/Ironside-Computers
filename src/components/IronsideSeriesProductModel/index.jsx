@@ -19,7 +19,7 @@ const IronsideSeriesProductModel = ({ product, id, label, price, cutomFields }) 
         <p className="price mb-0">${price && price}</p>
         <div className="d-flex align-end">
           <AddToCartButton
-            className="btn-2"
+            className="btn-2 add-to-cart"
             product={id}
             options={product?.modifiers.map(event => {
               return {
