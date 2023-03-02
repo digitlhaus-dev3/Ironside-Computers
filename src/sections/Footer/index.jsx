@@ -35,28 +35,35 @@ import Image from 'Components/Image'
  *
  * @param { FooterProps } props
  */
-const Footer = ({ footer }) => {
+const Footer = ({ footer, isWhiteThemeEnabled }) => {
   return (
-    <Flex as="footer" role="contentinfo" w="100%" className="footer">
-      <div className="container">
-        <div className="footerIcons">
-          {footer?.footer?.map((item,index) => {
-            return (
-              <Link key={index} href={item?.footerLink} title={item?.name} aria-label={item?.name}>
-                <Image src={item?.footerImage?.src} alt={item?.name} />
-              </Link>
-            )
-          })}
-        </div>
+    <div className={isWhiteThemeEnabled && 'whiteTheme'}>
+      <Flex as="footer" role="contentinfo" w="100%" className="footer">
+        <div className="container">
+          <div className="footerIcons">
+            {footer?.footer?.map((item, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={item?.footerLink}
+                  title={item?.name}
+                  aria-label={item?.name}
+                >
+                  <Image src={item?.footerImage?.src} alt={item?.name} />
+                </Link>
+              )
+            })}
+          </div>
 
-        <div className="footerText">
-          <p>&copy; 2022 Ironside Computers&nbsp;-&nbsp;</p>
-          <p>
-            <a href="#">Contact Us.</a>
-          </p>
+          <div className="footerText">
+            <p>&copy; 2022 Ironside Computers&nbsp;-&nbsp;</p>
+            <p>
+              <a href="#">Contact Us.</a>
+            </p>
+          </div>
         </div>
-      </div>
-    </Flex>
+      </Flex>
+    </div>
   )
 }
 export default Footer

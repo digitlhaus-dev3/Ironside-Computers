@@ -23,18 +23,14 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import * as React from 'react'
-import { useRouter } from 'frontend-router'
 import { useCart } from 'frontend-checkout'
 import Link from 'Components/Link'
-import Badge from 'Components/Badge'
 import Container from 'Components/Container'
 import Grid from 'Components/Grid'
 import Logo from 'Components/Logo'
 import Menu from 'Components/Menu'
 import { useCustomerState } from 'frontend-customer'
-import IconButton from 'Components/IconButton'
 import HStack from 'Components/HStack'
-import Image from 'Components/Image'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 
@@ -49,7 +45,7 @@ import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  *
  * @param { HeaderProps } props
  */
-const Header = ({ logoImage, menu, sticky }) => {
+const Header = ({ logoImage, menu, sticky, isWhiteThemeEnabled }) => {
   const { isLoggedIn } = useCustomerState()
   const [{ items = [] }, { showCart }] = useCart()
 
@@ -62,7 +58,7 @@ const Header = ({ logoImage, menu, sticky }) => {
   return (
     <Grid as="header" position={sticky ? 'sticky' : 'initial'} top="0" zIndex="docked">
       <div className="container">
-        <div className="header-main">
+        <div id={isWhiteThemeEnabled && 'whitetheme'} className="header-main">
           <div className="header-left">
             <Container
               gridArea="logo"
