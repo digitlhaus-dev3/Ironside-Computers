@@ -45,7 +45,7 @@ import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
  *
  * @param { HeaderProps } props
  */
-const Header = ({ logoImage, menu, sticky, isWhiteThemeEnabled }) => {
+const Header = ({ logoImage, menu, sticky, whiteTheme }) => {
   const { isLoggedIn } = useCustomerState()
   const [{ items = [] }, { showCart }] = useCart()
 
@@ -58,7 +58,7 @@ const Header = ({ logoImage, menu, sticky, isWhiteThemeEnabled }) => {
   return (
     <Grid as="header" position={sticky ? 'sticky' : 'initial'} top="0" zIndex="docked">
       <div className="container">
-        <div id={isWhiteThemeEnabled && 'whitetheme'} className="header-main">
+        <div className="header-main" id={whiteTheme && 'whiteTheme'}>
           <div className="header-left">
             <Container
               gridArea="logo"

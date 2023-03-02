@@ -1,12 +1,10 @@
 import React from 'react'
-
-const TextWithDescription = ({ title, description }) => {
+const TextWithDescription = ({ title, description, whiteTheme }) => {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className={whiteTheme && 'whiteTheme'}>
+      <h2>{title}</h2> 
       <p>{description}</p>
     </div>
   )
 }
-
 export default TextWithDescription
