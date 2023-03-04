@@ -62,7 +62,14 @@ export const BIG_COMMERCE_REGISTER_REQUIRED_FIELDS = [
   'address1',
   'address2',
 ]
-
+export const BIG_COMMERCE_CONTACT_REQUIRED_FIELDS = [
+  'firstName',
+  'lastName',
+  'email',
+  'phnNumber',
+  'orderNumber',
+  'issueDetails',
+]
 /** @type { Record<string, string> } */
 export const COUNTRIES = {
   AF: 'Afghanistan',

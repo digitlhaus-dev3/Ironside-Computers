@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 const CtaBannerV2 = ({bannerHeading,bannerBody,bannerImage}) => {
   return (
     <>
-      <div className='cta-banner-v2 d-flex align-right flex-wrap'>
+      <div className='cta-banner-v2 flex align-right flex-wrap'>
         <div className='cta-content'>
           <h2 className='cta-heading'>
             {bannerHeading}

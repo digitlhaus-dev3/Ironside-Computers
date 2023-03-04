@@ -10,7 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
-.d-flex {
+.flex {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -494,6 +494,18 @@ body .btn-2[disabled] {
   opacity: 0.8;
 }
 
+label.chakra-label,
+.chakra-form__label {
+  all: unset;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  padding: 0 35px 0 8px;
+  display: block;
+}
+
 input.chakra-input {
   all: unset;
   font-size: 16px;
@@ -529,6 +541,30 @@ input:-ms-input-placeholder.chakra-input {
   line-height: 16px;
   font-family: "Inconsolata", monospace;
   color: #ffffff;
+}
+
+.chakra-textarea {
+  all: unset;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+  border: 1px solid #323232;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  min-height: 118px;
+  background-color: transparent;
+}
+.chakra-textarea:placeholder {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Inconsolata", monospace;
+  color: #FFFFFF;
+}
+.chakra-textarea:focus {
+  border: 0 0 1px 0;
+  box-shadow: none;
 }
 
 /* Common Structure box with bg for account pages Scss Starts. */
@@ -2537,6 +2573,14 @@ body .content-left .content-top {
   margin: 0;
   min-height: 664px;
   min-width: 631px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  grid-row-gap: 0;
 }
 
 .heroBanner .heroBannerContent {
@@ -2976,6 +3020,17 @@ body .content-left .content-top {
 }
 #whiteTheme.layout5 p {
   color: #000000;
+}
+
+.account-page form > div {
+  margin-bottom: 33px;
+}
+
+.contact-us {
+  max-width: 1228px;
+}
+.contact-us .box-form {
+  max-width: 664px;
 }
 
 /*# sourceMappingURL=global.css.map */

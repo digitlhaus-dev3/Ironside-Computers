@@ -271,6 +271,17 @@ body .btn-2 {
 }
 
 // Input Style
+label.chakra-label,
+.chakra-form__label {
+    all: unset;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Inconsolata', monospace;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+    padding: 0 35px 0 8px;
+    display: block;
+}
 input.chakra-input {
   all: unset;
   font-size: 16px;
@@ -305,7 +316,29 @@ input:-ms-input-placeholder.chakra-input {
   font-family: 'Inconsolata', monospace;
   color: #ffffff;
 }
-
+.chakra-textarea {
+    all: unset;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Inconsolata', monospace;
+    color: #FFFFFF;
+    border: 1px solid #323232;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+    min-height: 118px;
+    background-color: transparent;
+    &:placeholder {
+        font-size: 16px;
+        line-height: 16px;
+        font-family: 'Inconsolata', monospace;
+        color: #FFFFFF;
+    }
+    &:focus {
+        border: 0 0 1px 0;
+        box-shadow: none;
+    }
+}
 /* Common Structure box with bg for account pages Scss Starts. */
 .absolute-heading {
   position: relative;
