@@ -10,6 +10,11 @@
   }
 }
 
+@mixin desktop {
+  @media screen and (max-width: 1640px) {
+    @content;
+  }
+}
 @mixin desktop-small {
   @media screen and (max-width: 1440px) {
     @content;
@@ -150,8 +155,14 @@
     z-index: 1;
 
     @include tablet {
-      width: 160px;
+      width: 275px;
       height: 609px;
+    }
+    @include tablet-small {
+      width: 200px;
+    }
+    @include mobile-small {
+      width: 160px;
     }
   }
 }
@@ -169,4 +180,19 @@
 
 @mixin m-0($m-o) {
   margin: 0;
+}
+@mixin m-280($m-280) {
+  max-width: 280px;
+  @include mobile-small {
+    max-width: 200px;
+  }
+}
+@mixin m-440($m-440) {
+  max-width: 440px;
+  @include tablet() {
+    max-width: 340px;
+  }
+  @include mobile-small {
+    max-width: 300px;
+  }
 }

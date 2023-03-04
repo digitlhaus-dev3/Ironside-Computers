@@ -118,6 +118,12 @@ body {
       outline: none !important;
     }
   }
+  strong {
+    font-size: 15px;
+    line-height: 15px;
+    font-family: $head-fonts;
+    font-weight: 400;
+  }
   ul li {
     font-size: 15px;
     line-height: 15px;
@@ -147,6 +153,10 @@ body {
         }
         @include tablet {
             max-width: none;
+            padding: 0 40px;
+        }
+        @include mobile-small {
+          padding: 0 20px;
         }
     }
     .container-2 {
@@ -229,6 +239,8 @@ body .btn-2 {
   font-weight: 400;
   color: $color-white;
   text-align: center;
+  @include display-flex(flex);
+  @include align-item(center);
   // border: 1px solid #363636;
   // border-radius: 79px;
   // width: 178px;
@@ -386,8 +398,15 @@ input:-ms-input-placeholder.chakra-input {
     right: 3.698vw;
     z-index: 1;
     @include tablet {
-      width: 160px;
+      width: 275px;
       height: 609px;
+    }
+    @include tablet-small {
+      width: 200px;
+    }
+    @include mobile-small {
+      width: 160px;
+      height: 685px;
     }
   }
 }

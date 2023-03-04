@@ -4,8 +4,8 @@ import SliderCard from 'Components/SliderCard'
 const SliderProductCard = ({ sliderData, enableWhiteTheme }) => {
   return (
     <div className={enableWhiteTheme && 'whiteTheme'}>
-      <div className="product-card">
-        <div className="product-content">
+      <div className="container-2">
+        <div className="product-grid">
           {sliderData?.sliderData?.map(item => {
             return (
               <SliderCard

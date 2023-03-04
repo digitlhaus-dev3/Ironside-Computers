@@ -83,3 +83,31 @@
     @include align-item(center);
     @include justify-content(center);
 }
+.pt90 {
+    padding-top: 90px;
+}
+.plr90 {
+    padding-left: 90px;
+    padding-right: 90px;
+}
+.mt15 {
+    margin-bottom: 15px;
+}
+.mt30 {
+    margin-bottom: 30px;
+}
+.mt100 {
+    margin-top: 100px;
+}
+.mt120 {
+    margin-top: 120px;
+}
+.mt230 {
+    margin-top: 230px;
+}
+.mt245 {
+    margin-top: 245px;
+}
+.mt290 {
+    margin-top: 290px;
+}

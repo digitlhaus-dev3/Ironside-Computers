@@ -52,7 +52,6 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
         </div>
       </div>
       <div className="productSlider">
-        <Slider {...settings}>
           {sliderData?.productSlider?.map(item => {
             return (
               <SliderCard
@@ -68,7 +67,6 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
               />
             )
           })}
-        </Slider>
       </div>
     </div>
   )

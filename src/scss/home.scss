@@ -13,6 +13,15 @@
   }
   &.box-shadow:after {
     margin-top: 90px;
+    right: 16.406vw;
+    z-index: 0;
+    @include tablet {
+      right: 100px;
+    }
+    @include mobile-small {
+      margin-top: 72px;
+      right: 11px;
+    }
   }
 }
 // .section2 {
@@ -35,11 +44,29 @@
   margin-right: 23.073vw;
   // margin-bottom: 233px;
   margin-bottom: 11.615vw;
+  z-index: 9;
+  @include desktop {
+    max-width: 43.902vw;
+  }
   @include desktop-small {
-    max-width: 500px;
+    max-width: 550px;
   }
   @include tablet {
+    margin-top: 150px;
     // padding: 173px 30px 0;
+  }
+  @include tablet-small {
+    max-width: 490px;
+    margin-left: 50px;
+    margin-right: 200px;
+  }
+  @include mobile-small {
+    max-width: none;
+    // width: auto;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 160px;
+    margin-bottom: 84px;
   }
   p {
     margin: 0;
@@ -50,52 +77,124 @@
   .left {
     text-align: left;
   }
+  @include mobile-small {
+    h2 {
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
 }
 body .container + .container.boxes .boxess {
   position: relative;
   margin-top: 224px;
   @include box-shadow(box-shadow);
+  @include desktop-small {
+    margin-top: 200px;
+  }
+  @include tablet {
+    margin-top: 150px;
+  }
+  @include mobile-small {
+    margin-top: 110px;
+    margin-left: 15px;
+    margin-right: auto;
+    .right {
+      text-align: left;
+    }
+  }
   &:after {
-    top: 0;
+    // top: -100px;
+    top: -5.208vw;
     // right: 202px;
     right: 18.646vw;
+    @include tablet {
+      right: 150px;
+    }
+    @include tablet-small {
+      right: 100px;
+    }
+    @include mobile-small {
+      top: -100px;
+      left: -10px;
+      right: auto;
+    }
   }
   .block-quote {
-    padding-top: 42px;
+    padding-top: 0;
     margin-top: 0;
     // margin-right: 626px;
     // margin-bottom: 216px;
     margin-right: 32.604vw;
     margin-bottom: 12.292vw;
+    @include tablet-small {
+      margin-right: 150px;
+    }
+    @include mobile-small {
+      margin-bottom: 80px;
+    }
   }
 }
 .block-quote-shadow {
   position: relative;
   @include box-shadow(box-shadow);
+  h2 {
+    margin-bottom: 55px;
+    @include tablet-small {
+      margin-bottom: 20px;
+    }
+  }
   &:after {
-    top: 0;
+    top: -5.208vw;
     // left: 287px;
     left: 14.948vw;
     right: auto;
+    @include tablet {
+      top: -50px;
+    }
+    @include tablet-small {
+      left: 40px;
+    }
+    @include mobile-small {
+      top: -105px;
+      left: auto;
+      right: 0;
+    }
   }
   .block-quote {
     // margin-top: 202px;
     // margin-left: 577px;
     // margin-bottom: 578px;
     // padding-top: 112px;
-    margin-top: 10.521vw;
+    margin-top: 16.458vw;
     margin-left: 30.052vw;
     margin-bottom: 30.052vw;
-    padding-top: 5.833vw;
+    // padding-top: 5.833vw;
+    margin-right: auto;
+    @include tablet {
+      margin-top: 150px;
+    }
+    @include tablet-small {
+      margin-left: 160px;
+      margin-bottom: 250px;
+    }
+    @include mobile-small {
+      margin-top: 135px;
+      margin-left: auto;
+      padding-right: 20px;
+      // margin-bottom: 250px;
+      .left {
+        text-align: right;
+      }
+    }
   }
 }
 .cta-banner {
   z-index: 1;
   // margin-bottom: 121px;
   width: 100%;
-  @include tablet {
-    padding: 24px;
-  }
+  // @include tablet {
+  //   padding: 24px;
+  // }
   img {
     @include tablet {
       width: 100%;
@@ -106,7 +205,7 @@ body .container + .container.boxes .boxess {
   }
   .cta-content {
     position: relative;
-    z-index: 1;
+    z-index: 5;
   }
   .large-img {
     position: relative;
@@ -114,6 +213,9 @@ body .container + .container.boxes .boxess {
     max-width: 53.125vw;
     width: 100%;
     z-index: 1;
+    @include tablet-small {
+      max-width: 400px;
+    }
   }
   .small-img {
     position: relative;
@@ -121,6 +223,13 @@ body .container + .container.boxes .boxess {
     max-width: 27.865vw;
     width: 100%;
     z-index: 1;
+    @include tablet {
+      max-width: 340px;
+    }
+    @include mobile {
+      max-width: 300px;
+      margin-left: auto;
+    }
   }
   .mid-img {
     position: relative;
@@ -128,6 +237,13 @@ body .container + .container.boxes .boxess {
     max-width: 36.927vw;
     width: 100%;
     z-index: 1;
+    @include tablet-small {
+      max-width: 350px;
+    }
+    @include mobile-small {
+      max-width: 270px;
+      margin-left: auto;
+    }
   }
   .cta-image {
     .background-image {
@@ -141,32 +257,54 @@ body .container + .container.boxes .boxess {
     padding: 0 5.469vw;
     // margin-bottom: 121px;
     margin-bottom: 6.302vw;
+    @include tablet-small {
+      padding: 0 0 0 20px;
+    }
+    @include mobile-small {
+      padding: 0;
+    }
     .content-bottom {
-      margin-bottom: 2.708vw;
-      margin-top: auto;
+      // margin-bottom: 2.708vw;
+      // margin-top: auto;
+    }
+    .cta-content {
+      @include m-440(m-440);
     }
     .content-left {
       @include display-flex(flex);
       @include justify-content(flex-start);
       width: 100%;
-      .cta-content {
-        text-align: left;
-        // margin-left: -68px;
-        margin-left: -3.542vw;
-        // padding-left: 41px;
-      }
+      // .cta-content {
+      //   text-align: left;
+      //   // margin-left: -68px;
+      //   margin-left: -3.542vw;
+      //   // padding-left: 41px;
+      // }
     }
     #background-image {
       position: absolute;
       top: 35px;
-      left: 432px;
+      left: 22.500vw;
       bottom: 0;
       display: block;
-      filter: blur(205px);
+      filter: blur(105px);
       z-index: 0;
-      width: 1120px;
-      height: 702px;
+      // width: 1120px;
+      width: 58.333vw;
+      // height: 702px;
+      height: 36.563vw;
       bottom: 0;
+      @include tablet-small {
+        // left: 80px;
+        // width: 400px;
+        height: 200px;
+      }
+      @include mobile-small {
+        top: 0;
+        left: -20px;
+        width: 390px;
+        height: 300px;
+      }
     }
   }
   .layout-2 {
@@ -179,20 +317,29 @@ body .container + .container.boxes .boxess {
     background-size: 100%;
     background-position: center;
     @include desktop-small {
-      margin-left: 120px;
+      // margin-left: 120px;
+    }
+    @include tablet-small {
+      padding: 0 40px;
+    }
+    @include mobile-small {
+      padding: 0;
     }
     .content-top {
-      margin-top: 48px;
-      margin-bottom: auto;
+      // margin-top: 48px;
+      // margin-bottom: auto;
+    }
+    .cta-content {
+      @include m-440(m-440);
     }
     .content-left {
       @include display-flex(flex);
       @include justify-content(flex-start);
       width: 100%;
-      .cta-content {
-        text-align: left;
-        margin-left: -41px;
-      }
+      // .cta-content {
+      //   text-align: left;
+      //   margin-left: -41px;
+      // }
     }
     #background-image {
       position: absolute;
@@ -202,9 +349,19 @@ body .container + .container.boxes .boxess {
       display: block;
       filter: blur(85.5px);
       z-index: 0;
-      width: 980px;
-      height: 382px;
+      // width: 980px;
+      width: 51.042vw;
+      // height: 382px;
+      height: 19.896vw;
       bottom: 0;
+      @include desktop-small {
+        left: 50px;
+        width: 500px;
+      }
+      @include tablet-small {
+        left: -40px;
+        height: 250px;
+      }
     }
   }
   .layout-3 {
@@ -218,23 +375,41 @@ body .container + .container.boxes .boxess {
     padding-right: 14.375vw;
     // margin-top: -120px;
     margin-top: -6.25vw;
-    .content-bottom {
-      margin-bottom: 2.708vw;
-      margin-top: auto;
+    @include desktop-small {
+      padding-right: 120px;
+    }
+    @include tablet-small {
+      // margin-top: 100px;
+      margin-top: 80px;
+      padding: 0 40px;
+    }
+    @include mobile-small {
+      margin-top: 50px;
+      padding: 0;
+    }
+    // .content-bottom {
+    //   margin-bottom: 2.708vw;
+    //   margin-top: auto;
+    // }
+    .cta-content {
+      @include m-440(m-440);
     }
     .content-right {
       @include display-flex(flex);
       @include justify-content(flex-end);
       .cta-image {
         order: 1;
+        @include mobile-small {
+          order: 0;
+        }
       }
-      .cta-content {
-        z-index: 1;
-        text-align: right;
-        margin-right: -41px;
-        // margin-right: -41px;
-        // padding-left: 41px;
-      }
+      // .cta-content {
+      //   z-index: 1;
+      //   text-align: right;
+      //   margin-right: -41px;
+      //   // margin-right: -41px;
+      //   // padding-left: 41px;
+      // }
     }
     #background-image {
       position: absolute;
@@ -242,11 +417,18 @@ body .container + .container.boxes .boxess {
       right: 0;
       bottom: 0;
       display: block;
-      filter: blur(350px);
+      filter: blur(59px);
       z-index: 0;
-      width: 1118px;
-      max-height: 732px;
+      // width: 1118px;
+      width: 58.229vw;
+      // max-height: 732px;
+      height: 38.125vw;
       bottom: 0;
+      @include mobile-small {
+        top: 80px;
+        width: 100%;
+        height: 370px;
+      }
     }
   }
   .layout-4 {
@@ -255,36 +437,56 @@ body .container + .container.boxes .boxess {
     justify-content: flex-start;
     width: 100%;
     // padding-right: 186px;
-    padding-left: 9.688vw;
+    padding-left: 15.729vw;
     z-index: 2;
     @include desktop-small {
-      margin-left: 200px;
+      padding-left: 150px;
     }
-    .content-top {
-      margin-top: 2.708vw;
-      margin-bottom: auto;
-      // max-width: 330px;
-      max-width: 17.188vw;
+    @include tablet {
+      padding-left: 100px;
+    }
+    @include tablet-small {
+      padding-left: 40px;
+    }
+    @include mobile-small {
+      padding: 0;
+    }
+    // .content-top {
+    //   margin-top: 2.708vw;
+    //   margin-bottom: auto;
+    //   // max-width: 330px;
+    //   max-width: 17.188vw;
+    // }
+    .cta-content {
+      @include m-280(m-280);
     }
     .content-left {
       @include display-flex(flex);
       @include justify-content(flex-end);
-      .cta-content {
-        text-align: left;
-        margin-left: -41px;
-      }
+      // .cta-content {
+      //   text-align: left;
+      //   margin-left: -41px;
+      // }
     }
     #background-image {
       position: absolute;
       top: -16px;
-      left: 74px;
+      left: 25.521vw;
       bottom: 0;
       display: block;
-      filter: blur(250px);
+      filter: blur(50.5px);
       z-index: 0;
-      width: 1009px;
-      height: 381px;
+      // width: 1009px;
+      width: 52.552vw;
+      // height: 381px;
+      height: 19.844vw;
       bottom: 0;
+      @include tablet-small {
+        height: 250px;
+      }
+      @include mobile-small {
+        width: 100%;
+      }
     }
   }
   .layout-5 {
@@ -298,37 +500,74 @@ body .container + .container.boxes .boxess {
     // margin-top: -110px;
     margin-top: -2.604vw;
     @include desktop-small {
-      margin-left: 200px;
+      // margin-right: 200px;
+    }
+    // @include tablet {
+    //   margin-top: 0;
+    // }
+    @include tablet-small {
+      margin: 80px 40px 0;
+    }
+    @include mobile-small {
+      margin: 15px 0 0;
     }
     .cta-image {
       order: 1;
+      @include mobile-small {
+        order: 0;
+      }
+    }
+    .cta-content {
+      @include m-280(m-280);
+      @include mobile-small {
+        margin-left: auto;
+      }
     }
     .content-top {
-      margin-top: 2.708vw;
-      margin-bottom: auto;
-      // max-width: 330px;
-      max-width: 17.188vw;
-      margin-right: -41px;
+      //   margin-top: 2.708vw;
+      //   margin-bottom: auto;
+      //   // max-width: 330px;
+      //   max-width: 17.188vw;
+      //   margin-right: -41px;
+      //   @include desktop-small {
+      //     max-width: 250px;
+      //   }
+      @include tablet {
+        max-width: none;
+      }
     }
     .content-right {
       @include display-flex(flex);
       @include justify-content(flex-end);
       margin-right: 4.167vw;
-      .cta-content {
-        text-align: right;
+      // .cta-content {
+      //   text-align: right;
+      // }
+      @include tablet-small {
+        margin-right: 0;
       }
     }
     #background-image {
       position: absolute;
-      top: -100px;
+      top: -5.208vw;
       right: 74px;
       bottom: 0;
       display: block;
-      filter: blur(450px);
+      filter: blur(120px);
       z-index: 0;
-      width: 766px;
-      height: 708px;
+      // width: 766px;
+      width: 39.896vw;
+      // height: 708px;
+      height: 36.875vw;
       bottom: 0;
+      @include tablet-small {
+        width: 400px;
+        right: -20px;
+      }
+      @include mobile-small {
+        top: -60px;
+        height: 350px;
+      }
     }
   }
   .layout-6 {
@@ -342,34 +581,74 @@ body .container + .container.boxes .boxess {
     // margin-top: -110px;
     margin-top: -5.729vw;
     @include desktop-small {
-      margin-left: 200px;
+      // margin-left: 200px;
+    }
+    // @include tablet {
+    //   margin-top: 0
+    // }
+    @include tablet-small {
+      margin: 80px 50px 0;
+    }
+    @include mobile-small {
+      margin: 10px 0 0 20px;
+      .cta-image {
+        max-width: 230px;
+      }
+    }
+    .cta-content {
+      @include m-280(m-280);
     }
     .content-bottom {
-      margin-bottom: 2.708vw;
-      margin-top: auto;
+      // margin-bottom: 2.708vw;
+      // margin-top: auto;
       // max-width: 330px;
-      max-width: 17.188vw;
-      margin-left: -41px;
+      // max-width: 17.188vw;
+      //  margin-left: -41px;
+      @include tablet {
+        max-width: none;
+      }
+      @include mobile-small {
+        margin-left: 10px;
+      }
     }
-    .content-right {
+    .content-left {
       @include display-flex(flex);
       @include justify-content(flex-start);
-      margin-left: 9.271vw;
-      .cta-content {
-        text-align: left;
+      padding-left: 9.271vw;
+      @include desktop-small {
+        padding-left: 60px;
       }
+      @include tablet {
+        padding-left: 40px;
+      }
+      @include tablet-small {
+        padding-left: 0;
+      }
+      // .cta-content {
+      //   text-align: left;
+      // }
     }
     #background-image {
       position: absolute;
-      top: -112px;
+      top: -5.833vw;
       left: 0;
       bottom: 0;
       display: block;
-      filter: blur(350px);
+      filter: blur(120px);
       z-index: 0;
-      width: 766px;
-      height: 708px;
+      // width: 766px;
+      width: 39.896vw;
+      // height: 708px;
+      height: 36.875vw;
       bottom: 0;
+      @include tablet-small {
+        width: 450px;
+        left: -80px;
+      }
+      @include mobile-small {
+        top: -120px;
+        height: 300px;
+      }
     }
   }
   p:last-child {
@@ -378,13 +657,14 @@ body .container + .container.boxes .boxess {
 }
 .cta-content {
   // padding-left: 41px;
-  max-width: 452px;
+  // max-width: 452px;
   // margin-bottom:2.708vw;
   // margin-top: auto;
   z-index: 1;
   @include tablet {
     width: 100%;
-    padding-left: 22px;
+    max-width: 300px;
+    // padding-left: 22px;
   }
   a:hover {
     &:after {
@@ -407,11 +687,11 @@ body .container + .container.boxes .boxess {
   }
 }
 
-.cta-banner-v2 {
-  .cta-content {
-    margin-right: -42px;
-  }
-}
+// .cta-banner-v2 {
+//   .cta-content {
+//     margin-right: -42px;
+//   }
+// }
 
 .slid {
   width: 100%;
@@ -593,7 +873,7 @@ body .container + .container.boxes .boxess {
 // //     -webkit-backdrop-filter: blur(45px);
 // //     backdrop-filter: blur(45px);
 .productSlider:after {
-  content: "";
+  content: '';
   position: absolute;
   top: -54px;
   left: auto;
@@ -604,13 +884,22 @@ body .container + .container.boxes .boxess {
   background: rgba(21, 22, 23, 0.05);
   backdrop-filter: blur(45px);
 }
-
+.product-card {
+  width: 400px;
+  .bg-img {
+    position: relative;
+    min-height: 344px;
+  }
+}
 .product-content {
   padding: 28px 0 0 36px;
+  position: absolute;
+  left: 0;
+  right: 0;
   h3 {
     font-size: 26.46px;
     line-height: 26.46px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
   }
   p {
     font-size: 12px;
@@ -621,6 +910,12 @@ body .container + .container.boxes .boxess {
   img {
     margin-top: -78px;
     padding-left: 50px;
+  }
+  .product-desc {
+    margin-bottom: 22px;
+  }
+  .btn-2 {
+    margin-top: 10px;
   }
   .productCardImage {
     margin-top: 22px;
@@ -653,6 +948,89 @@ body .container + .container.boxes .boxess {
           transition: all 0.4s ease;
         }
       }
+    }
+  }
+}
+.sliderSection {
+  display: none;
+}
+body .content-right {
+  @include mobile-small {
+    @include flex-direction(column);
+  }
+  .content-top {
+    margin-top: 2.708vw;
+    margin-bottom: auto;
+    margin-right: -2.188vw;
+    text-align: right;
+    @include tablet {
+      margin-top: 35px;
+      margin-right: -40px;
+    }
+    @include tablet-small {
+      margin-top: 25px;
+    }
+    @include mobile-small {
+      margin-top: -10px;
+      margin-right: 10px;
+    }
+  }
+  .content-bottom {
+    margin-top: auto;
+    margin-bottom: 2.708vw;
+    margin-right: -2.188vw;
+    text-align: right;
+    @include tablet {
+      margin-bottom: 35px;
+      margin-right: -40px;
+    }
+    @include tablet-small {
+      margin-bottom: 25px;
+    }
+    @include mobile-small {
+      margin-top: -10px;
+      margin-right: -10px;
+      margin-bottom: 0;
+    }
+  }
+}
+body .content-left {
+  @include mobile-small {
+    @include flex-direction(column);
+  }
+  .content-bottom {
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: 2.708vw;
+    margin-left: -2.188vw;
+    @include tablet {
+      margin-bottom: 35px;
+      margin-left: -40px;
+    }
+    @include tablet-small {
+      margin-bottom: 25px;
+    }
+    @include mobile-small {
+      margin-top: -10px;
+      margin-left: 30px;
+      margin-bottom: 0;
+    }
+  }
+  .content-top {
+    text-align: left;
+    margin-top: 2.708vw;
+    margin-bottom: auto;
+    margin-left: -2.188vw;
+    @include tablet {
+      margin-top: 35px;
+      margin-left: -40px;
+    }
+    @include tablet-small {
+      margin-top: 25px;
+    }
+    @include mobile-small {
+      margin-top: -10px;
+      margin-left: 10px;
     }
   }
 }

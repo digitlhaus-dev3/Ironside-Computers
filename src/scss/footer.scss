@@ -1,5 +1,8 @@
 .footer {
   padding-bottom: 32px;
+  @include mobile-small {
+    padding-bottom: 125px;
+  }
   div {
     justify-content: center;
   }
@@ -26,5 +29,30 @@
     line-height: 12px;
     color: #737373;
     margin: 0;
+    a {
+      font-size: 12px;
+      line-height: 12px;
+      color: #737373;
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+}
+.footerIcons {
+  a {
+    @include display-flex(flex);
+    @include align-item(center);
+  }
+  img {
+    max-width: 28px;
+    max-height: 28px;
+  }
+}
+.whiteTheme {
+  .footerText {
+    a {
+      color: #737373;
+    }
   }
 }

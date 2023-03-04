@@ -44,7 +44,7 @@ const CtaBanner = ({
     } else if (layout?.toLowerCase() === 'layout 6') {
       setImageSize('small-img')
       setTextPosition('content-bottom')
-      setImageAlign('content-right')
+      setImageAlign('content-left')
       setlayoutClass('layout-6')
     } else setlayoutClass('layout-1')
   }, [layoutClass])
@@ -62,7 +62,7 @@ const CtaBanner = ({
                   id="background-image"
                   className='bg-img'
                   style={{
-                    backgroundImage: `url(${bannerImage?.src})`,
+                    backgroundImage: `url(${backgroundImage?.src})`,
                   }}
                 />
               </div>
@@ -70,7 +70,7 @@ const CtaBanner = ({
                 <div className="cta-content">
                   <h2 className="cta-heading">{bannerHeading}</h2> <p>{bannerBody}</p>
                   <p>
-                    <a href={bannerLink}>{bannerLinkText ? 'Learn More' : bannerLinkText}</a>
+                    <a href={bannerLink}>{bannerLinkText ? bannerLinkText : 'Learn More'}</a>
                   </p>
                 </div>
               </div>
