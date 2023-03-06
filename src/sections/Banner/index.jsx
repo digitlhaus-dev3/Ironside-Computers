@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from './styles.module.css'
 import Video from 'frontend-ui/Video'
+import useStore from 'frontend-store'
 import { Img } from '@chakra-ui/react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 const Banner = ({ imageSrc, videoSrc }) => {
-  var settings = {
+  const [{ isVolMute }] = useStore()
+  const settings = {
     dots: true,
     arrows: false,
     infinite: true,
@@ -24,9 +26,15 @@ const Banner = ({ imageSrc, videoSrc }) => {
           <Slider {...settings}>
             <Img src={imageSrc?.src} />
 
-            <Video autoPlay loop>
-              <source src={videoSrc?.src} />
-            </Video>
+            {isVolMute || isVolMute === undefined ? (
+              <Video autoPlay loop muted>
+                <source src={videoSrc?.src} />
+              </Video>
+            ) : (
+              <Video autoPlay loop>
+                <source src={videoSrc?.src} />
+              </Video>
+            )}
           </Slider>
         </div>
       </div>

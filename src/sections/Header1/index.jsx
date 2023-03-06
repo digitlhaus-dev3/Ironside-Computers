@@ -25,12 +25,14 @@
 import * as React from 'react'
 import { useCart } from 'frontend-checkout'
 import Link from 'Components/Link'
+import Button from 'Components/Button'
 import Container from 'Components/Container'
 import Grid from 'Components/Grid'
 import Logo from 'Components/Logo'
 import Menu from 'Components/Menu'
 import { useCustomerState } from 'frontend-customer'
 import HStack from 'Components/HStack'
+import useStore from 'frontend-store'
 
 import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 
@@ -48,6 +50,13 @@ import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
 const Header = ({ logoImage, menu, sticky, whiteTheme }) => {
   const { isLoggedIn } = useCustomerState()
   const [{ items = [] }, { showCart }] = useCart()
+  const [muteVol, setMuteVol] = React.useState(true)
+  const [store, setStore] = useStore()
+
+  const volControl = () => {
+    setMuteVol(!muteVol)
+    setStore({ isVolMute: !muteVol })
+  }
 
   const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
 
@@ -80,7 +89,6 @@ const Header = ({ logoImage, menu, sticky, whiteTheme }) => {
           <div className="header-right">
             <HStack gridArea="cart" justifySelf="right" spacing="4">
               <Link
-                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Price"
                 aria-label="Price"
                 className="usdIcon"
@@ -89,17 +97,17 @@ const Header = ({ logoImage, menu, sticky, whiteTheme }) => {
               </Link>
               <Link onClick={showCart} aria-label={cartIconAriaLabel} className="cart"></Link>
               <Link
-                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                // href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
                 title="Navigate to account"
                 aria-label="Navigate to my account"
                 className="account"
               ></Link>
-              <Link
-                href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+              <Button
+                onClick={volControl}
                 title="Volume"
                 aria-label="controll volume"
-                className="volume"
-              ></Link>
+                className={muteVol ? 'mute' : 'volume'}
+              />
             </HStack>
           </div>
         </div>

@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react'
 import './styles.module.css'
 
-const Customizer = ({ aesthetics, components }) => {
+const Customizer = ({ aesthetics, components, services, productSeries }) => {
   const MoonIcon = <Icon icon="MoonIcon" />
   const SunIcon = <Icon icon="SunIcon" />
   const DragHandleIcon = <Icon icon="DragHandleIcon" />
@@ -50,7 +50,7 @@ const Customizer = ({ aesthetics, components }) => {
       const price = unique.reduce(
         (accumulator, currentValue) => accumulator + currentValue.price,
         0,
-        );
+      );
       setBuild(unique)
       setTotalPrice(price)
     }
@@ -134,7 +134,7 @@ const Customizer = ({ aesthetics, components }) => {
                         Services
                       </Heading>
 
-                      <CustomizerProductGrid collection={components} />
+                      <CustomizerProductGrid collection={services} />
                     </li>
                     <li id="peripherals">
                       <Heading as="h6" size="sm">

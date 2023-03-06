@@ -3,7 +3,6 @@ import Image from 'Components/Image'
 import { HStack } from '@chakra-ui/react'
 
 const AboutSubMenu = ({ aboutImage }) => {
-  console.log(aboutImage)
   const company = [
     {
       name: 'Support',
