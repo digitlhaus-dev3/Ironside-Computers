@@ -37,45 +37,39 @@ const AboutSubMenu = ({ aboutImage }) => {
     },
   ]
   return (
-    <div>
-      <HStack>
+    <div className='about-us-mega-menu'>
+      <div className='col'>
         <div>
-          <h3>Company</h3>
+          <h4>Company</h4>
           <ul>
             {company.map(items => {
               return (
-                <HStack>
                   <l1>
                     <a href={items.link}> {items.name} </a>
                   </l1>
-                </HStack>
               )
             })}
           </ul>
         </div>
         <div>
-          <h3>Work With us</h3>
+          <h4>Work With us</h4>
           <ul>
             {Work.map(items => {
               return (
-                <HStack>
                   <l1>
                     <a href={items.link}> {items.name} </a>
                   </l1>
-                </HStack>
               )
             })}
           </ul>
         </div>
-      </HStack>
-      <div>
+      </div>
+      <div className='about-us-bottom'>
         <HStack>
-          <spam></spam>
+          <span className="contact-icon"></span>
           <p>
-            1 (512) 696–1455
-            <br />
+            <strong>1 (512) 696–1455</strong>
             technicalsupport@ironsidecomputers.com
-            <br />
             Monday – Friday 9am to 4:30pm CST
           </p>
         </HStack>
