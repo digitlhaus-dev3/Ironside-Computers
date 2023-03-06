@@ -29,14 +29,14 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
         settings: 'unslick',
       },
       {
-        breakpoint: 1281,
+        breakpoint: 1279,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 1080,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -45,23 +45,16 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
       {
         breakpoint: 1023,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 789,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 666,
+        breakpoint: 767,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 2,
           variableWidth: true,
         },
       },

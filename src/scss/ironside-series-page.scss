@@ -6,26 +6,56 @@
     @include desktop-small {
       padding: 13.889vw 13.177vw 9.01vw;
     }
+    @include tablet {
+      padding: 167px 10.177vw 46px;
+    }
+    @include mobile-small {
+      @include flex-direction(column);
+      padding: 67px 10px 46px;
+    }
   }
   .bannerImage {
     // width: 700px;
     width: 36.458vw;
+    @include mobile-small {
+      width: 100%;
+    }
     img {
       // height: 700px;
       height: 36.458vw;
       object-fit: cover;
+      @include mobile-small {
+        height: 368px;
+        margin: auto;
+      }
     }
   }
   .bannerContent {
     // width: calc(100% - 700px);
     width: calc(100% - 36.458vw);
     padding-left: 8.021vw;
+    @include mobile {
+      // max-width: 400px;
+      margin: auto;
+    }
+    @include mobile-small {
+      width: 100%;
+      padding-left: 20px;
+    }
   }
 }
 .BannerWithDescription {
   width: 100%;
   // margin-top: -64px;
   margin-top: -3.333vw;
+  @include mobile-small {
+    margin-bottom: 20px;
+  }
+  .bg-img {
+    @include mobile-small {
+      background-size: cover;
+    }
+  }
   .desc {
     // padding: 560px 0;
     padding: 29.167vw 0;
@@ -35,6 +65,9 @@
     margin: auto;
     @include tablet {
       max-width: 500px;
+    }
+    @include mobile-small {
+      padding: 272px 0;
     }
     .signature {
       // max-width: 293px;
@@ -53,8 +86,11 @@
   }
   video {
     // height: 972px !important;
-    height: 50.625vw !important;
+    height: 50.625vw;
     width: 100%;
+    @include tablet {
+      height: 100%;
+    }
   }
   &:hover {
     .pause-bg,
@@ -83,6 +119,11 @@
   border-radius: 50%;
   cursor: pointer;
   display: none;
+  @include tablet {
+    display: flex;
+    width: 100px;
+    height: 100px;
+  }
   &:after {
     content: '';
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='84' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M96 64l320 192-320 192z'/%3E%3C/svg%3E");
@@ -96,6 +137,10 @@
     width: 84px;
     height: 63px;
     display: block;
+    @include tablet {
+      width: 50px;
+      height: 40px;
+    }
   }
 }
 .play-bg {
@@ -114,6 +159,11 @@
   border-radius: 50%;
   cursor: pointer;
   display: none;
+  @include tablet {
+    display: flex;
+    width: 100px;
+    height: 100px;
+  }
   &:after {
     content: '';
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='86' height='70' viewBox='0 0 512 512' style='fill: %23fff;'%3E%3Ctitle/%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath d='M64 64h160v384h-160zM288 64h160v384h-160z'/%3E%3C/svg%3E");
@@ -127,6 +177,10 @@
     width: 84px;
     height: 63px;
     display: block;
+    @include tablet {
+      width: 50px;
+      height: 40px;
+    }
   }
 }
 .photoGallery {
@@ -137,7 +191,15 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   // margin-bottom: 115px;
   @include tablet {
-    margin-bottom: 7.813vw;
+    // margin-bottom: 7.813vw;
+    margin: 0 0 7.813vw;
+    .container-2 {
+      padding: 0 20px;
+    }
+  }
+  @include mobile-small {
+    margin: 0;
+    padding: 16px;
   }
   .slick-slide > div {
     margin: 6px 9px;
@@ -155,6 +217,13 @@
   .slick-arrow {
     display: none !important;
   }
+  .regular.slider {
+    @include flex-wrap(wrap);
+    .galleryImage {
+      width: 33.33%;
+      padding: 0 4px;
+    }
+  }
 }
 .techStuff {
   // margin-left: 373px;
@@ -168,11 +237,22 @@
     margin-left: 10.417vw;
     padding-right: 10.417vw;
   }
+  @include tablet {
+    margin-left: 40px;
+    padding-right: 50px;
+  }
+  @include mobile {
+    margin-top: 48px;
+    margin-left: 0;
+    margin-bottom: 56px;
+    padding: 0;
+  }
   h2 {
     padding-top: 73px;
     margin-bottom: 35px;
     @include tablet {
       padding-top: 0;
+      margin-bottom: 24px;
     }
   }
   h3 {
@@ -187,12 +267,20 @@
     @include flex(flex);
     height: 100%;
     align-items: stretch;
+    @include flex-wrap(wrap);
+    @include mobile-small {
+      margin: 0 -7px;
+    }
     > div {
       // width: 276px;
       width: 14.375vw;
       // margin: auto;
       @include tablet {
         width: 180px;
+      }
+      @include mobile {
+        width: 50%;
+        padding: 0 7px;
       }
       .box-bg {
         background: rgba(255, 255, 255, 0.05);
@@ -203,12 +291,19 @@
         @include tablet {
           padding: 20px;
         }
+        @include mobile {
+          width: 100%;
+        }
       }
     }
     .description {
       width: calc(100% - 28.75vw);
       @include tablet {
         width: calc(100% - 360px);
+      }
+      @include mobile {
+        width: 100%;
+        margin-top: 16px;
       }
     }
   }
@@ -220,11 +315,18 @@
   @include tablet {
     margin-bottom: 7.813vw;
   }
+  @include mobile {
+    margin-bottom: 16px;
+  }
   img {
     //max-height: 972px;
     max-height: 50.625vw;
     width: 100%;
     object-fit: cover;
+    @include mobile-small {
+      height: 510px;
+      max-height: none;
+    }
   }
   .layoutDesc {
     position: absolute;
@@ -236,6 +338,17 @@
     @include desktop {
       max-width: 400px;
     }
+    @include mobile-small {
+      top: auto;
+      bottom: 36px;
+      left: 22px;
+      max-width: 255px;
+      h3 {
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 14px;
+      }
+    }
   }
 }
 .layout2 {
@@ -244,9 +357,15 @@
   @include tablet {
     margin-bottom: 7.813vw;
   }
+  @include mobile {
+    margin-bottom: 16px;
+  }
   .container-2 {
     @include flex(flex);
     width: 100%;
+    @include mobile-small {
+      @include flex-direction(column);
+    }
   }
   .layoutDesc {
     // padding-left: 165px;
@@ -259,10 +378,24 @@
       max-width: 34.722vw;
       margin: auto;
     }
+    @include mobile-small {
+      max-width: 100%;
+      margin-top: 20px;
+      h3 {
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 14px;
+      }
+    }
   }
   img {
     // max-width: 972px;
     max-width: 50.625vw;
+    @include mobile-small {
+      max-width: 100%;
+      max-height: 260px;
+      width: 100%;
+    }
   }
 }
 
@@ -273,11 +406,18 @@
   @include tablet {
     margin-bottom: 7.813vw;
   }
+  @include mobile {
+    margin-bottom: 16px;
+  }
   img {
     // max-height: 972px;
     max-height: 50.625vw;
     width: 100%;
     object-fit: cover;
+    @include mobile-small {
+      height: 510px;
+      max-height: none;
+    }
   }
   .layoutDesc {
     position: absolute;
@@ -289,6 +429,17 @@
     @include desktop {
       max-width: 400px;
     }
+    @include mobile-small {
+      top: auto;
+      bottom: 36px;
+      right: 22px;
+      max-width: 255px;
+      h3 {
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 14px;
+      }
+    }
   }
 }
 .layout4 {
@@ -297,9 +448,15 @@
   @include tablet {
     margin-bottom: 7.813vw;
   }
+  @include mobile {
+    margin-bottom: 16px;
+  }
   .container-2 {
     @include flex(flex);
     width: 100%;
+    @include mobile-small {
+      @include flex-direction(column);
+    }
   }
   .layoutDesc {
     // padding-left: 165px;
@@ -313,11 +470,26 @@
       max-width: 34.722vw;
       margin: auto;
     }
+    @include mobile-small {
+      max-width: 100%;
+      margin-top: 20px;
+      h3 {
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 14px;
+      }
+    }
   }
   img {
     // max-width: 972px;
     max-width: 50.625vw;
     order: 1;
+    @include mobile-small {
+      max-width: 100%;
+      max-height: 260px;
+      width: 100%;
+      order: 0;
+    }
   }
 }
 
@@ -329,7 +501,7 @@
     margin-bottom: 7.813vw;
   }
   @include mobile-small {
-    margin-bottom: 125px;
+    margin-bottom: 90px;
   }
   .container {
     position: relative;
@@ -348,6 +520,9 @@
     position: relative;
     padding: 2.396vw 0 0 4.896vw;
     z-index: 1;
+    @include mobile {
+      padding: 20px 36px;
+    }
   }
   .bg-img {
     // background-size: 1152px 444px;
@@ -370,7 +545,7 @@
     @include tablet {
       height: 400px;
     }
-    @include mobile-small {
+    @include mobile {
       height: 258px;
       width: 100%;
       left: 0;
@@ -386,46 +561,75 @@
     @include desktop {
       max-width: 350px;
     }
-    @include mobile-small {
+    @include mobile {
       max-width: 248px;
+      margin-left: auto;
+      margin-right: 0;
     }
   }
   .model {
     margin-top: -2.708vw;
     @include display-flex(flex);
-    @include mobile-small {
-      @include flex-direction(column);
-      @include align-item(flex-end);
+    @include tablet-small {
+      @include justify-content(flex-end);
       margin-top: -60px;
+      margin: -60px -36px 0;
     }
-    .slick-track {
-      @include display-flex(flex);
-      @include justify-content(center);
-      @include flex-wrap(wrap);
-      margin: auto -8px;
-      @include mobile-small {
-        margin: 0 -6px;
-      }
+    @include mobile {
+      @include flex-direction(column);
     }
+    // .slick-track {
+    //   @include display-flex(flex);
+    //   @include justify-content(center);
+    //   @include flex-wrap(wrap);
+    //   margin: auto -8px;
+    //   @include mobile {
+    //     margin: 0 -6px;
+    //   }
+    // }
   }
   .levels-content {
     padding: 0 8px;
-    min-width: 50.33%;
+    // min-width: 50.33%;
     // width: 25%;
     // max-width: 300px;
+    @include tablet {
+      width: 310px;
+      @include display-flex(flex);
+    }
+    @include mobile {
+      width: 100%;
+    }
     @include mobile-small {
-      width: 181px;
+      // width: 181px;
+      width: 46.410vw;
       min-width: auto;
       padding: 0 6px;
+    }
+  }
+  .slick-list {
+    // @include display-flex(flex);
+    .slick-slide {
+      > div {
+        @include display-flex(flex);
+        height: 100%;
+        // width: 220px;
+        @include tablet-small {
+          @include justify-content(center);
+        }
+      }
     }
   }
   .slick-arrow {
     width: 22px;
     height: 16px;
+    z-index: 9;
   }
   .slick-prev {
+    left: -6px;
     @include mobile-small {
       left: 0;
+      display: none;
     }
     &:before {
       content: '';
@@ -439,7 +643,7 @@
   }
   .slick-next {
     right: -6px;
-    @include mobile-small {
+    @include mobile {
       right: 0;
     }
     &:before {
@@ -458,12 +662,15 @@
     padding: 29px 24px 18px;
     // min-width: 275px;
     // min-width: 14.323vw;
-    @include mobile-small {
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
       padding: 16px 19px;
     }
     h4 {
       margin-bottom: 34px;
-      @include mobile-small {
+      @include mobile {
         margin-bottom: 19px;
       }
     }
@@ -471,14 +678,14 @@
       margin-top: 4.688vw;
       margin-left: auto;
       margin-right: 0;
-      @include mobile-small {
+      @include mobile {
         margin-top: 46px;
       }
     }
   }
   .shipping-day {
     margin-top: 20px;
-    @include mobile-small {
+    @include mobile {
       display: none;
     }
   }
@@ -496,11 +703,20 @@
     }
     @include tablet {
       padding-left: 0;
+      width: calc(100% - 380px);
     }
-    @include mobile-small {
+    @include tablet-small {
       margin-top: 18px;
+      padding-left: 10px;
+    }
+    @include mobile {
       width: 100%;
     }
+    // @include mobile {
+    //   // margin-top: 18px;
+    //   // width: 100%;
+    //   padding-left: 10px;
+    // }
     .slick-slider {
       width: 100%;
       .slick-list {
@@ -537,6 +753,9 @@
 .regular.slider {
   @include display-flex(flex);
   .levels-content {
-    min-width: 274px;
+    width: 274px;
+    // @include desktop-small {
+    //   width: ;
+    // }
   }
 }
