@@ -1034,3 +1034,8 @@ body .content-left {
     }
   }
 }
+.sliderSection {
+  +.container .cta-banner {
+    justify-content: flex-start;
+  }
+}

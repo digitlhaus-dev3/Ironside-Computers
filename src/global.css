@@ -2624,6 +2624,10 @@ body .content-left .content-top {
   }
 }
 
+.sliderSection + .container .cta-banner {
+  justify-content: flex-start;
+}
+
 #frontend-root {
   background-color: #000000;
 }
