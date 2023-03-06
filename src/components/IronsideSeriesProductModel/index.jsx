@@ -5,7 +5,7 @@ const IronsideSeriesProductModel = ({ product, id, label, price, cutomFields }) 
   return (
     <div className="levels-content">
       <div className="levels">
-        <h3>{label && label[1]}</h3>
+        <h4>{label && label[1]}</h4>
         <ul className="d-flex flex-direction list-none">
           {cutomFields?.map(event => {
             if (event.name !== 'Ships') return <li>{event.value}</li>

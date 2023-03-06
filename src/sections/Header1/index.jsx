@@ -106,7 +106,7 @@ const Header = ({ logoImage, menu, sticky, whiteTheme }) => {
                 onClick={volControl}
                 title="Volume"
                 aria-label="controll volume"
-                className={muteVol ? 'mute' : 'volume'}
+                className={muteVol ? 'mute volume' : 'volume'}
               />
             </HStack>
           </div>
