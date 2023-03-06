@@ -273,6 +273,7 @@ const SubMenu = forwardRef(
               // onMouseLeave={onClose}
               onKeyDownCapture={menuListKeyDownCaptureHandler}
               onKeyDown={menuListKeyDownHandler}
+              className={backgroundImage?.src ? "": "about-us"}
             >
               <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
                 <div className="menu-description">

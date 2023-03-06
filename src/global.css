@@ -1458,6 +1458,7 @@ body .chakra-menu__menu-list p {
 
 header .about-us {
   max-width: 725px;
+  overflow: hidden;
 }
 header .about-us .menu-description {
   width: 100%;
@@ -2594,6 +2595,8 @@ body .container + .container.boxes .boxess .block-quote {
 }
 .product-content .btn-2 {
   margin-top: 10px;
+  position: relative;
+  z-index: 99;
 }
 .product-content .slick-track {
   display: -webkit-box;

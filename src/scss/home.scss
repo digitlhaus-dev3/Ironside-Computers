@@ -941,6 +941,8 @@ body .container + .container.boxes .boxess {
   }
   .btn-2 {
     margin-top: 10px;
+    position: relative;
+    z-index: 99;
   }
   .slick-track {
     @include display-flex(flex);
