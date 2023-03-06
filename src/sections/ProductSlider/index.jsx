@@ -6,13 +6,13 @@ import 'slick-carousel/slick/slick-theme.css'
 
 function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
   const settings = {
-    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     autoplayspeed: 2000,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -52,6 +52,7 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
         </div>
       </div>
       <div className="productSlider">
+        <Slider {...settings}>
           {sliderData?.productSlider?.map(item => {
             return (
               <SliderCard
@@ -67,6 +68,7 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
               />
             )
           })}
+        </Slider>
       </div>
     </div>
   )

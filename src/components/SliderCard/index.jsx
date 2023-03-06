@@ -13,10 +13,11 @@ const SliderCard = ({
   titleColor,
   newProduct,
 }) => {
-  return (
+  return (         
     <div className="product-card">
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className="bg-img">
-        <div className="product-content">
+      </div>
+      <div className="product-content">
           <h3 style={{ color: titleColor }}>{title}</h3>
           <div className="newProduct">{newProduct && <p>New</p>}</div>
           <p className="product-desc">{description}</p>
@@ -30,7 +31,6 @@ const SliderCard = ({
             <img src={imgSrc} alt={altText} height="464px" width="416px"/>
           </div>
         </div>
-      </div>
     </div>
   )
 }
