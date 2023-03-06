@@ -15,6 +15,9 @@ body #frontend-root {
       @include display-flex(flex);
       @include justify-content(space-between);
       @include align-item(center);
+      @include tablet {
+        padding: 30px 0;
+      }
       @include mobile-small {
         padding: 14px 0 0;
       }
@@ -31,7 +34,11 @@ body #frontend-root {
   @include display-flex(flex);
   @include justify-content(space-between);
   @include align-item(center);
-  @include tablet-small {
+  @include tablet {
+    @include justify-content(flex-start);
+  }
+  @include mobile {
+    @include justify-content(space-between);
     width: 100%;
   }
   a {
@@ -168,7 +175,7 @@ header .nav-links-btn,
   }
 }
 .header-right {
-  @include tablet-small {
+  @include mobile {
     display: none;
   }
   a {
@@ -386,6 +393,9 @@ header {
 #frontend-root header .header-main.header-2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding: 22px 47px 20px;
+  @include tablet {
+    padding: 25px;
+  }
   > div {
     width: 33.33%;
   }
@@ -408,6 +418,9 @@ header {
       padding: 10px 13px;
       margin: 0;
       border-radius: 90px;
+      @include tablet {
+        padding: 10px 8px;
+      }
       &:hover {
         background: rgba(255, 255, 255, 0.1);
       }
@@ -445,7 +458,7 @@ body {
     }
   }
   .navigation-links .chakra-stack {
-    @include tablet-small {
+    @include mobile {
       display: none;
     }
   }

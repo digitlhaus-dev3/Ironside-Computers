@@ -25,17 +25,28 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
     autoplayspeed: 2000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 99999,
+        settings: 'unslick',
+      },
+      {
+        breakpoint: 1281,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -62,19 +73,19 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
             <Image className="product-img" src={`${image?.src}`} sizes="100px" />
             <div className="level-block align-v-center justify-center d-flex flex-wrap">
               <Slider {...settings}>
-              {labelName?.map(event => {
-              return (
-                <React.Fragment key={event.id}>
-                  <IronsideSeriesProductModel
-                    product={event.product}
-                    id={event.id}
-                    label={event.label}
-                    cutomFields={event.cutomFields}
-                    price={event.price}
-                  />
-                </React.Fragment>
-              )
-            })}
+                {labelName?.map(event => {
+                  return (
+                    <React.Fragment key={event.id}>
+                      <IronsideSeriesProductModel
+                        product={event.product}
+                        id={event.id}
+                        label={event.label}
+                        cutomFields={event.cutomFields}
+                        price={event.price}
+                      />
+                    </React.Fragment>
+                  )
+                })}
               </Slider>
             </div>
           </div>

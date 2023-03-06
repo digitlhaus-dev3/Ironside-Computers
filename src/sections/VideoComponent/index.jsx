@@ -14,8 +14,8 @@ const VideoComponent = ({ videoUrl }) => {
           playing={playing}
           onPlay={play}
           onPause={pause}
-          width="1742px"
-          height="972px"
+          width="auto"
+          height="auto"
           config={{ file: { attributes: { poster: videoUrl?.posterUrl } } }}
         />
         {playing ? (
