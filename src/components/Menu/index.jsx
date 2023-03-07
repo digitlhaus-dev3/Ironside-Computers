@@ -58,7 +58,6 @@ import Image from 'Components/Image'
  */
 const Mobile = props => {
   const { content, links = [], ...chakraMenuProps } = props
-
   const styles = useMultiStyleConfig('Menu', chakraMenuProps)
 
   /** @type { [ number | undefined, React.Dispatch<React.SetStateAction<number | undefined>> ] } */
@@ -89,12 +88,15 @@ const Mobile = props => {
 
     setFocusedIndex(expandedIndex + 1)
   }, [setFocusedIndex, expandedIndex])
-
   return (
     <Flex display={{ md: 'none' }} align="center">
       <MenuProvider value={context}>
         <StylesProvider value={styles}>
-          <MenuButton className='mobile-menu-btn' verticalAlign="middle" aria-label={isOpen ? 'Close menu' : 'Open menu'}>
+          <MenuButton
+            className="mobile-menu-btn"
+            verticalAlign="middle"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
             <Icon icon="HamburgerIcon" boxSize="6" />
           </MenuButton>
 
@@ -107,7 +109,7 @@ const Mobile = props => {
               >
                 {content && <Container sx={styles.contentItem}>{content}</Container>}
 
-                {links.map(({ label, slug, subMenuLinks }, index) => {
+                {links.map(({ label, slug, subMenuLinks, backgroundImage }, index) => {
                   if (!subMenuLinks) {
                     return (
                       <MenuItem key={label} as={Link} href={slug} className="nav-links-btn">
@@ -117,7 +119,6 @@ const Mobile = props => {
                   }
 
                   const isExpanded = index === expandedIndex
-
                   return (
                     <React.Fragment key={label}>
                       <MenuItem
@@ -126,6 +127,7 @@ const Mobile = props => {
                           event.stopPropagation()
                           setExpandedIndex(prev => (prev === index ? undefined : index))
                         }}
+                        style={{ backgroundImage: `url(${backgroundImage?.src})` }}
                         className="nav-links-btn"
                       >
                         <Text>{label}</Text>
@@ -136,11 +138,28 @@ const Mobile = props => {
                       </MenuItem>
 
                       {isExpanded &&
-                        subMenuLinks.map(({ label, slug }) => (
-                          <MenuItem key={label} as={Link} href={slug} sx={styles.mobileSubmenuItem}>
-                            {label}
-                          </MenuItem>
-                        ))}
+                        subMenuLinks.map(({ label, description, slug }) => {
+                          return (
+                            <div>
+                              <MenuItem
+                                key={label}
+                                as={Link}
+                                href={slug}
+                                sx={styles.mobileSubmenuItem}
+                              >
+                                <h3>{label}</h3>
+                                <p>{description}</p>
+                              </MenuItem>
+                            </div>
+                          )
+                        })}
+                      {isExpanded && label === "About" && (
+                        <div>
+                          <MenuItem sx={styles.mobileSubmenuItem}>
+                            <AboutSubMenu/>
+                          </MenuItem> 
+                        </div>
+                      )}
                     </React.Fragment>
                   )
                 })}
