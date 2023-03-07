@@ -918,6 +918,11 @@ header .nav-links .css-r6z5ec {
   }
 }
 
+@media screen and (min-width: 800px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 .mobile-menu div div {
   background-color: #000000;
 }
