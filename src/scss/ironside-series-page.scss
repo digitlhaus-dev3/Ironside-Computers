@@ -2,6 +2,7 @@
   .heroBannerContent {
     // padding-top: 223px;
     // padding: 206px 253px 173px;
+    @include align-item(flex-start);
     padding: 10.729vw 13.177vw 9.01vw;
     @include desktop-small {
       padding: 13.889vw 13.177vw 9.01vw;
@@ -11,12 +12,18 @@
     }
     @include mobile-small {
       @include flex-direction(column);
-      padding: 67px 10px 46px;
+      padding: 133px 10px 4px;
+    }
+  }
+  .bg-img {
+    @include mobile {
+      background-size: cover;
     }
   }
   .bannerImage {
     // width: 700px;
-    width: 36.458vw;
+    // width: 36.458vw;
+    width: 50%;
     @include mobile-small {
       width: 100%;
     }
@@ -32,15 +39,41 @@
   }
   .bannerContent {
     // width: calc(100% - 700px);
-    width: calc(100% - 36.458vw);
+    // width: calc(100% - 36.458vw);
+    width: 50%;
     padding-left: 8.021vw;
+    margin-top: 10.729vw;
     @include mobile {
       // max-width: 400px;
       margin: auto;
+      padding-top: 46px;
+      padding-left: 20px;
     }
     @include mobile-small {
       width: 100%;
-      padding-left: 20px;
+      // padding-left: 20px;
+    }
+    h2 {
+      font-size: 48px;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+      font-family: $head-fonts;
+      font-weight: 400;
+      margin-bottom: 32px;
+      @include mobile {
+        font-size: 24px;
+        line-height: 24px;
+        margin-bottom: 27px;
+      }
+    }
+    p {
+      font-size: 15px;
+      line-height: 15px;
+      max-width: 400px;
+      @include mobile {
+        font-size: 13px;
+        line-height: 13px;
+      }
     }
   }
 }
@@ -51,6 +84,25 @@
   @include mobile-small {
     margin-bottom: 20px;
   }
+  h3 {
+    margin-bottom: 33px;
+    @include mobile {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 17px;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    font-family: $heading-fonts;
+    font-weight: 400;
+    @include mobile {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
   .bg-img {
     @include mobile-small {
       background-size: cover;
@@ -60,18 +112,24 @@
     // padding: 560px 0;
     padding: 29.167vw 0;
     // max-width: 534px;
-    max-width: 27.813vw;
+    max-width: 28.813vw;
     text-align: center;
     margin: auto;
     @include tablet {
       max-width: 500px;
     }
+    @include mobile {
+      max-width: 309px;
+    }
     @include mobile-small {
-      padding: 272px 0;
+      padding: 269px 0;
     }
     .signature {
       // max-width: 293px;
       max-width: 15.26vw;
+      @include mobile {
+        max-width: 220px;
+      }
     }
   }
 }
@@ -92,12 +150,12 @@
       height: 100%;
     }
   }
-  &:hover {
-    .pause-bg,
-    .play-bg {
-      display: flex;
-    }
-  }
+  // &:hover {
+  //   .pause-bg,
+  //   .play-bg {
+  //     display: flex;
+  //   }
+  // }
 }
 .react-player {
   // min-height: 972px;
@@ -118,7 +176,7 @@
   backdrop-filter: blur(7px);
   border-radius: 50%;
   cursor: pointer;
-  display: none;
+  // display: none;
   @include tablet {
     display: flex;
     width: 100px;
@@ -158,7 +216,7 @@
   backdrop-filter: blur(7px);
   border-radius: 50%;
   cursor: pointer;
-  display: none;
+  // display: none;
   @include tablet {
     display: flex;
     width: 100px;
@@ -185,11 +243,12 @@
 }
 .photoGallery {
   // padding: 83px 0;
-  padding: 4.323vw 0;
+  padding: 4.323vw 0 4.271vw 4.583vw;
   // margin: 0 90px;
-  margin: 0 4.688vw 115px;
+  margin-bottom: 5.99vw;
   border: 1px solid rgba(255, 255, 255, 0.2);
   // margin-bottom: 115px;
+  position: relative;
   @include tablet {
     // margin-bottom: 7.813vw;
     margin: 0 0 7.813vw;
@@ -201,6 +260,23 @@
     margin: 0;
     padding: 16px;
   }
+  &:after {
+    content: '';
+    background: rgba(0, 0, 0, 0.01);
+    backdrop-filter: blur(31.5px);
+    width: 4.583vw;
+    height: 45vw;
+    display: block;
+    position: absolute;
+    top: -3.385vw;
+    right: -2px;
+    @include mobile {
+      display: none;
+    }
+  }
+  // .slick-slider {
+  //   margin-left: 88px;
+  // }
   .slick-slide > div {
     margin: 6px 9px;
     // max-height: 278px;
@@ -233,6 +309,7 @@
   // margin-bottom: 168px;
   margin-bottom: 8.75vw;
   padding-bottom: 5.781vw;
+  position: relative;
   @include desktop {
     margin-left: 10.417vw;
     padding-right: 10.417vw;
@@ -247,12 +324,26 @@
     margin-bottom: 56px;
     padding: 0;
   }
+  .bg-img {
+    position: absolute;
+    left: 80px;
+    z-index: 0;
+    filter: blur(69px);
+    @include mobile {
+      top: -36px;
+      left: 0;
+      height: 348px;
+    }
+  } 
   h2 {
     padding-top: 73px;
     margin-bottom: 35px;
     @include tablet {
       padding-top: 0;
       margin-bottom: 24px;
+    }
+    @include mobile {
+      padding-left: 20px;
     }
   }
   h3 {
@@ -268,6 +359,8 @@
     height: 100%;
     align-items: stretch;
     @include flex-wrap(wrap);
+    position: relative;
+    z-index: 1;
     @include mobile-small {
       margin: 0 -7px;
     }
@@ -371,15 +464,21 @@
     // padding-left: 165px;
     padding-left: 8.594vw;
     // max-width: 649px;
-    max-width: 33.802vw;
+    max-width: 34.802vw;
     margin-right: auto;
     @include desktop {
       padding-left: 0;
       max-width: 34.722vw;
       margin: auto;
     }
+    p {
+      font-size: 15px;
+      line-height: 15px;
+    }
     @include mobile-small {
-      max-width: 100%;
+      max-width: 260px;
+      margin-left: 0;
+      text-align: left;
       margin-top: 20px;
       h3 {
         font-size: 14px;
@@ -390,7 +489,7 @@
   }
   img {
     // max-width: 972px;
-    max-width: 50.625vw;
+    max-width: 54.167vw;
     @include mobile-small {
       max-width: 100%;
       max-height: 260px;
@@ -444,7 +543,7 @@
 }
 .layout4 {
   width: 100%;
-  margin-bottom: 86px;
+  margin-bottom: 5.313vw;
   @include tablet {
     margin-bottom: 7.813vw;
   }
@@ -462,7 +561,7 @@
     // padding-left: 165px;
     padding-left: 8.594vw;
     // max-width: 649px;
-    max-width: 33.802vw;
+    max-width: 34.802vw;
     margin-right: auto;
     order: 0;
     @include desktop {
@@ -471,7 +570,9 @@
       margin: auto;
     }
     @include mobile-small {
-      max-width: 100%;
+      max-width: 260px;
+      margin-right: 0;
+      text-align: right;
       margin-top: 20px;
       h3 {
         font-size: 14px;
@@ -479,10 +580,14 @@
         margin-bottom: 14px;
       }
     }
+    p {
+      font-size: 15px;
+      line-height: 15px;
+    }
   }
   img {
     // max-width: 972px;
-    max-width: 50.625vw;
+    max-width: 54.167vw;
     order: 1;
     @include mobile-small {
       max-width: 100%;
@@ -522,6 +627,20 @@
     z-index: 1;
     @include mobile {
       padding: 20px 36px;
+    }
+    h3 {
+      font-size: 40px;
+      line-height: 40px;
+      font-family: $head-fonts;
+      font-weight: 400;
+      margin-bottom: 11px;
+      @include mobile {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+    p {
+      margin-bottom: 11px;
     }
   }
   .bg-img {
@@ -578,6 +697,14 @@
     @include mobile {
       @include flex-direction(column);
     }
+    .slick-track {
+      @include display-flex(flex);
+      height: 100%;
+      .slick-slide {
+        @include display-flex(flex);
+        height: 100%;
+      }
+    }
     // .slick-track {
     //   @include display-flex(flex);
     //   @include justify-content(center);
@@ -602,7 +729,7 @@
     }
     @include mobile-small {
       // width: 181px;
-      width: 46.410vw;
+      width: 46.41vw;
       min-width: auto;
       padding: 0 6px;
     }
@@ -627,6 +754,7 @@
   }
   .slick-prev {
     left: -6px;
+    display: none !important;
     @include mobile-small {
       left: 0;
       display: none;
@@ -670,7 +798,10 @@
     }
     h4 {
       margin-bottom: 34px;
+      font-family: $head-fonts;
       @include mobile {
+        font-size: 14px;
+        line-height: 14px;
         margin-bottom: 19px;
       }
     }
@@ -691,6 +822,8 @@
   }
   .price {
     margin-top: 20px;
+    font-family: $heading-fonts;
+    font-weight: 700;
   }
   .level-block {
     @include display-flex(flex);
@@ -718,6 +851,7 @@
     //   padding-left: 10px;
     // }
     .slick-slider {
+      @include display-flex(flex);
       width: 100%;
       .slick-list {
         width: 100%;

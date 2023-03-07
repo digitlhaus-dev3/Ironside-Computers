@@ -407,11 +407,16 @@ header {
 // Header Two
 #frontend-root header .header-main.header-2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 22px 47px 20px;
+  padding: 22px 0 20px;
+  margin: auto;
+  max-width: 96.094vw;
+  left: 0;
+  right: 0;
   @include tablet {
     padding: 20px;
     @include mobile {
-      padding: 8px 24px;
+      max-width: 88.718vw;
+      padding: 8px 0;
     }
   }
   > div {
@@ -443,6 +448,7 @@ header {
     @include justify-content(center);
     @include mobile {
       @include justify-content(flex-start);
+      padding: 10px 0 0;
     }
   }
   .header-right {

@@ -65,7 +65,7 @@ const IronsideSeriesModel = ({ ironsideSeries, decription, backgroundImage, imag
       <div className="container">
         <div className="bg-img" style={{ backgroundImage: `url(${backgroundImage?.src})` }}></div>
         <div className="modalContent">
-          <h2>{ironsideSeries?.name}</h2>
+          <h3>{ironsideSeries?.name}</h3>
           <p>{decription}</p>
           <button className="btn-2" onClick={learnMore}>
             Learn more

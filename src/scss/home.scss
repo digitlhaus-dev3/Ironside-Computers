@@ -73,6 +73,9 @@
   }
   .right {
     text-align: right;
+    h2 {
+      margin-bottom: 31px;
+    }
   }
   .left {
     text-align: left;
@@ -728,7 +731,7 @@ body .container + .container.boxes .boxess {
   }
   &:after {
     content: '';
-    height: 33.594vw;
+    height: 44.594vw;
     width: 13.021vw ;
     background: rgba(21, 22, 23, 0.05);
     backdrop-filter: blur(45px);
@@ -742,6 +745,9 @@ body .container + .container.boxes .boxess {
     bottom: 0;
     left: auto;
     z-index: 9999;
+    @include desktop-small {
+      height: 46.875vw; 
+    }
   }
   .slick-track {
     @include display-flex(flex);

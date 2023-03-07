@@ -28,9 +28,8 @@ const PhotoGallery = ({ image }) => {
     ],
   }
   return (
-    <div className="container">
+    <div className="container-2">
       <div className="photoGallery" id="gallery">
-        <div className="container-2">
           <Slider {...settings}>
             {image?.productImages.map(event => {
               return (
@@ -45,7 +44,6 @@ const PhotoGallery = ({ image }) => {
             })}
           </Slider>
         </div>
-      </div>
     </div>
   )
 }

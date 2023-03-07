@@ -1,12 +1,13 @@
 import React from 'react'
+import { Image } from '@chakra-ui/react'
 
 const TechStuff = backgroundImage => {
   return (
     <div className="container" id='techstuff'>
       <div
-        className="techStuff bg-img"
-        style={{ backgroundImage: `url(${backgroundImage?.backgroundImage?.src})` }}
+        className="techStuff"
       >
+        <Image className='bg-img' src={backgroundImage?.backgroundImage?.src}></Image>
         <h2>Tech Stuff</h2>
         <div className="techDesc flex">
           <div>

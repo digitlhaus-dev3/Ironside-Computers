@@ -1,6 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
 
 * {
@@ -18,7 +18,7 @@ html {
 #__next {
     overflow: hidden;
 }
-body {
+head + body {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   padding: 0;
@@ -168,10 +168,11 @@ body {
         }
     }
     .container-2 {
-        max-width: 1920px;
-        padding: 0 90px;
-        margin: auto;
+        max-width: 1740px;
+        margin: 0 auto;
+        // margin: auto;
         width: 100%;
+        position: relative;
         @media screen and (min-width: 1921px) {
             max-width: 87.273vw;
         }
@@ -196,6 +197,7 @@ ol {
 img {
   max-width: 100%;
   vertical-align: middle;
+  object-fit: cover;
 }
 
 address {
