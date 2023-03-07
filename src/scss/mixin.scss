@@ -10,6 +10,12 @@
   }
 }
 
+@mixin xl {
+  @media screen and (min-width: 1640px) and (max-width: 1900px) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media screen and (max-width: 1640px) {
     @content;
@@ -147,7 +153,8 @@
     opacity: 0.2;
     border-width: 1px;
     border-style: solid;
-    border-image: linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
+    // border-image: linear-gradient(to bottom, white 41%, rgba(0, 0, 0, 0)) 1;
+    border-image: linear-gradient( to bottom, $color-white 61% , $color-black 0) 1 1 0 1;
     // width: 345px;
     // height: 1519px;
     width: 17.969vw;
@@ -182,7 +189,10 @@
   margin: 0;
 }
 @mixin m-280($m-280) {
-  max-width: 14.583vw;
+  max-width: 15.583vw;
+  @include desktop {
+    max-width: 40.902vw;
+  }
   @include mobile-small {
     max-width: 200px;
   }

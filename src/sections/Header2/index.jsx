@@ -46,7 +46,7 @@ const Header2 = ({ logoImage, sticky }) => {
       as="header"
       top="0"
       zIndex="docked"
-      style={{ position: sticky ? 'sticky' : 'initial' }}
+      style={{ position: sticky ? 'fixed' : 'initial' }}
       className="header-2-sticky"
     >
       <div className="header-main header-2">
