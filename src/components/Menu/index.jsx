@@ -45,6 +45,7 @@ import HStack from 'Components/HStack'
 import { useIsFirstRender } from 'Components/Hooks'
 import AboutSubMenu from 'Components/AboutSubMenu'
 import Image from 'Components/Image'
+import { useCart } from 'frontend-checkout'
 
 /**
  * @typedef { import("@chakra-ui/react").MenuProps } ChakraMenuProps
@@ -82,6 +83,10 @@ const Mobile = props => {
     },
     [onClose],
   )
+  const [{ items = [] }, { showCart }] = useCart()
+  const itemsQuantity = items.reduce((acc, currentItem) => acc + currentItem.quantity, 0)
+
+  const cartIconAriaLabel = !!itemsQuantity ? `Cart with ${itemsQuantity} items.` : 'Cart is empty.'
 
   React.useEffect(() => {
     if (expandedIndex === undefined) return
@@ -107,6 +112,22 @@ const Mobile = props => {
                 onKeyDownCapture={menuListKeyDownCaptureHandler}
                 zIndex="dropdown"
               >
+                <div className="mobile-top">
+                  <Link onClick={showCart} aria-label={cartIconAriaLabel} className="cart"></Link>
+                  <Link
+                    // href={isLoggedIn ? ACCOUNT_URL : ACCOUNT_LOGIN_URL}
+                    title="Navigate to account"
+                    aria-label="Navigate to my account"
+                    className="account"
+                  ></Link>
+                  <MenuButton
+                    className="mobile-menu-btn"
+                    verticalAlign="middle"
+                    aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                  >
+                    <Icon icon="HamburgerIcon" boxSize="6" />
+                  </MenuButton>
+                </div>
                 {content && <Container sx={styles.contentItem}>{content}</Container>}
 
                 {links.map(({ label, slug, subMenuLinks, backgroundImage }, index) => {
@@ -127,9 +148,9 @@ const Mobile = props => {
                           event.stopPropagation()
                           setExpandedIndex(prev => (prev === index ? undefined : index))
                         }}
-                        style={{ backgroundImage: `url(${backgroundImage?.src})` }}
                         className="nav-links-btn"
                       >
+                        <Image className="mobile-img" src={backgroundImage?.src} />
                         <Text>{label}</Text>
                         <Icon
                           icon={isExpanded ? 'ChevronDownIcon' : 'ChevronRightIcon'}
@@ -170,7 +191,7 @@ const Mobile = props => {
                         <span className="contact-icon"></span>
                         <p>
                           <strong>1 (512) 696–1455</strong>
-                          technicalsupport@ironsidecomputers.com Monday – Friday 9am to 4:30pm CST
+                          help@ironsidecomputers.com <br />Mon – Fri  9am to 4:30pm CST
                         </p>
                       </HStack>
                     </div>
