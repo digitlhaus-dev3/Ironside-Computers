@@ -153,16 +153,29 @@ const Mobile = props => {
                             </div>
                           )
                         })}
-                      {isExpanded && label === "About" && (
+                      {isExpanded && label === 'About' && (
                         <div>
                           <MenuItem sx={styles.mobileSubmenuItem}>
-                            <AboutSubMenu/>
-                          </MenuItem> 
+                            <AboutSubMenu />
+                          </MenuItem>
                         </div>
                       )}
                     </React.Fragment>
                   )
                 })}
+                <div>
+                  <MenuItem sx={styles.mobileSubmenuItem}>
+                    <div className="about-us-bottom">
+                      <HStack>
+                        <span className="contact-icon"></span>
+                        <p>
+                          <strong>1 (512) 696–1455</strong>
+                          technicalsupport@ironsidecomputers.com Monday – Friday 9am to 4:30pm CST
+                        </p>
+                      </HStack>
+                    </div>
+                  </MenuItem>
+                </div>
               </MenuList>
             </div>
           </Portal>
@@ -292,7 +305,7 @@ const SubMenu = forwardRef(
               // onMouseLeave={onClose}
               onKeyDownCapture={menuListKeyDownCaptureHandler}
               onKeyDown={menuListKeyDownHandler}
-              className={backgroundImage?.src ? "": "about-us"}
+              className={backgroundImage?.src ? '' : 'about-us'}
             >
               <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
                 <div className="menu-description">
