@@ -28,6 +28,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   const DragHandleIcon = <Icon icon="DragHandleIcon" />
   const HamburgerIcon = <Icon icon="HamburgerIcon" />
   const [themeIcon, setThemeIcon] = useState(true)
+  const [categorySelected, setcategorySelected] = useState('all')
   const [view, setView] = useState('grid')
   const [build, setBuild] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
@@ -81,7 +82,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
               src={
                 caseImage
                   ? caseImage
-                  : 'https://i.gadgets360cdn.com/large/mvp_pc_build_1604313319165.jpg'
+                  : 'https://i.ibb.co/bWfjWq9/Y2-KHero-Images-Glacier-Blue-Large-1.png'
               }
               alt="customImage"
             />
@@ -108,7 +109,14 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                 </div>
                 <div className="fixed-section">
                   <ul className={view}>
-                    <li id="aesthetics">
+                    <li
+                      id="aesthetics"
+                      hidden={
+                        categorySelected === 'aesthetics' || categorySelected === 'all'
+                          ? false
+                          : true
+                      }
+                    >
                       <div className="list-heading d-flex align-v-center justify-space-between">
                         <h5>Aesthetics</h5>
                         <HStack>
@@ -131,21 +139,40 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                       </div>
                       <Container></Container>
                     </li>
-                    <li id="components">
+                    <li
+                      id="components"
+                      hidden={
+                        categorySelected === 'components' || categorySelected === 'all'
+                          ? false
+                          : true
+                      }
+                    >
                       <h5>Components</h5>
 
                       <div className="customizer-grid">
                         <CustomizerProductGrid collection={components} />
                       </div>
                     </li>
-                    <li id="services">
+                    <li
+                      id="services"
+                      hidden={
+                        categorySelected === 'services' || categorySelected === 'all' ? false : true
+                      }
+                    >
                       <h5>Services</h5>
 
                       <div className="customizer-grid">
                         <CustomizerProductGrid collection={services} />
                       </div>
                     </li>
-                    <li id="peripherals">
+                    <li
+                      id="peripherals"
+                      hidden={
+                        categorySelected === 'peripherals' || categorySelected === 'all'
+                          ? false
+                          : true
+                      }
+                    >
                       <h5>Peripherals</h5>
 
                       <div className="customizer-grid">
@@ -159,16 +186,19 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                 <Container margin={3}>
                   <ul>
                     <li>
-                      <a href="#aesthetics">Aesthetics</a>
+                      <a onClick={() => setcategorySelected('aesthetics')}>Aesthetics</a>
                     </li>
                     <li>
-                      <a href="#components">Components</a>
+                      <a onClick={() => setcategorySelected('components')}>Components</a>
                     </li>
                     <li>
-                      <a href="#services">Services</a>
+                      <a onClick={() => setcategorySelected('services')}>Services</a>
                     </li>
                     <li>
-                      <a href="#peripherals">Peripherals</a>
+                      <a onClick={() => setcategorySelected('peripherals')}>Peripherals</a>
+                    </li>
+                    <li>
+                      <a onClick={() => setcategorySelected('all')}>All</a>
                     </li>
                   </ul>
                 </Container>
