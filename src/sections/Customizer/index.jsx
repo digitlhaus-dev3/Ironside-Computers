@@ -68,7 +68,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
 
   return (
     <>
-      <div className="customizer" style={{ paddingTop: '200px' }}>
+      <div className="customizer" style={{ paddingTop: '149px' }}>
         <Flex
           className="customizer-row"
           flexDirection={{ base: 'column', md: 'row' }}
@@ -87,12 +87,12 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
             />
           </Container>
           <Container className="product-desc" margin={3}>
-            <Flex>
+            <div className="prod-desc-scroll flex">
               <div className="product-description">
-                <HStack>
+                <div className="customizer-heading d-flex align-v-center justify-space-between">
                   <Container>
-                    <Heading as="h4">TOKYO DREAM</Heading>
-                    <h5>Level 2</h5>
+                    <h2>TOKYO DREAM</h2>
+                    <p className="m-0">Level 2</p>
                   </Container>
                   <Container>
                     <IconButton
@@ -101,15 +101,17 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                       icon={themeIcon ? MoonIcon : SunIcon}
                       onClick={() => setThemeIcon(!themeIcon)}
                     />
-                    <Button onClick={onSelection}>Save my build</Button>
+                    <Button onClick={onSelection} className="btn save-build">
+                      Save my build
+                    </Button>
                   </Container>
-                </HStack>
-                <Container>
-                  <ul>
+                </div>
+                <div className="fixed-section">
+                  <ul className={view}>
                     <li id="aesthetics">
-                      <HStack>
-                        <Heading as="h6" size="sm">
-                          Aesthetics
+                      <div className="list-heading d-flex align-v-center justify-space-between">
+                        <h5>Aesthetics</h5>
+                        <HStack>
                           <IconButton
                             aria-label="Grid View"
                             variant="icon"
@@ -122,34 +124,36 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                             icon={HamburgerIcon}
                             onClick={() => setView('list')}
                           />
-                          <CustomizerProductGrid collection={aesthetics} />
-                        </Heading>
-                      </HStack>
+                        </HStack>
+                      </div>
+                      <div className="customizer-grid">
+                        <CustomizerProductGrid collection={aesthetics} />
+                      </div>
                       <Container></Container>
                     </li>
                     <li id="components">
-                      <Heading as="h6" size="sm">
-                        Components
-                      </Heading>
+                      <h5>Components</h5>
 
-                      <CustomizerProductGrid collection={components} />
+                      <div className="customizer-grid">
+                        <CustomizerProductGrid collection={components} />
+                      </div>
                     </li>
                     <li id="services">
-                      <Heading as="h6" size="sm">
-                        Services
-                      </Heading>
+                      <h5>Services</h5>
 
-                      <CustomizerProductGrid collection={services} />
+                      <div className="customizer-grid">
+                        <CustomizerProductGrid collection={services} />
+                      </div>
                     </li>
                     <li id="peripherals">
-                      <Heading as="h6" size="sm">
-                        Peripherals
-                      </Heading>
+                      <h5>Peripherals</h5>
 
-                      <CustomizerProductGrid collection={peripherals} />
+                      <div className="customizer-grid">
+                        <CustomizerProductGrid collection={peripherals} />
+                      </div>
                     </li>
                   </ul>
-                </Container>
+                </div>
               </div>
               <div className="scrollable-desc">
                 <Container margin={3}>
@@ -169,12 +173,12 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   </ul>
                 </Container>
               </div>
-            </Flex>
+            </div>
 
             <Container>
               <HStack>
                 <Container>
-                  <Text  color="white" fontSize="m">
+                  <Text color="white" fontSize="m">
                     Warranty
                   </Text>
                   <Text fontSize="xl" noOfLines={1}>
@@ -182,15 +186,15 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   </Text>
                 </Container>
                 <Container>
-                  <Text  color="white" fontSize="m">
-                   Ships by
+                  <Text color="white" fontSize="m">
+                    Ships by
                   </Text>
                   <Text fontSize="xl" noOfLines={1}>
                     10/23
                   </Text>
                 </Container>
                 <Container>
-                  <Text  color="white" fontSize="m">
+                  <Text color="white" fontSize="m">
                     Total
                   </Text>
                   <Text fontSize="xl" noOfLines={1}>
