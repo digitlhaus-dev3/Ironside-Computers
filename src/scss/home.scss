@@ -45,6 +45,9 @@
   // margin-bottom: 233px;
   margin-bottom: 11.615vw;
   z-index: 9;
+  // @include xl {
+  //   max-width: 38.583vw;
+  // }
   @include desktop {
     max-width: 43.902vw;
   }
@@ -70,11 +73,15 @@
   }
   p {
     margin: 0;
+    font-weight: 700;
   }
   .right {
     text-align: right;
     h2 {
       margin-bottom: 31px;
+      @include mobile {
+        margin-bottom: 22px;
+      }
     }
   }
   .left {
@@ -209,6 +216,10 @@ body .container + .container.boxes .boxess {
   .cta-content {
     position: relative;
     z-index: 5;
+    a {
+      @include display-flex(inline-flex);
+      @include align-item(center);
+    } 
   }
   .large-img {
     position: relative;
@@ -231,7 +242,7 @@ body .container + .container.boxes .boxess {
     }
     @include mobile {
       max-width: 300px;
-      margin-left: auto;
+      margin-left: 0;
     }
   }
   .mid-img {
@@ -273,6 +284,9 @@ body .container + .container.boxes .boxess {
     }
     .cta-content {
       @include m-440(m-440);
+      p {
+        font-weight: 600;
+      }
     }
     .content-left {
       @include display-flex(flex);
@@ -288,7 +302,7 @@ body .container + .container.boxes .boxess {
     #background-image {
       position: absolute;
       top: 35px;
-      left: 22.500vw;
+      left: 22.5vw;
       bottom: 0;
       display: block;
       filter: blur(105px);
@@ -308,6 +322,7 @@ body .container + .container.boxes .boxess {
         left: -20px;
         width: 390px;
         height: 300px;
+        filter: blur(42px);
       }
     }
   }
@@ -365,6 +380,9 @@ body .container + .container.boxes .boxess {
       @include tablet-small {
         left: -40px;
         height: 250px;
+      }
+      @include mobile {
+        filter: blur(55.575px);
       }
     }
   }
@@ -433,6 +451,9 @@ body .container + .container.boxes .boxess {
         width: 100%;
         height: 370px;
       }
+      @include mobile {
+        filter: blur(59px);
+      }
     }
   }
   .layout-4 {
@@ -490,6 +511,7 @@ body .container + .container.boxes .boxess {
       }
       @include mobile-small {
         width: 100%;
+        filter: blur(25px);
       }
     }
   }
@@ -571,6 +593,7 @@ body .container + .container.boxes .boxess {
       @include mobile-small {
         top: -60px;
         height: 350px;
+        filter: blur(40px);
       }
     }
   }
@@ -613,6 +636,7 @@ body .container + .container.boxes .boxess {
       }
       @include mobile-small {
         margin-left: 10px;
+        // filter: blur(40px);
       }
     }
     .content-left {
@@ -652,6 +676,7 @@ body .container + .container.boxes .boxess {
       @include mobile-small {
         top: -120px;
         height: 300px;
+        filter: blur(40px);
       }
     }
   }
@@ -718,8 +743,22 @@ body .container + .container.boxes .boxess {
   border-style: solid;
   border-image: linear-gradient(to left, #9b9b9b 94%, #1a1a1a) 1;
   position: relative;
+  @include xl {
+    max-width: 76vw;
+  }
+  @include desktop {
+    max-width: 85.333vw;
+  }
+  @include tablet {
+    max-width: 76.333vw;
+    padding-top: 49px;
+  }
+  @include tablet-small {
+    order: -1;
+    max-width: none;
+  }
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -731,8 +770,8 @@ body .container + .container.boxes .boxess {
   }
   &:after {
     content: '';
-    height: 44.594vw;
-    width: 13.021vw ;
+    height: 38.594vw;
+    width: 13.021vw;
     background: rgba(21, 22, 23, 0.05);
     backdrop-filter: blur(45px);
     // border-image: linear-gradient(to left, #9b9b9b 94%, #1a1a1a) 1;
@@ -746,24 +785,41 @@ body .container + .container.boxes .boxess {
     left: auto;
     z-index: 9999;
     @include desktop-small {
-      height: 46.875vw; 
+      height: 46.875vw;
+    }
+    @include tablet {
+      height: 50.875vw;
     }
   }
   .slick-track {
     @include display-flex(flex);
   }
-  .slick-slide > div {
-    max-width: 354px;
-
+  .slick-slide {
+    // margin: 0 12px;
+    > div {
+      max-width: 354px;
+    }
   }
   .product-card {
     max-width: 364px;
-    height: 440px;
+    height: 22.917vw;
     border-radius: 6.615px;
     background-repeat: no-repeat;
     background-size: 100%;
-    padding-right: 28px;
+    padding-right: 24px;
     position: relative;
+    @include xl {
+      height: 24.917vw;
+      max-width: 20vw;
+    }
+    @include desktop {
+      height: 28.917vw;
+    }
+    @include desktop-small {
+      // height: 31.917vw;
+      max-width: 318px;
+      height: 35.917vw;
+    }
     img {
       height: auto;
     }
@@ -772,10 +828,14 @@ body .container + .container.boxes .boxess {
     display: none !important;
   }
   button.slick-arrow.slick-next {
-    top: -33px;
+    top: -46px;
     left: auto;
-    right: 38px;
+    right: 15.313vw;
     width: 74px;
+    z-index: 9;
+    @include tablet {
+      top: -24px;
+    }
     &:before {
       content: 'Slide';
       font-size: 20px;
@@ -841,13 +901,32 @@ body .container + .container.boxes .boxess {
   margin-left: 91px;
   margin-bottom: 96px;
   z-index: 2;
+  @include xl {
+    margin-left: 30px;
+  }
+  @include desktop {
+    margin-left: 30px;
+  }
+  @include tablet-small {
+    @include flex-direction(column);
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
   .limitedEdition {
     margin-top: auto;
     margin-right: -68px;
     z-index: 1;
     margin-bottom: 60px;
+    @include tablet-small {
+      margin-right: 120px;
+    }
     .cta-content {
       text-align: right;
+      @include tablet-small {
+        margin-left: auto;
+      }
       p:last-child {
         margin-bottom: 0;
       }
@@ -919,6 +998,9 @@ body .container + .container.boxes .boxess {
   .bg-img {
     position: relative;
     min-height: 344px;
+    @include tablet {
+      min-height: 284px;
+    }
   }
 }
 .product-content {
@@ -1022,7 +1104,7 @@ body .content-right {
     }
     @include mobile-small {
       margin-top: -10px;
-      margin-right: -10px;
+      margin-right: 10px;
       margin-bottom: 0;
     }
   }
@@ -1068,7 +1150,7 @@ body .content-left {
   }
 }
 .sliderSection {
-  +.container .cta-banner {
+  + .container .cta-banner {
     justify-content: flex-start;
   }
 }
