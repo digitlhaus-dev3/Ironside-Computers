@@ -5,6 +5,7 @@ import Flex from 'Components/Flex'
 import Container from 'Components/Container'
 import Heading from 'Components/Heading'
 import HStack from 'Components/HStack'
+import Text from 'Components/Text'
 import IconButton from 'Components/IconButton'
 import Icon from 'Components/Icon'
 import Button from 'Components/Button'
@@ -17,15 +18,17 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  VStack,
 } from '@chakra-ui/react'
 import './styles.module.css'
 
-const Customizer = ({ aesthetics, components, services, productSeries }) => {
+const Customizer = ({ aesthetics, components, services, peripherals, productSeries }) => {
   const MoonIcon = <Icon icon="MoonIcon" />
   const SunIcon = <Icon icon="SunIcon" />
   const DragHandleIcon = <Icon icon="DragHandleIcon" />
   const HamburgerIcon = <Icon icon="HamburgerIcon" />
   const [themeIcon, setThemeIcon] = useState(true)
+  const [view, setView] = useState('grid')
   const [build, setBuild] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -50,7 +53,7 @@ const Customizer = ({ aesthetics, components, services, productSeries }) => {
       const price = unique.reduce(
         (accumulator, currentValue) => accumulator + currentValue.price,
         0,
-      );
+      )
       setBuild(unique)
       setTotalPrice(price)
     }
@@ -108,14 +111,16 @@ const Customizer = ({ aesthetics, components, services, productSeries }) => {
                         <Heading as="h6" size="sm">
                           Aesthetics
                           <IconButton
-                            aria-label="Go to the previous image"
+                            aria-label="Grid View"
                             variant="icon"
                             icon={DragHandleIcon}
+                            onClick={() => setView('grid')}
                           />
                           <IconButton
-                            aria-label="Go to the previous image"
+                            aria-label="List View"
                             variant="icon"
                             icon={HamburgerIcon}
+                            onClick={() => setView('list')}
                           />
                           <CustomizerProductGrid collection={aesthetics} />
                         </Heading>
@@ -141,7 +146,7 @@ const Customizer = ({ aesthetics, components, services, productSeries }) => {
                         Peripherals
                       </Heading>
 
-                      <CustomizerProductGrid collection={components} />
+                      <CustomizerProductGrid collection={peripherals} />
                     </li>
                   </ul>
                 </Container>
@@ -165,6 +170,36 @@ const Customizer = ({ aesthetics, components, services, productSeries }) => {
                 </Container>
               </div>
             </Flex>
+
+            <Container>
+              <HStack>
+                <Container>
+                  <Text  color="white" fontSize="m">
+                    Warranty
+                  </Text>
+                  <Text fontSize="xl" noOfLines={1}>
+                    5-year
+                  </Text>
+                </Container>
+                <Container>
+                  <Text  color="white" fontSize="m">
+                   Ships by
+                  </Text>
+                  <Text fontSize="xl" noOfLines={1}>
+                    10/23
+                  </Text>
+                </Container>
+                <Container>
+                  <Text  color="white" fontSize="m">
+                    Total
+                  </Text>
+                  <Text fontSize="xl" noOfLines={1}>
+                    ${totalPrice}
+                  </Text>
+                </Container>
+                <Button>Add to cart</Button>
+              </HStack>
+            </Container>
           </Container>
         </Flex>
       </div>
