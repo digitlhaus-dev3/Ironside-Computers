@@ -1013,6 +1013,10 @@ body .container + .container.boxes .boxess {
     font-size: 26.46px;
     line-height: 26.46px;
     margin-bottom: 12px;
+    @include tablet {
+      font-size: 20px;
+      line-height: 20px;
+    }
   }
   p {
     font-size: 12px;

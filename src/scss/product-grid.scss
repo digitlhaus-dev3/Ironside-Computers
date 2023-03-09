@@ -1,95 +1,135 @@
 .product-grid {
-    @include display-flex(flex);
-    @include flex-wrap(wrap);
-    margin: 0 -16px;
-    .product-card {
-        padding: 0 16px;
-        position: relative;
-        width: 33.33%;
-        height: 535px;
-        margin-bottom: 130px;
-        // overflow: hidden;
+  @include display-flex(flex);
+  @include flex-wrap(wrap);
+  margin: 0 -16px;
+  .product-card {
+    padding: 0 16px;
+    position: relative;
+    width: 33.33%;
+    // height: 535px;
+    // height: 31.615vw;
+    // margin-bottom: 130px;
+    margin-bottom: 6.771vw;
+    // overflow: hidden;
+    @include tablet {
+        padding: 0 8px;
     }
-    .product-content {
-        // position: absolute;
-        position: relative;
-        padding: 46px 25px 0 56px;
-        z-index: 0;
+  }
+  .product-content {
+    // position: absolute;
+    position: relative;
+    padding: 46px 25px 0 56px;
+    z-index: 0;
+    right: 0;
+    @include tablet {
+        padding: 26px 24px 0;
     }
-    .bg-img {
-        background-size: 100% 535px;
-        height: 535px;
+  }
+  .bg-img {
+    background-size: 100% 100%;
+    // height: 535px;
+    height: 27.865vw;
+    @include xl {
+        height: 30.865vw;
     }
-    h3 {
-        margin-bottom: 16px;
+    @include desktop {
+        height: 33.865vw;
     }
-    .newProduct {
-        position: absolute;
-        top: 16px;  
-        right: 22px;
-        p {
-            font-size: 16px;
-            line-height: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 40px;
-            padding: 14px 32px;
-        }
+    @include tablet {
+        height: 37.865vw;
     }
-    .product-desc {
-        margin-bottom: 26px;
+  }
+  h3 {
+    margin-bottom: 16px;
+  }
+  .newProduct {
+    position: absolute;
+    top: 16px;
+    right: 22px;
+    p {
+      font-size: 16px;
+      line-height: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 40px;
+      padding: 14px 32px;
     }
-    .productCardImage {
-        max-height: 464px;
-        // max-width: 416px;
-        margin-left: auto;
-        position: relative;
-        z-index: -1;
-        img {
-            margin-top: -32px;
-            margin-left: auto;
-        }
+  }
+  .product-desc {
+    margin-bottom: 26px;
+    @include tablet {
+        margin-bottom: 10px;
     }
-    .btn-2 {
-        // display: inline-block;
-        margin-top: 16px;
+  }
+  .productCardImage {
+    max-height: 464px;
+    // max-width: 416px;
+    margin-left: auto;
+    position: relative;
+    z-index: -1;
+    img {
+      margin-top: -32px;
+      margin-left: auto;
     }
+  }
+  .btn-2 {
+    // display: inline-block;
+    margin-top: 16px;
+  }
 }
 .layout5 {
-    position: relative;
-    padding-bottom: 140px;
-    .container-2 {
-        padding: 0;
+  position: relative;
+  padding-bottom: 140px;
+  @include tablet {
+    padding-bottom: 40px;
+  }
+  .container-2 {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+  .layoutDesc {
+    position: absolute;
+    left: 78px;
+    bottom: 182px;
+    max-width: 474px;
+    @include tablet {
+        bottom: 80px;
+        left: 40px;
     }
-    .layoutDesc {
+  }
+}
+.container-2 {
+  .product-grid {
+    .product-card {
+      .product-content {
         position: absolute;
-        left: 78px;
-        bottom: 182px;
-        max-width: 474px;
+      }
     }
+  }
 }
 .textWithDesription {
-    padding-bottom: 83px;
-    p {
-        margin-bottom: 0;
-    }
+  padding-bottom: 83px;
+  p {
+    margin-bottom: 0;
+  }
 }
 .whiteTheme {
-    background-color: $color-white;
-    .textWithDesription {
-        h2,
-        p {
-            color: $color-black;
-        }
+  background-color: $color-white;
+  .textWithDesription {
+    h2,
+    p {
+      color: $color-black;
     }
+  }
 }
 #whiteTheme {
-    &.layout5 {
-        background-color: $color-white;
-        h3 {
-            color: $color-black;
-        }
-        p {
-            color: $color-black;
-        }
+  &.layout5 {
+    background-color: $color-white;
+    h3 {
+      color: $color-black;
     }
+    p {
+      color: $color-black;
+    }
+  }
 }

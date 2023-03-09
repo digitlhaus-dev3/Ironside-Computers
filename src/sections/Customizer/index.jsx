@@ -30,6 +30,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   const [themeIcon, setThemeIcon] = useState(true)
   const [categorySelected, setcategorySelected] = useState('all')
   const [view, setView] = useState('grid')
+  const [active, setActive] = useState('active')
   const [build, setBuild] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -95,19 +96,34 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                     <h2>TOKYO DREAM</h2>
                     <p className="m-0">Level 2</p>
                   </Container>
-                  <Container>
-                    <IconButton
+                  <Flex>
+                    <button className="change-theme"></button>
+                    {/* <IconButton
                       aria-label="Go to the previous image"
                       variant="icon"
                       icon={themeIcon ? MoonIcon : SunIcon}
                       onClick={() => setThemeIcon(!themeIcon)}
-                    />
+                    /> */}
                     <Button onClick={onSelection} className="btn save-build">
                       Save my build
                     </Button>
-                  </Container>
+                  </Flex>
                 </div>
                 <div className="fixed-section">
+                  <div className="theme-btn">
+                    <div className={view}>
+                      <button
+                        aria-label="Grid View"
+                        className="grid-btn"
+                        onClick={() => setView('grid')}
+                      ></button>
+                      <button
+                        aria-label="List View"
+                        className="list-btn"
+                        onClick={() => setView('list')}
+                      ></button>
+                    </div>
+                  </div>
                   <ul className={view}>
                     <li
                       id="aesthetics"
@@ -119,20 +135,6 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                     >
                       <div className="list-heading d-flex align-v-center justify-space-between">
                         <h5>Aesthetics</h5>
-                        <HStack>
-                          <IconButton
-                            aria-label="Grid View"
-                            variant="icon"
-                            icon={DragHandleIcon}
-                            onClick={() => setView('grid')}
-                          />
-                          <IconButton
-                            aria-label="List View"
-                            variant="icon"
-                            icon={HamburgerIcon}
-                            onClick={() => setView('list')}
-                          />
-                        </HStack>
                       </div>
                       <div className="customizer-grid">
                         <CustomizerProductGrid collection={aesthetics} />
@@ -181,6 +183,27 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                     </li>
                   </ul>
                 </div>
+                <div className="customizer-footer d-flex align-v-center justify-space-between">
+                  <Container>
+                    <p>Warranty</p>
+                    <p>
+                      <b>5-year</b>
+                    </p>
+                  </Container>
+                  <Container>
+                    <p>Ships by</p>
+                    <p>
+                      <b>10/23</b>
+                    </p>
+                  </Container>
+                  <Container>
+                    <p>Total</p>
+                    <p noOfLines={1}>
+                      <b>${totalPrice}</b>
+                    </p>
+                  </Container>
+                  <Button className="btn">Add to cart</Button>
+                </div>
               </div>
               <div className="scrollable-desc">
                 <Container margin={3}>
@@ -204,36 +227,6 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                 </Container>
               </div>
             </div>
-
-            <Container>
-              <HStack>
-                <Container>
-                  <Text color="white" fontSize="m">
-                    Warranty
-                  </Text>
-                  <Text fontSize="xl" noOfLines={1}>
-                    5-year
-                  </Text>
-                </Container>
-                <Container>
-                  <Text color="white" fontSize="m">
-                    Ships by
-                  </Text>
-                  <Text fontSize="xl" noOfLines={1}>
-                    10/23
-                  </Text>
-                </Container>
-                <Container>
-                  <Text color="white" fontSize="m">
-                    Total
-                  </Text>
-                  <Text fontSize="xl" noOfLines={1}>
-                    ${totalPrice}
-                  </Text>
-                </Container>
-                <Button>Add to cart</Button>
-              </HStack>
-            </Container>
           </Container>
         </Flex>
       </div>
