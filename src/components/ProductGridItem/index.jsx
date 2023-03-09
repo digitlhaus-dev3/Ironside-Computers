@@ -59,7 +59,7 @@
   * }} ProductGridItemProps
   * @param { ProductGridItemProps } props
   */
- const ProductGridItem = ({ imageLoading, product: cmsProduct, onModalClose, onSelectProduct }) => {
+ const ProductGridItem = ({ imageLoading, product: cmsProduct, onSelectProduct }) => {
    const product = useNormalizedProduct(cmsProduct)
  
    if (!product) throw new Error(`Expected product but got ${product}`)
@@ -103,7 +103,6 @@
  
    const onProductSelect =()=>{
      onSelectProduct(product);
-     onModalClose();
    }
  
    return (

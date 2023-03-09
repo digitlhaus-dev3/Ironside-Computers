@@ -25,26 +25,14 @@
 import * as React from 'react'
 import {
   useTheme,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
 } from '@chakra-ui/react'
-import useStore from 'frontend-store'
 
 import Container from 'Components/Container'
 import Image from 'Components/Image'
-import Text from 'Components/Text'
 import { useNormalizedProduct } from 'Components/Hooks'
-import ProductGrid from 'Components/ProductGrid'
 import {
   getArrayNodesReplaced,
   getMatchesFromString,
-  formatMoney,
   uniqueId,
 } from 'Components/Utils'
 
@@ -70,13 +58,16 @@ const defaultMediaItem = {
  * }} ProductGridItemProps
  * @param { ProductGridItemProps } props
  */
-const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productList }) => {
-  const [store, setStore] = useStore()
-  const [build, setBuild] = React.useState([])
+const CustomizerProductGridItem = ({
+  imageLoading,
+  product: cmsProduct,
+  productList,
+  setIsModalOpen,
+  setSelectedProduct,
+  updateImage,
+  updateDisplayName,
+}) => {
   const product = useNormalizedProduct(cmsProduct)
-  const [updateImage, setUpdateImage] = React.useState([])
-  const [updateDisplayName, setUpdateDisplayName] = React.useState('')
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
   if (!product) throw new Error(`Expected product but got ${product}`)
 
   const {
@@ -89,7 +80,6 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productL
   const theme = useTheme()
   const firstImage = media?.length > 0 ? media[0] : defaultMediaItem
   const { src, width = 720, height = 480 } = firstImage
-  const [price, setUpdatePrice] = React.useState(firstVariant.price || product.price)
 
   const highlightName = searchResult && searchResult.name ? searchResult.name.value : undefined
   const displayName = React.useMemo(() => {
@@ -114,30 +104,14 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productL
     return displayName
   }, [name, highlightName])
 
-  const onModalClose = () => {
-    setIsModalOpen(false)
-  }
-
-  const onSelection = () => {
-    setIsModalOpen(true)
-  }
-  const onSelectProduct = data => {
-    if (productList?.name === 'Case') {
-      setStore({ caseImage: data?.media[0]?.src })
-    }
-    setStore({ productData: data, category: productList?.name })
-    const idx = productList?.products.findIndex(product => product.id === data.id)
-    const temp = productList?.products[idx]
-    productList.products[idx] = productList?.products[0]
-    productList.products[0] = temp
-    setUpdateImage(temp?.images[0]?.media?.src)
-    setUpdateDisplayName(temp?.name)
-    setUpdatePrice(temp?.variants[0]?.price)
-  }
   const data = {
     imageUrl: '',
     name: productList.name,
     products: productList.products,
+  }
+  const onSelection = () => {
+    setSelectedProduct(data)
+    setIsModalOpen(true)
   }
 
   return (
@@ -159,28 +133,6 @@ const CustomizerProductGridItem = ({ imageLoading, product: cmsProduct, productL
           <p>{updateDisplayName.length ? updateDisplayName : displayName}</p>
         </a>
       </li>
-      <Modal isOpen={isModalOpen} onClose={onModalClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{data.name}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <ProductGrid
-              collection={data}
-              onModalClose={onModalClose}
-              onSelectProduct={onSelectProduct}
-              productsPerPage={5}
-            />
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onModalClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   )
 }
