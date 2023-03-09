@@ -56,7 +56,7 @@
       .theme-btn {
         position: absolute;
         top: 14px;
-        right: 0;
+        right: 14px;
         > div {
           @include display-flex(flex);
         }
@@ -190,7 +190,7 @@
   .customizer-grid {
     section {
       padding: 0;
-      margin: 21px 0 0;
+      margin: 0 0 0;
       h2 {
         display: none;
       }
@@ -210,6 +210,9 @@
             border-right: 0;
           }
         }
+        +div:empty {
+          display: none;
+        }
       }
       h6 {
         text-transform: inherit;
@@ -226,13 +229,71 @@
         height: 7.813vw;
         background-color: #222222;
         border-radius: 87px;
-        padding: 26px 23px;
+        padding: 12px 24px;
         @include display-flex(flex);
         @include align-item(center);
         @include justify-content(center);
         overflow: hidden;
         // margin-bottom: 10px;
         margin: 0 auto 10px;
+        img {
+          max-width: 103px;
+          // max-height: 113px;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .list {
+    .customizer-grid {
+      ul {
+        @include display-flex(flex);
+        @include flex-wrap(wrap);
+        grid-row-gap: 0;
+        grid-column-gap: 0;
+        li {
+          padding: 0 10px;
+          margin: 0 0 10px;
+          width: 50%;
+          // border-right: 1px solid #232323;
+          &:last-child {
+            border-right: 0;
+          }
+          a {
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(flex-start);
+          }
+        }
+        +div:empty {
+          display: none;
+        }
+      }
+      h6 {
+        text-transform: inherit;
+        margin-bottom: 6px;
+      }
+      p {
+        color: #aaaaaa;
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+      .image-bg {
+        // width: 117px;
+        min-width: 6.094vw;
+        width: 6.094vw;
+        // height: 81px;
+        height: 4.219vw;
+        background-color: #222222;
+        border-radius: 87px;
+        padding: 12px 24px;
+        margin-right: 10px;
+        @include display-flex(flex);
+        @include align-item(center);
+        @include justify-content(center);
+        overflow: hidden;
+        // margin-bottom: 10px;
+        // margin: 0 auto 10px;
         img {
           max-width: 103px;
           // max-height: 113px;
@@ -269,6 +330,6 @@
     }
   }
 }
-#chakra-modal-280 {
-  width: 910px;
-}
+// #chakra-modal-280 {
+//   width: 910px;
+// }

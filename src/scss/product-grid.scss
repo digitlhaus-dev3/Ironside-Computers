@@ -2,6 +2,9 @@
   @include display-flex(flex);
   @include flex-wrap(wrap);
   margin: 0 -16px;
+  @include mobile-small {
+    margin: 0;
+  }
   .product-card {
     padding: 0 16px;
     position: relative;
@@ -12,7 +15,12 @@
     margin-bottom: 6.771vw;
     // overflow: hidden;
     @include tablet {
-        padding: 0 8px;
+      padding: 0 8px;
+    }
+    @include mobile-small {
+      width: 100%;
+      margin-bottom: 66px;
+      padding: 0;
     }
   }
   .product-content {
@@ -22,7 +30,10 @@
     z-index: 0;
     right: 0;
     @include tablet {
-        padding: 26px 24px 0;
+      padding: 26px 24px 0;
+    }
+    @include mobile-small {
+      padding: 18px 18px 0;
     }
   }
   .bg-img {
@@ -30,13 +41,16 @@
     // height: 535px;
     height: 27.865vw;
     @include xl {
-        height: 30.865vw;
+      height: 30.865vw;
     }
     @include desktop {
-        height: 33.865vw;
+      height: 33.865vw;
     }
     @include tablet {
-        height: 37.865vw;
+      height: 37.865vw;
+    }
+    @include mobile-small {
+      height: 333px;
     }
   }
   h3 {
@@ -57,7 +71,7 @@
   .product-desc {
     margin-bottom: 26px;
     @include tablet {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
     }
   }
   .productCardImage {
@@ -69,6 +83,12 @@
     img {
       margin-top: -32px;
       margin-left: auto;
+      @include mobile-small {
+        object-fit: contain;
+        height: 100%;
+        margin-top: -80px;
+        max-height: 277px;
+      }
     }
   }
   .btn-2 {
@@ -79,8 +99,14 @@
 .layout5 {
   position: relative;
   padding-bottom: 140px;
+  img {
+    min-height: 57.344vw;
+    @include mobile-small {
+        min-height: 515px;
+    }
+  }
   @include tablet {
-    padding-bottom: 40px;
+    padding-bottom: 95px;
   }
   .container-2 {
     padding: 0;
@@ -93,8 +119,18 @@
     bottom: 182px;
     max-width: 474px;
     @include tablet {
-        bottom: 80px;
-        left: 40px;
+      bottom: 80px;
+      left: 40px;
+    }
+    @include mobile-small {
+        position: relative;
+        margin-top: 20px;
+        top: 0;
+        right: 0;
+        max-width: 320px;
+    }
+    p {
+      margin-bottom: 0;
     }
   }
 }
@@ -109,6 +145,10 @@
 }
 .textWithDesription {
   padding-bottom: 83px;
+  @include mobile-small {
+    padding-top: 63px;
+    padding-bottom: 76px;
+  }
   p {
     margin-bottom: 0;
   }

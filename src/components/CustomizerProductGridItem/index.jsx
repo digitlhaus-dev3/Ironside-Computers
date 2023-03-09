@@ -23,18 +23,12 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import * as React from 'react'
-import {
-  useTheme,
-} from '@chakra-ui/react'
+import { useTheme } from '@chakra-ui/react'
 
 import Container from 'Components/Container'
 import Image from 'Components/Image'
 import { useNormalizedProduct } from 'Components/Hooks'
-import {
-  getArrayNodesReplaced,
-  getMatchesFromString,
-  uniqueId,
-} from 'Components/Utils'
+import { getArrayNodesReplaced, getMatchesFromString, uniqueId } from 'Components/Utils'
 
 /**
  * @typedef { import("lib/types").ProductMediaItem } ProductMediaItem
@@ -129,8 +123,10 @@ const CustomizerProductGridItem = ({
               mb="3"
             />
           </div>
-          <h6>{productList?.name}</h6>
-          <p>{updateDisplayName.length ? updateDisplayName : displayName}</p>
+          <div>
+            <h6>{productList?.name}</h6>
+            <p>{updateDisplayName.length ? updateDisplayName : displayName}</p>
+          </div>
         </a>
       </li>
     </>
