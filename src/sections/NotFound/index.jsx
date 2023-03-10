@@ -9,7 +9,7 @@ const NotFound = () => {
     console.log('NAvigated to home page')
   }
   return (
-    <div className="box-form absolute-heading">
+    <div className="box-form absolute-heading error-page">
       <h1 className="account-heading">404</h1>
       <div className="bg-box">
         <div className="bg-box-head">
@@ -19,30 +19,14 @@ const NotFound = () => {
             <span></span>
           </div>
         </div>
-        <Container w={{ base: 'full', md: 'md' }}>
-          <Container display="block" mb={5}>
-            <Text>Seems the page you’re looking for isn’t here. (&gt;_&lt;)</Text>
-          </Container>
-
-          <Flex
-            flexDirection={{ base: 'column', md: 'row' }}
-            alignItems={{ md: 'center' }}
-            justifyContent="space-between"
-            mb={5}
-          >
-            <Button
-              className="btn"
-              loadingText="Submitting"
-              type="submit"
-              width={{ base: '100%', md: 48 }}
-              maxWidth="100%"
-              mb={{ base: 5, md: 0 }}
-              mr="5"
-            >
-              Reboot
-            </Button>
-          </Flex>
-        </Container>
+        <div className="content">
+          <div>
+            <p>Seems the page you’re looking for isn’t here. (&gt;_&lt;)</p>
+          </div>
+          <Button className="btn" loadingText="Submitting" type="submit">
+            Reboot
+          </Button>
+        </div>
       </div>
     </div>
   )

@@ -129,7 +129,6 @@ const Mobile = props => {
                   </MenuButton>
                 </div>
                 {content && <Container sx={styles.contentItem}>{content}</Container>}
-
                 {links.map(({ label, slug, subMenuLinks, backgroundImage }, index) => {
                   if (!subMenuLinks) {
                     return (
@@ -141,47 +140,62 @@ const Mobile = props => {
 
                   const isExpanded = index === expandedIndex
                   return (
-                    <React.Fragment key={label}>
-                      <MenuItem
-                        sx={styles.parentItem}
-                        onClickCapture={event => {
-                          event.stopPropagation()
-                          setExpandedIndex(prev => (prev === index ? undefined : index))
-                        }}
-                        className="nav-links-btn"
-                      >
-                        <Image className="mobile-img" src={backgroundImage?.src} />
-                        <Text>{label}</Text>
-                        <Icon
-                          icon={isExpanded ? 'ChevronDownIcon' : 'ChevronRightIcon'}
-                          boxSize="6"
-                        />
-                      </MenuItem>
-
-                      {isExpanded &&
-                        subMenuLinks.map(({ label, description, slug }) => {
-                          return (
-                            <div>
-                              <MenuItem
-                                key={label}
-                                as={Link}
-                                href={slug}
-                                sx={styles.mobileSubmenuItem}
-                              >
-                                <h3>{label}</h3>
-                                <p>{description}</p>
-                              </MenuItem>
-                            </div>
-                          )
-                        })}
-                      {isExpanded && label === 'About' && (
-                        <div>
-                          <MenuItem sx={styles.mobileSubmenuItem}>
-                            <AboutSubMenu />
-                          </MenuItem>
+                    <div className="menu-links">
+                      <React.Fragment key={label}>
+                        <MenuItem
+                          sx={styles.parentItem}
+                          onClickCapture={event => {
+                            event.stopPropagation()
+                            setExpandedIndex(prev => (prev === index ? undefined : index))
+                          }}
+                          className="nav-links-btn"
+                        >
+                          <Image className="mobile-img" src={backgroundImage?.src} />
+                          <Text>{label}</Text>
+                          <Icon
+                            icon={isExpanded ? 'ChevronDownIcon' : 'ChevronRightIcon'}
+                            boxSize="6"
+                          />
+                        </MenuItem>
+                        <div className={isExpanded ? 'open' : 'close'}>
+                          <div className="sub-categories">
+                            <MenuItem
+                              sx={styles.parentItem}
+                              onClickCapture={event => {
+                                event.stopPropagation()
+                                setExpandedIndex(prev => (prev === index ? undefined : index))
+                              }}
+                              className="nav-links-btn"
+                            >
+                              {label}
+                            </MenuItem>
+                            {subMenuLinks.map(({ image, label, description, slug }) => {
+                              console.log('sub', subMenuLinks)
+                              return (
+                                <div className="d-flex">
+                                  <MenuItem
+                                    key={label}
+                                    as={Link}
+                                    href={slug}
+                                    sx={styles.mobileSubmenuItem}
+                                  >
+                                    <img className="sub-category-image" src={image?.src}></img>
+                                    <h3>{label}</h3>
+                                    <p>{description}</p>
+                                  </MenuItem>
+                                </div>
+                              )
+                            })}
+                            {console.log('parent', label)}
+                            {isExpanded && label === 'About' && (
+                              <div>
+                                <AboutSubMenu />
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      )}
-                    </React.Fragment>
+                      </React.Fragment>
+                    </div>
                   )
                 })}
                 <div>
@@ -191,7 +205,8 @@ const Mobile = props => {
                         <span className="contact-icon"></span>
                         <p>
                           <strong>1 (512) 696–1455</strong>
-                          help@ironsidecomputers.com <br />Mon – Fri  9am to 4:30pm CST
+                          help@ironsidecomputers.com <br />
+                          Mon – Fri 9am to 4:30pm CST
                         </p>
                       </HStack>
                     </div>

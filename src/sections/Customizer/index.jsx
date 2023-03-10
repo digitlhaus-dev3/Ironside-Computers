@@ -67,6 +67,11 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   const onSelection = () => {
     setIsModalOpen(true)
   }
+  const themeChange = () => {
+    var element = document.getElementById('frontend-root')
+    element.classList.toggle("WhiteTheme");
+    console.log(element)
+  }
 
   return (
     <>
@@ -97,7 +102,8 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                     <p className="m-0">Level 2</p>
                   </Container>
                   <Flex>
-                    <button className="change-theme"></button>
+                    <button className="change-theme"
+                    onClick={themeChange}></button>
                     {/* <IconButton
                       aria-label="Go to the previous image"
                       variant="icon"
@@ -209,19 +215,55 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                 <Container margin={3}>
                   <ul>
                     <li>
-                      <a onClick={() => setcategorySelected('aesthetics')}>Aesthetics</a>
+                      <a
+                        className={
+                          categorySelected === 'aesthetics'
+                            ? 'active'
+                            : 'un-active'
+                        }
+                        onClick={() => setcategorySelected('aesthetics')}
+                      >
+                        Aesthetics
+                      </a>
                     </li>
                     <li>
-                      <a onClick={() => setcategorySelected('components')}>Components</a>
+                      <a
+                        className={
+                          categorySelected === 'components'
+                            ? 'active'
+                            : 'un-active'
+                        }
+                        onClick={() => setcategorySelected('components')}
+                      >
+                        Components
+                      </a>
                     </li>
                     <li>
-                      <a onClick={() => setcategorySelected('services')}>Services</a>
+                      <a 
+                        className={
+                          categorySelected === 'services'
+                            ? 'active'
+                            : 'un-active'
+                        }
+                        onClick={() => setcategorySelected('services')}>Services</a>
                     </li>
                     <li>
-                      <a onClick={() => setcategorySelected('peripherals')}>Peripherals</a>
+                      <a 
+                        className={
+                          categorySelected === 'peripherals'
+                            ? 'active'
+                            : 'un-active'
+                        }
+                        onClick={() => setcategorySelected('peripherals')}>Peripherals</a>
                     </li>
-                    <li>
-                      <a onClick={() => setcategorySelected('all')}>All</a>
+                    <li className='all'>
+                      <a 
+                        className={
+                          categorySelected === 'all'
+                            ? 'active'
+                            : 'un-active'
+                        }
+                        onClick={() => setcategorySelected('all')}>All</a>
                     </li>
                   </ul>
                 </Container>
