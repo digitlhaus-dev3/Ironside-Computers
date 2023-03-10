@@ -170,7 +170,7 @@ const Mobile = props => {
                               {label}
                             </MenuItem>
                             {subMenuLinks.map(({ image, label, description, slug }) => {
-                              console.log('sub', subMenuLinks)
+                              // console.log('sub', subMenuLinks)
                               return (
                                 <div className="d-flex">
                                   <MenuItem
@@ -186,7 +186,7 @@ const Mobile = props => {
                                 </div>
                               )
                             })}
-                            {console.log('parent', label)}
+                            {/* {console.log('parent', label)} */}
                             {isExpanded && label === 'About' && (
                               <div>
                                 <AboutSubMenu />

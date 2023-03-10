@@ -1520,7 +1520,7 @@ body .chakra-menu__menu-list p {
 }
 #whiteTheme.header-main .header-right .volume,
 .WhiteTheme .header-right .volume {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1) !important;
   backdrop-filter: blur(20px);
 }
 #whiteTheme.header-main .header-right .volume:after,
@@ -4617,7 +4617,7 @@ body .content-left .content-top {
   }
 }
 .product-grid .product-card {
-  padding: 0 16px;
+  padding: 0 8px;
   position: relative;
   width: 33.33%;
   margin-bottom: 6.771vw;
@@ -4673,6 +4673,14 @@ body .content-left .content-top {
   .product-grid .bg-img {
     height: 333px;
   }
+}
+.product-grid .bg-img:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
 }
 .product-grid h3 {
   margin-bottom: 16px;
@@ -4789,6 +4797,15 @@ body .content-left .content-top {
 .whiteTheme .textWithDesription h2,
 .whiteTheme .textWithDesription p {
   color: #000000;
+}
+.whiteTheme .product-grid p {
+  color: #000000;
+}
+.whiteTheme .product-grid a {
+  color: #000000;
+}
+.whiteTheme .product-grid a:after {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='12' viewBox='0 0 15 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.208984 5.62915C0.208984 5.23548 0.528116 4.91635 0.921784 4.91635H14.038C14.4317 4.91635 14.7508 5.23548 14.7508 5.62915C14.7508 6.02282 14.4317 6.34195 14.038 6.34195H0.921784C0.528116 6.34195 0.208984 6.02282 0.208984 5.62915Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.27379 0.331865C8.5395 0.0413995 8.99037 0.0213365 9.28084 0.287053L14.5632 5.11934C14.7108 5.25438 14.7949 5.44522 14.7949 5.64528C14.7949 5.84533 14.7108 6.03618 14.5632 6.17121L9.28084 11.0035C8.99037 11.2692 8.5395 11.2492 8.27378 10.9587C8.00807 10.6682 8.02813 10.2174 8.3186 9.95164L13.0261 5.64528L8.3186 1.33892C8.02813 1.0732 8.00807 0.62233 8.27379 0.331865Z' fill='black'/%3E%3C/svg%3E%0A");
 }
 
 #whiteTheme.layout5 {
