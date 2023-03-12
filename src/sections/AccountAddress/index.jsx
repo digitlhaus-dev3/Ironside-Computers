@@ -27,252 +27,198 @@ import { useCustomerActions, useCustomerState } from 'frontend-customer'
 import { useRouter } from 'frontend-router'
 import { useIsMounted, useNormalizedCustomer, usePlatform } from 'Components/Hooks'
 import AuthGuard from 'Components/AuthGuard'
-import Breadcrumb from 'Components/Breadcrumb'
-import Button from 'Components/Button'
 import Container from 'Components/Container'
 import Grid from 'Components/Grid'
-import Heading from 'Components/Heading'
-import HStack from 'Components/HStack'
-import Link from 'Components/Link'
+import GridItem from 'Components/GridItem'
 import Text from 'Components/Text'
-import {
-  denormalizeCreateAddressInput,
-  denormalizeUpdateAddressInput,
-  denormalizeDeleteAddressInput,
-} from 'Components/Utils'
-import AddressFields from 'Components/AddressFields'
-import { ACCOUNT_URL, ACCOUNT_LOGIN_URL } from 'Components/Data'
+import Input from 'Components/Input'
+import { ACCOUNT_LOGIN_URL } from 'Components/Data'
 
 const AccountAddress = () => {
-  const { getAllAddresses, createAddress, updateAddress, deleteAddress } = useCustomerActions()
+  const { getAllAddresses, logout, updateAddress } = useCustomerActions()
   const customerState = useCustomerState()
   const customer = useNormalizedCustomer(customerState)
   const isMounted = useIsMounted()
   const router = useRouter()
   const [platform] = usePlatform()
-
-  /** @type { { id?: string } } */
-  const { id: addressId } = router.query
-  const { addresses, status } = customer
-
-  /**
-   * @typedef { import("lib/types").AddressData } AddressData
-   * @typedef { import("lib/types").AddressDataKey } AddressDataKey
-   *
-   * @type { AddressData }
-   */
-  const initialAddressData = {
-    firstName: '',
-    lastName: '',
-    countryCode: '',
-    province: '',
-    city: '',
-    zip: '',
-    address1: '',
-    address2: '',
-    company: '',
-    country: '',
-    phone: '',
-  }
-  const [addressData, setAddressData] = React.useState(initialAddressData)
-
-  const [isInitialAddressDataLoading, setIsInitialAddressDataLoading] = React.useState(
-    addressId !== undefined,
-  )
-  const [isSaving, setIsSaving] = React.useState(false)
-  const [isDeleting, setIsDeleting] = React.useState(false)
-
-  const isDisabled = isInitialAddressDataLoading || isSaving || isDeleting
-
-  /**
-   * @typedef { import("frontend-customer/dist/customer-sdk/platforms/big_commerce/rest/types/api").BigCommerceApiError } BigCommerceApiError
-   * @typedef { import("frontend-customer/dist/customer-sdk/platforms/shopify/storefront-api/types/api").CustomerUserError } CustomerUserError
-   * @typedef { import('frontend-customer/dist/customer-sdk/platforms/shopify/storefront-api/types/sdk').SdkError } SdkError
-   * @typedef { BigCommerceApiError[] | CustomerUserError[] | SdkError[] | Error[] | null | undefined } FormErrors
-   * @type { [FormErrors, React.Dispatch<React.SetStateAction<FormErrors>>] }
-   */
-  const [formErrors, setFormErrors] = React.useState()
+  const { id, isLoggedIn } = customer
 
   React.useEffect(() => {
-    if (addressId) {
-      getAllAddresses()
+    if (isLoggedIn) getAllAddresses()
+  }, [isLoggedIn, getAllAddresses])
+
+  console.log('customer', customer)
+
+  const ShippingAddress = customer?.addresses?.map(address => {
+    return {
+      address1: address.address1,
+      address2: address.address2,
+      city: address.city,
+      province: address.province,
+      country: address.country,
     }
-  }, [addressId, getAllAddresses])
+  })
 
-  React.useEffect(() => {
-    if (status === 'loading') {
-      const mounted = isMounted.current
-
-      return () => {
-        if (mounted) setIsInitialAddressDataLoading(false)
-      }
-    }
-  }, [status, isMounted])
-
-  React.useEffect(() => {
-    if (isInitialAddressDataLoading) {
-      const mounted = isMounted.current
-
-      return () => {
-        if (!addresses) return
-
-        const address = addresses.find(address => address.id === addressId)
-
-        if (!address) return
-
-        const { id, ...data } = address
-
-        if (mounted) setAddressData(data)
-      }
-    }
-  }, [isInitialAddressDataLoading, addressId, addresses, isMounted])
-
-  const onFieldChange = React.useCallback(
-    /** @type {{(key: AddressDataKey, event: {target: { value: string }}): void }} */
-    (key, { target: { value } }) => {
-      setAddressData(prevData => ({
-        ...prevData,
-        [key]: value,
-      }))
-    },
-    [],
-  )
-
-  /** @type { React.FormEventHandler<HTMLDivElement> } */
-  const handleSubmit = async event => {
-    event.preventDefault()
-
-    setIsSaving(true)
-    setFormErrors(null)
-
-    /** @type { FormErrors } */
-    let newFormErrors
-
-    if (addressId === undefined) {
-      const createAddressInput = denormalizeCreateAddressInput(platform, addressData)
-
-      try {
-        const result = await createAddress(createAddressInput)
-
-        newFormErrors = result && result.errors
-      } catch (/** @type { any } */ error) {
-        newFormErrors = [error]
-      }
-    } else {
-      const updateAddressInput = denormalizeUpdateAddressInput(platform, addressData, addressId)
-
-      try {
-        const result = await updateAddress(updateAddressInput)
-
-        newFormErrors = result && result.errors
-      } catch (/** @type { any } */ error) {
-        newFormErrors = [error]
-      }
-    }
-
-    if (!isMounted.current) return
-
-    setIsSaving(false)
-
-    if (newFormErrors && newFormErrors.length > 0) {
-      setFormErrors(newFormErrors)
-    } else {
-      router.push(ACCOUNT_URL)
-    }
+  const BillingAddress = {
+    address1: customer?.defaultAddress?.address1,
+    address2: customer?.defaultAddress?.address2,
+    city: customer?.defaultAddress?.city,
+    province: customer?.defaultAddress?.province,
+    country: customer?.defaultAddress?.country,
   }
 
-  const handleDelete = async () => {
-    if (addressId === undefined) {
-      throw new Error('Expected addressId but got undefined')
-    }
+  const [addressData, setAddressData] = React.useState()
+  const updateShippingAddress = async () => {
+    await updateAddress({
+      id: id,
+      address: {
+        address1: ShippingAddress[0].address1, // optional
+        city: ShippingAddress[0].city, // optional
+        state: ShippingAddress[0].province, // optional
+        address2: ShippingAddress[0].address2, // optional
+        country: ShippingAddress[0].country, // optional
+      },
+    })
+  }
 
-    setIsDeleting(true)
-    setFormErrors(null)
-
-    /** @type { FormErrors } */
-    let newFormErrors
-
-    try {
-      const deleteAddressInput = denormalizeDeleteAddressInput(platform, addressId)
-
-      // @ts-ignore
-      const { errors } = await deleteAddress(deleteAddressInput)
-
-      newFormErrors = errors
-    } catch (/** @type { any } */ error) {
-      newFormErrors = [error]
-    } finally {
-      if (!isMounted.current) return
-
-      setIsDeleting(false)
-
-      if (newFormErrors && newFormErrors.length > 0) {
-        setFormErrors(newFormErrors)
-      } else {
-        router.push(ACCOUNT_URL)
-      }
-    }
+  const updateBillingAddress = async () => {
+    console.log('success')
   }
 
   return (
     <Container as="section" variant="section-wrapper">
-      <HStack justify="space-between" mb={6}>
-        <Breadcrumb
-          items={[
-            { label: 'Account', url: ACCOUNT_URL },
-            { label: addressId ? 'Address' : 'Create address', url: '#', isCurrentPage: true },
-          ]}
-        />
-        {addressId && (
-          <Button
-            variant="outline"
-            size="sm"
-            isDisabled={isDisabled}
-            isLoading={isDeleting}
-            loadingText="Deleting..."
-            onClick={handleDelete}
-          >
-            Delete
-          </Button>
-        )}
-      </HStack>
-
-      <Heading as="h1" mb={6}>
-        {addressId ? 'Edit address' : 'Create address'}
-      </Heading>
-
       <AuthGuard allowedAuthStatus="authenticated" redirectUrl={ACCOUNT_LOGIN_URL}>
-        <Grid as="form" onSubmit={handleSubmit} rowGap={5}>
-          <AddressFields
-            addressData={addressData}
-            isDisabled={isDisabled}
-            all
-            densed
-            onFieldChange={onFieldChange}
-          />
-
-          {formErrors && (
-            <Container>
-              {formErrors.map(({ message }, index) => (
-                <Text key={index} color="red.600">
-                  {message}
-                </Text>
-              ))}
-            </Container>
-          )}
-
-          <HStack justify="space-between" my="8">
-            <Link href={ACCOUNT_URL}>Cancel</Link>
-            <Button
-              isDisabled={isDisabled}
-              isLoading={isSaving}
-              loadingText="Saving..."
-              type="submit"
-              width="48"
-            >
-              Save
-            </Button>
-          </HStack>
+        <Grid gridRowGap={8}>
+          <Text>Shipping Address</Text>
+          <GridItem>
+            <Text as="strong">Address</Text>
+            <Input
+              Placeholder={ ShippingAddress ? ShippingAddress[0].address1 : 'Please Enter the Shipping Address'}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  firstName: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">Address line 2</Text>
+            <Input
+              Placeholder={ ShippingAddress ? ShippingAddress[0].address2 : 'Please Enter the Shipping Address'}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  lastName: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">City</Text>
+            <Input
+              Placeholder={ShippingAddress ? ShippingAddress[0].city : 'Please Enter the Shipping Address'}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  phone: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">State/Province</Text>
+            <Input
+              Placeholder={ShippingAddress ? ShippingAddress[0].province:'Please Enter the Shipping Address'}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  email: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">Country</Text>
+            <Input
+              Placeholder={ShippingAddress ? ShippingAddress[0].country : 'Please Enter the Shipping Address'}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  email: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <button onClick={updateShippingAddress}>Update</button>
+          </GridItem>
+        </Grid>
+        <Grid gridRowGap={8}>
+          <Text>Billing Address</Text>
+          <GridItem>
+            <Text as="strong">Address</Text>
+            <Input
+              Placeholder={BillingAddress.address1}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  firstName: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">Address line 2</Text>
+            <Input
+              Placeholder={BillingAddress.address2}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  lastName: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">City</Text>
+            <Input
+              Placeholder={BillingAddress.city}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  phone: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">State/Province</Text>
+            <Input
+              Placeholder={BillingAddress.province}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  email: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <Text as="strong">Country</Text>
+            <Input
+              Placeholder={BillingAddress.country}
+              onChange={event =>
+                setAddressData(previousData => ({
+                  ...previousData,
+                  email: event.target.value,
+                }))
+              }
+            />
+          </GridItem>
+          <GridItem>
+            <button onClick={updateBillingAddress}>Update</button>
+          </GridItem>
         </Grid>
       </AuthGuard>
     </Container>

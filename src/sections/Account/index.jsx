@@ -24,33 +24,25 @@
  */
 import * as React from 'react'
 import { useCustomerActions, useCustomerState } from 'frontend-customer'
-import { FaBoxes } from 'react-icons/fa'
 import AuthGuard from 'Components/AuthGuard'
-import Button from 'Components/Button'
 import Container from 'Components/Container'
-import Grid from 'Components/Grid'
-import GridItem from 'Components/GridItem'
+import Button from 'Components/Button'
 import Heading from 'Components/Heading'
 import HStack from 'Components/HStack'
-import Icon from 'Components/Icon'
-import Link from 'Components/Link'
-import Text from 'Components/Text'
-import { useNormalizedCustomer, usePlatform } from 'Components/Hooks'
-import {
-  ACCOUNT_ADDRESS_URL,
-  ACCOUNT_CHANGE_PASSWORD_URL,
-  ACCOUNT_LOGIN_URL,
-  ACCOUNT_ORDERS_URL,
-} from 'Components/Data'
+
+import { useNormalizedCustomer } from 'Components/Hooks'
+import { ACCOUNT_LOGIN_URL } from 'Components/Data'
+import AccountOrders from '../Orders'
+import AccountDetails from '../AccountDetails'
+import AccountAddress from '../AccountAddress'
 
 const Account = () => {
-  const [platform] = usePlatform()
-  const { getAllAddresses, logout } = useCustomerActions()
+  const { getAllAddresses,logout } = useCustomerActions()
   const customerState = useCustomerState()
   const customer = useNormalizedCustomer(customerState)
+  const [categorySelected, setcategorySelected] = React.useState('accountDetails')
 
-  const { addresses, defaultAddress, displayName, email, firstName, isLoggedIn, lastName } =
-    customer
+  const { isLoggedIn } = customer
 
   React.useEffect(() => {
     if (isLoggedIn) getAllAddresses()
@@ -59,97 +51,76 @@ const Account = () => {
   return (
     <Container as="section" variant="section-wrapper">
       <HStack justify="space-between" mb={12}>
-        <Heading as="h1">Your account</Heading>
+        <Heading as="h1">My account</Heading>
         {isLoggedIn && (
           <Button variant="outline" size="sm" onClick={logout}>
-            Sign Out
+            Logout
           </Button>
         )}
       </HStack>
 
       <AuthGuard allowedAuthStatus="authenticated" redirectUrl={ACCOUNT_LOGIN_URL}>
-        <HStack mb={12}>
-          <Link href={ACCOUNT_ORDERS_URL} variant="secondary" minW="auto" size="md">
-            <HStack>
-              <Icon size="lg" as={FaBoxes} mr={4} />
-              <Text as="span">Orders</Text>
-            </HStack>
-          </Link>
-        </HStack>
+        <HStack>
+          <HStack>
+            <h2>Welocme to Ironside Computers</h2>
+          </HStack>
+          <HStack>
+            <div>
+              <ul>
+                <li id="orderHistory" hidden={categorySelected === 'orderHistory' ? false : true}>
+                  <div className="list-heading d-flex align-v-center justify-space-between">
+                    <h5>Order History</h5>
+                  </div>
+                  <div className="customizer-grid">
+                    <AccountOrders />
+                  </div>
+                  <Container></Container>
+                </li>
+                <li
+                  id="accountDetails"
+                  hidden={categorySelected === 'accountDetails' ? false : true}
+                >
+                  <h5>Account Details</h5>
 
-        <Grid gridRowGap={8}>
-          <GridItem>
-            <Text as="strong">Name:</Text>
-            <Text wordBreak="break-word">{displayName || [firstName, lastName].join(' ')}</Text>
-          </GridItem>
+                  <div className="customizer-grid">
+                    <AccountDetails />
+                  </div>
+                </li>
+                <li id="Addresses" hidden={categorySelected === 'Addresses' ? false : true}>
+                  <h5>Addresses</h5>
 
-          <GridItem>
-            <Text as="strong">Email:</Text>
-            <Text wordBreak="break-word">{email}</Text>
-          </GridItem>
+                  <div className="customizer-grid"><AccountAddress/></div>
+                </li>
+                <li
+                  id="affiliatePortal"
+                  hidden={categorySelected === 'affiliatePortal' ? false : true}
+                >
+                  <h5>Affiliate Portal</h5>
 
-          <GridItem display={{ md: 'flex' }}>
-            <Container flexGrow={1} alignItems="start">
-              <Text as="strong">Password:</Text>
-              <Text aria-hidden="true">********</Text>
-            </Container>
-
-            {platform === 'big_commerce' && (
-              <Link
-                href={ACCOUNT_CHANGE_PASSWORD_URL}
-                color="black"
-                mt={{ base: 2, md: 3 }}
-                minW="40"
-                textDecoration="underline"
-              >
-                Change password
-              </Link>
-            )}
-          </GridItem>
-
-          {addresses && (
-            <GridItem display={{ md: 'flex' }}>
-              <Container flex={1} mb={{ base: 3, md: 0 }}>
-                <Text as="strong">Addresses:</Text>
-                {addresses.length > 0
-                  ? addresses.map(
-                      ({ address1, address2, city, country, id, phone, province, zip }) => (
-                        <Container key={id} mt={2} mb={8}>
-                          <Container as="address">
-                            <Text>{address1}</Text>
-                            {address2 && <Text>{address2}</Text>}
-                            <Text>
-                              {city}, {province}, {zip}
-                            </Text>
-                            <Text>{country}</Text>
-                            {phone && <a href={`tel:${phone}`}>{phone}</a>}
-                          </Container>
-                          <HStack h={8} justify="space-between" mt={2} maxW="400px">
-                            <Link
-                              href={`${ACCOUNT_ADDRESS_URL}?id=${id}`}
-                              color="black"
-                              textDecoration="underline"
-                            >
-                              Edit address
-                            </Link>
-                            {defaultAddress && defaultAddress.id === id && (
-                              <Text as="strong">Default</Text>
-                            )}
-                          </HStack>
-                        </Container>
-                      ),
-                    )
-                  : ' n/a'}
-                <Container mt={8}>
-                  <Link href={ACCOUNT_ADDRESS_URL} color="black" textDecoration="underline">
-                    <Icon icon="AddIcon" mb={1} mr={1} size="sm" />
-                    Add new address
-                  </Link>
+                  <div className="customizer-grid"></div>
+                </li>
+              </ul>
+              <div className="scrollable-desc">
+                <Container margin={3}>
+                  <ul>
+                    <li>
+                      <a onClick={() => setcategorySelected('orderHistory')}>order History</a>
+                    </li>
+                    <li>
+                      <a onClick={() => setcategorySelected('accountDetails')}>Account Details</a>
+                    </li>
+                    <li>
+                      <a onClick={() => setcategorySelected('Addresses')}>Addresses</a>
+                    </li>
+                    <li>
+                      <a onClick={() => setcategorySelected('affiliatePortal')}>Affiliate Portal</a>
+                    </li>
+                  </ul>
                 </Container>
-              </Container>
-            </GridItem>
-          )}
-        </Grid>
+              </div>
+            </div>
+          </HStack>
+        </HStack>
       </AuthGuard>
     </Container>
   )

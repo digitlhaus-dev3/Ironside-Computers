@@ -47,42 +47,84 @@ const AccountOrders = () => {
 
   const [customerState, { getAllOrders }] = useCustomer()
   const { isLoggedIn, orders } = useNormalizedCustomer(customerState)
+  const [order, setOrderDetaisl] = React.useState({
+    id: '',
+    processedAt: '',
+    products: '',
+    totalPrice: '',
+    fulfillmentStatus: '',
+  })
+  let total = 0
+  // const order = React.useMemo(
+  //   () => (orders && orderId ? orders.find(order => order.id === orderId) : undefined),
+  //   [orders, orderId],
+  // )
 
-  const order = React.useMemo(
-    () => (orders && orderId ? orders.find(order => order.id === orderId) : undefined),
-    [orders, orderId],
-  )
+  console.log('ordersordersorders', orders, customerState)
 
-  const breadcrumbItems = React.useMemo(() => {
-    /** @type {import("Components/Breadcrumb").BreadcrumbItem[]} */
-    const items = [
-      { label: 'Account', url: ACCOUNT_URL },
-      { label: 'Orders', url: ACCOUNT_ORDERS_URL, isCurrentPage: order === undefined },
-    ]
-
-    if (order) {
-      items.push({ label: order.name, url: '', isCurrentPage: true })
-    }
-
-    return items
-  }, [order])
+  console.log('orders', order)
 
   React.useEffect(() => {
     if (isLoggedIn && !orders) {
       getAllOrders()
     }
   }, [isLoggedIn, orders, getAllOrders])
+  React.useEffect(() => {
+    if (isLoggedIn === true) {
+      orders?.map(event => {
+        setOrderDetaisl({
+          id: event.id,
+          processedAt: event.processedAt,
+          products: event.products,
+          totalPrice: event.totalPrice,
+          fulfillmentStatus: event.fulfillmentStatus,
+        })
+      })
+    }
+  }, [isLoggedIn,customerState])
+  console.log(">>>>>",order.products.length)
+  if (isLoggedIn === true && order.products.length > 0) {
+    order?.products?.map(event => {
+      return (total = total + event.quantity)
+    })
+  }
+  const timestamp = order.processedAt
+  const date = new Date(timestamp)
+  const formattedDate = date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
 
   return (
     <Container as="section" variant="section-wrapper">
-      <Breadcrumb mb={6} items={breadcrumbItems} />
-
       <Heading as="h1" mb={16}>
         {order ? 'Order details' : 'Orders'}
       </Heading>
 
       <AuthGuard allowedAuthStatus="authenticated" redirectUrl={ACCOUNT_LOGIN_URL}>
-        {order ? <AccountOrderDetails order={order} /> : <AccountOrderHistory orders={orders} />}
+        {order && (
+          <div>
+            <div>
+              <h3>Order</h3>
+              <p>{order.id}</p>
+              <h3>Placed</h3>
+              <p>{formattedDate}</p>
+              <h3>Items</h3>
+              <p>{total}</p>
+              <h3>Total</h3>
+              <p>${order.totalPrice.amount}</p>
+              <button>Order Details</button>
+            </div>
+            <div>
+              <h3>Status</h3>
+              <p>{order.fulfillmentStatus}</p>
+              <p>ETA 6/24/23</p>
+              <button>Track</button>
+            </div>
+          </div>
+        )}
+        {/* {order ? <AccountOrderDetails order={order} /> : <AccountOrderHistory orders={orders} />} */}
       </AuthGuard>
     </Container>
   )
