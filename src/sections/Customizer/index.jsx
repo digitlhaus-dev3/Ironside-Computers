@@ -5,11 +5,10 @@ import Flex from 'Components/Flex'
 import Container from 'Components/Container'
 import Heading from 'Components/Heading'
 import HStack from 'Components/HStack'
-import Text from 'Components/Text'
-import IconButton from 'Components/IconButton'
 import Icon from 'Components/Icon'
 import Button from 'Components/Button'
 import CustomizerProductGrid from 'Components/CustomizerProductGrid'
+import ProductGrid from 'Components/ProductGrid'
 import {
   Modal,
   ModalOverlay,
@@ -18,7 +17,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  VStack,
 } from '@chakra-ui/react'
 import './styles.module.css'
 
@@ -28,12 +26,17 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   const DragHandleIcon = <Icon icon="DragHandleIcon" />
   const HamburgerIcon = <Icon icon="HamburgerIcon" />
   const [themeIcon, setThemeIcon] = useState(true)
+  const [productModalOpen, setProductModalOpen] = React.useState(false)
   const [categorySelected, setcategorySelected] = useState('all')
   const [view, setView] = useState('grid')
   const [active, setActive] = useState('active')
   const [build, setBuild] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = React.useState()
+  const [updateImage, setUpdateImage] = React.useState([])
+  const [updateDisplayName, setUpdateDisplayName] = React.useState('')
+  const [store, setStore] = useStore()
   const [{ caseImage, productData, category }] = useStore()
 
   useEffect(() => {
@@ -69,9 +72,22 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   }
   const themeChange = () => {
     var element = document.getElementById('frontend-root')
-    element.classList.toggle("WhiteTheme");
+    element.classList.toggle('WhiteTheme')
     console.log(element)
   }
+  const onSelectProduct = data => {
+    if (selectedProduct?.name === 'Case') {
+      setStore({ caseImage: data?.media[0]?.src })
+    }
+    setStore({ productData: data, category: selectedProduct?.name })
+    const idx = selectedProduct?.products.findIndex(product => product.id === data.id)
+    const temp = selectedProduct?.products[idx]
+    selectedProduct.products[idx] = selectedProduct?.products[0]
+    selectedProduct.products[0] = temp
+    setUpdateImage(temp?.images[1]?.media?.src)
+    setUpdateDisplayName(temp?.name)
+  }
+  console.log(productModalOpen, selectedProduct)
 
   return (
     <>
@@ -102,8 +118,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                     <p className="m-0">Level 2</p>
                   </Container>
                   <Flex>
-                    <button className="change-theme"
-                    onClick={themeChange}></button>
+                    <button className="change-theme" onClick={themeChange}></button>
                     {/* <IconButton
                       aria-label="Go to the previous image"
                       variant="icon"
@@ -116,78 +131,115 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   </Flex>
                 </div>
                 <div className="fixed-section">
-                  <div className="theme-btn">
-                    <div className={view}>
-                      <button
-                        aria-label="Grid View"
-                        className="grid-btn"
-                        onClick={() => setView('grid')}
-                      ></button>
-                      <button
-                        aria-label="List View"
-                        className="list-btn"
-                        onClick={() => setView('list')}
-                      ></button>
-                    </div>
-                  </div>
-                  <ul className={view}>
-                    <li
-                      id="aesthetics"
-                      hidden={
-                        categorySelected === 'aesthetics' || categorySelected === 'all'
-                          ? false
-                          : true
-                      }
-                    >
-                      <div className="list-heading d-flex align-v-center justify-space-between">
-                        <h5>Aesthetics</h5>
+                  {productModalOpen ? (
+                    <ProductGrid
+                      collection={selectedProduct}
+                      setProductModalOpen={setProductModalOpen}
+                      onSelectProduct={onSelectProduct}
+                      productsPerPage={5}
+                    />
+                  ) : (
+                    <>
+                      <div className="theme-btn">
+                        <div className={view}>
+                          <button
+                            aria-label="Grid View"
+                            className="grid-btn"
+                            onClick={() => setView('grid')}
+                          ></button>
+                          <button
+                            aria-label="List View"
+                            className="list-btn"
+                            onClick={() => setView('list')}
+                          ></button>
+                        </div>
                       </div>
-                      <div className="customizer-grid">
-                        <CustomizerProductGrid collection={aesthetics} />
-                      </div>
-                      <Container></Container>
-                    </li>
-                    <li
-                      id="components"
-                      hidden={
-                        categorySelected === 'components' || categorySelected === 'all'
-                          ? false
-                          : true
-                      }
-                    >
-                      <h5>Components</h5>
+                      <ul className={view}>
+                        <li
+                          id="aesthetics"
+                          hidden={
+                            categorySelected === 'aesthetics' || categorySelected === 'all'
+                              ? false
+                              : true
+                          }
+                        >
+                          <div className="list-heading d-flex align-v-center justify-space-between">
+                            <h5>Aesthetics</h5>
+                          </div>
+                          <div className="customizer-grid">
+                            <CustomizerProductGrid
+                              updateImage={updateImage}
+                              updateDisplayName={updateDisplayName}
+                              setSelectedProduct={setSelectedProduct}
+                              setProductModalOpen={setProductModalOpen}
+                              collection={aesthetics}
+                            />
+                          </div>
+                          <Container></Container>
+                        </li>
+                        <li
+                          id="components"
+                          hidden={
+                            categorySelected === 'components' || categorySelected === 'all'
+                              ? false
+                              : true
+                          }
+                        >
+                          <h5>Components</h5>
 
-                      <div className="customizer-grid">
-                        <CustomizerProductGrid collection={components} />
-                      </div>
-                    </li>
-                    <li
-                      id="services"
-                      hidden={
-                        categorySelected === 'services' || categorySelected === 'all' ? false : true
-                      }
-                    >
-                      <h5>Services</h5>
+                          <div className="customizer-grid">
+                            <CustomizerProductGrid
+                              updateImage={updateImage}
+                              updateDisplayName={updateDisplayName}
+                              setSelectedProduct={setSelectedProduct}
+                              setProductModalOpen={setProductModalOpen}
+                              collection={components}
+                            />
+                          </div>
+                        </li>
+                        <li
+                          id="services"
+                          hidden={
+                            categorySelected === 'services' || categorySelected === 'all'
+                              ? false
+                              : true
+                          }
+                        >
+                          <h5>Services</h5>
 
-                      <div className="customizer-grid">
-                        <CustomizerProductGrid collection={services} />
-                      </div>
-                    </li>
-                    <li
-                      id="peripherals"
-                      hidden={
-                        categorySelected === 'peripherals' || categorySelected === 'all'
-                          ? false
-                          : true
-                      }
-                    >
-                      <h5>Peripherals</h5>
+                          <div className="customizer-grid">
+                            <CustomizerProductGrid
+                              updateImage={updateImage}
+                              updateDisplayName={updateDisplayName}
+                              setSelectedProduct={setSelectedProduct}
+                              setProductModalOpen={setProductModalOpen}
+                              collection={services}
+                            />
+                          </div>
+                        </li>
+                        <li
+                          id="peripherals"
+                          hidden={
+                            categorySelected === 'peripherals' || categorySelected === 'all'
+                              ? false
+                              : true
+                          }
+                        >
+                          <h5>Peripherals</h5>
 
-                      <div className="customizer-grid">
-                        <CustomizerProductGrid collection={peripherals} />
-                      </div>
-                    </li>
-                  </ul>
+                          <div className="customizer-grid">
+                            <CustomizerProductGrid
+                              updateImage={updateImage}
+                              updateDisplayName={updateDisplayName}
+                              setSelectedProduct={setSelectedProduct}
+                              setProductModalOpen={setProductModalOpen}
+                              collection={peripherals}
+                            />
+                          </div>
+                        </li>
+                      </ul>
+                    </>
+                  )}
                 </div>
                 <div className="customizer-footer d-flex align-v-center justify-space-between">
                   <Container>
@@ -216,54 +268,58 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   <ul>
                     <li>
                       <a
-                        className={
-                          categorySelected === 'aesthetics'
-                            ? 'active'
-                            : 'un-active'
-                        }
-                        onClick={() => setcategorySelected('aesthetics')}
+                        className={categorySelected === 'aesthetics' ? 'active' : 'un-active'}
+                        onClick={() => {
+                          setProductModalOpen(false)
+                          setcategorySelected('aesthetics')
+                        }}
                       >
                         Aesthetics
                       </a>
                     </li>
                     <li>
                       <a
-                        className={
-                          categorySelected === 'components'
-                            ? 'active'
-                            : 'un-active'
-                        }
-                        onClick={() => setcategorySelected('components')}
+                        className={categorySelected === 'components' ? 'active' : 'un-active'}
+                        onClick={() => {
+                          setProductModalOpen(false)
+                          setcategorySelected('components')
+                        }}
                       >
                         Components
                       </a>
                     </li>
                     <li>
-                      <a 
-                        className={
-                          categorySelected === 'services'
-                            ? 'active'
-                            : 'un-active'
-                        }
-                        onClick={() => setcategorySelected('services')}>Services</a>
+                      <a
+                        className={categorySelected === 'services' ? 'active' : 'un-active'}
+                        onClick={() => {
+                          setProductModalOpen(false)
+                          setcategorySelected('services')
+                        }}
+                      >
+                        Services
+                      </a>
                     </li>
                     <li>
-                      <a 
-                        className={
-                          categorySelected === 'peripherals'
-                            ? 'active'
-                            : 'un-active'
-                        }
-                        onClick={() => setcategorySelected('peripherals')}>Peripherals</a>
+                      <a
+                        className={categorySelected === 'peripherals' ? 'active' : 'un-active'}
+                        onClick={() => {
+                          setProductModalOpen(false)
+                          setcategorySelected('peripherals')
+                        }}
+                      >
+                        Peripherals
+                      </a>
                     </li>
-                    <li className='all'>
-                      <a 
-                        className={
-                          categorySelected === 'all'
-                            ? 'active'
-                            : 'un-active'
-                        }
-                        onClick={() => setcategorySelected('all')}>All</a>
+                    <li className="all">
+                      <a
+                        className={categorySelected === 'all' ? 'active' : 'un-active'}
+                        onClick={() => {
+                          setProductModalOpen(false)
+                          setcategorySelected('all')
+                        }}
+                      >
+                        All
+                      </a>
                     </li>
                   </ul>
                 </Container>

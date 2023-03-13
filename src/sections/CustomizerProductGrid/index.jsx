@@ -25,7 +25,7 @@
 import * as React from 'react'
 import { useRouter } from 'frontend-router'
 import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
-import useStore from 'frontend-store'
+// import useStore from 'frontend-store'
 import Container from 'Components/Container'
 import Flex from 'Components/Flex'
 import Grid from 'Components/Grid'
@@ -34,7 +34,6 @@ import List from 'Components/List'
 import Pagination from 'Components/Pagination'
 import CustomizerProductGridItem from 'Components/CustomizerProductGridItem'
 import VisuallyHidden from 'Components/VisuallyHidden'
-import ProductGrid from 'Components/ProductGrid'
 
 /**
  * @typedef { import("lib/types").Collection } Collection
@@ -46,12 +45,19 @@ import ProductGrid from 'Components/ProductGrid'
  *
  * @param { ProductGridProps } props
  */
-const CustomizerProductGrid = ({ collection, productsPerPage, showTitle }) => {
-  const [store, setStore] = useStore()
-  const [selectedProduct, setSelectedProduct] = React.useState()
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const [updateImage, setUpdateImage] = React.useState([])
-  const [updateDisplayName, setUpdateDisplayName] = React.useState('')
+const CustomizerProductGrid = ({
+  collection,
+  productsPerPage,
+  showTitle,
+  setProductModalOpen,
+  updateImage,
+  updateDisplayName,
+  setSelectedProduct,
+}) => {
+  // const [store, setStore] = useStore()
+  // const [selectedProduct, setSelectedProduct] = React.useState()
+  // const [updateImage, setUpdateImage] = React.useState([])
+  // const [updateDisplayName, setUpdateDisplayName] = React.useState('')
   const router = useRouter()
   const {
     push,
@@ -91,18 +97,18 @@ const CustomizerProductGrid = ({ collection, productsPerPage, showTitle }) => {
     }
     return e.products[0]
   })
-  const onSelectProduct = data => {
-    if (selectedProduct?.name === 'Case') {
-      setStore({ caseImage: data?.media[0]?.src })
-    }
-    setStore({ productData: data, category: selectedProduct?.name })
-    const idx = selectedProduct?.products.findIndex(product => product.id === data.id)
-    const temp = selectedProduct?.products[idx]
-    selectedProduct.products[idx] = selectedProduct?.products[0]
-    selectedProduct.products[0] = temp
-    setUpdateImage(temp?.images[0]?.media?.src)
-    setUpdateDisplayName(temp?.name)
-  }
+  // const onSelectProduct = data => {
+  //   if (selectedProduct?.name === 'Case') {
+  //     setStore({ caseImage: data?.media[0]?.src })
+  //   }
+  //   setStore({ productData: data, category: selectedProduct?.name })
+  //   const idx = selectedProduct?.products.findIndex(product => product.id === data.id)
+  //   const temp = selectedProduct?.products[idx]
+  //   selectedProduct.products[idx] = selectedProduct?.products[0]
+  //   selectedProduct.products[0] = temp
+  //   setUpdateImage(temp?.images[1]?.media?.src)
+  //   setUpdateDisplayName(temp?.name)
+  // }
 
   return (
     <Container mx="auto" as="section" variant="section-wrapper" mt={8}>
@@ -122,27 +128,27 @@ const CustomizerProductGrid = ({ collection, productsPerPage, showTitle }) => {
         columnGap="10"
         rowGap="24"
       >
-        {isModalOpen ? (
+        {/* {productModalOpen ? (
           <ProductGrid
             collection={selectedProduct}
             // onModalClose={onModalClose}
             onSelectProduct={onSelectProduct}
             productsPerPage={5}
           />
-        ) : (
-          filterArray?.map((product, index) => (
-            <CustomizerProductGridItem
-              productList={subcategories[index]}
-              key={index}
-              product={product}
-              imageLoading={index < 4 ? 'eager' : 'lazy'}
-              setIsModalOpen={setIsModalOpen}
-              setSelectedProduct={setSelectedProduct}
-              updateImage={updateImage}
-              updateDisplayName={updateDisplayName}
-            />
-          ))
-        )}
+        ) : ( */}
+        {filterArray?.map((product, index) => (
+          <CustomizerProductGridItem
+            productList={subcategories[index]}
+            key={index}
+            product={product}
+            imageLoading={index < 4 ? 'eager' : 'lazy'}
+            setProductModalOpen={setProductModalOpen}
+            setSelectedProduct={setSelectedProduct}
+            updateImage={updateImage}
+            updateDisplayName={updateDisplayName}
+          />
+        ))}
+        {/* )} */}
       </Grid>
       <Flex justifyContent="center" mt="20">
         {totalPages && (

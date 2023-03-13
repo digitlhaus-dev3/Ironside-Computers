@@ -56,7 +56,7 @@ const CustomizerProductGridItem = ({
   imageLoading,
   product: cmsProduct,
   productList,
-  setIsModalOpen,
+  setProductModalOpen,
   setSelectedProduct,
   updateImage,
   updateDisplayName,
@@ -103,9 +103,10 @@ const CustomizerProductGridItem = ({
     name: productList.name,
     products: productList.products,
   }
+  // console.log(data);
   const onSelection = () => {
     setSelectedProduct(data)
-    setIsModalOpen(true)
+    setProductModalOpen(true)
   }
 
   return (
@@ -114,7 +115,7 @@ const CustomizerProductGridItem = ({
         <a onClick={onSelection}>
           <div className="image-bg">
             <Image
-              src={updateImage.length ? updateImage : src}
+              src={updateImage?.length ? updateImage : src}
               alt=""
               htmlWidth={width.toString()}
               htmlHeight={height.toString()}

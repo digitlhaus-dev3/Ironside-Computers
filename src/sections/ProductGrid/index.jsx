@@ -9,7 +9,7 @@ import List from 'Components/List'
 import Pagination from 'Components/Pagination'
 import ProductGridItem from 'Components/ProductGridItem'
 import VisuallyHidden from 'Components/VisuallyHidden'
-
+import {CloseIcon} from '@chakra-ui/icons'
 /**
  * @typedef { import("lib/types").Collection } Collection
  * @typedef {{
@@ -20,7 +20,7 @@ import VisuallyHidden from 'Components/VisuallyHidden'
  *
  * @param { ProductGridProps } props
  */
-const ProductGrid = ({ collection, productsPerPage, onModalClose, onSelectProduct, showTitle }) => {
+const ProductGrid = ({ collection, productsPerPage, onModalClose, onSelectProduct, setProductModalOpen }) => {
   const router = useRouter()
   const {
     push,
@@ -57,16 +57,17 @@ const ProductGrid = ({ collection, productsPerPage, onModalClose, onSelectProduc
   //   products.sort((a, b) => {
   //     return a?.customFields[0]?.value - b?.customFields[0]?.value
   //   })
-
+console.log(name);
   return (
     <Container mx="auto" as="section" variant="section-wrapper" mt={8}>
-      {showTitle ? (
+      {/* {showTitle ? ( */}
         <Heading as="h2" mb="8">
           {name}
         </Heading>
-      ) : (
+        <CloseIcon onClick={()=>{setProductModalOpen(false)}}></CloseIcon>
+      {/* ) : (
         <VisuallyHidden as="h2">{name}</VisuallyHidden>
-      )}
+      )} */}
       <Grid
         as={List}
         templateColumns={{
