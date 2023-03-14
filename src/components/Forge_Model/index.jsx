@@ -3,6 +3,9 @@ import { CloseIcon } from '@chakra-ui/icons'
 import Forge_Model_Main from '../Forge_Model_Main'
 
 const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
+   const [categorySelected, setcategorySelected] = React.useState({
+    selected: '',
+  })
   const [Bronze, setBronze] = React.useState([])
   const [Silver, setSilver] = React.useState([])
   const [Gold, setGold] = React.useState([])
@@ -13,7 +16,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
   React.useEffect(() => {
     product?.products?.map(event => {
       const name = event.name.split('|')
-      if (name[2].trim() === category.selected) {
+      if (name[2].trim() === category?.selected) {
         if (name[1].trim() === 'Bronze') {
           console.log(event.price)
           setPrice(prev => [...prev, event.price])
@@ -45,7 +48,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
   sorted = price.sort((a, b) => a - b)
   return (
     <>
-      {category.selected === 'Intel' && (
+      {category?.selected === 'Intel' && (
         <div>
           {flag ? (
             <>
@@ -125,7 +128,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
               </ul>
             </>
           ) : (
-            <Forge_Model_Main intel1={intel1} intel2={intel2} amd1={amd1} amd2={amd2} />
+            <Forge_Model_Main category={categorySelected} product={product} intel1={intel1} intel2={intel2} amd1={amd1} amd2={amd2} />
           )}
         </div>
       )}

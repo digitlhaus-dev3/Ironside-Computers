@@ -8,7 +8,7 @@ const Forge_Model_Main = ({ category, product, intel1, intel2, amd1, amd2 }) => 
   })
   return (
     <>
-      {categorySelected.selected === '' ? (
+      {categorySelected?.selected === '' ? (
         <ul className="processors d-flex list-none flex-wrap">
           <li>
             <div className="processor">
@@ -17,7 +17,6 @@ const Forge_Model_Main = ({ category, product, intel1, intel2, amd1, amd2 }) => 
                 <span>Intel Core i3, i5, i7, and i9 CPUs</span>
               </p>
               <p>
-                {' '}
                 Socket 1151 - Socket 1700 Up to 16 Core Processors Dual Channel DDR4 Memory Up to
                 128GB of RAM
               </p>
