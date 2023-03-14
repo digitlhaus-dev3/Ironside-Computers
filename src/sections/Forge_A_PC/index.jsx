@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'Components/Image'
-import Forge_Model from '../../components/Forge_Model'
+import Forge_Model from 'Components/Forge_Model'
 
 const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
   const [categorySelected, setcategorySelected] = React.useState({
@@ -14,7 +14,7 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
     <div className="forge-pc d-flex">
       <div className="container-2">
         <div className="pc-img">
-          <Image id="hello" src={image.src} />
+          <Image id="hello" src={image?.src} />
         </div>
         <div>
           <h1>forge a pc</h1>
@@ -26,7 +26,7 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
             <ul className="processors d-flex list-none flex-wrap">
               <li>
                 <div className="processor">
-                  <Image src={intel1.src} />
+                  <Image src={intel1?.src} />
                   <p><span>Intel Core i3, i5, i7, and i9 CPUs</span></p>
                   <p>
                     {' '}
@@ -43,7 +43,7 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
               </li>
               <li>
                 <div className="processor">
-                  <Image src={intel2.src} />
+                  <Image src={intel2?.src} />
                   <p><span>Intel X Series CPUs</span></p>
                   <p>
                     Socket 2066 Up to 18 Core Processors Quad Channel DDR4 Memory Up to 256GB of RAM
@@ -55,7 +55,7 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
               </li>
               <li>
                 <div className="processor">
-                  <Image src={amd1.src} />
+                  <Image src={amd1?.src} />
                   <p><span>AMD Ryzen CPUs</span></p>
                   <p>
                     Socket AM4 Up to 16 Core Processors Dual Channel DDR4 Memory Up to 128GB of RAM
@@ -70,7 +70,7 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
               </li>
               <li onMouseEnter={he}>
                 <div className="processor">
-                  <Image src={amd2.src} />
+                  <Image src={amd2?.src} />
                   <p><span>AMD Threadripper CPUs</span></p>
                   <p>
                     Socket sTRX4 Up to 16 Core Processors Dual Channel DDR4 Memory Up to 128GB of
