@@ -1,15 +1,12 @@
 import React from 'react'
 import Image from 'Components/Image'
 import Forge_Model from 'Components/Forge_Model'
+import Forge_Model_Main from '../../components/Forge_Model_Main'
 
-const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
+const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2, product }) => {
   const [categorySelected, setcategorySelected] = React.useState({
     selected: '',
   })
-  const he = () => {
-    console.log("hello")  
-  }
-
   return (
     <div className="forge-pc d-flex">
       <div className="container-2">
@@ -23,70 +20,9 @@ const Forge_A_PC = ({ image, intel1, intel2, amd1, amd2 }) => {
             PC of your dreams.
           </p>
           {categorySelected.selected === '' ? (
-            <ul className="processors d-flex list-none flex-wrap">
-              <li>
-                <div className="processor">
-                  <Image src={intel1?.src} />
-                  <p><span>Intel Core i3, i5, i7, and i9 CPUs</span></p>
-                  <p>
-                    {' '}
-                    Socket 1151 - Socket 1700 Up to 16 Core Processors Dual Channel DDR4 Memory Up
-                    to 128GB of RAM
-                  </p>
-                  <a
-                    className="btn-2"
-                    onClick={() => setcategorySelected({ selected: 'IntelCore' })}
-                  >
-                    Customize
-                  </a>
-                </div>
-              </li>
-              <li>
-                <div className="processor">
-                  <Image src={intel2?.src} />
-                  <p><span>Intel X Series CPUs</span></p>
-                  <p>
-                    Socket 2066 Up to 18 Core Processors Quad Channel DDR4 Memory Up to 256GB of RAM
-                  </p>
-                  <a className="btn-2" onClick={() => setcategorySelected({ selected: 'IntelX' })}>
-                    Customize
-                  </a>
-                </div>
-              </li>
-              <li>
-                <div className="processor">
-                  <Image src={amd1?.src} />
-                  <p><span>AMD Ryzen CPUs</span></p>
-                  <p>
-                    Socket AM4 Up to 16 Core Processors Dual Channel DDR4 Memory Up to 128GB of RAM
-                  </p>
-                  <a
-                    className="btn-2"
-                    onClick={() => setcategorySelected({ selected: 'AMDRyzen' })}
-                  >
-                    Customize
-                  </a>
-                </div>
-              </li>
-              <li onMouseEnter={he}>
-                <div className="processor">
-                  <Image src={amd2?.src} />
-                  <p><span>AMD Threadripper CPUs</span></p>
-                  <p>
-                    Socket sTRX4 Up to 16 Core Processors Dual Channel DDR4 Memory Up to 128GB of
-                    RAM
-                  </p>
-                  <a
-                    className="btn-2"
-                    onClick={() => setcategorySelected({ selected: 'AMDThreadripper' })}
-                  >
-                    Customize
-                  </a>
-                </div>
-              </li>
-            </ul>
+            <Forge_Model_Main category={categorySelected} product={product} intel1={intel1} intel2={intel2} amd1={amd1} amd2={amd2} />
           ) : (
-            <Forge_Model category={categorySelected} />
+            <Forge_Model category={categorySelected} product={product} intel1={intel1} intel2={intel2} amd1={amd1} amd2={amd2} />
           )}
         </div>
       </div>
