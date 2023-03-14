@@ -5,7 +5,7 @@ import Image from 'Components/Image'
 const PhotoGallery = ({ image }) => {
   const settings = {
     arrow: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 2,
     rows: 2,
     autoplay: true,
@@ -28,7 +28,7 @@ const PhotoGallery = ({ image }) => {
     ],
   }
   return (
-    <div className="container-2">
+    // <div className="container-2">
       <div className="photoGallery" id="gallery">
           <Slider {...settings}>
             {image?.productImages.map(event => {
@@ -44,7 +44,6 @@ const PhotoGallery = ({ image }) => {
             })}
           </Slider>
         </div>
-    </div>
   )
 }
 

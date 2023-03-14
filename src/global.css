@@ -3434,16 +3434,33 @@ body .content-left .content-top {
     padding: 16px;
   }
 }
-.photoGallery:after {
+.photoGallery:before {
   content: "";
   background: rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(31.5px);
-  width: 4.583vw;
+  width: 212px;
   height: 45vw;
   display: block;
   position: absolute;
   top: -3.385vw;
-  right: -2px;
+  left: -2px;
+  z-index: 2;
+}
+@media screen and (max-width: 767px) {
+  .photoGallery:before {
+    display: none;
+  }
+}
+.photoGallery:after {
+  content: "";
+  background: #101010;
+  width: 212px;
+  height: 45vw;
+  display: block;
+  position: absolute;
+  top: -3.385vw;
+  left: 208px;
+  z-index: 2;
 }
 @media screen and (max-width: 767px) {
   .photoGallery:after {
@@ -4240,11 +4257,21 @@ body .content-left .content-top {
 .customizer .product-desc {
   width: calc(100% - 33.281vw);
   margin: 0;
-  padding-top: 89px;
 }
 .customizer .product-desc .product-description {
   width: calc(100% - 7.344vw);
   padding: 0 0.885vw;
+  position: relative;
+}
+.customizer .product-desc .product-description::after {
+  content: "";
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  position: absolute;
+  top: 0;
+  z-index: 9;
 }
 .customizer .product-desc .fixed-section {
   display: flex;
@@ -4312,6 +4339,7 @@ body .content-left .content-top {
 }
 .customizer .product-desc .fixed-section ul {
   list-style-type: none;
+  width: 100%;
 }
 .customizer .product-desc .scrollable-desc {
   width: 7.344vw;
@@ -4816,6 +4844,96 @@ body .content-left .content-top {
 }
 #whiteTheme.layout5 p {
   color: #000000;
+}
+
+.forge-pc {
+  padding-top: 130px;
+  padding-left: 140px;
+  padding-right: 180px;
+}
+.forge-pc .container-2 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 0;
+}
+.forge-pc h1 {
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 11px;
+}
+.forge-pc h1 + p {
+  font-size: 13px;
+  line-height: 13px;
+  color: #9c9c9c;
+  max-width: 424px;
+}
+.forge-pc h2 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 11px;
+}
+.forge-pc h3 {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 11px;
+}
+.forge-pc .close {
+  text-align: right;
+  cursor: pointer;
+}
+.forge-pc .pc-img img {
+  max-width: 38.854vw;
+  filter: drop-shadow(0px -103px 250px rgba(255, 65, 65, 0.5));
+}
+.forge-pc .pc-img + div {
+  margin-left: -26px;
+  z-index: 1;
+}
+.forge-pc .processors {
+  padding: 3.854vw 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.forge-pc .processors > li {
+  width: 25%;
+  padding: 0 7px;
+}
+.forge-pc .processors > li:nth-child(2):hover #hello {
+  filter: drop-shadow(0px -103px 250px #45b0ff) !important;
+}
+.forge-pc .processors > li > div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  min-height: 318px;
+  height: 100%;
+  padding: 26px 24px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #2c2d2e;
+  backdrop-filter: blur(15px);
+}
+.forge-pc .processors > li > div p {
+  font-size: 12px;
+  line-height: 12px;
+}
+.forge-pc .processors > li > div p span {
+  font-weight: 700;
+  display: block;
+}
+.forge-pc .processors > li > div a {
+  margin-top: auto;
+  margin-left: auto;
 }
 
 /* Common Structure box with bg for account pages Scss Starts. */
