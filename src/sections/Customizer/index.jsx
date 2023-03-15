@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles.module.css'
 import useStore from 'frontend-store'
+import Slider from 'react-slick'
 import Flex from 'Components/Flex'
 import Container from 'Components/Container'
 import Heading from 'Components/Heading'
@@ -34,10 +35,33 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
   const [totalPrice, setTotalPrice] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = React.useState()
-  const [updateImage, setUpdateImage] = React.useState([])
   const [updateDisplayName, setUpdateDisplayName] = React.useState('')
+  const [caseImages, setCaseImages] = React.useState([])
+  const [backgroundImg, setbackgroundImg] = React.useState([])
   const [store, setStore] = useStore()
-  const [{ caseImage, productData, category }] = useStore()
+  const [{ productData, category }] = useStore()
+
+  const settings = {
+    dots: true,
+    autoplay: true,
+    autoplayspeed: 2000,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 666,
+        settings: 'unslick',
+      },
+    ],
+  }
 
   useEffect(() => {
     const found = build.find(el => el.productId === productData?.id)
@@ -68,26 +92,30 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
     setIsModalOpen(false)
   }
   const onSelection = () => {
-    setIsModalOpen(true)
+    // setIsModalOpen(true)
   }
   const themeChange = () => {
     var element = document.getElementById('frontend-root')
     element.classList.toggle('WhiteTheme')
-    console.log(element)
   }
   const onSelectProduct = data => {
     if (selectedProduct?.name === 'Case') {
-      setStore({ caseImage: data?.media[0]?.src })
+      let images = []
+      data?.media.forEach(ele => {
+        if (ele.alt !== 'case background image') {
+          images.push(ele)
+        }
+        if (ele.alt === 'case background image') setbackgroundImg(ele)
+      })
+      setCaseImages(images)
     }
     setStore({ productData: data, category: selectedProduct?.name })
     const idx = selectedProduct?.products.findIndex(product => product.id === data.id)
     const temp = selectedProduct?.products[idx]
     selectedProduct.products[idx] = selectedProduct?.products[0]
     selectedProduct.products[0] = temp
-    setUpdateImage(temp?.images[1]?.media?.src)
     setUpdateDisplayName(temp?.name)
   }
-  console.log(productModalOpen, selectedProduct)
 
   return (
     <>
@@ -100,14 +128,22 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
           mb={5}
         >
           <Container className="product-image" margin={3}>
-            <img
-              src={
-                caseImage
-                  ? caseImage
-                  : 'https://i.ibb.co/bWfjWq9/Y2-KHero-Images-Glacier-Blue-Large-1.png'
-              }
-              alt="customImage"
-            />
+            {/* {caseImages.length ? (
+              <Slider {...settings}>
+                {caseImages?.map(event => {
+                  return (
+                    <div >
+                      <img key={event.id} src={event?.src} altext={event?.alt}></img>
+                    </div>
+                  )
+                })}
+              </Slider>
+            ) : ( */}
+              <img
+                src="https://i.ibb.co/bWfjWq9/Y2-KHero-Images-Glacier-Blue-Large-1.png"
+                alt="customImage"
+              />
+            {/* )} */}
           </Container>
           <Container className="product-desc" margin={3}>
             <div className="prod-desc-scroll flex">
@@ -119,12 +155,6 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   </Container>
                   <Flex>
                     <button className="change-theme" onClick={themeChange}></button>
-                    {/* <IconButton
-                      aria-label="Go to the previous image"
-                      variant="icon"
-                      icon={themeIcon ? MoonIcon : SunIcon}
-                      onClick={() => setThemeIcon(!themeIcon)}
-                    /> */}
                     <Button onClick={onSelection} className="btn save-build">
                       Save my build
                     </Button>
@@ -168,14 +198,12 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                           </div>
                           <div className="customizer-grid">
                             <CustomizerProductGrid
-                              updateImage={updateImage}
-                              updateDisplayName={updateDisplayName}
+                              // updateDisplayName={updateDisplayName}
                               setSelectedProduct={setSelectedProduct}
                               setProductModalOpen={setProductModalOpen}
                               collection={aesthetics}
                             />
                           </div>
-                          <Container></Container>
                         </li>
                         <li
                           id="components"
@@ -189,8 +217,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
 
                           <div className="customizer-grid">
                             <CustomizerProductGrid
-                              updateImage={updateImage}
-                              updateDisplayName={updateDisplayName}
+                              // updateDisplayName={updateDisplayName}
                               setSelectedProduct={setSelectedProduct}
                               setProductModalOpen={setProductModalOpen}
                               collection={components}
@@ -209,8 +236,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
 
                           <div className="customizer-grid">
                             <CustomizerProductGrid
-                              updateImage={updateImage}
-                              updateDisplayName={updateDisplayName}
+                              // updateDisplayName={updateDisplayName}
                               setSelectedProduct={setSelectedProduct}
                               setProductModalOpen={setProductModalOpen}
                               collection={services}
@@ -229,8 +255,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
 
                           <div className="customizer-grid">
                             <CustomizerProductGrid
-                              updateImage={updateImage}
-                              updateDisplayName={updateDisplayName}
+                              // updateDisplayName={updateDisplayName}
                               setSelectedProduct={setSelectedProduct}
                               setProductModalOpen={setProductModalOpen}
                               collection={peripherals}

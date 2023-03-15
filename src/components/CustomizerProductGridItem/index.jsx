@@ -58,7 +58,6 @@ const CustomizerProductGridItem = ({
   productList,
   setProductModalOpen,
   setSelectedProduct,
-  updateImage,
   updateDisplayName,
 }) => {
   const product = useNormalizedProduct(cmsProduct)
@@ -72,8 +71,11 @@ const CustomizerProductGridItem = ({
   } = product
 
   const theme = useTheme()
-  const firstImage = media?.length > 0 ? media[0] : defaultMediaItem
-  const { src, width = 720, height = 480 } = firstImage
+  let firstImage = defaultMediaItem
+  firstImage = media.filter(e => {
+    if (e.alt === 'case image') return e
+  })
+  const { src, width = 720, height = 480 } = firstImage.length > 0 ? firstImage[0] : media[0]
 
   const highlightName = searchResult && searchResult.name ? searchResult.name.value : undefined
   const displayName = React.useMemo(() => {
@@ -103,7 +105,6 @@ const CustomizerProductGridItem = ({
     name: productList.name,
     products: productList.products,
   }
-  // console.log(data);
   const onSelection = () => {
     setSelectedProduct(data)
     setProductModalOpen(true)
@@ -115,7 +116,8 @@ const CustomizerProductGridItem = ({
         <a onClick={onSelection}>
           <div className="image-bg">
             <Image
-              src={updateImage?.length ? updateImage : src}
+              // src={updateImage?.length ? updateImage : src}
+              src={src}
               alt=""
               htmlWidth={width.toString()}
               htmlHeight={height.toString()}
@@ -126,7 +128,7 @@ const CustomizerProductGridItem = ({
           </div>
           <div>
             <h6>{productList?.name}</h6>
-            <p>{updateDisplayName.length ? updateDisplayName : displayName}</p>
+            <p>{displayName}</p>
           </div>
         </a>
       </li>

@@ -25,7 +25,6 @@
 import * as React from 'react'
 import { useRouter } from 'frontend-router'
 import { useGoogleTagManagerActions } from '@frontend-sdk/google-tag-manager'
-// import useStore from 'frontend-store'
 import Container from 'Components/Container'
 import Flex from 'Components/Flex'
 import Grid from 'Components/Grid'
@@ -50,14 +49,9 @@ const CustomizerProductGrid = ({
   productsPerPage,
   showTitle,
   setProductModalOpen,
-  updateImage,
   updateDisplayName,
   setSelectedProduct,
 }) => {
-  // const [store, setStore] = useStore()
-  // const [selectedProduct, setSelectedProduct] = React.useState()
-  // const [updateImage, setUpdateImage] = React.useState([])
-  // const [updateDisplayName, setUpdateDisplayName] = React.useState('')
   const router = useRouter()
   const {
     push,
@@ -97,18 +91,6 @@ const CustomizerProductGrid = ({
     }
     return e.products[0]
   })
-  // const onSelectProduct = data => {
-  //   if (selectedProduct?.name === 'Case') {
-  //     setStore({ caseImage: data?.media[0]?.src })
-  //   }
-  //   setStore({ productData: data, category: selectedProduct?.name })
-  //   const idx = selectedProduct?.products.findIndex(product => product.id === data.id)
-  //   const temp = selectedProduct?.products[idx]
-  //   selectedProduct.products[idx] = selectedProduct?.products[0]
-  //   selectedProduct.products[0] = temp
-  //   setUpdateImage(temp?.images[1]?.media?.src)
-  //   setUpdateDisplayName(temp?.name)
-  // }
 
   return (
     <Container mx="auto" as="section" variant="section-wrapper" mt={8}>
@@ -128,14 +110,6 @@ const CustomizerProductGrid = ({
         columnGap="10"
         rowGap="24"
       >
-        {/* {productModalOpen ? (
-          <ProductGrid
-            collection={selectedProduct}
-            // onModalClose={onModalClose}
-            onSelectProduct={onSelectProduct}
-            productsPerPage={5}
-          />
-        ) : ( */}
         {filterArray?.map((product, index) => (
           <CustomizerProductGridItem
             productList={subcategories[index]}
@@ -144,7 +118,6 @@ const CustomizerProductGrid = ({
             imageLoading={index < 4 ? 'eager' : 'lazy'}
             setProductModalOpen={setProductModalOpen}
             setSelectedProduct={setSelectedProduct}
-            updateImage={updateImage}
             updateDisplayName={updateDisplayName}
           />
         ))}
