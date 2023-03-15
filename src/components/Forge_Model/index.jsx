@@ -1,6 +1,7 @@
 import React from 'react'
 import { CloseIcon } from '@chakra-ui/icons'
 import Forge_Model_Main from '../Forge_Model_Main'
+import { useStore } from 'frontend-store'
 
 const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
    const [categorySelected, setcategorySelected] = React.useState({
@@ -12,6 +13,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
   const [Platinum, setPlatinum] = React.useState([])
   const [price, setPrice] = React.useState([])
   const [flag, setFlag] = React.useState(true)
+  const [store,setStore] = useStore()
   let sorted = [];
   React.useEffect(() => {
     product?.products?.map(event => {
@@ -46,6 +48,11 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
     })
   }, [])
   sorted = price.sort((a, b) => a - b)
+  const clickMe = (modelName,modelDescription) => { 
+    console.log(modelName,modelDescription)
+    setStore({name:modelName,desc:modelDescription})
+    window.location.href = `/product-slider/?name=${modelName},desc=${modelDescription}`
+  }
   return (
     <>
       {category?.selected === 'Intel' && (
@@ -75,6 +82,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
+                    <button onClick={()=>clickMe('level-1|Bronze|Intel',Bronze)}>Cutomize</button>
                   </div>
                 </li>
                 <li>
@@ -91,6 +99,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
+                    <button onClick={()=>clickMe('level-1|Silver|Intel',Bronze)}>Cutomize</button>
                   </div>
                 </li>
                 <li>
@@ -107,6 +116,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
+                    <button onClick={()=>clickMe('level-1|Gold|Intel',Bronze)}>Cutomize</button>
                   </div>
                 </li>
                 <li>
@@ -123,6 +133,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
+                    <button onClick={()=>clickMe('level-1|Platinum|Intel',Bronze)}>Cutomize</button>
                   </div>
                 </li>
               </ul>
