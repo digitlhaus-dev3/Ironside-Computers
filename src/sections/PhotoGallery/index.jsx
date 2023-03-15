@@ -10,7 +10,11 @@ const PhotoGallery = ({ image }) => {
     rows: 2,
     autoplay: true,
     autoplayspeed: 2000,
-    infinite: true,
+    infinite: false,
+    accessibility: true,
+    variableWidth: false,
+    focusOnSelect: false,
+    centerMode: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -28,22 +32,23 @@ const PhotoGallery = ({ image }) => {
     ],
   }
   return (
-    // <div className="container-2">
+    <div className="container-2">
       <div className="photoGallery" id="gallery">
-          <Slider {...settings}>
-            {image?.productImages.map(event => {
-              return (
-                <div className="galleryImage">
-                  <Image
-                    key={event.id}
-                    src={event?.productImage?.src}
-                    altext={event?.productImage?.alt}
-                  ></Image>
-                </div>
-              )
-            })}
-          </Slider>
-        </div>
+        <Slider {...settings}>
+          {image?.productImages.map(event => {
+            return (
+              <div className="galleryImage">
+                <Image
+                  key={event.id}
+                  src={event?.productImage?.src}
+                  altext={event?.productImage?.alt}
+                ></Image>
+              </div>
+            )
+          })}
+        </Slider>
+      </div>
+    </div>
   )
 }
 

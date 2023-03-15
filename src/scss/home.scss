@@ -219,7 +219,7 @@ body .container + .container.boxes .boxess {
     a {
       @include display-flex(inline-flex);
       @include align-item(center);
-    } 
+    }
   }
   .large-img {
     position: relative;
@@ -791,6 +791,9 @@ body .container + .container.boxes .boxess {
       height: 50.875vw;
     }
   }
+  .slick-list {
+    overflow: visible;
+  }
   .slick-track {
     @include display-flex(flex);
   }
@@ -914,11 +917,29 @@ body .container + .container.boxes .boxess {
   @include mobile {
     display: none;
   }
+  &:before {
+    content: '';
+    background: rgba(23, 23, 23, 0.2);
+    backdrop-filter: blur(45.5px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    // left: -174px;
+    left: -6.250vw;
+    width: 540px;
+    height: 100%;
+    z-index: 2;
+    @include xl {
+      left: -7.7vw;
+    }
+  }
   .limitedEdition {
     margin-top: auto;
     margin-right: -68px;
     z-index: 1;
     margin-bottom: 60px;
+    position: relative;
+    z-index: 4;
     @include tablet-small {
       margin-right: 120px;
     }

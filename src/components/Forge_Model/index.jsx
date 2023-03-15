@@ -59,13 +59,14 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
         <div>
           {flag ? (
             <>
-              <div className="d-flex justify-space-between close">
+              <div className="d-flex justify-space-between">
                 <h3>INTEL</h3>
-                <CloseIcon
+                <button
+                className='close'
                   onClick={() => {
                     setFlag(false)
                   }}
-                ></CloseIcon>
+                ></button>
               </div>
               <ul className="processors d-flex list-none flex-wrap">
                 <li>
@@ -82,7 +83,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
-                    <button onClick={()=>clickMe('level-1|Bronze|Intel',Bronze)}>Cutomize</button>
+                    <a className='btn-2' onClick={()=>clickMe('level-1|Bronze|Intel',Bronze)}>Cutomize</a>
                   </div>
                 </li>
                 <li>
@@ -99,7 +100,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
-                    <button onClick={()=>clickMe('level-1|Silver|Intel',Bronze)}>Cutomize</button>
+                    <a className='btn-2' onClick={()=>clickMe('level-1|Silver|Intel',Bronze)}>Cutomize</a>
                   </div>
                 </li>
                 <li>
@@ -116,7 +117,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
-                    <button onClick={()=>clickMe('level-1|Gold|Intel',Bronze)}>Cutomize</button>
+                    <a className='btn-2' onClick={()=>clickMe('level-1|Gold|Intel',Bronze)}>Cutomize</a>
                   </div>
                 </li>
                 <li>
@@ -133,7 +134,7 @@ const Forge_Model = ({ category, product, intel1, intel2, amd1, amd2 }) => {
                         return <li>{event}</li>
                       })}
                     </ul>
-                    <button onClick={()=>clickMe('level-1|Platinum|Intel',Bronze)}>Cutomize</button>
+                    <a className='btn-2' onClick={()=>clickMe('level-1|Platinum|Intel',Bronze)}>Cutomize</a>
                   </div>
                 </li>
               </ul>

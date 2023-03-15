@@ -64,25 +64,18 @@ const ProductGrid = ({
   //     return a?.customFields[0]?.value - b?.customFields[0]?.value
   //   })
   return (
-    <Container mx="auto" as="section" variant="section-wrapper" mt={8}>
-      <HStack>
-        <Heading as="h2">
-          {name}
-        </Heading>
-        <CloseIcon
+    <div variant="section-wrapper">
+      <div className='d-flex justify-space-between align-v-center'>
+        <h5 className='case-heading'>{name}</h5>
+        <button className='close'
           onClick={() => {
             setProductModalOpen(false)
           }}
-        ></CloseIcon>
-      </HStack>
-      <Grid
+        ></button>
+      </div>
+      <Flex
         as={List}
-        templateColumns={{
-          base: 'repeat(auto-fill, minmax(14rem, 1fr))',
-          md: 'repeat(auto-fill, minmax(18rem, 1fr))',
-        }}
-        columnGap="10"
-        rowGap="24"
+        className="cardblock"
       >
         {products.map((product, index) => (
           <ProductGridItem
@@ -93,7 +86,7 @@ const ProductGrid = ({
             imageLoading={index < 4 ? 'eager' : 'lazy'}
           />
         ))}
-      </Grid>
+      </Flex>
       <Flex justifyContent="center" mt="20">
         {totalPages && (
           <Pagination
@@ -103,7 +96,7 @@ const ProductGrid = ({
           />
         )}
       </Flex>
-    </Container>
+    </div>
   )
 }
 

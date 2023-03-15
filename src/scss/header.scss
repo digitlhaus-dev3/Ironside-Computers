@@ -78,7 +78,7 @@ header .nav-links {
   .css-r6z5ec {
     // top: 20px !important;
     transform: none !important;
-    inset: 87px auto auto !important;
+    inset: 120px auto auto 25px !important;
     @include tablet {
       inset: auto !important;
       left: 0 !important;
@@ -320,7 +320,8 @@ header {
       width: 900px;
     }
     > div {
-      background-size: 100% 100%;
+      // background-size: 100% 100%;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       border-radius: 4px;
@@ -329,22 +330,36 @@ header {
       }
     }
     .menu-description {
-      @include display-flex(flex);
-      @include flex-direction(column);
-      padding: 70px 56px 70px 70px;
       width: 376px;
-      background: rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(20px);
+      padding: 70px 0 70px 70px;
       min-height: 489px;
-      &:after {
-        content: '';
-        display: inline-block;
-        height: 404px;
+      > div {
+        @include display-flex(flex);
+        @include flex-direction(column);
+        position: relative;
+        z-index: 99;
+        padding-right: 56px;
+        &:after {
+          content: '';
+          display: inline-block;
+          height: 404px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          border-right: 1px solid #363636;
+        }
+      }
+      &::before {
+        content: "";
+        height: 99.5%;
+        width: 376px;
+        background: rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(20px);
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        border-right: 1px solid #363636;
+        top: 1px;
+        bottom: -1px;
+        left: 1px;
       }
     }
   }
@@ -357,6 +372,12 @@ header {
       background-color: transparent;
       .sub-menu-heading {
         @include text-shadow(text-shadow);
+        // transition: 0.3s opacity;
+        // animation: fadeIn 5s;
+        // -webkit-animation: fadeIn 5s;
+        // -moz-animation: fadeIn 5s;
+        // -o-animation: fadeIn 5s;
+        // -ms-animation: fadeIn 5s;
       }
     }
     &:focus {
@@ -370,6 +391,13 @@ header {
       color: $color-white;
       font-family: $heading-fonts;
       font-weight: 700;
+      // transition: 0.3s opacity;
+
+      // animation: fadeIn 5s;
+      // -webkit-animation: fadeIn 5s;
+      // -moz-animation: fadeIn 5s;
+      // -o-animation: fadeIn 5s;
+      // -ms-animation: fadeIn 5s;
     }
     .sub-menu-desc {
       font-size: 14px;
@@ -495,9 +523,10 @@ header {
 // Header Two
 #frontend-root header .header-main.header-2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 22px 0 20px;
-  margin: auto;
-  max-width: 96.094vw;
+  padding: 22px 45px 20px;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: auto;
   left: 0;
   right: 0;
   @include tablet {
@@ -611,6 +640,8 @@ body {
   .chakra-menu__menu-list {
     @include display-flex(flex);
     @include flex-direction(column);
+    // filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.74));
+    transition: 0.2s opacity, 0.2s transform;
     p {
       @include m-0(m-0);
     }

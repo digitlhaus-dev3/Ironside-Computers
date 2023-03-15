@@ -13,6 +13,7 @@ function ProductSlider({ sliderData, bannerHeading, bannerBody, bannerLink }) {
     autoplay: true,
     autoplayspeed: 2000,
     variableWidth: true,
+    infinite: false,
     responsive: [
       {
         breakpoint: 1280,

@@ -30,7 +30,7 @@
     img {
       // height: 700px;
       height: 36.458vw;
-      object-fit: cover;
+      object-fit: contain;
       @include mobile-small {
         height: 368px;
         margin: auto;
@@ -249,6 +249,9 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   // margin-bottom: 115px;
   position: relative;
+  .slick-list {
+    overflow: visible;
+  }
   @include tablet {
     // margin-bottom: 7.813vw;
     margin: 0 0 7.813vw;
@@ -269,22 +272,7 @@
     display: block;
     position: absolute;
     top: -3.385vw;
-    left: -2px;
-    z-index: 2;
-    @include mobile {
-      display: none;
-    }
-  }
-  &:after {
-    content: '';
-    background: #101010;
-    // backdrop-filter: blur(31.5px);
-    width: 212px;
-    height: 45vw;
-    display: block;
-    position: absolute;
-    top: -3.385vw;
-    left: 208px;
+    left: -11%;
     z-index: 2;
     @include mobile {
       display: none;
@@ -292,18 +280,33 @@
   }
   // &:after {
   //   content: '';
-  //   background: rgba(0, 0, 0, 0.01);
-  //   backdrop-filter: blur(31.5px);
-  //   width: 4.583vw;
+  //   background: #101010;
+  //   // backdrop-filter: blur(31.5px);
+  //   width: 212px;
   //   height: 45vw;
   //   display: block;
   //   position: absolute;
   //   top: -3.385vw;
-  //   right: -2px;
+  //   left: 208px;
+  //   z-index: 2;
   //   @include mobile {
   //     display: none;
   //   }
   // }
+  &:after {
+    content: '';
+    background: rgba(0, 0, 0, 0.01);
+    backdrop-filter: blur(31.5px);
+    width: 212px;
+    height: 45vw;
+    display: block;
+    position: absolute;
+    top: -3.385vw;
+    right: -11%;
+    @include mobile {
+      display: none;
+    }
+  }
   .slick-list {
     // overflow: visible;
   }

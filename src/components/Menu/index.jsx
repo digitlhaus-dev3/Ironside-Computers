@@ -345,6 +345,7 @@ const SubMenu = forwardRef(
             >
               <div style={{ backgroundImage: `url(${backgroundImage?.src})` }}>
                 <div className="menu-description">
+                  <div>
                   {backgroundImage?.src ? (
                     subMenuLinks.map(({ slug, label, description, image }) => (
                       <MenuItem key={label} as={Link} href={slug}>
@@ -357,6 +358,7 @@ const SubMenu = forwardRef(
                   ) : (
                     <AboutSubMenu />
                   )}
+                  </div>
                 </div>
               </div>
             </MenuList>

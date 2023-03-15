@@ -118,7 +118,7 @@ const ProductGridItem = ({ imageLoading, product: cmsProduct, onSelectProduct })
     setIsModalOpen(false)
   }
   const onProductSelect = () => {
-    onSelectProduct(product);
+    onSelectProduct(product)
   }
 
   const onInfoPanel = () => {
@@ -127,27 +127,24 @@ const ProductGridItem = ({ imageLoading, product: cmsProduct, onSelectProduct })
 
   return (
     <>
-      <ListItem>
+      <ListItem className="card">
         <a aria-label={`Navigate to ${name} product page`} display="block">
-          <HamburgerIcon w={8} h={8} onClick={onInfoPanel} />
-          <div onClick={onProductSelect}>
-            <Image
-              src={src}
-              alt=""
-              htmlWidth={width.toString()}
-              htmlHeight={height.toString()}
-              sizes={`(min-width: ${theme.breakpoints.sm}) 450px, 360px`}
-              loading={imageLoading}
-              mb="3"
-            />
-            <Text fontSize="lg" color="white">
-              {displayName}
-            </Text>
-            {price && (
-              <Text color="gray.800" mb="3">
-                {formatMoney({ money: price })}
-              </Text>
-            )}
+          {/* <HamburgerIcon w={8} h={8} onClick={onInfoPanel} /> */}
+          <button className="dots" onClick={onInfoPanel}>
+            ...
+          </button>
+          <div onClick={onProductSelect} className="card-list">
+            <Image className="product-img" src={src} alt="" />
+            <div>
+              <h6>
+                {displayName}
+              </h6>
+              {price && (
+                <p>
+                  {formatMoney({ money: price })}
+                </p>
+              )}
+            </div>
           </div>
         </a>
       </ListItem>

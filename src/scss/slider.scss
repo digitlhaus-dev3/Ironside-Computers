@@ -35,12 +35,18 @@
       height: 8px;
       margin-left: 0;
       margin-right: 5px;
+      // @include slide-in-left(slide);
       button {
         width: 8px;
         height: 8px;
         padding: 0;
         background: rgba(255, 255, 255, 0.5);
         border-radius: 56px;
+        position: relative;
+
+        // animation: slideinleft 8s forwards;
+        // animation-timing-function: ease;  
+        // @include slide-in-left(slide);
         &:before {
           content: '';
           opacity: 1;
@@ -52,8 +58,12 @@
       &.slick-active {
         width: 36px;
         button {
-          width: 36px;
+          width: 8px;
           background-color: $color-white;
+          // transition: .8s opacity, 0.4s transform;
+          // @include slide-in-left(slide);
+        animation: slideinright .8s forwards;
+        animation-timing-function: ease;  
           &::before {
             width: 36px;
             background-color: $color-white;

@@ -43,6 +43,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
 
   const settings = {
     dots: true,
+    arrow: false,
     autoplay: true,
     autoplayspeed: 2000,
     infinite: true,
@@ -50,16 +51,10 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-      },
-      {
-        breakpoint: 666,
-        settings: 'unslick',
-      },
+      }
     ],
   }
 
@@ -128,7 +123,7 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
           mb={5}
         >
           <Container className="product-image" margin={3}>
-            {/* {caseImages.length ? (
+            {caseImages.length ? (
               <Slider {...settings}>
                 {caseImages?.map(event => {
                   return (
@@ -138,12 +133,11 @@ const Customizer = ({ aesthetics, components, services, peripherals, productSeri
                   )
                 })}
               </Slider>
-            ) : ( */}
+            ) : (
               <img
                 src="https://i.ibb.co/bWfjWq9/Y2-KHero-Images-Glacier-Blue-Large-1.png"
                 alt="customImage"
-              />
-            {/* )} */}
+              />)}
           </Container>
           <Container className="product-desc" margin={3}>
             <div className="prod-desc-scroll flex">
